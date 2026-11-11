@@ -1,0 +1,136 @@
+<div>
+    <!--<div class="alert alert-warning">
+        <span>{{'MAIN.AUTH.REQUIREMENT_PASSWORD' | translate}}<br></span>
+        <ul>
+            <li>{{'MAIN.AUTH.REQUIREMENT_loginNotSimilar' | translate}}</li>
+            <li>{{'MAIN.AUTH.REQUIREMENT_PASSWORDSIMILAR' | translate}}</li>
+            <li>{{'MAIN.AUTH.REQUIREMENT_LENGTH' | translate}}</li>
+            <li>{{'MAIN.AUTH.REQUIREMENT_UPPERCASE' | translate}}</li>
+            <li>{{'MAIN.AUTH.REQUIREMENT_LOWERCASE' | translate}}</li>
+            <li>{{'MAIN.AUTH.REQUIREMENT_NUMBER' | translate}}</li>
+            <li>{{'MAIN.AUTH.REQUIREMENT_SPECIALCHAR' | translate}}</li>
+        </ul>
+    </div>-->
+    <div>
+        <ul class="font-11">
+            <li>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.loginNotSimilar == -1"> <img src="/assets/layout/svgs/disabled.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.loginNotSimilar == 0"> <img src="/assets/layout/svgs/checked-gray.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.loginNotSimilar == 1"> <img src="assets/layout/svgs/checked-green.svg"></i>
+                <span class="vertical-middle">{{'MAIN.AUTH.REQUIREMENT_LOGINNOTSIMILAR' | translate}}</span>
+            </li>
+            <li>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.passNotSimilar == -1"> <img src="/assets/layout/svgs/disabled.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.passNotSimilar == 0"> <img src="/assets/layout/svgs/checked-gray.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.passNotSimilar == 1"> <img src="assets/layout/svgs/checked-green.svg"></i>
+                <span class="vertical-middle">{{'MAIN.AUTH.REQUIREMENT_PASSNOTSIMILAR' | translate}}</span>
+            </li>
+            <li>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.minLength == -1"> <img src="assets/layout/svgs/disabled.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.minLength == 0"> <img src="assets/layout/svgs/checked-gray.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.minLength == 1"> <img src="assets/layout/svgs/checked-green.svg"></i>
+                <span class="vertical-middle">{{'MAIN.AUTH.REQUIREMENT_LENGTH' | translate}}</span>
+            </li>
+            <li >
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.uppercase == -1"> <img src="assets/layout/svgs/disabled.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.uppercase == 0"> <img src="assets/layout/svgs/checked-gray.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.uppercase == 1"> <img src="assets/layout/svgs/checked-green.svg"></i>
+                <span class="vertical-middle">{{'MAIN.AUTH.REQUIREMENT_UPPERCASE' | translate}}</span>
+            </li>
+            <li >
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.lowercase == -1"> <img src="assets/layout/svgs/disabled.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.lowercase == 0"> <img src="assets/layout/svgs/checked-gray.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.lowercase == 1"> <img src="assets/layout/svgs/checked-green.svg"></i>
+                <span class="vertical-middle">{{'MAIN.AUTH.REQUIREMENT_LOWERCASE' | translate}}</span>
+            </li>
+            <li>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.number == -1"> <img src="assets/layout/svgs/disabled.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.number == 0"> <img src="assets/layout/svgs/checked-gray.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.number == 1"> <img src="assets/layout/svgs/checked-green.svg"></i>
+                <span class="vertical-middle">{{'MAIN.AUTH.REQUIREMENT_NUMBER' | translate}}</span>
+            </li>
+            <li >
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.specialChar == -1"> <img src="assets/layout/svgs/disabled.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.specialChar == 0"> <img src="assets/layout/svgs/checked-gray.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.specialChar == 1"> <img src="assets/layout/svgs/checked-green.svg"></i>
+                <span class="vertical-middle">{{'MAIN.AUTH.REQUIREMENT_SPECIALCHAR' | translate}}</span>
+            </li>
+            <li >
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.englishOnly == -1"> <img src="assets/layout/svgs/disabled.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.englishOnly == 0"> <img src="assets/layout/svgs/checked-gray.svg"></i>
+                <i class="icon-middle-padding" *ngIf="newPassRequirements.englishOnly == 1"> <img src="assets/layout/svgs/checked-green.svg"></i>
+                <span class="vertical-middle">{{'MAIN.AUTH.REQUIREMENT_ENGLISH_ONLY' | translate}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <form #form="ngForm">
+        <div class="w-full input-container w-full md:w-30rem">
+            <i class="pi pi-user icon-left"></i>
+            <input id="username" type="text"
+                   [(ngModel)]="username"
+                   name="username"
+                   #usernameRef="ngModel" required
+                   (ngModelChange)="checkNewPassword()"
+                   placeholder="{{'MAIN.AUTH.USER_NAME' | translate}}" pInputText class="w-full mt-2"
+                   style="padding-left:2.5rem">
+        </div>
+        <div class="w-full input-container w-full md:w-30rem">
+            <i class="pi pi-key icon-left"></i>
+            <i class="icon-right" *ngIf="!showOldPass" (click)="showOldPass = !showOldPass"> <img src="../../../assets/layout/images/icons/eye.svg"></i>
+            <i class="icon-right" *ngIf="showOldPass" (click)="showOldPass = !showOldPass"> <img src="../../../assets/layout/images/icons/eye-slash.svg"></i>
+            <input id="oldPassword" type="{{showOldPass ? 'text': 'password'}}"
+                   [(ngModel)]="oldPassword"
+                   name="oldPassword"
+                   #oldPasswordRef="ngModel" required
+                   (ngModelChange)="checkNewPassword()"
+                   placeholder="{{'MAIN.AUTH.PASSWORD' | translate}}" pInputText class="w-full mt-2"
+                   style="padding-left:2.5rem">
+        </div>
+        <div class="w-full input-container w-full md:w-30rem">
+            <i class="pi pi-key icon-left"></i>
+            <i class="icon-right" *ngIf="!showNewPass" (click)="showNewPass = !showNewPass"> <img src="../../../assets/layout/images/icons/eye.svg"></i>
+            <i class="icon-right" *ngIf="showNewPass" (click)="showNewPass = !showNewPass"> <img src="../../../assets/layout/images/icons/eye-slash.svg"></i>
+            <input id="newPassword" type="{{showNewPass? 'text' : 'password'}}"
+                   [(ngModel)]="newPassword"
+                   name="newPassword"
+                   #newPasswordRef="ngModel" required
+                   (ngModelChange)="checkNewPassword()"
+                   [ngClass]="{'has-error': newPassword && !isNewPassFocused &&!isNewPassOk()}"
+                   (focus)="isNewPassFocused = true"
+                   (blur)="isNewPassFocused = false"
+                   placeholder="{{'MAIN.AUTH.NEW_PWD' | translate}}" pInputText class="w-full mt-2"
+                   style="padding-left:2.5rem">
+        </div>
+        <span class="has-error"
+              *ngIf="newPassword && !isNewPassFocused &&!isNewPassOk()">{{"MAIN.AUTH.INVALID_PASSWORD" | translate}}
+        </span>
+        <div class="w-full input-container w-full md:w-30rem">
+            <i class="pi pi-key icon-left"></i>
+            <i class="icon-right" *ngIf="!showNewPass2" (click)="showNewPass2 = !showNewPass2"> <img src="../../../assets/layout/images/icons/eye.svg"></i>
+            <i class="icon-right" *ngIf="showNewPass2" (click)="showNewPass2 = !showNewPass2"> <img src="../../../assets/layout/images/icons/eye-slash.svg"></i>
+            <input id="newPassword2" type="{{showNewPass2? 'text' : 'password'}}"
+                   [(ngModel)]="newPassword2"
+                   name="newPassword2"
+                   #newPassword2Ref="ngModel" required
+                   [ngClass]="{'has-error': newPassword2 && !isNewPass2Focused &&!isNewPassOk()}"
+                   (focus)="isNewPass2Focused = true"
+                   (blur)="isNewPass2Focused = false"
+                   placeholder="{{'MAIN.AUTH.REPEAT_PWD' | translate}}" pInputText class="w-full mt-2"
+                   style="padding-left:2.5rem"
+                   [disabled]="!isNewPassOk()">
+        </div>
+        <span class="has-error"
+              *ngIf="newPassword2 && !isNewPass2Ok()">{{"MAIN.AUTH.PASSWORD_MISMATCH" | translate}}
+        </span>
+
+        <button pButton pRipple label="{{'MAIN.AUTH.CHANGE' | translate}}"
+                [disabled]="form.invalid || !isNewPassOk() || !isNewPass2Ok()"
+                class="w-full p-3 text-xl mt-3" (click)="changePass()"></button>
+
+      <a class="cbdi-login-change-password" routerLink="../login">
+        {{ 'MAIN.AUTH.LOGON' | translate }}
+      </a>
+    </form>
+    <app-custom-toast></app-custom-toast>
+</div>

@@ -1,0 +1,59 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_IX_X.TITLE'"
+  [isExpanded]="isExpanded"
+  [nested]="true">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_IX_X.SOFT_PALATE_DROOPING'"
+    [(checked)]="model.softPalateDrooping.checked"
+    [(comment)]="model.softPalateDrooping.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_IX_X.UVULA_DEVIATION'"
+    [(checked)]="model.uvulaDeviation.checked"
+    [(comment)]="model.uvulaDeviation.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_IX_X.DYSPHAGIA'"
+    [(checked)]="model.dysphagia">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_IX_X.DYSPHONIA'"
+    [(checked)]="model.dysphonia">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_IX_X.DYSARTHRIA'"
+    [(checked)]="model.dysarthria">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_IX_X.VOCAL_CORD_PARESIS'"
+    [(checked)]="model.vocalCordParesis">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_IX_X.HYPOSALIVATION'"
+    [(checked)]="model.hyposalivation">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_IX_X.TASTE_LOSS_POSTERIOR_ONE_THIRD'"
+    [(checked)]="model.tasteLossPosteriorOneThird">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_IX_X.PARASYMPATHETIC_DENERVATION'"
+    [(checked)]="model.parasympatheticDenervation">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

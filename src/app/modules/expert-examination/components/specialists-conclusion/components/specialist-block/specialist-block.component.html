@@ -1,0 +1,20 @@
+<app-collapsible-block [titleKey]="titleKey">
+
+  <app-text-input-field
+    [labelKey]="translationPrefix + 'FULL_NAME'"
+    [(value)]="model.fullName">
+  </app-text-input-field>
+
+  <app-text-input-field
+    [labelKey]="translationPrefix + 'SPECIALTY'"
+    [(value)]="model.specialty">
+  </app-text-input-field>
+
+  <label for="conclusion" class="field-label">
+    {{ translationPrefix + 'CONCLUSION' | translate }}
+  </label>
+  <app-textarea-field
+    [(value)]="model.conclusion">
+  </app-textarea-field>
+
+</app-collapsible-block>

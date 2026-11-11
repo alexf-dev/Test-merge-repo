@@ -1,0 +1,22 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'LYMPH_NODES.TITLE'" [isExpanded]="isExpanded">
+
+  <app-group-title [titleKey]="translationPrefix + 'LYMPH_NODES.MAIN_SIGNS'"></app-group-title>
+  <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.NOT_ENLARGED'" [(checked)]="model.notEnlarged"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.PAINLESS'" [(checked)]="model.painless"></app-check-field>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'LYMPH_NODES.ENLARGED.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.ENLARGED.SUBMANDIBULAR'" [(checked)]="model.enlarged.submandibular"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.ENLARGED.CERVICAL'" [(checked)]="model.enlarged.cervical"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.ENLARGED.SUPRACLAVICULAR'" [(checked)]="model.enlarged.supraclavicular"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.ENLARGED.INFRACLAVICULAR'" [(checked)]="model.enlarged.infraclavicular"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.ENLARGED.AXILLARY'" [(checked)]="model.enlarged.axillary"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.ENLARGED.ELBOW'" [(checked)]="model.enlarged.elbow"></app-check-field>
+  </app-collapsible-block>
+
+  <app-group-title [titleKey]="translationPrefix + 'LYMPH_NODES.ADDITIONAL_SIGNS'"></app-group-title>
+  <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.PAINFUL'" [(checked)]="model.painful"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.NOT_MATTED'" [(checked)]="model.notMatted"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'LYMPH_NODES.MATTED'" [showComment]="true" [(checked)]="model.matted.checked" [(comment)]="model.matted.comment"></app-check-field>
+  <app-textarea-field [(value)]="model.mattedAdditionalInfo"></app-textarea-field>
+
+</app-collapsible-block>

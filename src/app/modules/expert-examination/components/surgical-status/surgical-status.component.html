@@ -1,0 +1,25 @@
+<div class="surgical-status-form">
+  <app-specialist-data></app-specialist-data>
+  <app-surgical-pathology-data></app-surgical-pathology-data>
+  <app-general-condition></app-general-condition>
+  <app-mobility></app-mobility>
+  <app-skin-mucous></app-skin-mucous>
+  <app-muscular-system></app-muscular-system>
+  <app-bone-system></app-bone-system>
+  <app-joints></app-joints>
+  <app-lymph-nodes></app-lymph-nodes>
+  <app-respiratory-system></app-respiratory-system>
+  <app-cardiovascular-system></app-cardiovascular-system>
+  <app-gastrointestinal-tract></app-gastrointestinal-tract>
+  <app-urogenital-system></app-urogenital-system>
+  <app-local-status></app-local-status>
+  <app-organ-function-impairment></app-organ-function-impairment>
+
+  <div class="form-actions">
+    <p-button
+      [label]="'MAIN.COMMON.SAVE' | translate"
+      styleClass="save-button"
+      (onClick)="onSave()">
+    </p-button>
+  </div>
+</div>

@@ -1,0 +1,353 @@
+<div *ngIf="patient; else emptyTpl" class="patient-layout">
+  <aside class="side-nav">
+    <ul class="side-nav-list">
+      <li (click)="scrollTo('main-info')" [class.active]="activeSection === 'main-info'">Основная информация</li>
+      <li (click)="scrollTo('address')" [class.active]="activeSection === 'address'">Адресные данные</li>
+      <li (click)="scrollTo('social')" [class.active]="activeSection === 'social'">Социальный статус</li>
+      <li (click)="scrollTo('zayavlenie')" [class.active]="activeSection === 'zayavlenie'">Заявление</li>
+      <li (click)="scrollTo('oop')" [class.active]="activeSection === 'oop'">Данные АИС ООП</li>
+      <li (click)="scrollTo('rynok')" [class.active]="activeSection === 'rynok'">Данные АИС Рынок труда</li>
+      <li (click)="scrollTo('oxrana')" [class.active]="activeSection === 'oxrana'">Данные АИС Охрана труда</li>
+      <li (click)="scrollTo('esobes')" [class.active]="activeSection === 'esobes'">Данные АИС Е-собес</li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <section id="main-info">
+      <p-card>
+        <ng-template pTemplate="title">
+          <div
+            (click)="toggleSection('main-info')"
+            [class.active]="sectionOpen['main-info']"
+            class="section-toggle"
+          >
+            Основная информация
+          </div>
+        </ng-template>
+
+        <div *ngIf="sectionOpen['main-info']" class="p-fluid">
+          <div class="formgrid grid">
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">ИИН</label>
+              <input [ngModel]="patient?.iin" class="w-full readonly-field" pInputText readonly/>
+            </div>
+
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">Фамилия</label>
+              <input [ngModel]="patient.surname" class="w-full readonly-field" pInputText readonly/>
+            </div>
+
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">Имя</label>
+              <input [ngModel]="patient.firstName" class="w-full readonly-field" pInputText readonly/>
+            </div>
+
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">Отчество</label>
+              <input [ngModel]="patient.secondName" class="w-full readonly-field" pInputText readonly/>
+            </div>
+
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">Дата рождения</label>
+              <input [ngModel]="patient.birthDate" class="w-full readonly-field" pInputText readonly/>
+            </div>
+
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">Пол</label>
+              <input [ngModel]="patient.sex?.nameRu" class="w-full readonly-field" pInputText readonly/>
+            </div>
+
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">Гражданство</label>
+              <input [ngModel]="patient.citizenship?.nameRu" class="w-full readonly-field" pInputText readonly/>
+            </div>
+
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">Вид документа</label>
+              <input [ngModel]="patient.documents?.[0]?.documentType?.nameRu" class="w-full readonly-field" pInputText
+                     readonly/>
+            </div>
+
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">№ документа</label>
+              <input [ngModel]="patient.documents?.[0]?.documentNumber" class="w-full readonly-field" pInputText
+                     readonly/>
+            </div>
+
+            <div class="field col-12 md:col-6 lg:col-3">
+              <label class="block mb-2">Орган выдачи</label>
+              <input [ngModel]="patient.documents?.[0]?.documentIssueOrg?.nameRu" class="w-full readonly-field" pInputText
+                     readonly/>
+            </div>
+
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">Дата выдачи документа</label>
+              <input [ngModel]="patient.documents?.[0]?.documentBeginDate" class="w-full readonly-field" pInputText
+                     readonly/>
+            </div>
+
+            <div class="field col-12 md:col-4 lg:col-3">
+              <label class="block mb-2">Номер телефона</label>
+              <input class="w-full readonly-field" pInputText readonly value="+77077011177"/>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </section>
+
+    <section id="address">
+      <p-card>
+        <ng-template pTemplate="title">Адресные данные</ng-template>
+
+        <div class="p-fluid">
+          <div class="formgrid grid">
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">Адрес регистрации</label>
+              <input [value]="getAddressString(patient?.addresses)" class="w-full readonly-field" pInputText readonly/>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">Фактический адрес проживания</label>
+              <input [value]="getAddressString(patient?.addresses)" class="w-full readonly-field" pInputText readonly/>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">Место рождения</label>
+              <input class="w-full readonly-field" pInputText readonly value="Казахстан, Актобе"/>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </section>
+
+    <section id="social">
+      <p-card>
+        <ng-template pTemplate="title">Социальный статус</ng-template>
+
+        <div class="field">
+          <label class="block mb-2">Статус социального страхования</label>
+          <div class="flex flex-wrap gap-2">
+            <p-tag severity="success" value="Является участником в системе обязательного страхования"></p-tag>
+          </div>
+        </div>
+      </p-card>
+    </section>
+
+    <section id="zayavlenie">
+      <p-card>
+        <ng-template pTemplate="title">Заявление на освидетельствование</ng-template>
+
+        <div class="mb-3">
+          <button
+            (click)="openMsk(iin)"
+            icon="pi pi-plus"
+            label="Создать заявление"
+            pButton
+            type="button"
+          ></button>
+        </div>
+
+        <p-table [responsiveLayout]="'scroll'" [value]="declarations" styleClass="p-datatable-sm">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Номер заявления</th>
+              <th>Дата заявления</th>
+              <th>Статус</th>
+              <th>Действия</th>
+            </tr>
+          </ng-template>
+
+          <ng-template let-d pTemplate="body">
+            <tr>
+              <td>
+                <a [routerLink]="['/main/msk', d.id]"> {{ d.id }} </a>
+              </td>
+              <td>{{ d.created | date:'dd.MM.yyyy' }}</td>
+              <td>
+                <p-tag
+                  [severity]="statusClass(d.status)"
+                  [value]="statusLabel(d.status)"
+                ></p-tag>
+              </td>
+              <td>
+                <button
+                  (click)="createNewCase(d)"
+                  class="p-button-success p-button-sm"
+                  icon="pi pi-plus"
+                  label="Завести новое дело"
+                  pButton
+                  type="button"
+                ></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </section>
+
+    <section id="nao">
+      <p-card>
+        <ng-template pTemplate="title">Освидетельствование по Архиву</ng-template>
+
+        <div class="mb-3">
+          <button
+            (click)="createNewCase(null)"
+            icon="pi pi-plus"
+            label="Внести освидетельствование"
+            pButton
+            type="button"
+          ></button>
+        </div>
+
+        <p-table [responsiveLayout]="'scroll'" [value]="naoExaminations" styleClass="p-datatable-sm">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Дата внесения</th>
+            </tr>
+          </ng-template>
+
+          <ng-template let-d pTemplate="body">
+            <tr>
+              <td>{{ d.beginDate | date:'dd.MM.yyyy' }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </section>
+
+    <section id="oop">
+      <p-card>
+        <ng-template pTemplate="title">Данные АИС ООП</ng-template>
+
+        <p-table [responsiveLayout]="'scroll'" [value]="[{}]" styleClass="p-datatable-sm mb-4">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Дата назначения</th>
+              <th>Дата приостановки</th>
+              <th>Причина</th>
+              <th>Дата закрытия</th>
+              <th>Вид выплаты</th>
+              <th>Подразделение</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body">
+            <tr>
+              <td>12.03.1978</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>Лица обучающиеся</td>
+              <td>Отдел Нуринский...</td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+        <p-table [responsiveLayout]="'scroll'" [value]="[{}]" styleClass="p-datatable-sm">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Период отчислений</th>
+              <th>РНН/БИН работодателя</th>
+              <th>Наименование организации</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body">
+            <tr>
+              <td>12.03.1978</td>
+              <td>99014000385</td>
+              <td>АО "Центр развития трудовых ресурсов"</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </section>
+
+    <section id="rynok">
+      <p-card>
+        <ng-template pTemplate="title">Данные из АИС Рынок труда</ng-template>
+
+        <p-table [responsiveLayout]="'scroll'" [value]="[{}]" styleClass="p-datatable-sm">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Статус</th>
+              <th>Дата начала труд. деят.</th>
+              <th>Место работы</th>
+              <th>Дата окончания</th>
+              <th>Подразделение</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body">
+            <tr>
+              <td>12.03.1978</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>Лица обучающиеся очной форме</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </section>
+
+    <section id="oxrana">
+      <p-card>
+        <ng-template pTemplate="title">Данные из АИС Охрана труда</ng-template>
+
+        <p-table [responsiveLayout]="'scroll'" [value]="[{}]" styleClass="p-datatable-sm">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Статус</th>
+              <th>Дата начала труд. деят.</th>
+              <th>Место работы</th>
+              <th>Дата окончания</th>
+              <th>Подразделение</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body">
+            <tr>
+              <td>12.03.1978</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>Лица обучающиеся очной форме</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </section>
+
+    <section id="esobes">
+      <p-card>
+        <ng-template pTemplate="title">Данные из АИС Е-собес</ng-template>
+
+        <p-table [responsiveLayout]="'scroll'" [value]="[{}]" styleClass="p-datatable-sm">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Дата заявления</th>
+              <th>Номер заявления</th>
+              <th>Вид помощи</th>
+              <th>Дата выплаты</th>
+              <th>Подразделение</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body">
+            <tr>
+              <td>12.03.1978</td>
+              <td>030809</td>
+              <td>Санаторно-куро...</td>
+              <td>01.02.2020</td>
+              <td>ОЗиСПГ г. Астана</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </section>
+  </main>
+</div>
+
+<ng-template #emptyTpl>
+  <p-card>
+    <div class="p-4">
+      Данные пациента не найдены
+    </div>
+  </p-card>
+</ng-template>

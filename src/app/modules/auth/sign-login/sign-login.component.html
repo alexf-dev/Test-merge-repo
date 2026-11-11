@@ -1,0 +1,28 @@
+<div class="mt-5">
+    <form #form="ngForm">
+        <span class="w-full mb-5 input-container w-full md:w-30rem mb-5">
+            <table >
+                <tr>
+                    <td class="md:w-12rem">{{ "MAIN.AUTH.IIN" | translate }}</td><td class="md:w-16rem bold">{{iin}}</td>
+                </tr>
+                <tr>
+                    <td class="md:w-12rem">{{ "MAIN.AUTH.BIN" | translate }}</td><td class="md:w-16rem bold">{{bin}}</td>
+                </tr>
+                <tr>
+                    <td class="md:w-12rem">{{ "MAIN.AUTH.FULL_NAME" | translate }}</td><td class="md:w-16rem bold">{{fio}}</td>
+                </tr>
+                <tr>
+                    <td class="md:w-12rem">{{ "MAIN.AUTH.VALIDITY" | translate }}</td><td class="md:w-16rem bold">{{expiration}}</td>
+                </tr>
+            </table>
+        </span>
+        <br>
+        <span class="w-full mb-5 input-container w-full md:w-30rem mb-5">
+<!--            <i class="pi pi-key icon-left"></i>-->
+
+        </span>
+        <button pButton pRipple label="{{'MAIN.AUTH.SELECT_CERT' | translate}}"
+                class="w-full p-3 text-xl" (click)="signToLogin()"></button>
+    </form>
+    <app-custom-toast></app-custom-toast>
+</div>

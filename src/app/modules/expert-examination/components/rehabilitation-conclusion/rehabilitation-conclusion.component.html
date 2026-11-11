@@ -1,0 +1,17 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'TITLE'" [isExpanded]="true">
+  <app-text-input-field
+    [labelKey]="translationPrefix + 'SPECIALIST'"
+    [(value)]="specialist">
+  </app-text-input-field>
+
+  <app-rehabilitation-diagnostics></app-rehabilitation-diagnostics>
+  <app-rehabilitation-recommendations></app-rehabilitation-recommendations>
+</app-collapsible-block>
+
+<div class="form-actions">
+  <p-button
+    [label]="'MAIN.COMMON.SAVE' | translate"
+    styleClass="save-button"
+    (onClick)="onSave()">
+  </p-button>
+</div>

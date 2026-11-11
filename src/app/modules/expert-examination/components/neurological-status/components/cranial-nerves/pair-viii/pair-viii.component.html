@@ -1,0 +1,50 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VIII.TITLE'"
+  [isExpanded]="isExpanded"
+  [nested]="true">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VIII.HEARING_ACUITY_D'"
+    [(checked)]="model.hearingAcuityD.checked"
+    [(comment)]="model.hearingAcuityD.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VIII.HEARING_ACUITY_S'"
+    [(checked)]="model.hearingAcuityS.checked"
+    [(comment)]="model.hearingAcuityS.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VIII.DEAFNESS'"
+    [(checked)]="model.deafness">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VIII.TINNITUS'"
+    [(checked)]="model.tinnitus">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VIII.SYSTEMIC_VERTIGO'"
+    [(checked)]="model.systemicVertigo">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VIII.NON_SYSTEMIC_VERTIGO'"
+    [(checked)]="model.nonSystemicVertigo">
+  </app-check-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VIII.NYSTAGMUS'"
+    [(checked)]="model.nystagmus.checked"
+    [(comment)]="model.nystagmus.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

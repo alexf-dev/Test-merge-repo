@@ -1,0 +1,94 @@
+
+<div class="grid">
+    <div class="col-12">
+        <p-card>
+            <ng-template pTemplate="title">
+
+            </ng-template>
+
+            <p-table
+                    [value]="flattenedData"
+                    [scrollable]="true"
+                    scrollHeight="calc(100vh - 310px)"
+                    [tableStyle]="{ 'min-width': '1400px' }"
+                    styleClass="p-datatable-sm"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>{{ 'MAIN.HISTORY.NUMBER' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.MSE' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.EXAM_PLACE' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.EXAM_TYPE' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.EXAM_DIRECTION' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.BEGIN_DATE' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.END_DATE' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.VALIDITY' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.CAUSE_OF_DISABILITY' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.GROUP_OF_DISABILITY' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.DEADLINE' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.DEGREE_FEP' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.DEADLINE_FEP' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.DEGREE_UPT' | translate }}</th>
+                        <th>{{ 'MAIN.HISTORY.DEADLINE_UPT' | translate }}</th>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body" let-row>
+                    <tr>
+                        <td *ngIf="row.firstRow" [attr.rowspan]="row.groupLength">
+                            {{ row.history.id }}
+                        </td>
+
+                        <td *ngIf="row.firstRow" [attr.rowspan]="row.groupLength">
+                            {{ row.history.mseCodeId }}
+                        </td>
+
+                        <td *ngIf="row.firstRow" [attr.rowspan]="row.groupLength">
+                            {{ row.history.placeId?.nameRu }}
+                        </td>
+
+                        <td>
+                            {{
+                            row.expertopinion.isAppeal === null
+                                ? ('MAIN.HISTORY.MAIN_EXAM' | translate)
+                                : row.expertopinion.isAppeal === true
+                                    ? ('MAIN.HISTORY.IS_APPEAL' | translate)
+                                    : ('MAIN.HISTORY.IS_CONTROL' | translate)
+                            }}
+                        </td>
+
+                        <td>
+                            {{ row.history.directions | concatSubItemsNames: 'directionId.customRu' }}
+                        </td>
+
+                        <td>
+                            {{
+                            row.expertopinion.isAppeal === null
+                                ? row.history.beginDate
+                                : row.expertopinion.examinationDate
+                            }}
+                        </td>
+
+                        <td>{{ row.expertopinion.finishExaminationDate }}</td>
+                        <td>{{ row.expertopinion.validity | translateDictionary }}</td>
+                        <td>{{ row.expertopinion.reasonDisabilityAccordForm7 | translateDictionary }}</td>
+                        <td>{{ row.expertopinion.disabilityGroupId | translateDictionary }}</td>
+                        <td>{{ row.expertopinion.deadlineId | translateDictionary }}</td>
+                        <td class="text-center">{{ row.expertopinion.uotDegree }}</td>
+                        <td>{{ row.expertopinion.deadline2Id | translateDictionary }}</td>
+                        <td>{{ row.expertopinion.uptData | concatSubItemsNames: 'degreeUpt' }}</td>
+                        <td>{{ row.expertopinion.uptData | concatSubItemsNames: 'deadline2Id.nameRu' }}</td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="16" class="text-center py-4">
+                            Данные не найдены
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+</div>

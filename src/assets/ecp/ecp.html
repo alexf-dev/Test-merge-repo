@@ -1,0 +1,111 @@
+<div id="mNCAsignXML" class="modal fade" data-backdrop="static" role="dialog" data-width="600">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Подписать документ</h4>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="storageAlias">Тип хранилища ключа:</label>
+                        </td>
+                        <td>
+                            <select id="storageAlias" onchange="fNCAsetStoragePath();">
+                                <option value="NONE">-- Выберите тип --</option>
+                                <option value="PKCS12">Ваш Компьютер</option>
+                                <option value="AKKaztokenStore">Казтокен</option>
+                                <option value="AKKZIDCardStore">Личное Удостоверение</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="storagePath">Путь хранилища ключа:</label>
+                        </td>
+                        <td>
+                            <input id="storagePath" type="text" readonly value="" style="width:400px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="storagePssw">Пароль для хранилища:</label>
+                        </td>
+                        <td>
+                            <input id="storagePssw" type="password" readonly value="" />
+                            <button id="btnGetKeyList" type="button" class="btn btn-info" disabled onclick="fNCAgetKeyList();">...</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="keyList">Список ключей:</label>
+                        </td>
+                        <td>
+                            <select id="keyList" onchange="fNCAsetKey();" readonly style="width:400px;">
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="sertIIN">{{menuitemiin}}:</label>
+                        </td>
+                        <td>
+                            <input id="sertIIN" type="text" readonly value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="sertEMail">e-mail:</label>
+                        </td>
+                        <td>
+                            <input id="sertEMail" type="text" readonly value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="sertFIO">Ф.И.О.:</label>
+                        </td>
+                        <td>
+                            <input id="sertFIO" type="text" readonly value="" style="width:400px;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="sertBIN">БИН:</label>
+                        </td>
+                        <td>
+                            <input id="sertBIN" type="text" readonly value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="sertORG">Организация:</label>
+                        </td>
+                        <td>
+                            <input id="sertORG" type="text" readonly value="" style="width:400px;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="sertSrok">Срок действия:</label>
+                        </td>
+                        <td>
+                            <input id="sertSrok" type="text" readonly value="" style="width:400px;"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <table width="100%"><tr>
+                    <td align="left"><img id="imgLoading" hidden src="/cbdiapp/protected/assets/img/loading_blue.gif" height="55" width="54"/></td>
+                    <td><span id="messagetext">Выберите тип хранилища ключа!</span></td>
+                    <td>
+                        <button id="btnSignXML" type="button" class="btn btn-info" disabled onclick="fNCAsignXML();">Подписать</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                    </td>
+                </tr></table>
+            </div>
+        </div>
+    </div>
+</div>

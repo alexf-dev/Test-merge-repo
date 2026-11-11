@@ -1,0 +1,58 @@
+<p-dialog
+        (onHide)="stopExport()"
+        (visibleChange)="visible = $event"
+        [(visible)]="visible"
+        [closable]="!loading"
+        [closeOnEscape]="!loading"
+        [draggable]="false"
+        [modal]="true"
+        [resizable]="false"
+        [style]="{ width: '550px' }">
+
+    <ng-template pTemplate="header">
+    <span class="text-xl font-semibold">
+      Экспортировать в Эксель
+    </span>
+    </ng-template>
+
+    <div class="mb-3">
+        <p-message
+                [text]="        'Загрузка данных может занять некоторое время'
+          | translate
+      "
+                severity="warn">
+        </p-message>
+    </div>
+
+    <div *ngIf="loading" class="mt-3">
+        <p-progressBar
+                [showValue]="true"
+                [value]="progress">
+        </p-progressBar>
+    </div>
+
+    <div *ngIf="loaded && !loading" class="mt-3">
+        <p-message
+                severity="success"
+                text="Экспорт успешно завершён">
+        </p-message>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <p-button
+                (onClick)="stopExport()"
+                [disabled]="loading"
+                [outlined]="true"
+                label="Закрыть"
+                severity="secondary">
+        </p-button>
+
+        <p-button
+                (onClick)="startExport()"
+                [disabled]="loading"
+                [loading]="loading"
+                icon="pi pi-file-excel"
+                label="Экспортировать">
+        </p-button>
+    </ng-template>
+</p-dialog>

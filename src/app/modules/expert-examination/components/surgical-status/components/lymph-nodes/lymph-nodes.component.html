@@ -1,0 +1,92 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <div class="section-title">
+    {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.MAIN_SIGNS' | translate }}
+  </div>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.notPalpable" [binary]="true" inputId="notPalpable"></p-checkbox>
+      <label for="notPalpable">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.NOT_PALPABLE' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.notEnlarged" [binary]="true" inputId="notEnlarged"></p-checkbox>
+      <label for="notEnlarged">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.NOT_ENLARGED' | translate }}</label>
+    </div>
+  </div>
+
+  <div class="section-title">
+    {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.ENLARGED.TITLE' | translate }}
+  </div>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.enlarged.submandibular" [binary]="true" inputId="submandibular"></p-checkbox>
+      <label for="submandibular">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.ENLARGED.SUBMANDIBULAR' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.enlarged.cervical" [binary]="true" inputId="cervical"></p-checkbox>
+      <label for="cervical">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.ENLARGED.CERVICAL' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.enlarged.supraclavicular" [binary]="true" inputId="supraclavicular"></p-checkbox>
+      <label for="supraclavicular">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.ENLARGED.SUPRACLAVICULAR' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.enlarged.infraclavicular" [binary]="true" inputId="infraclavicular"></p-checkbox>
+      <label for="infraclavicular">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.ENLARGED.INFRACLAVICULAR' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.enlarged.elbow" [binary]="true" inputId="elbow"></p-checkbox>
+      <label for="elbow">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.ENLARGED.ELBOW' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.enlarged.axillary" [binary]="true" inputId="axillary"></p-checkbox>
+      <label for="axillary">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.ENLARGED.AXILLARY' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.enlarged.inguinal" [binary]="true" inputId="inguinal"></p-checkbox>
+      <label for="inguinal">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.ENLARGED.INGUINAL' | translate }}</label>
+    </div>
+  </div>
+
+  <div class="section-title">
+    {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.ADDITIONAL_SIGNS' | translate }}
+  </div>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.mobile" [binary]="true" inputId="mobile"></p-checkbox>
+      <label for="mobile">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.MOBILE' | translate }}</label>
+    </div>
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.PAINFUL'"
+    [(checked)]="model.painfulChecked"
+    [(comment)]="model.painful">
+  </app-check-comment-field>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.notMatted" [binary]="true" inputId="notMatted"></p-checkbox>
+      <label for="notMatted">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.NOT_MATTED' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.matted" [binary]="true" inputId="matted"></p-checkbox>
+      <label for="matted">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.MATTED' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.dense" [binary]="true" inputId="dense"></p-checkbox>
+      <label for="dense">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.DENSE' | translate }}</label>
+    </div>
+  </div>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.LYMPH_NODES.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo">
+  </app-textarea-field>
+
+</app-collapsible-block>

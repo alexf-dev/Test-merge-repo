@@ -1,0 +1,49 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PELVIC_DISORDERS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PELVIC_DISORDERS.URINARY_INCONTINENCE'"
+    [(checked)]="model.urinaryIncontinence.checked"
+    [(comment)]="model.urinaryIncontinence.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PELVIC_DISORDERS.FECAL_INCONTINENCE'"
+    [(checked)]="model.fecalIncontinence.checked"
+    [(comment)]="model.fecalIncontinence.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PELVIC_DISORDERS.URINARY_RETENTION'"
+    [(checked)]="model.urinaryRetention.checked"
+    [(comment)]="model.urinaryRetention.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PELVIC_DISORDERS.FECAL_RETENTION'"
+    [(checked)]="model.fecalRetention.checked"
+    [(comment)]="model.fecalRetention.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PELVIC_DISORDERS.IMPERATIVE_URGE'"
+    [(checked)]="model.imperativeUrge">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PELVIC_DISORDERS.NO_URGE'"
+    [(checked)]="model.noUrge">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PELVIC_DISORDERS.IMPOTENCE'"
+    [(checked)]="model.impotence">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PELVIC_DISORDERS.INFERTILITY'"
+    [(checked)]="model.infertility">
+  </app-check-field>
+
+</app-collapsible-block>

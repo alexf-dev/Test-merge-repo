@@ -1,0 +1,30 @@
+export class ExpOpinionStatoDysfunctions {
+  id: number;
+  expertOpinionId: number;
+  motorFunctionsHeadId: number;
+  headJointId: number;
+  headMuscleStrength: number;
+  headInvoluntaryMotorForce: number;
+  headVoluntaryMotorForce: number;
+  torso: number;
+  torsoJointId: number;
+  torsoMuscleStrength: number;
+  torsoInvoluntaryMotorForce: number;
+  torsoVoluntaryMotorForce: number;
+  limbs: number;
+  limbsJointId: number;
+  limbsMuscleStrength: number;
+  limbsInvoluntaryMotorForce: number;
+  limbsVoluntaryMotorForce: number;
+  statics: number;
+  staticsJointId: number;
+  staticsMuscleStrength: number;
+  staticsInvoluntaryMotorForce: number;
+  staticsVoluntaryMotorForce: number;
+  willId: number;
+  limbsTorso: number;
+  limbsUpperLimbs: number;
+  limbsLowerLimbs: number;
+  limbsShoulderArea: number;
+  limbsPelvicArea: number;
+}

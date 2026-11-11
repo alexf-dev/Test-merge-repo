@@ -1,0 +1,91 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.ASTHENIZATION'"
+    [(checked)]="model.asthenization.checked"
+    [(comment)]="model.asthenization.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.MOOD'"
+    [(checked)]="model.mood.checked"
+    [(comment)]="model.mood.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.EMOTIONS'"
+    [(checked)]="model.emotions.checked"
+    [(comment)]="model.emotions.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.THINKING'"
+    [(checked)]="model.thinking.checked"
+    [(comment)]="model.thinking.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.SPEECH'"
+    [(checked)]="model.speech.checked"
+    [(comment)]="model.speech.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.ORIENTATION'"
+    [(checked)]="model.orientation.checked"
+    [(comment)]="model.orientation.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.CONTACT_ACCESSIBILITY'"
+    [(checked)]="model.contactAccessibility.checked"
+    [(comment)]="model.contactAccessibility.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.MEMORY'"
+    [(checked)]="model.memory.checked"
+    [(comment)]="model.memory.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.ATTENTION'"
+    [(checked)]="model.attention.checked"
+    [(comment)]="model.attention.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.INTELLIGENCE'"
+    [(checked)]="model.intelligence.checked"
+    [(comment)]="model.intelligence.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.INTERESTS'"
+    [(checked)]="model.interests.checked"
+    [(comment)]="model.interests.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.BEHAVIOR'"
+    [(checked)]="model.behavior.checked"
+    [(comment)]="model.behavior.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.SLEEP'"
+    [(checked)]="model.sleep.checked"
+    [(comment)]="model.sleep.value">
+  </app-check-comment-field>
+
+  <app-psychomotor-development [isExpanded]="true"></app-psychomotor-development>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.HIGHER_CORTICAL_FUNCTIONS.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

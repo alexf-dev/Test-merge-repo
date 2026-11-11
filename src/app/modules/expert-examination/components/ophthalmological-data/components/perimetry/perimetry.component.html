@@ -1,0 +1,64 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.NO_PATHOLOGY'"
+    [(checked)]="model.noPathology">
+  </app-check-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.HETERONYMOUS_BINASAL_HEMIANOPIA'"
+    [(checked)]="model.heteronymousBinasalHemianopia.checked"
+    [(comment)]="model.heteronymousBinasalHemianopia.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.HETERONYMOUS_BITEMPORAL_HEMIANOPIA'"
+    [(checked)]="model.heteronymousBitemporalHemianopia.checked"
+    [(comment)]="model.heteronymousBitemporalHemianopia.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.QUADRANT_HEMIANOPIA'"
+    [(checked)]="model.quadrantHemianopia.checked"
+    [(comment)]="model.quadrantHemianopia.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.HOMONYMOUS_HEMIANOPIA'"
+    [(checked)]="model.homonymousHemianopia.checked"
+    [(comment)]="model.homonymousHemianopia.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.CONCENTRIC_VISUAL_FIELD_CONSTRICTION'"
+    [(checked)]="model.concentricVisualFieldConstriction.checked"
+    [(comment)]="model.concentricVisualFieldConstriction.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.CENTRAL_SCOTOMAS'"
+    [(checked)]="model.centralScotomas.checked"
+    [(comment)]="model.centralScotomas.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.PARACENTRAL_SCOTOMAS'"
+    [(checked)]="model.paracentralScotomas.checked"
+    [(comment)]="model.paracentralScotomas.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.PERIPHERAL_SCOTOMAS'"
+    [(checked)]="model.peripheralScotomas.checked"
+    [(comment)]="model.peripheralScotomas.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PERIMETRY.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

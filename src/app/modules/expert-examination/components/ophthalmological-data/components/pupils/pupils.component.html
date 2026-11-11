@@ -1,0 +1,68 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.BLACK_COLOR'"
+    [(checked)]="model.blackColor">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.ROUND_SHAPE'"
+    [(checked)]="model.roundShape">
+  </app-check-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.MEDIUM_SIZE'"
+    [(checked)]="model.mediumSize.checked"
+    [(comment)]="model.mediumSize.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.SIZES'"
+    [(checked)]="model.sizes.checked"
+    [(comment)]="model.sizes.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.CONSTRICTED'"
+    [(checked)]="model.constricted.checked"
+    [(comment)]="model.constricted.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.DILATED'"
+    [(checked)]="model.dilated.checked"
+    [(comment)]="model.dilated.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.PUPIL_OCCLUSION'"
+    [(checked)]="model.pupilOcclusion.checked"
+    [(comment)]="model.pupilOcclusion.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.DIRECT_LIGHT_REACTION'"
+    [(checked)]="model.directLightReaction.checked"
+    [(comment)]="model.directLightReaction.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.CONSENSUAL_LIGHT_REACTION'"
+    [(checked)]="model.consensualLightReaction.checked"
+    [(comment)]="model.consensualLightReaction.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.PSEUDOEXFOLIATIONS'"
+    [(checked)]="model.pseudoexfoliations">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.PUPILS.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

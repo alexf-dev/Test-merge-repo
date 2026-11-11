@@ -1,0 +1,198 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card styleClass="mb-4 cbdi-filter-card">
+      <ng-template pTemplate="title">
+        Поиск пациента
+      </ng-template>
+
+      <div class="formgrid grid">
+        <div class="field col-12 md:col-3">
+          <label for="firstname" class="block mb-2">Имя</label>
+          <input
+            id="firstname"
+            type="text"
+            pInputText
+            class="w-full"
+            placeholder="ИМЯ"
+            [(ngModel)]="personFilter.firstname"
+          />
+        </div>
+
+        <div class="field col-12 md:col-3">
+          <label for="surname" class="block mb-2">Фамилия</label>
+          <input
+            id="surname"
+            type="text"
+            pInputText
+            class="w-full"
+            placeholder="ФАМИЛИЯ"
+            [(ngModel)]="personFilter.surname"
+          />
+        </div>
+
+        <div class="field col-12 md:col-3">
+          <label for="iin" class="block mb-2">ИИН</label>
+          <input
+            id="iin"
+            type="text"
+            pInputText
+            class="w-full"
+            placeholder="ИИН"
+            [(ngModel)]="personFilter.iin"
+          />
+        </div>
+
+        <div class="field col-12 md:col-3">
+          <label for="region" class="block mb-2">Регион</label>
+          <p-dropdown
+            id="region"
+            [options]="regions"
+            optionLabel="nameRu"
+            optionValue="id"
+            placeholder="Регион"
+            class="w-full"
+            [(ngModel)]="personFilter.regionId"
+          >
+          </p-dropdown>
+        </div>
+      </div>
+
+      <div class="flex flex-column md:flex-row gap-3 align-items-start md:align-items-center mb-4">
+        <div class="flex align-items-center">
+          <p-checkbox
+            inputId="expired"
+            [binary]="true"
+            [(ngModel)]="personFilter.expired"
+          ></p-checkbox>
+          <label for="expired" class="ml-2">Срок прошел</label>
+        </div>
+
+        <div class="flex align-items-center">
+          <p-checkbox
+            inputId="dead"
+            [binary]="true"
+            [(ngModel)]="personFilter.dead"
+          ></p-checkbox>
+          <label for="dead" class="ml-2">Умершие</label>
+        </div>
+
+        <div class="flex align-items-center">
+          <p-checkbox
+            inputId="survived"
+            [binary]="true"
+            [(ngModel)]="personFilter.survived"
+          ></p-checkbox>
+          <label for="survived" class="ml-2">Выживавшие</label>
+        </div>
+      </div>
+
+      <div *ngIf="searchError" class="p-error mb-3" role="alert">{{ searchError }}</div>
+
+      <div class="flex gap-2">
+        <button
+          pButton
+          type="button"
+          label="Поиск"
+          icon="pi pi-search"
+          (click)="filter(personFilter)"
+          [disabled]="loading"
+          class="p-button-success"
+        ></button>
+
+        <button
+          pButton
+          type="button"
+          label="Сбросить"
+          icon="pi pi-refresh"
+          class="p-button-secondary"
+          (click)="resetFilter()"
+        ></button>
+      </div>
+    </p-card>
+  </div>
+
+  <div class="col-12">
+    <p-card styleClass="cbdi-result-card">
+      <ng-template pTemplate="title">
+        <div class="flex justify-content-between align-items-center w-full">
+          <span>Результат поиска</span>
+          <span class="text-primary font-bold">{{ totalRecords }}</span>
+        </div>
+      </ng-template>
+
+      <p-table
+        [value]="patients"
+        [responsiveLayout]="'scroll'"
+        styleClass="p-datatable-sm"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ФИО</th>
+            <th>ИИН</th>
+            <th>Регион</th>
+            <th>Дата рождения</th>
+            <th>Статус</th>
+            <th class="text-center">Действия</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-p>
+          <tr *ngIf="p.iin">
+            <td class="font-semibold">
+              {{ p.surname }} {{ p.firstName }} {{ p.secondName }}
+            </td>
+            <td>{{ p.iin }}</td>
+            <td>{{ p.region?.nameRu || p.region?.id }}</td>
+            <td>{{ p.birthDate }}</td>
+            <td>
+              <p-tag
+                *ngIf="p.personStatus"
+                [value]="p.personStatus.nameRu"
+                [severity]="getStatusSeverity(p.personStatus.nameRu)"
+              ></p-tag>
+            </td>
+            <td class="text-center">
+              <button
+                pButton
+                type="button"
+                icon="pi pi-eye"
+                class="p-button-rounded p-button-text p-button-secondary"
+                pTooltip="Подробнее"
+                tooltipPosition="top"
+                (click)="openHistory(p)"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="6" class="text-center py-4">
+              Пациенты не найдены
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+      <div class="mt-4 flex justify-content-end">
+        <p-paginator
+          [rows]="pageSize"
+          [totalRecords]="totalRecords"
+          [first]="(page - 1) * pageSize"
+          [showCurrentPageReport]="true"
+          currentPageReportTemplate="Страница {currentPage} из {totalPages}"
+          (onPageChange)="onPageChange($event)"
+        >
+        </p-paginator>
+      </div>
+    </p-card>
+  </div>
+
+  <div class="col-12" *ngIf="patients?.length === 0 && !isFromOmk">
+    <app-iin-request-empty
+      (requestIin)="onIinRequest($event)"
+    ></app-iin-request-empty>
+  </div>
+</div>
+
+

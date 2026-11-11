@@ -1,0 +1,96 @@
+
+<div class="w-full">
+
+  <!-- Навигация по шагам -->
+  <div class="surface-card border-1 surface-border border-round-lg p-2 mb-3">
+    <div class="flex gap-2 overflow-auto">
+
+      <button
+        *ngFor="let tab of activeTabs; let i = index"
+        type="button"
+        class="flex-1 flex-shrink-0 border-1 border-round-lg p-3
+               cursor-pointer text-center"
+        [ngClass]="activeTab === tab.id
+          ? 'bg-teal-100 border-teal-500'
+          : 'surface-ground surface-border'"
+        [attr.aria-current]="activeTab === tab.id ? 'step' : null"
+        (click)="activeTab = tab.id"
+      >
+        <span
+          class="block text-xs mb-2"
+          [ngClass]="activeTab === tab.id
+            ? 'text-teal-900'
+            : 'text-600'"
+        >
+          Шаг {{ i + 1 }}
+        </span>
+
+        <span
+          class="block font-semibold text-sm"
+          [ngClass]="activeTab === tab.id
+            ? 'text-teal-900'
+            : 'text-900'"
+        >
+          {{ tab.label }}
+        </span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Содержимое выбранного шага -->
+  <div class="surface-card border-1 surface-border border-round-lg p-4">
+
+    <app-reg-data
+      *ngIf="activeTab === 1"
+      [patientId]="patientId"
+      [expertOpinionId]="expertOpinionId"
+      (next)="goNext()"
+    ></app-reg-data>
+
+    <app-social-data
+      *ngIf="activeTab === 2"
+      [patientId]="patientId"
+      (next)="goNext()"
+      (prev)="goPrev()"
+    ></app-social-data>
+
+    <app-examination-data
+      *ngIf="activeTab === 3"
+      [patientId]="patientId"
+      (next)="goNext()"
+      (prev)="goPrev()"
+    ></app-examination-data>
+
+    <app-add-guardian
+      *ngIf="activeTab === 4"
+      [patientId]="patientId"
+      (next)="goNext()"
+      (prev)="goPrev()"
+    ></app-add-guardian>
+
+    <app-documents
+      *ngIf="activeTab === 5"
+      [patientId]="patientId"
+      [mainId]="mainId"
+    ></app-documents>
+
+    <app-absentee-history
+      *ngIf="activeTab === 6"
+      [expertOpinionId]="expertOpinionId"
+    ></app-absentee-history>
+
+    <app-expert-conclusion
+      *ngIf="activeTab === 7"
+    ></app-expert-conclusion>
+
+    <app-formation-ipr
+      *ngIf="activeTab === 8"
+      [expertOpinionId]="expertOpinionId"
+      [patientId]="patientId"
+      (prev)="goPrev()"
+    ></app-formation-ipr>
+
+  </div>
+</div>
+

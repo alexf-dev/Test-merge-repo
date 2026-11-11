@@ -1,0 +1,35 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VISUAL_ACUITY.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VISUAL_ACUITY.OD_WITHOUT_CORRECTION'"
+    [(checked)]="model.odWithoutCorrection.checked"
+    [(comment)]="model.odWithoutCorrection.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VISUAL_ACUITY.OS_WITHOUT_CORRECTION'"
+    [(checked)]="model.osWithoutCorrection.checked"
+    [(comment)]="model.osWithoutCorrection.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VISUAL_ACUITY.OD_WITH_CORRECTION'"
+    [(checked)]="model.odWithCorrection.checked"
+    [(comment)]="model.odWithCorrection.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VISUAL_ACUITY.OS_WITH_CORRECTION'"
+    [(checked)]="model.osWithCorrection.checked"
+    [(comment)]="model.osWithCorrection.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VISUAL_ACUITY.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

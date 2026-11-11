@@ -1,0 +1,288 @@
+<div class="flex flex-column gap-2">
+
+  <!-- Жалоба -->
+  <div class="surface-100 border-round p-2">
+    <div class="font-semibold text-s mb-2">
+      {{ 'OMK.REEXAMINATION.COMPLAINTS' | translate }} <span class="text-red-500">*</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <p-tag
+        *ngFor="let complaint of selectedComplaintItems"
+        [value]="complaint | translateDictionary"
+        severity="warning"
+      ></p-tag>
+    </div>
+
+    <div class="flex flex-column gap-3">
+      <div>
+        <div class="font-semibold text-s">
+          {{ 'OMK.REEXAMINATION.COMMENT' | translate }}
+        </div>
+        <p class="m-0 line-height-2 text-xs">
+          {{ reExaminationAppealDto.notes || '-' }}
+        </p>
+      </div>
+
+      <div>
+        <div class="font-semibold text-s">
+          {{ 'OMK.OBJECTIVE_EXAMINATION' | translate }}
+        </div>
+        <p class="m-0 line-height-2 text-xs">
+          {{ reExaminationAppealDto.objectiveExamination || '-' }}
+        </p>
+      </div>
+
+      <div>
+        <div class="font-semibold text-s">
+          {{ 'OMK.CONCLUSION_RECOMMENDATIONS' | translate }}
+        </div>
+        <p class="m-0 line-height-2 text-xs">
+          {{ reExaminationAppealDto.conclusionRecommendations || '-' }}
+        </p>
+      </div>
+
+      <div>
+        <div class="font-semibold text-s">
+          {{ 'OMK.ADDITIONAL_LAB_DATA' | translate }}
+        </div>
+        <p class="m-0 line-height-2 text-xs">
+          {{ reExaminationAppealDto.additionalLabData || '-' }}
+        </p>
+      </div>
+    </div>
+
+
+
+    <div class="grid mt-2">
+      <div class="col-6">
+        <div class="font-semibold text-s mb-1">
+          {{ 'OMK.REEXAMINATION.LETTER_RECEIVED_DATE' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">{{ (reExaminationAppealDto.dateReceipt  | date: 'dd.MM.yyyy') || '-' }}
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="font-semibold text-s">
+          {{ 'OMK.REEXAMINATION.INCOMING_LETTER_NUMBER' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">{{ reExaminationAppealDto.incomingLetterNo || '-' }}</div>
+      </div>
+    </div>
+
+    <div class="font-semibold text-s mt-2 mb-2">
+      {{ 'OMK.REEXAMINATION.ATTACH_EOTINISH_FILE' | translate }} <span class="text-red-500">*</span>
+    </div>
+
+    <div
+      class="flex align-items-center justify-content-between border-1 surface-border border-round p-2 bg-white"
+    >
+      <div class="flex align-items-center gap-3">
+        <i class="pi pi-file text-lg text-bluegray-500"></i>
+
+        <div>
+          <div class="m-0 line-height-2 text-xs file-name"
+               [title]="reExaminationAppealDto.selectedFileName">
+            {{ (reExaminationAppealDto.selectedFileName || 'OMK.REEXAMINATION.NOT_FILE') | translate }}
+          </div>
+        </div>
+      </div>
+
+      <button
+        pButton
+        type="button"
+        label="Посмотреть"
+        class="p-button-outlined p-button-search"
+        [disabled]="reExaminationAppealDto.selectedFileName == null"
+        (click)="loadCurrentPdf(reExaminationAppealDto.fileId)"
+      ></button>
+    </div>
+  </div>
+
+  <!-- Текущие сведения -->
+  <div class="surface-50 border-round p-3">
+    <div class="font-semibold mb-2">
+      {{ 'OMK.REEXAMINATION.THIS_DATA' | translate }}
+    </div>
+
+    <div class="grid row-gap-3">
+      <div class="col-4">
+        <div class="font-semibold text-s mb-1">
+          {{ 'MAIN.HISTORY.GROUP_OF_DISABILITY' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">
+          {{ expertOpinion?.disabilityGroup  | translateDictionary }}
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="font-semibold text-s mb-1">
+          {{ 'MAIN.HISTORY.DEADLINE' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">
+          {{ (expertOpinion?.deadline  | translateDictionary) || '-' }}
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="font-semibold text-s mb-1">
+          {{ 'MAIN.HISTORY.TERM_RECEIVED' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">
+          {{ (expertOpinion?.termReceived  | date: 'dd.MM.yyyy') || '-' }}
+        </div>
+      </div>
+    </div>
+
+    <div class="grid row-gap-3">
+      <div class="col-4">
+        <div class="font-semibold text-s mb-1">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.REASON_FORM7' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">
+          {{ expertOpinion?.reasonDisabilityAccordForm7 || '-' }}
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="font-semibold text-s mb-1">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.REASON_TEXT' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">
+          {{ (expertOpinion?.reasonforDisability  | translate) || '-' }}
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="font-semibold text-s mb-1">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.INFORM_DISABILITY' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">
+          {{ expertOpinion?.informDisability || '-' }}
+        </div>
+      </div>
+    </div>
+
+    <div class="grid row-gap-3">
+      <div class="col-4">
+        <div class="font-semibold text-s mb-1">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.UOT_DEGREE' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">
+          {{ (expertOpinion?.uotDegree  | translate) || '-' }}
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="font-semibold text-s mb-1">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.UOT_TERM' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">
+          {{ (expertOpinion?.deadline2  | translateDictionary) || '-' }}
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="font-semibold text-s mb-1">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.UOT_COUNTED_TO' | translate }}
+        </div>
+        <div class="m-0 line-height-2 text-xs">
+          {{ (expertOpinion?.termUotReceived  | date: 'dd.MM.yyyy') || '-' }}
+        </div>
+      </div>
+    </div>
+
+    <p-table *ngIf="expertOpinion?.uptData?.length > 0"
+             [value]="expertOpinion?.uptData"
+             styleClass="p-datatable-sm"
+    >
+      <ng-template pTemplate="header">
+        <tr class="m-0 line-height-2 text-s">
+          <th>{{ 'MAIN.HISTORY.DEGREE_UPT' | translate }}</th>
+          <th>{{ 'MAIN.HISTORY.DEADLINE_UPT' | translate }}</th>
+          <th>{{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.UPT_COUNTED_TO' | translate }}</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-row>
+        <tr class="m-0 line-height-2 text-xs">
+          <td>
+            {{ (row.degreeUpt) || '-' }}
+          </td>
+          <td>
+            {{ (row.deadline2 | translateDictionary) || '-' }}
+          </td>
+          <td>
+            {{ (row.termUptDate | date: 'dd.MM.yyyy' : 'UTC') || '-' }}
+          </td>
+        </tr>
+      </ng-template>
+
+
+    </p-table>
+  </div>
+
+  <!-- Решение -->
+  <div class="surface-100 border-round p-3" *ngIf="authService.hasAction('COMMITTEE_EDIT')">
+    <div class="flex justify-content-center gap-2 mb-2">
+      <div class="flex align-items-center gap-2">
+        <p-radioButton
+          [disabled]="isReadonly"
+          name="decision"
+          [value]="15139"
+          inputId="sendOmk"
+          [(ngModel)]="reexaminationAppealUpdate.statusId"
+        ></p-radioButton>
+        <label class="font-semibold text-xs mb-1" for="sendOmk">{{ 'OMK.REEXAMINATION.SEND_OMK' | translate }}</label>
+      </div>
+
+      <div class="flex align-items-center gap-2">
+        <p-radioButton
+          [disabled]="isReadonly"
+          name="decision"
+          [value]="15137"
+          inputId="reject"
+          [(ngModel)]="reexaminationAppealUpdate.statusId"
+        ></p-radioButton>
+        <label class="font-semibold text-xs mb-1" for="reject">{{ 'OMK.REEXAMINATION.CANCELLED' | translate }}</label>
+      </div>
+    </div>
+
+    <label class="font-semibold text-xs mb-2 block">
+      {{ 'COMMON.COMMENT' | translate }}
+    </label>
+
+    <textarea [disabled]="isReadonly || reexaminationAppealUpdate.statusId == 15139 || !reexaminationAppealUpdate.statusId"
+              [(ngModel)]="reexaminationAppealUpdate.committeeComment"
+              pInputTextarea
+              rows="4"
+              class="w-full"
+              placeholder="{{ 'OMK.REEXAMINATION.WRITE' | translate }}"
+    ></textarea>
+  </div>
+
+  <!-- Footer -->
+  <div class="flex justify-content-end" *ngIf="authService.hasAction('COMMITTEE_EDIT')">
+    <button
+      [disabled]="isReadonly || isUpdated || !reexaminationAppealUpdate.statusId "
+      pButton
+      type="button"
+      label="{{ 'OMK.REEXAMINATION.SEND' | translate }}"
+      class="p-button-search"
+      (click)="updateAppealStatus()"
+    ></button>
+  </div>
+
+  <div class="flex justify-content-end" *ngIf="authService.hasAction('OMK_EDIT')">
+    <button
+      pButton
+      type="button"
+      label="{{ 'OMK.REEXAMINATION.CONSIDER' | translate }}"
+      class="p-button-search"
+      (click)="considerOmk()"
+    ></button>
+  </div>
+
+</div>
+

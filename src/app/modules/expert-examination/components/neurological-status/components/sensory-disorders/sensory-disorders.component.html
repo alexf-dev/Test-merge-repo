@@ -1,0 +1,36 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SENSORY_DISORDERS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SENSORY_DISORDERS.PERIPHERAL_TYPE'"
+    [(checked)]="model.peripheralType">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SENSORY_DISORDERS.SEGMENTAL_TYPE'"
+    [(checked)]="model.segmentalType">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SENSORY_DISORDERS.CONDUCTOR_TYPE'"
+    [(checked)]="model.conductorType">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SENSORY_DISORDERS.CORTICAL_TYPE'"
+    [(checked)]="model.corticalType">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SENSORY_DISORDERS.DISSOCIATED_SENSORY_DISORDERS'"
+    [(checked)]="model.dissociatedSensoryDisorders">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SENSORY_DISORDERS.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

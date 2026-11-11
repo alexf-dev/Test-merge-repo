@@ -1,0 +1,208 @@
+
+<div class="layout-wrapper">
+  <div class="layout-sidebar" [class.layout-sidebar-hidden]="!sidebarExpanded">
+    <div class="layout-sidebar-header">
+      <div class="sidebar-brand flex align-items-center gap-3">
+        <img src="/assets/logo.svg" width="36" height="36" alt="logo" />
+        <div *ngIf="sidebarExpanded">
+          <div style="font-size: 22px; font-weight: 700;">ЦБДИ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout-menu">
+      <ul class="list-none p-0 m-0">
+        <li>
+          <a
+            class="menu-item"
+            routerLink="/main/dashboard"
+            routerLinkActive="active-route"
+          >
+            <i class="pi pi-home"></i>
+            <span *ngIf="sidebarExpanded">Главная</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="menu-item" (click)="toggle('mc')">
+            <i class="pi pi-file"></i>
+            <span *ngIf="sidebarExpanded" class="flex align-items-center justify-content-between w-full">
+                <span>МСЭ</span>
+                <i class="pi pi-angle-right menu-arrow" [class.open]="open.mc"></i>
+              </span>
+          </a>
+
+          <ul class="submenu-list" [class.submenu-open]="sidebarExpanded && open.mc">
+            <!--            <li>-->
+            <!--              <a class="submenu-item" routerLink="/main/kpu/031230650906">КПУ</a>-->
+            <!--            </li>-->
+            <li>
+              <a class="submenu-item" routerLink="/main/patients">Поиск</a>
+            </li>
+            <li>
+              <a class="submenu-item" routerLink="/main/expert-examination">Экспертное обследование</a>
+            </li>
+            <li>
+              <a class="submenu-item" routerLink="/main/approval-log">Журнал утверждение</a>
+            </li>
+            <li>
+              <a class="submenu-item">Журнал протоколов</a>
+            </li>
+            <li>
+              <a class="submenu-item">Журнал присвоения номера справки</a>
+            </li>
+            <li>
+              <a class="submenu-item">Мониторинг дел по ЗПО</a>
+            </li>
+            <li>
+              <a class="submenu-item">Запрос на объединение ИИН</a>
+            </li>
+            <li>
+              <a class="submenu-item" routerLink="/main/reestr-experts">Реестр экспертов МСЭ</a>
+            </li>
+
+            <li>
+              <a class="submenu-item" routerLink="/main/reestr-ie-experts">Реестр независимых экспертов</a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="menu-item" (click)="toggle('omk')">
+            <i class="pi pi-folder"></i>
+            <span *ngIf="sidebarExpanded" class="flex align-items-center justify-content-between w-full">
+                <span>{{ 'OMK.TITLE' | translate }}</span>
+                <i class="pi pi-angle-right menu-arrow" [class.open]="open.omk"></i>
+              </span>
+          </a>
+
+          <ul class="submenu-list" [class.submenu-open]="sidebarExpanded && open.omk">
+            <li>
+              <a class="submenu-item">{{ 'OMK.CHECK_OMK' | translate }}</a>
+            </li>
+            <li>
+              <a class="submenu-item">{{ 'OMK.CONSULTATION_OMK' | translate }}</a>
+            </li>
+            <li>
+              <a class="submenu-item">{{ 'OMK.SUSPEND_OMK' | translate }}</a>
+            </li>
+            <li>
+              <a class="submenu-item"
+                 routerLink="/main/omk/appeal-reexamination"
+                 [queryParams]="{ source: 'omk' }">{{ 'OMK.REEXAMINATION.APPEAL_SUBMISSION' | translate }}</a>
+            </li>
+            <li>
+              <a class="submenu-item"
+                 routerLink="/main/omk/appeal-journal">
+                {{ 'OMK.APPEAL_JOURNAL.TITLE' | translate }}</a>
+            </li>
+
+            <li>
+              <a class="submenu-item"
+                 routerLink="/main/omk/resolution-approved">
+                {{ 'OMK.RESOLUTION_APPROVED.TITLE' | translate }}</a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="menu-item" (click)="toggle('exam')">
+            <i class="pi pi-user-edit"></i>
+            <span *ngIf="sidebarExpanded" class="flex align-items-center justify-content-between w-full">
+                <span>Заочное освидетельствование</span>
+                <i class="pi pi-angle-right menu-arrow" [class.open]="open.exam"></i>
+              </span>
+          </a>
+
+          <ul class="submenu-list" [class.submenu-open]="sidebarExpanded && open.exam">
+            <li>
+              <a class="submenu-item" routerLink="/main/absentee-examination/waiting-list">
+                Лист ожидание
+              </a>
+            </li>
+            <li>
+              <a class="submenu-item">Список отчетов</a>
+            </li>
+            <li>
+              <a class="submenu-item" routerLink="/main/absentee-examination/registered-acts">
+                Реестр актов
+              </a>
+            </li>
+            <li>
+              <a class="submenu-item" routerLink="/main/completed-work-acts">
+                Акт выполненных работ
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+<!--    <div class="layout-sidebar-footer" *ngIf="sidebarExpanded">-->
+<!--      <a class="menu-item">-->
+<!--        <i class="pi pi-question-circle"></i>-->
+<!--        <span>Помощь</span>-->
+<!--      </a>-->
+
+<!--      <a class="menu-item">-->
+<!--        <i class="pi pi-palette"></i>-->
+<!--        <span>Тема</span>-->
+<!--        <i class="pi pi-cog ml-auto"></i>-->
+<!--      </a>-->
+<!--    </div>-->
+  </div>
+
+  <div class="layout-main">
+    <div class="layout-topbar">
+      <div class="topbar-left">
+        <button
+          type="button"
+          class="topbar-menu-button"
+          (click)="toggleSidebar()"
+        >
+          <i class="pi pi-list"></i>
+        </button>
+        <div class="flex align-items-center gap-2 text-sm text-600">
+          <span>Главная</span>
+          <i class="pi pi-angle-right text-xs"></i>
+          <span *ngIf="currentBreadcrumb"> {{ currentBreadcrumb }}</span>
+        </div>
+      </div>
+      <div class="flex align-items-center gap-3 flex-wrap">
+        <app-theme-toggle></app-theme-toggle>
+        <p-dropdown
+          [options]="langItems"
+          [(ngModel)]="selectedLang"
+          optionLabel="name"
+          [style]="{ minWidth: '9rem' }"
+          (onChange)="onChangeLang($event.value)"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div class="flex align-items-center">
+              <i class="pi pi-globe mr-2"></i>
+              <span>{{ selectedLang?.name }}</span>
+            </div>
+          </ng-template>
+          <ng-template let-item pTemplate="item">
+            <div class="flex align-items-center">
+              <i class="pi pi-globe mr-2"></i>
+              <span>{{ item.name }}</span>
+            </div>
+          </ng-template>
+        </p-dropdown>
+        <p-tag value="Код МСЭ 1294" severity="info"></p-tag>
+        <div class="flex flex-column text-right">
+          <span class="text-900 font-medium">
+            Айнур Ахметова
+          </span>
+          <span class="text-600 text-sm">
+            mexample.com
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="layout-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

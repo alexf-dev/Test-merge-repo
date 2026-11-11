@@ -1,0 +1,11 @@
+<div class="laboratory-block" [class.nested-block]="nested">
+  <div class="block-header" (click)="toggle()">
+    <i class="pi pi-chevron-down" [class.rotated]="isExpanded"></i>
+    <span class="block-title">{{ titleKey | translate }}</span>
+  </div>
+  <div class="block-content" *ngIf="isExpanded">
+    <div class="block-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,254 @@
+.layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: var(--app-surface-page);
+}
+
+.layout-sidebar {
+  width: 300px;
+  background: var(--app-sidebar-bg);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.2s ease;
+  /*overflow: hidden;*/
+}
+
+.layout-sidebar.layout-sidebar-collapsed {
+  width: 78px;
+}
+
+.layout-sidebar-header {
+  height: 84px;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.sidebar-logo img {
+  width: 42px;
+  height: 42px;
+}
+
+.sidebar-logo-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+/*.sidebar-toggle {*/
+/*  width: 42px;*/
+/*  height: 42px;*/
+/*  min-width: 42px;*/
+/*  border-radius: 50%;*/
+/*  border: none;*/
+/*  background: rgba(255,255,255,0.22);*/
+/*  color: #ffffff;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  cursor: pointer;*/
+/*}*/
+
+.layout-sidebar-collapsed .layout-sidebar-header {
+  justify-content: center;
+  padding: 0;
+}
+
+.layout-sidebar-collapsed .sidebar-logo {
+  display: none;
+}
+
+.layout-menu {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 1.25rem 1rem;
+}
+
+.layout-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item,
+.submenu-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.menu-item {
+  min-height: 42px;
+  gap: 0.75rem;
+  padding: 0.75rem 0.5rem;
+  margin-bottom: 0.25rem;
+  border-radius: 10px;
+}
+
+.menu-item:hover,
+.menu-item.active-route,
+.menu-item.active-parent {
+  background: rgba(0,0,0,0.16);
+}
+
+.menu-item i:first-child {
+  width: 20px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.menu-text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.submenu-list {
+  list-style: none;
+  position: relative;
+  margin: 0 0 0 0.55rem !important;
+  padding: 0 0 0 1.15rem !important;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-5px);
+
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    margin 0.25s ease,
+    padding 0.25s ease;
+}
+
+.submenu-list.submenu-open {
+  margin: 0.25rem 0 0.5rem 0.55rem !important;
+  padding: 0.25rem 0 0.25rem 1.15rem !important;
+  max-height: 800px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.submenu-list::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 1px;
+  background: rgba(255,255,255,0.55);
+}
+
+.submenu-item {
+  display:flex;
+  align-items:center;
+  padding: 0.65rem 0;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  color: rgba(255,255,255,0.95);
+  border-radius:10px;
+  text-decoration:none;
+  transition:background-color 0.2s ease;
+}
+
+.submenu-item:hover {
+  background:rgba(255,255,255,0.12);
+  color: #ffffff;
+}
+
+.layout-sidebar-collapsed .layout-menu {
+  padding: 0.5rem 0.75rem;
+}
+
+.layout-sidebar-collapsed .menu-item {
+  justify-content: center;
+  padding: 0.75rem 0;
+}
+
+.layout-sidebar-collapsed .menu-item i:first-child {
+  margin: 0;
+}
+
+.layout-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.layout-topbar {
+  min-height: 70px;
+  background: var(--app-card-bg);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.layout-content {
+  background: var(--app-card-bg);
+  padding: 1.5rem;
+  flex: 1;
+  overflow: auto;
+}
+/* smooth arrow rotation */
+.menu-arrow {
+  margin-left: auto;
+  font-size: 0.75rem !important;
+  transition: transform 0.25s ease;
+}
+.menu-arrow.open {
+  transform: rotate(90deg);
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.topbar-menu-button {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--app-text-medium);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: 0.2s;
+}
+.topbar-menu-button:hover {
+  background: var(--app-surface-panel);
+}
+.layout-sidebar {
+  flex-shrink: 0;
+  transition: margin-left 0.25s ease;
+}
+
+.layout-sidebar.layout-sidebar-hidden {
+  margin-left: -300px;
+}
+
+.sidebar-toggle {
+  display: none;
+}

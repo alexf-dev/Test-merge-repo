@@ -1,0 +1,41 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SPINE.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-dropdown-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SPINE.DEFORMITIES'"
+    [optionKeys]="deformitiesOptions"
+    [(value)]="model.deformities">
+  </app-dropdown-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SPINE.PARAVERTEBRAL_POINT_PALPATION'"
+    [(checked)]="model.paravertebralPointPalpation.checked"
+    [(comment)]="model.paravertebralPointPalpation.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SPINE.RADICULAR_PAIN'"
+    [(checked)]="model.radicularPain.checked"
+    [(comment)]="model.radicularPain.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SPINE.BACK_MUSCLE_TENSION'"
+    [(checked)]="model.backMuscleTension.checked"
+    [(comment)]="model.backMuscleTension.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SPINE.MOVEMENT_VOLUME'"
+    [(checked)]="model.movementVolume.checked"
+    [(comment)]="model.movementVolume.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SPINE.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

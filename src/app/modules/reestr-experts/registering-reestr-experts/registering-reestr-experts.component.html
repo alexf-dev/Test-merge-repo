@@ -1,0 +1,276 @@
+<div class="grid">
+  <div class="col-12" >
+    <p-card styleClass="mb-4">
+      <ng-template pTemplate="title">
+        {{ 'REESTR_EXPERTS.REGISTERED_NEW_EXPERTS' | translate }}
+      </ng-template>
+
+      <div class="formgrid grid align-items-center">
+        <div class="field col-12 md:col-6 lg:col-3">
+          <label for="iin" class="block mb-2 font-bold">{{ 'COMMON.IIN' | translate }}
+            <span class="text-red-500">*</span>
+          </label>
+
+          <input
+            id="iin"
+            type="text"
+            pInputText
+            class="w-full hover:var(--green-300)"
+            [(ngModel)]="createReestrExpert.iin"
+            placeholder="{{ 'COMMON.ENTER' | translate }}"
+          />
+        </div>
+
+        <div class="field col-12 md:col-6 lg:col-3">
+          <label for="region" class="block mb-2 font-bold">{{ 'COMMON.REGION' | translate }}
+            <span class="text-red-500">*</span>
+          </label>
+          <p-dropdown
+            id="region"
+            [options]=dicRegion
+            [(ngModel)]="createReestrExpert.region"
+            [disabled]="true"
+            optionLabel="nameRu"
+            optionValue="id"
+            placeholder="{{ 'COMMON.ENTER' | translate }}"
+            class="w-full full-dropdown"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <div class="field col-12 md:col-6 lg:col-3">
+          <label for="omik" class="block mb-2 font-bold">{{ 'REESTR_EXPERTS.OMK_OR_MSE_DEPARTMENT' | translate }}
+            <span class="text-red-500">*</span>
+          </label>
+          <p-dropdown
+            id="omik"
+            [options]=dicOmik
+            [(ngModel)]="createReestrExpert.omik"
+            optionLabel="nameRu"
+            optionValue="id"
+            placeholder="{{ 'COMMON.ENTER' | translate }}"
+            class="w-full full-dropdown"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <div class="field col-12 md:col-6 lg:col-3">
+          <label for="mseCode" class="block mb-2 font-bold">{{ 'REESTR_EXPERTS.OMK_OR_MSE_CODE_NAME' | translate }}
+            <span class="text-red-500">*</span>
+          </label>
+          <p-dropdown
+            id="mseCode"
+            [options]="dicMse"
+            [(ngModel)]="createReestrExpert.mseId"
+            optionLabel="id"
+            optionValue="id"
+            placeholder="{{ 'COMMON.ENTER' | translate }}"
+            class="w-full full-dropdown"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item.id  }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem.id  }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <div class="field col-12 md:col-6 lg:col-3">
+          <label for="dateOfEmployment" class="block mb-2 font-bold">{{ 'REESTR_EXPERTS.DATE_OF_EMPLOYMENT' | translate }}
+            <span class="text-red-500">*</span>
+          </label>
+          <p-calendar
+            [(ngModel)]="createReestrExpert.dateOfEmployment"
+            [showIcon]="true"
+            appendTo="body"
+            dateFormat="dd.mm.yy"
+            id="dateOfEmployment"
+            name="dateOfEmployment"
+            class="w-full custom-calendar"
+          ></p-calendar>
+        </div>
+
+        <div class="field col-12 md:col-6 lg:col-3">
+          <label for="position" class="block mb-2 font-bold">{{ 'REESTR_EXPERTS.POSITION' | translate }}
+            <span class="text-red-500">*</span>
+          </label>
+          <p-dropdown
+            id="position"
+            [options]=dicPost
+            [(ngModel)]="createReestrExpert.position"
+            optionLabel="nameRu"
+            optionValue="id"
+            placeholder="{{ 'COMMON.ENTER' | translate }}"
+            class="w-full full-dropdown"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <div class="field col-12 md:col-6 lg:col-3">
+          <label for="age" class="block mb-2 font-bold">{{ 'REESTR_EXPERTS.AGE_CATEGORY_RECEPTION' | translate }}
+            <span class="text-red-500">*</span>
+          </label>
+          <p-dropdown
+            id="age"
+            [options]=dicAgeGroup
+            [(ngModel)]="createReestrExpert.ageGroup"
+            optionLabel="nameRu"
+            optionValue="id"
+            placeholder="{{ 'COMMON.ENTER' | translate }}"
+            class="w-full full-dropdown"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <div class="field col-12 md:col-6 lg:col-3">
+          <label for="fio"
+                 class="block mb-2 font-bold">{{ 'REESTR_EXPERTS.OMK_OR_MSE_SPECIALIST_FULLNAME' | translate }}
+            <span class="text-red-500">*</span>
+          </label>
+          <input
+            id="fio"
+            type="text"
+            pInputText
+            class="w-full"
+            [(ngModel)]="createReestrExpert.empFullName"
+            placeholder="{{ 'COMMON.ENTER' | translate }}"
+          />
+        </div>
+
+        <div class="field col-12 md:col-6 lg:col-3">
+          <label for="phoneNumber" class="block mb-2 font-bold">{{ 'REESTR_EXPERTS.MOBILE_PHONE' | translate }}
+            <span class="text-red-500">*</span>
+          </label>
+          <input
+            id="phoneNumber"
+            type="text"
+            pInputText
+            class="w-full"
+            [(ngModel)]="createReestrExpert.mobNumber"
+            placeholder="{{ 'COMMON.ENTER' | translate }}"
+          />
+        </div>
+
+        <div class="field col-12 md:col-6 lg:col-3">
+          <label for="workExperience" class="block mb-2 font-bold">{{ 'REESTR_EXPERTS.WORK_EXPERIENCE' | translate }}
+            <span class="text-red-500">*</span>
+          </label>
+          <input
+            id="workExperience"
+            type="text"
+            pInputText
+            class="w-full"
+            [(ngModel)]="createReestrExpert.mseWorkExperience"
+            placeholder="{{ 'COMMON.ENTER' | translate }}"
+          />
+        </div>
+
+      </div>
+    </p-card>
+
+
+    <p-card styleClass="mb-4">
+      <ng-template pTemplate="title">
+        {{ 'REESTR_EXPERTS.MKB' | translate }}
+        <span class="text-red-500">*</span>
+      </ng-template>
+
+      <span class="p-input-icon-right w-full mb-3">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              class="w-full"
+              placeholder="Поиск"
+              [(ngModel)]="mkbSearch"
+              [ngModelOptions]="{ standalone: true }"
+              (ngModelChange)="filterMkb()"
+            />
+          </span>
+
+      <div *ngFor="let parent of filteredMkbList; trackBy: trackById">
+        <div class="flex align-items-start gap-2 py-2">
+          <p-checkbox
+            [(ngModel)]="parent.checked"
+            [binary]="true"
+            [ngModelOptions]="{ standalone: true }"
+          >
+          </p-checkbox>
+          <button
+            pButton
+            type="button"
+            class="p-button-text p-button-sm p-0 arrow-btn"
+            [icon]="parent.expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+            (click)="toggleParent(parent)"
+          >
+          </button>
+          <span class="font-semibold line-height-3">
+                {{ parent.name }}
+              </span>
+        </div>
+
+
+        <div *ngIf="parent.expanded" class="ml-5">
+          <div
+            *ngFor="let child of parent.children; trackBy: trackById"
+            class="flex align-items-center gap-2 py-2">
+            <input
+              type="checkbox"
+              [checked]="parent.checked"
+              disabled
+            />
+            <span class="line-height-3">
+                  {{ child.name }}
+                </span>
+          </div>
+        </div>
+
+      </div>
+
+    </p-card>
+
+    <div class="flex justify-content-end">
+      <button
+        pButton
+        type="button"
+        label="{{ 'OMK.REEXAMINATION.SEND' | translate }}"
+        class="p-button-search"
+        [disabled]="isSaved"
+        (click)="sendToCommittee()"
+      ></button>
+    </div>
+
+
+
+  </div>
+</div>

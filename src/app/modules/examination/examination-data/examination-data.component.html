@@ -1,0 +1,303 @@
+<div *ngIf="data" class="grid">
+  <div class="col-12">
+    <p-card>
+      <ng-template pTemplate="title">
+        {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.TITLE' | translate }}
+      </ng-template>
+
+      <div class="formgrid grid p-fluid">
+        <div class="field col-12 md:col-4">
+          <label for="examStartDate">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.BEGIN_DATE' | translate }}
+          </label>
+          <p-calendar
+            [(ngModel)]="data.beginDate"
+            [disabled]="patient.declarationId == null"
+            [showIcon]="true"
+            appendTo="body"
+            dateFormat="dd.mm.yy"
+            id="examStartDate"
+            name="examStartDate"
+          ></p-calendar>
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="regNumber">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.REG_NUMBER' | translate }}
+          </label>
+          <input
+            [(ngModel)]="data.regNum"
+            [disabled]="patient.declarationId == null"
+            id="regNumber"
+            name="regNumber"
+            pInputText
+            type="text"
+          />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="actNumber">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.ACT_NUMBER' | translate }}
+          </label>
+          <input
+            [(ngModel)]="data.actNum"
+            [disabled]="patient.declarationId == null"
+            id="actNumber"
+            name="actNumber"
+            pInputText
+            type="text"
+          />
+        </div>
+      </div>
+
+      <div class="formgrid grid p-fluid">
+        <div class="field col-12 md:col-4">
+          <label for="examLocation">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.PLACE_OF_EXAM' | translate }}
+          </label>
+          <p-dropdown
+            [(ngModel)]="data.placeId"
+            [options]="dicExamplace"
+            [required]="true"
+            [showClear]="true"
+            id="examLocation"
+            name="examLocation"
+            optionValue="id"
+            placeholder="{{ 'COMMON.CHOOSE' | translate }}"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="disabilityGroup">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.DIS_GROUP' | translate }}
+          </label>
+          <p-dropdown
+            [(ngModel)]="data.disgroupId"
+            [disabled]="patient.declarationId != null"
+            [options]="dicGroupDisability"
+            [showClear]="true"
+            id="disabilityGroup"
+            name="disabilityGroup"
+            optionValue="id"
+            placeholder="{{ 'COMMON.CHOOSE' | translate }}"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="examReason">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.DIS_REASON' | translate }}
+          </label>
+          <p-dropdown
+            [(ngModel)]="data.disreasonId"
+            [disabled]="patient.declarationId != null"
+            [options]="dicDisabilityReason"
+            [placeholder]="'COMMON.CHOOSE' | translate"
+            [showClear]="true"
+            id="examReason"
+            name="examReason"
+            optionValue="id"
+            panelStyleClass="reason-dropdown-panel"
+            styleClass="w-full reason-dropdown"
+          >
+            <ng-template let-item pTemplate="item">
+              <div
+                [title]="item | translateDictionary"
+                class="dropdown-item-wrap"
+              >
+                {{ item | translateDictionary }}
+              </div>
+            </ng-template>
+
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div
+                *ngIf="selectedItem"
+                [title]="selectedItem | translateDictionary"
+                class="dropdown-selected-ellipsis"
+              >
+                {{ selectedItem | translateDictionary }}
+              </div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+
+      <div class="formgrid grid p-fluid">
+        <div class="field col-12 md:col-4">
+          <label for="uotDegree">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.UOT_PREVIOUS' | translate }}
+          </label>
+          <input
+            [(ngModel)]="data.uot"
+            [disabled]="patient.declarationId != null"
+            id="uotDegree"
+            name="uotDegree"
+            pInputText
+            type="text"
+          />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="uptDegree">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.UPT_PREVIOUS' | translate }}
+          </label>
+          <input
+            [(ngModel)]="data.upt"
+            [disabled]="patient.declarationId != null"
+            id="uptDegree"
+            name="uptDegree"
+            pInputText
+            type="text"
+          />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="prevExamDate">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.BEGIN_DATE_PREVIOUS' | translate }}
+          </label>
+          <p-calendar
+            [(ngModel)]="data.examDate"
+            [disabled]="patient.declarationId != null"
+            [showIcon]="true"
+            appendTo="body"
+            dateFormat="dd.mm.yy"
+            id="prevExamDate"
+            name="prevExamDate"
+          ></p-calendar>
+        </div>
+      </div>
+
+<!--      <div class="section-title">-->
+<!--        {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.GOAL.TITLE' | translate }}-->
+<!--      </div>-->
+
+<!--      <div class="formgrid grid p-fluid">-->
+<!--        <div *ngFor="let g of dicGoals" class="field col-12 md:col-6 flex align-items-center">-->
+<!--          <p-checkbox-->
+<!--            (onChange)="onGoalChange(g.id, $event.checked)"-->
+<!--            [binary]="true"-->
+<!--            [disabled]="patient.declarationId == null"-->
+<!--            [inputId]="'goal-' + g.id"-->
+<!--            [ngModel]="isGoalChecked(g.id)"-->
+<!--          ></p-checkbox>-->
+<!--          <label [for]="'goal-' + g.id" class="ml-2">-->
+<!--            {{ g | translateDictionary }}-->
+<!--          </label>-->
+<!--        </div>-->
+<!--      </div>-->
+
+      <div class="section-title">
+        {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.REGISTRATION.TITLE' | translate }}
+      </div>
+
+      <div class="formgrid grid p-fluid">
+        <div class="field col-12 md:col-6 flex align-items-center">
+          <p-checkbox
+            [(ngModel)]="data.isNotHistory"
+            [binary]="true"
+            inputId="noHistory"
+            name="noHistory"
+          ></p-checkbox>
+          <label class="ml-2" for="noHistory">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.IS_NOT_HISTORY' | translate }}
+          </label>
+        </div>
+
+        <div class="field col-12 md:col-6 flex align-items-center">
+          <p-checkbox
+            [(ngModel)]="data.isRepeat"
+            [binary]="true"
+            inputId="repeatExam"
+            name="repeatExam"
+          ></p-checkbox>
+          <label class="ml-2" for="repeatExam">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.IS_REPEAT' | translate }}
+          </label>
+        </div>
+
+        <div class="field col-12 md:col-6 flex align-items-center">
+          <p-checkbox
+            [(ngModel)]="data.isMigration"
+            [binary]="true"
+            inputId="migration"
+            name="migration"
+          ></p-checkbox>
+          <label class="ml-2" for="migration">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.REGISTRATION.MIGRATION' | translate }}
+          </label>
+        </div>
+
+        <div class="field col-12 md:col-6 flex align-items-center">
+          <p-checkbox
+            [(ngModel)]="data.isNao"
+            [binary]="true"
+            [disabled]="data.isBaikonur"
+            inputId="archive"
+            name="archive"
+          ></p-checkbox>
+          <label class="ml-2" for="archive">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.REGISTRATION.NAO' | translate }}
+          </label>
+        </div>
+
+        <div class="field col-12 md:col-6 flex align-items-center">
+          <p-checkbox
+            [(ngModel)]="data.isAbroad"
+            [binary]="true"
+            inputId="arrival"
+            name="arrival"
+          ></p-checkbox>
+          <label class="ml-2" for="arrival">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.REGISTRATION.ABROAD' | translate }}
+          </label>
+        </div>
+
+        <div class="field col-12 md:col-6 flex align-items-center">
+          <p-checkbox
+            [(ngModel)]="data.isBaikonur"
+            [binary]="true"
+            [disabled]="data.isNao"
+            inputId="baikonur"
+            name="baikonur"
+          ></p-checkbox>
+          <label class="ml-2" for="baikonur">
+            {{ 'MAIN.EXAMINATION.EXAMINATION_DATA.REGISTRATION.BAIKONUR' | translate }}
+          </label>
+        </div>
+      </div>
+    </p-card>
+
+    <div class="page-actions">
+      <button
+        (click)="onPrev()"
+        class="p-button-text"
+        label="{{ 'COMMON.BACK' | translate }}"
+        pButton
+        type="button"
+      ></button>
+
+      <button
+        (click)="onNext()"
+        label="{{ 'COMMON.NEXT' | translate }}"
+        pButton
+        type="button"
+      ></button>
+    </div>
+  </div>
+</div>

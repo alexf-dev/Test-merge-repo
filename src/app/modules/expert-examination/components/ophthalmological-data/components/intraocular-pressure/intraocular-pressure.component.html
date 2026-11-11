@@ -1,0 +1,17 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.INTRAOCULAR_PRESSURE.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.INTRAOCULAR_PRESSURE.OD'"
+    [(checked)]="model.od.checked"
+    [(comment)]="model.od.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.INTRAOCULAR_PRESSURE.OS'"
+    [(checked)]="model.os.checked"
+    [(comment)]="model.os.value">
+  </app-check-comment-field>
+
+</app-collapsible-block>

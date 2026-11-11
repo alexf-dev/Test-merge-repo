@@ -1,0 +1,184 @@
+<div class="surface-ground p-4">
+
+  <!-- Заголовок -->
+  <div class="mb-4">
+    <h2 class="m-0 text-2xl font-semibold">
+      Реестр зарегистрированных актов МСЭ
+    </h2>
+  </div>
+
+  <!-- Фильтр -->
+  <p-panel>
+
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center gap-2">
+        <i class="pi pi-filter"></i>
+        <span class="font-semibold">Фильтр</span>
+      </div>
+    </ng-template>
+
+    <div class="grid">
+
+      <div class="col-12 md:col-4">
+
+        <label class="block mb-2">
+          Статус
+        </label>
+
+        <p-dropdown
+          styleClass="w-full"
+          [options]="statuses"
+          optionLabel="name"
+          placeholder="Статус">
+        </p-dropdown>
+
+      </div>
+
+      <div class="col-12 md:col-3">
+
+        <label class="block mb-2">
+          Дата начала
+        </label>
+
+        <p-calendar
+          styleClass="w-full"
+          inputStyleClass="w-full"
+          showIcon
+          appendTo="body">
+        </p-calendar>
+
+      </div>
+
+      <div class="col-12 md:col-3">
+
+        <label class="block mb-2">
+          Дата окончания
+        </label>
+
+        <p-calendar
+          styleClass="w-full"
+          inputStyleClass="w-full"
+          showIcon
+          appendTo="body">
+        </p-calendar>
+
+      </div>
+
+    </div>
+
+    <div class="flex gap-2">
+      <button
+              pButton
+              type="button"
+              [label]="'COMMON.SEARCH' | translate"
+              icon="pi pi-search"
+              (click)="search()"
+              class="p-button-success"
+      ></button>
+
+      <button
+              pButton
+              type="button"
+              [label]="'COMMON.CLEAR' | translate"
+              icon="pi pi-refresh"
+              class="p-button-secondary"
+              (click)="clear()"
+      ></button>
+    </div>
+
+  </p-panel>
+
+  <!-- Количество -->
+
+  <div class="flex justify-content-between align-items-center mt-4 mb-3">
+
+    <div class="text-lg">
+      Всего:
+      <span class="font-bold text-primary">
+                {{registeredActsResponse.length}}
+            </span>
+    </div>
+
+  </div>
+
+  <!-- Таблица -->
+
+  <p-table
+          [value]="registeredActsResponse"
+          [responsiveLayout]="'scroll'"
+          [paginator]="true"
+          [lazy]="true"
+          [rows]="registeredActsFilter.pageSize"
+          [first]="((registeredActsFilter.pageNum || 1) - 1) * (registeredActsFilter.pageSize || 10)"
+          [totalRecords]="pageResponse?.total || 0"
+          [rowsPerPageOptions]="[10, 25, 50]"
+          (onLazyLoad)="onPageChange($event)"
+          styleClass="p-datatable-gridlines p-datatable-striped">>
+
+    <ng-template pTemplate="header">
+
+      <tr>
+
+        <th>№ акта</th>
+
+        <th>Срок рассмотрения</th>
+
+        <th>Дата регистрации</th>
+
+        <th>Цель</th>
+
+        <th>Дата рождения</th>
+
+        <th>Возраст</th>
+
+        <th>Пол</th>
+
+        <th>Основной диагноз</th>
+
+        <th>Дата рассмотрения акта</th>
+
+        <th>Рассмотреть акт до</th>
+
+      </tr>
+
+    </ng-template>
+
+    <ng-template
+      pTemplate="body"
+      let-row>
+
+      <tr>
+
+        <td>
+          <p-button
+                  [label]="row.numberAkt"
+                  [text]="true"
+                  (onClick)="getAct(row.formId)">
+          </p-button>
+        </td>
+
+        <td>{{ (row.deadlineStartDate | date:'dd.MM.yyyy') || '-' }}</td>
+
+        <td>{{ (row.rdate | date:'dd.MM.yyyy') || '-' }}</td>
+
+        <td>{{row.direction}}</td>
+
+        <td>{{ (row.dataOfBirth | date:'dd.MM.yyyy') || '-' }}</td>
+
+        <td>{{row.ageAtResolution}}</td>
+
+        <td>{{row.genderId % 2 ? 'Женщина' : 'Мужчина'}}</td>
+
+        <td>{{row.mainDiagnosis}}</td>
+
+        <td>{{ (row.deadlineStartDate | date:'dd.MM.yyyy') || '-' }}</td>
+
+        <td>{{ (row.deadlineEndDate | date:'dd.MM.yyyy') || '-' }}</td>
+
+      </tr>
+
+    </ng-template>
+
+  </p-table>
+
+</div>

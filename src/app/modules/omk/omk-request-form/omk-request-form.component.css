@@ -1,0 +1,11 @@
+:host ::ng-deep .custom-multiselect .p-multiselect-header {
+  display: none !important;
+}
+
+:host ::ng-deep .custom-multiselect .p-multiselect-clear-icon {
+  display: none !important;
+}
+
+:host ::ng-deep .custom-multiselect .p-multiselect-item-checkbox {
+  display: none !important;
+}

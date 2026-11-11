@@ -1,0 +1,150 @@
+<div class="laboratory-block">
+
+  <!-- Кастомный заголовок -->
+  <div class="block-header" role="button" tabindex="0"
+       [attr.aria-expanded]="isExpanded"
+       (click)="toggle()"
+       (keydown.enter)="toggle()"
+       (keydown.space)="toggle(); $event.preventDefault()">
+    <i class="pi pi-chevron-down"
+       [class.rotated]="isExpanded"
+       style="margin-right: 8px; font-size: 12px; color: var(--app-text);">
+    </i>
+    <span class="block-title">
+      {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ADDITIONAL_METHODS_SECTION' | translate }}
+    </span>
+  </div>
+
+  <!-- Содержимое -->
+  <div class="block-content" *ngIf="isExpanded">
+    <form [formGroup]="form" class="fields-container">
+
+      <!-- КАГ -->
+      <div class="field-group">
+        <textarea
+          id="kag"
+          formControlName="kag"
+          pInputTextarea
+          [autoResize]="true"
+          [rows]="3"
+          [placeholder]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ENTER_VALUE' | translate"
+          class="w-full"
+        ></textarea>
+      </div>
+
+      <!-- Рентгенография -->
+      <div class="field-group">
+        <label for="xray" class="field-label">
+          {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.XRAY' | translate }}
+        </label>
+        <textarea
+          id="xray"
+          formControlName="xray"
+          pInputTextarea
+          [autoResize]="true"
+          [rows]="2"
+          [placeholder]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ENTER_VALUE' | translate"
+          class="w-full"
+        ></textarea>
+      </div>
+
+      <!-- УЗИ/УЗД -->
+      <div class="field-group">
+        <label for="ultrasound" class="field-label">
+          {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ULTRASOUND' | translate }}
+        </label>
+        <textarea
+          id="ultrasound"
+          formControlName="ultrasound"
+          pInputTextarea
+          [autoResize]="true"
+          [rows]="2"
+          [placeholder]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ENTER_VALUE' | translate"
+          class="w-full"
+        ></textarea>
+      </div>
+
+      <!-- УЗИ органов брюшной полости -->
+      <div class="field-group">
+        <label for="abdominalUltrasound" class="field-label">
+          {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ABDOMINAL_ULTRASOUND' | translate }}
+        </label>
+        <textarea
+          id="abdominalUltrasound"
+          formControlName="abdominalUltrasound"
+          pInputTextarea
+          [autoResize]="true"
+          [rows]="2"
+          [placeholder]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ENTER_VALUE' | translate"
+          class="w-full"
+        ></textarea>
+      </div>
+
+      <!-- УЗИ сердца -->
+      <div class="field-group">
+        <label for="heartUltrasound" class="field-label">
+          {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.HEART_ULTRASOUND' | translate }}
+        </label>
+        <textarea
+          id="heartUltrasound"
+          formControlName="heartUltrasound"
+          pInputTextarea
+          [autoResize]="true"
+          [rows]="2"
+          [placeholder]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ENTER_VALUE' | translate"
+          class="w-full"
+        ></textarea>
+      </div>
+
+      <!-- ЭКГ -->
+      <div class="field-group">
+        <label for="ecg" class="field-label">
+          {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ECG' | translate }}
+        </label>
+        <textarea
+          id="ecg"
+          formControlName="ecg"
+          pInputTextarea
+          [autoResize]="true"
+          [rows]="2"
+          [placeholder]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ENTER_VALUE' | translate"
+          class="w-full"
+        ></textarea>
+      </div>
+
+      <!-- ЭЭГ -->
+      <div class="field-group">
+        <label for="eeg" class="field-label">
+          {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.EEG' | translate }}
+        </label>
+        <textarea
+          id="eeg"
+          formControlName="eeg"
+          pInputTextarea
+          [autoResize]="true"
+          [rows]="2"
+          [placeholder]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ENTER_VALUE' | translate"
+          class="w-full"
+        ></textarea>
+      </div>
+
+      <!-- Другие -->
+      <div class="field-group">
+        <label for="other" class="field-label">
+          {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.OTHER' | translate }}
+        </label>
+        <textarea
+          id="other"
+          formControlName="other"
+          pInputTextarea
+          [autoResize]="true"
+          [rows]="2"
+          [placeholder]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.LABORATORY_DATA.ENTER_VALUE' | translate"
+          class="w-full"
+        ></textarea>
+      </div>
+
+    </form>
+  </div>
+
+</div>

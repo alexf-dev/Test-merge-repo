@@ -1,0 +1,37 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.HANDS.TITLE'"
+  [isExpanded]="isExpanded"
+  [nested]="true">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.HANDS.BRACHYDACTYLY'"
+    [(checked)]="model.brachydactyly">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.HANDS.ARACHNODACTYLY'"
+    [(checked)]="model.arachnodactyly">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.HANDS.SYNDACTYLY'"
+    [(checked)]="model.syndactyly">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.HANDS.TRANSVERSE_PALMAR_CREASE'"
+    [(checked)]="model.transversePalmarCrease">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.HANDS.FINGER_CURVATURE'"
+    [(checked)]="model.fingerCurvature">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.HANDS.COMMENT'"
+    [(value)]="model.comment"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

@@ -1,0 +1,57 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.TITLE'"
+  [isExpanded]="isExpanded"
+  [nested]="true">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.STRAIGHT_LINE_SLOPING_FOREHEAD'"
+    [(checked)]="model.straightLineSlopingForehead">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.MONGOLOID_EYE_SLIT'"
+    [(checked)]="model.mongoloidEyeSlit">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.ANTI_MONGOLOID_EYE_SLIT'"
+    [(checked)]="model.antiMongoloidEyeSlit">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.HYPOTELORISM'"
+    [(checked)]="model.hypotelorism">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.SADDLE_NOSE'"
+    [(checked)]="model.saddleNose">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.FACIAL_ASYMMETRY'"
+    [(checked)]="model.facialAsymmetry">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.MACROGNATHIA'"
+    [(checked)]="model.macrognathia">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.MICROGNATHIA'"
+    [(checked)]="model.micrognathia">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.CLEFT_CHIN'"
+    [(checked)]="model.cleftChin">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FACE.COMMENT'"
+    [(value)]="model.comment"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

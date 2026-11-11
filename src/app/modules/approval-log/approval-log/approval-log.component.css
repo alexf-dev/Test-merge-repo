@@ -1,0 +1,60 @@
+:host ::ng-deep {
+  .full-dropdown,
+  .full-dropdown .p-dropdown,
+  .p-calendar,
+  .p-calendar .p-inputtext {
+    width: 100%;
+  }
+}
+
+.camera-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.camera-video,
+.camera-photo-preview {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 10px;
+  background: #000;
+  object-fit: cover;
+}
+
+.camera-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.hidden-canvas {
+  display: none;
+}
+
+.eds-spinner {
+  width: 24px;
+  height: 24px;
+}
+
+tr.inProgress {
+  background-color: var(--app-bg-warn-tint);
+}
+
+tr.approved {
+  background-color: var(--app-bg-success-tint);
+}
+
+@media (max-width: 768px) {
+  .filter-card,
+  .table-card {
+    padding: 0 16px 16px;
+  }
+
+  .form-row-fields .form-col {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+}

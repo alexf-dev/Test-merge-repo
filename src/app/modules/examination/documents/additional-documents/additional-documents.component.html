@@ -1,0 +1,132 @@
+<p-card>
+  <ng-template pTemplate="title">
+    Дополнительные документы
+  </ng-template>
+
+  <div class="toolbar-row">
+    <div class="select-row">
+      <p-checkbox
+        (onChange)="toggleAll()"
+        [(ngModel)]="selectAllAdditional"
+        [binary]="true"
+        inputId="a1"
+      ></p-checkbox>
+      <label for="a1">Выбрать все документы для просмотра</label>
+    </div>
+
+    <div class="actions-row">
+      <button
+        (click)="openSelectedDocuments()"
+        class="p-button-secondary p-button-outlined"
+        icon="pi pi-eye"
+        label="Посмотреть"
+        pButton
+        type="button"
+      ></button>
+
+      <button
+        class="p-button-secondary p-button-outlined p-button-icon-only"
+        icon="pi pi-th-large"
+        pButton
+        type="button"
+      ></button>
+
+      <button
+        class="p-button-secondary p-button-outlined p-button-icon-only"
+        icon="pi pi-bars"
+        pButton
+        type="button"
+      ></button>
+    </div>
+  </div>
+
+  <div class="docs-grid">
+    <div
+      (click)="toggleCard(d)"
+      *ngFor="let d of additionalDocs"
+      [class.disabled]="!d.fileId"
+      [class.selected]="d.selected"
+      class="doc-card"
+    >
+      <div class="doc-card-head">
+        <div class="doc-title">{{ d.doc.nameRu }}</div>
+
+        <button
+          (change)="onFileSelect($event)"
+          (click)="$event.stopPropagation()"
+          class="p-button-text p-button-sm"
+          icon="pi pi-pencil"
+          pButton
+          type="button"
+        ></button>
+      </div>
+
+      <div *ngIf="d.fileId" class="doc-meta">
+        <i class="pi pi-calendar"></i>
+        <span>{{ d.date | date:'dd.MM.yyyy HH:mm' }}</span>
+      </div>
+
+      <div *ngIf="d.fileId" class="doc-meta">
+        <i class="pi pi-file-pdf"></i>
+        <span>{{ d.fileName }}</span>
+      </div>
+
+      <div *ngIf="!d.fileId" class="doc-meta muted-text">
+        <i class="pi pi-times-circle"></i>
+        <span>Файл не загружен</span>
+      </div>
+
+      <div *ngIf="d.selected" class="selected-text">
+        <i class="pi pi-check"></i>
+        <span>Выбрано</span>
+      </div>
+    </div>
+  </div>
+</p-card>
+
+<p-dialog
+  (onHide)="onDialogHide()"
+  [(visible)]="pdfDialogVisible"
+  [draggable]="false"
+  [modal]="true"
+  [resizable]="false"
+  [style]="{ width: '90vw', height: '90vh' }"
+  header="Просмотр документов"
+>
+  <div *ngIf="selectedFiles.length" class="pdf-toolbar">
+    <button
+      (click)="prevPdf()"
+      [disabled]="currentPdfIndex === 0"
+      class="p-button-secondary p-button-outlined"
+      icon="pi pi-angle-left"
+      pButton
+      type="button"
+    ></button>
+
+    <div class="pdf-title">
+      {{ selectedFiles[currentPdfIndex]?.doc?.nameRu }}
+      <span class="pdf-counter">
+        {{ currentPdfIndex + 1 }} / {{ selectedFiles.length }}
+      </span>
+    </div>
+
+    <button
+      (click)="nextPdf()"
+      [disabled]="currentPdfIndex === selectedFiles.length - 1"
+      class="p-button-secondary p-button-outlined"
+      icon="pi pi-angle-right"
+      pButton
+      type="button"
+    ></button>
+  </div>
+
+  <div *ngIf="loadingPdf" class="pdf-loading">
+    Загрузка PDF...
+  </div>
+
+  <iframe
+    *ngIf="pdfSrc && !loadingPdf"
+    [src]="pdfSrc"
+    class="pdf-frame"
+  ></iframe>
+</p-dialog>

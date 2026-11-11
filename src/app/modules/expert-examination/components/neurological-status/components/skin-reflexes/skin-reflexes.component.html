@@ -1,0 +1,53 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SKIN_REFLEXES.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SKIN_REFLEXES.UPPER_ABDOMINAL'"
+    [(checked)]="model.upperAbdominal.checked"
+    [(comment)]="model.upperAbdominal.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SKIN_REFLEXES.MIDDLE_ABDOMINAL'"
+    [(checked)]="model.middleAbdominal.checked"
+    [(comment)]="model.middleAbdominal.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SKIN_REFLEXES.LOWER_ABDOMINAL'"
+    [(checked)]="model.lowerAbdominal.checked"
+    [(comment)]="model.lowerAbdominal.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SKIN_REFLEXES.CREMASTERIC'"
+    [(checked)]="model.cremasteric.checked"
+    [(comment)]="model.cremasteric.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SKIN_REFLEXES.ANAL'"
+    [(checked)]="model.anal.checked"
+    [(comment)]="model.anal.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SKIN_REFLEXES.GLUTEAL'"
+    [(checked)]="model.gluteal.checked"
+    [(comment)]="model.gluteal.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SKIN_REFLEXES.PLANTAR'"
+    [(checked)]="model.plantar.checked"
+    [(comment)]="model.plantar.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SKIN_REFLEXES.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

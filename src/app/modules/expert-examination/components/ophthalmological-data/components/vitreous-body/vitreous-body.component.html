@@ -1,0 +1,50 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VITREOUS_BODY.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VITREOUS_BODY.TRANSPARENT'"
+    [(checked)]="model.transparent.checked"
+    [(comment)]="model.transparent.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VITREOUS_BODY.NOT_OBSERVABLE'"
+    [(checked)]="model.notObservable.checked"
+    [(comment)]="model.notObservable.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VITREOUS_BODY.OPACITY'"
+    [(checked)]="model.opacity.checked"
+    [(comment)]="model.opacity.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VITREOUS_BODY.MARKED'"
+    [(checked)]="model.marked">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VITREOUS_BODY.MODERATELY_MARKED'"
+    [(checked)]="model.moderatelyMarked">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VITREOUS_BODY.TOTAL'"
+    [(checked)]="model.total">
+  </app-check-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VITREOUS_BODY.IMPREGNATED_WITH_HEME'"
+    [(checked)]="model.impregnatedWithHeme.checked"
+    [(comment)]="model.impregnatedWithHeme.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.VITREOUS_BODY.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

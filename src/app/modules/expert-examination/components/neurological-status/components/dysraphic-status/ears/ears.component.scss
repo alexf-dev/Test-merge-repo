@@ -1,0 +1,27 @@
+/* Пункт без сворачивания (по ТЗ): своя grid-сетка, как у строк block-body */
+:host {
+  display: block;
+  margin-left: 24px; /* подгони под фактический отступ nested-блоков, если отличается */
+  width: 100%;
+  min-width: 0;
+}
+
+.ears-section {
+  display: grid;
+  grid-template-columns: auto max-content 1fr;
+  column-gap: 16px;
+  row-gap: 8px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.ears-section app-check-field {
+  display: contents;
+}
+
+.ears-section app-textarea-field {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+}

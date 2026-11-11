@@ -1,0 +1,55 @@
+<p-dialog
+        (onHide)="onHide()"
+        (visibleChange)="visible = $event"
+        [baseZIndex]="11000"
+        [closable]="!saving"
+        [closeOnEscape]="!saving"
+        [dismissableMask]="false"
+        [draggable]="false"
+        [modal]="true"
+        [resizable]="false"
+        [style]="{ width: '450px', maxWidth: '95vw' }"
+        [visible]="visible"
+        appendTo="body"
+        header="Причина доработки">
+
+    <label class="block mb-2 font-bold" for="revisionReason">
+        Укажите причину доработки
+    </label>
+
+    <textarea
+            [(ngModel)]="revisionReason"
+            [disabled]="saving"
+            [ngModelOptions]="{ standalone: true }"
+            class="w-full"
+            id="revisionReason"
+            pInputTextarea
+            placeholder="Причина доработки"
+            rows="5">
+  </textarea>
+
+    <small *ngIf="errorMessage" class="block mt-2 text-red-500">
+        {{ errorMessage }}
+    </small>
+
+    <ng-template pTemplate="footer">
+        <button
+                (click)="close()"
+                [disabled]="saving"
+                class="p-button-text"
+                label="Отмена"
+                pButton
+                type="button">
+        </button>
+
+        <button
+                (click)="save()"
+                [disabled]="saving || actId == null || !revisionReason.trim()"
+                [loading]="saving"
+                icon="pi pi-check"
+                label="Сохранить"
+                pButton
+                type="button">
+        </button>
+    </ng-template>
+</p-dialog>

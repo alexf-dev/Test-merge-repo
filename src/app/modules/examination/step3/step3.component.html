@@ -1,0 +1,83 @@
+<div class="docs-card">
+  <div class="docs-header">
+    <h3>Обязательные документы</h3>
+  </div>
+  <table class="docs-table">
+    <thead>
+    <tr>
+      <th>Код</th>
+      <th>Наименование</th>
+      <th>Дата запроса</th>
+      <th>Запрос</th>
+      <th>Прикрепить</th>
+      <th>Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Пример обычной строки -->
+    <tr>
+      <td>6476543</td>
+      <td>031 форма</td>
+      <td>02.09.2013</td>
+      <td><button class="request-btn">Запросить <span class="refresh-icon"></span></button></td>
+      <td><button class="attach-btn"><span class="attach-icon"></span> Прикрепить</button></td>
+      <td><button class="view-btn">Посмотреть</button></td>
+    </tr>
+    <!-- Внешний аккордеон -->
+    <tr class="accordion-row" (click)="toggleMainAccordion()">
+      <td colspan="6">
+        <span class="accordion-arrow" [ngClass]="{'open': mainAccordionOpen}"></span>
+        Приложения к форме 031-у
+      </td>
+    </tr>
+    <tr *ngIf="mainAccordionOpen" class="accordion-content">
+      <td colspan="6" style="padding: 0">
+        <!-- Внутренние аккордеоны -->
+        <div class="inner-accordion" (click)="toggleSubAccordion(0)">
+          <span class="accordion-arrow small" [ngClass]="{'open': subAccordions[0]}"></span>
+          Результаты консультации специалистов
+        </div>
+        <div *ngIf="subAccordions[0]" class="inner-content">
+          <p>Здесь может быть контент по результатам консультаций специалистов.</p>
+        </div>
+
+        <div class="inner-accordion" (click)="toggleSubAccordion(1)">
+          <span class="accordion-arrow small" [ngClass]="{'open': subAccordions[1]}"></span>
+          Результаты клинического, лабораторного, рентгенологического и других исследований;
+        </div>
+        <div *ngIf="subAccordions[1]" class="inner-content">
+          <p>Здесь может быть контент по лабораторным и другим исследованиям.</p>
+        </div>
+
+        <div class="inner-accordion" (click)="toggleSubAccordion(2)">
+          <span class="accordion-arrow small" [ngClass]="{'open': subAccordions[2]}"></span>
+          Результаты по пролеченным (-ых), случаев(-ях) стационарного, стационарозамещающего лечения, лечения в реабилитационных центрах в зависимости от профиля заболевания...
+        </div>
+        <div *ngIf="subAccordions[2]" class="inner-content">
+          <p>Здесь может быть информация по результатам лечения.</p>
+        </div>
+      </td>
+    </tr>
+    <!-- Остальные строки -->
+    <tr>
+      <td>6476543</td>
+      <td>Медицинская карта амбулаторного пациента для анализа динамики заболевания</td>
+      <td>02.09.2013</td>
+      <td><button class="request-btn">Запросить <span class="refresh-icon"></span></button></td>
+      <td><button class="attach-btn"><span class="attach-icon"></span> Прикрепить</button></td>
+      <td><button class="view-btn">Посмотреть</button></td>
+    </tr>
+    <tr>
+      <td>6476543</td>
+      <td>Удостоверение личности гражданина Республики Казахстан</td>
+      <td>02.09.2013</td>
+      <td><button class="request-btn">Запросить <span class="refresh-icon"></span></button></td>
+      <td><button class="attach-btn"><span class="attach-icon"></span> Прикрепить</button></td>
+      <td><button class="view-btn">Посмотреть</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<app-step3additional-documents></app-step3additional-documents>

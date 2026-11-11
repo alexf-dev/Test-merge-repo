@@ -1,0 +1,18 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.SURGICAL_PATHOLOGY_DATA.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox
+        [(ngModel)]="model.hasSurgicalPathology"
+        [binary]="true"
+        inputId="hasSurgicalPathology">
+      </p-checkbox>
+      <label for="hasSurgicalPathology">
+        {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.SURGICAL_PATHOLOGY_DATA.HAS_SURGICAL_PATHOLOGY' | translate }}
+      </label>
+    </div>
+  </div>
+
+</app-collapsible-block>

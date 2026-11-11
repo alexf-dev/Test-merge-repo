@@ -1,0 +1,30 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'DIAGNOSTICS_SECTION'">
+
+  <app-dropdown-field
+    [labelKey]="translationPrefix + 'REHABILITATION_POTENTIAL'"
+    [optionKeys]="rehabilitationPotentialOptions"
+    [(value)]="model.rehabilitationPotential">
+  </app-dropdown-field>
+
+  <!-- Реабилитационный прогноз -->
+  <div class="fields-row">
+    <app-dropdown-field
+      class="fields-row__main"
+      [labelKey]="translationPrefix + 'REHABILITATION_PROGNOSIS'"
+      [optionKeys]="rehabilitationPrognosisOptions"
+      [(value)]="model.rehabilitationPrognosis">
+    </app-dropdown-field>
+
+    <app-text-input-field
+      class="fields-row__comment"
+      [(value)]="model.rehabilitationPrognosisComment">
+    </app-text-input-field>
+  </div>
+
+  <app-dropdown-field
+    [labelKey]="translationPrefix + 'CLINICAL_PROGNOSIS'"
+    [optionKeys]="clinicalPrognosisOptions"
+    [(value)]="model.clinicalPrognosis">
+  </app-dropdown-field>
+
+</app-collapsible-block>

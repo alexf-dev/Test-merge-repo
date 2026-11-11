@@ -1,0 +1,30 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.GENERAL_CONDITION.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.GENERAL_CONDITION.SATISFACTORY'"
+    [(checked)]="model.satisfactory">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.GENERAL_CONDITION.RELATIVELY_SATISFACTORY'"
+    [(checked)]="model.relativelySatisfactory">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.GENERAL_CONDITION.MODERATE'"
+    [(checked)]="model.moderate">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.GENERAL_CONDITION.SEVERE'"
+    [(checked)]="model.severe">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.GENERAL_CONDITION.EXTREMELY_SEVERE'"
+    [(checked)]="model.extremelySevere">
+  </app-check-field>
+
+</app-collapsible-block>

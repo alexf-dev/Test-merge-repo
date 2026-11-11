@@ -1,0 +1,168 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card>
+      <ng-template pTemplate="title">
+        Обязательные документы
+      </ng-template>
+
+      <p-table
+        [value]="mandatoryDocs"
+        [expandedRowKeys]="expandedRowKeys"
+        dataKey="id"
+        responsiveLayout="scroll"
+        styleClass="p-datatable-sm"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Наименование</th>
+            <th style="width: 140px">Дата запроса</th>
+            <th style="width: 140px">Запрос</th>
+            <th style="width: 150px">Прикрепить</th>
+            <th style="width: 140px">Действие</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-row>
+          <tr>
+            <td>
+              <div class="doc-name">
+                {{ row.name }}
+              </div>
+            </td>
+            <td class="muted-text"></td>
+            <td></td>
+            <td></td>
+            <td>
+              <button
+                *ngIf="row.id == 'f031'"
+                pButton
+                type="button"
+                icon="pi pi-eye"
+                label="Посмотреть"
+                class="p-button-outlined p-button-secondary p-button-sm"
+                (click)="onView(row)"
+              ></button>
+            </td>
+          </tr>
+
+          <tr class="expanded-row">
+            <td colspan="5">
+              <div class="expanded-content">
+                <div *ngIf="row.id == 'f031'" class="nested-section">
+                  <app-form-documents [mainId]="mainId"></app-form-documents>
+                </div>
+
+                <div *ngIf="patientId && row.miniData" class="nested-section">
+                  <app-identity-card [historyId]="462"></app-identity-card>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+
+    <p-card *ngIf="patientId" class="mt-3">
+      <ng-template pTemplate="title">
+        Данные справки об инвалидности (для истории)
+      </ng-template>
+
+      <div class="formgrid grid p-fluid">
+        <div class="field col-12 md:col-4">
+          <label for="disabilityNo">№ справки</label>
+          <input
+            [(ngModel)]="disabilityRef.no"
+            id="disabilityNo"
+            name="disabilityNo"
+            pInputText
+            type="text"
+          />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="disabilityDate">Дата выдачи справки</label>
+          <p-calendar
+            [(ngModel)]="disabilityRef.date"
+            [showIcon]="true"
+            dateFormat="dd.mm.yy"
+            id="disabilityDate"
+            name="disabilityDate"
+            appendTo="body"
+          ></p-calendar>
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="issuedBy">Кем выдан</label>
+          <input
+            [(ngModel)]="disabilityRef.issuedBy"
+            id="issuedBy"
+            name="issuedBy"
+            pInputText
+            type="text"
+          />
+        </div>
+      </div>
+    </p-card>
+
+    <div class="mt-3">
+      <app-additional-documents
+        *ngIf="patientId"
+        [patientId]="patientId"
+        [type]="'additional'"
+      ></app-additional-documents>
+    </div>
+    <div class="mt-3">
+      <app-additional-documents
+        *ngIf="patientId"
+        [patientId]="patientId"
+        [type]="'composite'"
+      ></app-additional-documents>
+    </div>
+  </div>
+</div>
+
+<p-dialog
+  [(visible)]="pdfDialogVisible"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '85vw' }"
+  [contentStyle]="{ height: '85vh', overflow: 'hidden', padding: '0' }"
+  header="Просмотр документа"
+  (onHide)="closePdfDialog()"
+>
+  <ng-container *ngIf="loadingPdf">
+    <div class="pdf-loading">
+      Загрузка PDF...
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!loadingPdf && pdfUrl">
+    <iframe
+      [src]="pdfUrl"
+      width="100%"
+      height="100%"
+      style="border: none;"
+    ></iframe>
+  </ng-container>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      type="button"
+      icon="pi pi-download"
+      label="Скачать"
+      class="p-button-outlined p-button-secondary"
+      (click)="downloadPdf()"
+    ></button>
+
+    <button
+      pButton
+      type="button"
+      icon="pi pi-times"
+      label="Закрыть"
+      class="p-button-secondary"
+      (click)="closePdfDialog()"
+    ></button>
+  </ng-template>
+</p-dialog>

@@ -1,0 +1,21 @@
+<p-toast [position]="'top-right'">
+    <ng-template let-message pTemplate="message">
+        <div style="display: flex; align-items: center; width: 90%">
+            <i
+                class="p-toast-message-icon pi"
+                [ngClass]="{'pi-times-circle': message.severity === 'error',
+                               'pi-exclamation-triangle': message.severity === 'warn',
+                               'pi-check-circle': message.severity === 'success',
+                               'pi-info-circle': message.severity === 'info'
+                              }"
+            >
+            </i>
+            <div class="p-toast-message-text" data-pc-section="text">
+                <div class="p-toast-summary" data-pc-section="summary">
+                    {{ message.summary }}
+                </div>
+                <div class="p-toast-detail" [innerHtml]="message.detail"></div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

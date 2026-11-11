@@ -1,0 +1,854 @@
+<div class="dashboard-page">
+
+  <main class="content">
+    <h1 class="page-title">Главная</h1>
+
+    <section class="role-buttons">
+      <button
+        (click)="changeRole('HEAD')"
+        [class.active]="currentRole === 'HEAD'"
+        class="role-btn"
+        type="button">
+        Руководитель
+      </button>
+
+      <button
+        (click)="changeRole('EXPERT')"
+        [class.active]="currentRole === 'EXPERT'"
+        class="role-btn"
+        type="button">
+        Эксперт
+      </button>
+
+      <button
+        (click)="changeRole('OMK_HEAD')"
+        [class.active]="currentRole === 'OMK_HEAD'"
+        class="role-btn"
+        type="button">
+        Руководитель ОМК
+      </button>
+
+      <button
+        (click)="changeRole('OMK_EMPLOYEE')"
+        [class.active]="currentRole === 'OMK_EMPLOYEE'"
+        class="role-btn"
+        type="button">
+        Сотрудник ОМК
+      </button>
+
+
+      <button
+        (click)="changeRole('DEPUTY_DIRECTOR')"
+        [class.active]="currentRole === 'DEPUTY_DIRECTOR'"
+        class="role-btn"
+        type="button">
+        Заместитель директора
+      </button>
+
+      <button
+        (click)="changeRole('COMMITTEE')"
+        [class.active]="currentRole === 'COMMITTEE'"
+        class="role-btn"
+        type="button">
+        Комитет
+      </button>
+    </section>
+
+    <section aria-label="Фильтры" class="filters">
+      <p-calendar
+        [(ngModel)]="dateRange"
+        [showIcon]="true"
+        dateFormat="dd.mm.yy"
+        inputStyleClass="filter-input"
+        placeholder="Oct 17, 2024 - Nov 6, 2024"
+        selectionMode="range"
+        styleClass="filter-control date-filter">
+      </p-calendar>
+
+      <p-dropdown
+        [(ngModel)]="selectedCaseType"
+        [options]="caseTypes"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Тип дел"
+        styleClass="filter-control">
+      </p-dropdown>
+
+      <p-dropdown
+        [(ngModel)]="selectedStatus"
+        [options]="statuses"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Статус"
+        styleClass="filter-control status-filter">
+      </p-dropdown>
+
+      <p-button
+        (onClick)="resetFilters()"
+        icon="pi pi-times"
+        iconPos="right"
+        label="Сбросить"
+        severity="secondary"
+        styleClass="reset-button">
+      </p-button>
+    </section>
+
+    <!-- Роль: Руководитель -->
+    <ng-container *ngIf="hasHeadRole()">
+      <section class="overview-grid head-overview">
+        <div class="metrics-grid head-metrics">
+          <article
+            *ngFor="let item of dashboard.metricCards"
+            [class.metric-blue]="item.variant === 'blue'"
+            [class.metric-cyan]="item.variant === 'cyan'"
+            [class.metric-green]="item.variant === 'green'"
+            [class.metric-red]="item.variant === 'red'"
+            [class.metric-yellow]="item.variant === 'yellow'"
+            class="metric-card">
+            <div class="metric-icon">
+              <i [class]="item.icon"></i>
+            </div>
+            <div class="metric-value">{{ item.value }}</div>
+            <div class="metric-title">{{ item.title }}</div>
+          </article>
+        </div>
+
+        <article *ngIf="dashboard.inPersonSummary as summary" class="summary-card">
+          <h2 class="summary-title">
+            {{ summary.title }}
+            <span>{{ summary.total }}</span>
+          </h2>
+
+          <button *ngFor="let item of summary.items" class="summary-row" type="button">
+            <span>{{ item.title }}</span>
+            <strong>{{ item.count }}</strong>
+            <i class="pi pi-chevron-right"></i>
+          </button>
+        </article>
+
+        <article class="summary-card">
+          <h2 class="summary-title">
+            {{ dashboard.absentiaSummary.title }}
+            <span>{{ dashboard.absentiaSummary.total }}</span>
+          </h2>
+
+          <button *ngFor="let item of dashboard.absentiaSummary.items" class="summary-row" type="button">
+            <span>{{ item.title }}</span>
+            <strong>{{ item.count }}</strong>
+            <i class="pi pi-chevron-right"></i>
+          </button>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Присвоение номера справки</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.certificateCases || []" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>Статус</th>
+                <th>В заочке с</th>
+                <th>Дедлайн</th>
+                <th>Действия</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+                <td>{{ row.status }}</td>
+                <td>{{ row.absentiaDate }}</td>
+                <td>{{ row.deadline }}</td>
+                <td>
+                  <button class="row-action" icon="pi pi-ellipsis-h" pButton severity="secondary"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Ожидает рассмотрения на чате</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.chatCases || []" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>Регион</th>
+                <th>В статусе с</th>
+                <th>Ответственный</th>
+                <th>Дней на чате</th>
+                <th>Действия</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+                <td>{{ row.region }}</td>
+                <td>{{ row.statusDate }}</td>
+                <td>{{ row.responsible }}</td>
+                <td>{{ row.chatDays }}</td>
+                <td>
+                  <button class="row-action" icon="pi pi-ellipsis-h" pButton severity="secondary"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Дела на рассмотрении</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.reviewCases" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>Эксперт</th>
+                <th>В заочке с</th>
+                <th>Ожидается</th>
+                <th>Действия</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+                <td>{{ row.expert }}</td>
+                <td>{{ row.absentiaDate }}</td>
+                <td>{{ row.waitingDays }}</td>
+                <td>
+                  <button class="row-action" icon="pi pi-ellipsis-h" pButton severity="secondary"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Ожидает приема по электронной очереди</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.queueCases || []" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Дата записи</th>
+                <th>Дата приема</th>
+                <th>Время приема</th>
+                <th>ИИН</th>
+                <th>Отдел МСЭ</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td>{{ row.recordDate }}</td>
+                <td>{{ row.receptionDate }}</td>
+                <td>{{ row.receptionTime }}</td>
+                <td>{{ row.iin }}</td>
+                <td>{{ row.mseDepartment }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+      </section>
+    </ng-container>
+
+    <!-- Роль: Руководитель ОМК -->
+    <ng-container *ngIf="hasOmkHeadRole()">
+      <section class="omk-top-grid">
+        <div class="metrics-grid omk-metrics">
+          <article
+            *ngFor="let item of dashboard.metricCards"
+            [class.metric-blue]="item.variant === 'blue'"
+            [class.metric-cyan]="item.variant === 'cyan'"
+            [class.metric-green]="item.variant === 'green'"
+            [class.metric-red]="item.variant === 'red'"
+            [class.metric-yellow]="item.variant === 'yellow'"
+            class="metric-card">
+            <div class="metric-icon">
+              <i [class]="item.icon"></i>
+            </div>
+            <div class="metric-value">{{ item.value }}</div>
+            <div class="metric-title">{{ item.title }}</div>
+          </article>
+        </div>
+
+        <article class="consultation-card">
+          <h2>На консультации</h2>
+          <p>Среднее время: {{ dashboard.consultationAverageDays }}</p>
+
+          <div class="gauge">
+            <div class="gauge-arc">
+              <span>{{ dashboard.consultationGaugeValue }}</span>
+            </div>
+          </div>
+
+          <div class="gauge-legend">
+            <span class="legend-item legend-green">&gt;2 дня</span>
+            <span class="legend-item legend-lime">2 дня</span>
+            <span class="legend-item legend-orange">3-5 дн.</span>
+            <span class="legend-item legend-red">5+ дн.</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="omk-summary-grid">
+        <article *ngIf="dashboard.inPersonSummary as summary" class="summary-card">
+          <h2 class="summary-title">
+            {{ summary.title }}
+            <span>{{ summary.total }}</span>
+          </h2>
+
+          <button *ngFor="let item of summary.items" class="summary-row" type="button">
+            <span>{{ item.title }}</span>
+            <strong>{{ item.count }}</strong>
+            <i class="pi pi-chevron-right"></i>
+          </button>
+        </article>
+
+        <article class="summary-card">
+          <h2 class="summary-title">
+            {{ dashboard.absentiaSummary.title }}
+            <span>{{ dashboard.absentiaSummary.total }}</span>
+          </h2>
+
+          <button *ngFor="let item of dashboard.absentiaSummary.items" class="summary-row" type="button">
+            <span>{{ item.title }}</span>
+            <strong>{{ item.count }}</strong>
+            <i class="pi pi-chevron-right"></i>
+          </button>
+        </article>
+      </section>
+
+      <section class="tables-grid omk-tables">
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Дела направленные на консультацию</h2>
+            <a href="javascript:void(0)">Перейти ко всем делам</a>
+          </div>
+
+          <p-table [value]="dashboard.consultationCases || []" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>Отправлено</th>
+                <th>Сколько дней</th>
+                <th>Цель на консультации</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+                <td>{{ row.sentBy }}</td>
+                <td>{{ row.days }}</td>
+                <td>{{ row.purpose }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Просроченные дела (обжалования)</h2>
+            <a href="javascript:void(0)">Перейти ко всем делам</a>
+          </div>
+
+          <p-table [value]="dashboard.overdueAppealCases || []" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>№ обж.</th>
+                <th>В заочке с</th>
+                <th>Дедлайн</th>
+                <th>Просрочка</th>
+                <th>Ответственный</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+                <td>{{ row.appealNumber }}</td>
+                <td>{{ row.absentiaDate }}</td>
+                <td>{{ row.deadline }}</td>
+                <td class="overdue-text">{{ row.overdueDays }}</td>
+                <td>{{ row.responsible }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+      </section>
+    </ng-container>
+
+    <!-- Роль: Сотрудник ОМК -->
+    <ng-container *ngIf="hasOmkEmployeeRole()">
+      <section class="overview-grid omk-employee-overview">
+        <div class="metrics-grid omk-employee-metrics">
+          <article
+            *ngFor="let item of dashboard.metricCards"
+            [class.metric-blue]="item.variant === 'blue'"
+            [class.metric-cyan]="item.variant === 'cyan'"
+            [class.metric-green]="item.variant === 'green'"
+            [class.metric-red]="item.variant === 'red'"
+            [class.metric-yellow]="item.variant === 'yellow'"
+            class="metric-card employee-metric-card">
+            <div class="metric-icon">
+              <i [class]="item.icon"></i>
+            </div>
+            <div class="metric-value">{{ item.value }}</div>
+            <div class="metric-title">{{ item.title }}</div>
+          </article>
+        </div>
+
+        <article class="summary-card employee-summary">
+          <h2 class="summary-title">
+            {{ dashboard.absentiaSummary.title }}
+            <span>{{ dashboard.absentiaSummary.total }}</span>
+          </h2>
+
+          <button *ngFor="let item of dashboard.absentiaSummary.items" class="summary-row" type="button">
+            <span>{{ item.title }}</span>
+            <strong>{{ item.count }}</strong>
+            <i class="pi pi-chevron-right"></i>
+          </button>
+        </article>
+      </section>
+
+      <section class="tables-grid employee-tables">
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Ожидает распределения</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.pendingDistributionCases || []" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>В заочке с</th>
+                <th>Дедлайн</th>
+                <th>Действия</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+                <td>{{ row.absentiaDate }}</td>
+                <td>{{ row.deadline }}</td>
+                <td>
+                  <button class="row-action" icon="pi pi-ellipsis-h" pButton severity="secondary"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Дела на рассмотрении обжалования</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.reviewCases" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>Эксперт</th>
+                <th>В заочке с</th>
+                <th>Ожидается</th>
+                <th>Действия</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+                <td>{{ row.expert }}</td>
+                <td>{{ row.absentiaDate }}</td>
+                <td>{{ row.waitingDays }}</td>
+                <td>
+                  <button class="row-action" icon="pi pi-ellipsis-h" pButton severity="secondary"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+
+        <article class="table-card employee-wide-card">
+          <div class="card-header">
+            <h2>Просроченные обжалования</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.chatCases || []" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>Регион</th>
+                <th>В заочке с</th>
+                <th>Ответственный</th>
+                <th>Дней на чате</th>
+                <th>Действия</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+                <td>{{ row.region }}</td>
+                <td>{{ row.statusDate }}</td>
+                <td>{{ row.responsible }}</td>
+                <td>{{ row.chatDays }}</td>
+                <td>
+                  <button class="row-action" icon="pi pi-ellipsis-h" pButton severity="secondary"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+      </section>
+    </ng-container>
+
+    <!-- Роль: Заместитель директора -->
+    <ng-container *ngIf="hasDeputyDirectorRole()">
+      <section class="overview-grid deputy-overview">
+        <div class="metrics-grid deputy-metrics">
+          <article
+            *ngFor="let item of dashboard.metricCards"
+            [class.metric-blue]="item.variant === 'blue'"
+            [class.metric-cyan]="item.variant === 'cyan'"
+            [class.metric-green]="item.variant === 'green'"
+            [class.metric-red]="item.variant === 'red'"
+            [class.metric-yellow]="item.variant === 'yellow'"
+            class="metric-card">
+            <div class="metric-icon">
+              <i [class]="item.icon"></i>
+            </div>
+            <div class="metric-value">{{ item.value }}</div>
+            <div class="metric-title">{{ item.title }}</div>
+          </article>
+        </div>
+
+        <article class="consultation-card waitlist-card">
+          <h2>Лист ожидания</h2>
+          <p>Цель:<br>{{ dashboard.consultationAverageDays }}</p>
+
+          <div class="gauge">
+            <div class="gauge-arc gauge-arc-percent">
+              <span>{{ dashboard.consultationGaugeValue }}%</span>
+            </div>
+          </div>
+        </article>
+
+        <article *ngIf="dashboard.inPersonSummary as summary" class="summary-card deputy-summary">
+          <h2 class="summary-title">
+            {{ summary.title }}
+            <span>{{ summary.total }}</span>
+          </h2>
+
+          <button *ngFor="let item of summary.items" class="summary-row" type="button">
+            <span>{{ item.title }}</span>
+            <strong>{{ item.count }}</strong>
+            <i class="pi pi-chevron-right"></i>
+          </button>
+        </article>
+      </section>
+
+      <section class="tables-grid deputy-tables">
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Просроченные дела (основные)</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.deputyMainOverdueCases || []" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>В заочке с</th>
+                <th>Дедлайн</th>
+                <th>Просрочка</th>
+                <th>Ответственный</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td>{{ row.caseNumber }}</td>
+                <td>{{ row.absentiaDate }}</td>
+                <td>{{ row.deadline }}</td>
+                <td class="overdue-text">{{ row.overdueDays }}</td>
+                <td>{{ row.responsible }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Просроченные дела (обжалования)</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.deputyAppealCases || []" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>В заочке с</th>
+                <th>Дедлайн</th>
+                <th>Ответственный</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td>{{ row.caseNumber }}</td>
+                <td>{{ row.absentiaDate }}</td>
+                <td>{{ row.deadline }}</td>
+                <td>{{ row.responsible }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+      </section>
+    </ng-container>
+
+
+    <!-- Роль: Комитет -->
+    <ng-container *ngIf="hasCommitteeRole()">
+      <section class="overview-grid committee-overview">
+        <div class="metrics-grid committee-metrics">
+          <article
+            *ngFor="let item of dashboard.metricCards"
+            [class.metric-blue]="item.variant === 'blue'"
+            [class.metric-cyan]="item.variant === 'cyan'"
+            [class.metric-green]="item.variant === 'green'"
+            [class.metric-red]="item.variant === 'red'"
+            [class.metric-yellow]="item.variant === 'yellow'"
+            class="metric-card">
+            <div class="metric-icon">
+              <i [class]="item.icon"></i>
+            </div>
+            <div class="metric-value">{{ item.value }}</div>
+            <div class="metric-title">{{ item.title }}</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="committee-analytics-grid">
+        <article class="table-card chart-card">
+          <div class="card-header chart-header">
+            <h2>Просроченные дела по срокам <span class="header-count">12</span></h2>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-y-axis">
+              <span>50</span>
+              <span>40</span>
+              <span>30</span>
+              <span>20</span>
+              <span>0</span>
+            </div>
+            <div class="bar-chart-body">
+              <div class="bar-grid-lines">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="bars-row">
+                <div *ngFor="let bar of committeeBars" class="bar-group">
+                  <div class="bar-track">
+                    <div [class.bar-fill-red]="bar.tone === 'red'" [style.height.%]="bar.value * 2" class="bar-fill">
+                      <span>{{ bar.value }}</span>
+                    </div>
+                  </div>
+                  <div class="bar-label">{{ bar.label }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bar-footer-label">Кол-во человек</div>
+        </article>
+
+        <article class="table-card map-card">
+          <div class="card-header chart-header">
+            <h2>Топ регионы по просрочке</h2>
+          </div>
+
+          <div class="map-area">
+            <img
+              alt="Карта Казахстана"
+              class="kaz-map-img"
+              src="assets/images/map.jpg"/>
+
+            <div
+              *ngFor="let marker of committeeTopRegions"
+              [style.left]="marker.left"
+              [style.top]="marker.top"
+              class="map-marker red">
+              {{ marker.value }}
+            </div>
+          </div>
+        </article>
+
+        <article class="table-card map-card">
+          <div class="card-header chart-header chart-header-stack">
+            <h2>Объединение ИИН</h2>
+          </div>
+
+          <div class="map-area">
+            <img
+              alt="Карта Казахстана"
+              class="kaz-map-img"
+              src="assets/images/map.jpg"/>
+
+            <div
+              *ngFor="let marker of committeeIinMarkers"
+              [style.left]="marker.left"
+              [style.top]="marker.top"
+              class="map-marker cyan">
+              {{ marker.value }}
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="table-card committee-table-card">
+        <div class="committee-tabs">
+          <button
+            (click)="setCommitteeTab(tab.value)"
+            *ngFor="let tab of committeeTabs"
+            [class.committee-tab-active]="committeeActiveTab === tab.value"
+            class="committee-tab"
+            type="button">
+            {{ tab.label }}
+          </button>
+        </div>
+
+        <p-table [value]="activeCommitteeRows" styleClass="dashboard-table committee-table">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>№ дела</th>
+              <th>Регион</th>
+              <th>В заочке с</th>
+              <th>Дедлайн</th>
+              <th>Просрочка</th>
+              <th>Ответственный</th>
+              <th>Причина</th>
+            </tr>
+          </ng-template>
+          <ng-template let-row pTemplate="body">
+            <tr>
+              <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+              <td>{{ row.region }}</td>
+              <td>{{ row.absentiaDate }}</td>
+              <td>{{ row.deadline }}</td>
+              <td class="overdue-text">{{ row.overdue }}</td>
+              <td>{{ row.responsible }}</td>
+              <td>{{ row.reason }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </section>
+    </ng-container>
+
+    <!-- Роль: Эксперт -->
+    <ng-container *ngIf="hasExpertRole()">
+      <section class="overview-grid expert-overview">
+        <div class="metrics-grid expert-metrics">
+          <article
+            *ngFor="let item of dashboard.metricCards"
+            [class.metric-blue]="item.variant === 'blue'"
+            [class.metric-cyan]="item.variant === 'cyan'"
+            [class.metric-green]="item.variant === 'green'"
+            [class.metric-red]="item.variant === 'red'"
+            [class.metric-yellow]="item.variant === 'yellow'"
+            class="metric-card">
+            <div class="metric-icon">
+              <i [class]="item.icon"></i>
+            </div>
+            <div class="metric-value">{{ item.value }}</div>
+            <div class="metric-title">{{ item.title }}</div>
+          </article>
+        </div>
+
+        <article class="summary-card expert-summary">
+          <h2 class="summary-title">
+            {{ dashboard.absentiaSummary.title }}
+            <span>{{ dashboard.absentiaSummary.total }}</span>
+          </h2>
+
+          <button *ngFor="let item of dashboard.absentiaSummary.items" class="summary-row" type="button">
+            <span>{{ item.title }}</span>
+            <strong>{{ item.count }}</strong>
+            <i class="pi pi-chevron-right"></i>
+          </button>
+        </article>
+      </section>
+
+      <section class="tables-grid expert-tables">
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Дела на рассмотрении</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.reviewCases" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>Эксперт</th>
+                <th>В заочке с</th>
+                <th>В работе, дн.</th>
+                <th>Действия</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+                <td>{{ row.expert }}</td>
+                <td>{{ row.absentiaDate }}</td>
+                <td>{{ row.waitingDays }}</td>
+                <td>
+                  <button class="row-action" icon="pi pi-ellipsis-h" pButton severity="secondary"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+
+        <article class="table-card">
+          <div class="card-header">
+            <h2>Просроченные</h2>
+            <a href="javascript:void(0)">Перейти</a>
+          </div>
+
+          <p-table [value]="dashboard.overdueCases || []" styleClass="dashboard-table">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>№ дела</th>
+                <th>Эксперт</th>
+                <th>В заочке с</th>
+                <th>Просрочено</th>
+                <th>Действия</th>
+              </tr>
+            </ng-template>
+            <ng-template let-row pTemplate="body">
+              <tr>
+                <td><a class="case-link" href="javascript:void(0)">{{ row.caseNumber }}</a></td>
+                <td>{{ row.expert }}</td>
+                <td>{{ row.absentiaDate }}</td>
+                <td class="overdue-text">{{ row.overdueDays }}</td>
+                <td>
+                  <button class="row-action" icon="pi pi-ellipsis-h" pButton severity="secondary"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </article>
+      </section>
+    </ng-container>
+  </main>
+</div>

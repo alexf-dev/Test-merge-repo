@@ -1,0 +1,130 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+// Frame 3 - внешний контейнер страницы
+.expert-examination-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0; // 🔥 Убираем внешний padding
+  gap: 0; // 🔥 Убираем gap
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+// Frame 1618868227 - внутренний контейнер с заголовком и контентом
+.expert-examination-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 16px; // 🔥 Оставляем только gap между заголовком и контентом
+  width: 100%;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+// Заголовок страницы
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--neutral-text-primary, #262626);
+  margin: 0;
+  line-height: 32px;
+}
+
+// Двухколоночная структура: меню + форма
+.expert-examination-wrapper {
+  display: flex;
+  gap: 16px; // 🔥 Gap между меню и формой
+  width: 100%;
+  align-items: flex-start;
+}
+
+// Левое меню разделов
+.expert-examination-sidebar {
+  width: 264px;
+  flex-shrink: 0;
+  background: var(--app-surface-panel);
+  border-radius: 8px;
+  padding: 12px;
+
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        .menu-item {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 12px 8px;
+          gap: 4px;
+          width: 240px;
+          min-height: 40px;
+          box-sizing: border-box;
+          border-radius: 4px;
+          cursor: pointer;
+          text-decoration: none;
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          font-weight: 400;  /* Regular для неактивных */
+          font-style: normal;
+          line-height: 145%;
+          letter-spacing: 0%;
+          color: var(--app-text);  /* gray-700 для неактивных */
+          background: transparent;
+          transition: all 0.2s ease;
+          flex: none;
+          flex-grow: 0;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.04);
+          }
+
+          // Активный пункт меню (выделенный)
+          &.active-menu-item {
+            background: var(--app-border-light);
+            color: var(--app-text);
+            font-weight: 700;  /* Bold для активного */
+          }
+        }
+      }
+    }
+  }
+}
+
+// Основной контент (форма)
+.expert-examination-content {
+  flex: 1;
+  padding: 0;
+}
+
+/* CBDI v3: responsive left sidebar for the expert-examination shell. */
+@media (max-width: 900px) {
+  .expert-examination-wrapper {
+    flex-direction: column;
+    min-width: 0;
+  }
+  .expert-examination-sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
+  .expert-examination-sidebar .sidebar-menu .menu-list li .menu-item {
+    width: 100%;
+  }
+  .expert-examination-content {
+    width: 100%;
+    min-width: 0;
+  }
+}

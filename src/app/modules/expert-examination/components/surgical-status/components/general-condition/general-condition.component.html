@@ -1,0 +1,62 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GENERAL_CONDITION.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox
+        [(ngModel)]="model.satisfactory"
+        [binary]="true"
+        inputId="satisfactory">
+      </p-checkbox>
+      <label for="satisfactory">
+        {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GENERAL_CONDITION.SATISFACTORY' | translate }}
+      </label>
+    </div>
+
+    <div class="checkbox-item">
+      <p-checkbox
+        [(ngModel)]="model.relativelySatisfactory"
+        [binary]="true"
+        inputId="relativelySatisfactory">
+      </p-checkbox>
+      <label for="relativelySatisfactory">
+        {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GENERAL_CONDITION.RELATIVELY_SATISFACTORY' | translate }}
+      </label>
+    </div>
+
+    <div class="checkbox-item">
+      <p-checkbox
+        [(ngModel)]="model.moderate"
+        [binary]="true"
+        inputId="moderate">
+      </p-checkbox>
+      <label for="moderate">
+        {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GENERAL_CONDITION.MODERATE' | translate }}
+      </label>
+    </div>
+
+    <div class="checkbox-item">
+      <p-checkbox
+        [(ngModel)]="model.severe"
+        [binary]="true"
+        inputId="severe">
+      </p-checkbox>
+      <label for="severe">
+        {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GENERAL_CONDITION.SEVERE' | translate }}
+      </label>
+    </div>
+
+    <div class="checkbox-item">
+      <p-checkbox
+        [(ngModel)]="model.extremelySevere"
+        [binary]="true"
+        inputId="extremelySevere">
+      </p-checkbox>
+      <label for="extremelySevere">
+        {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GENERAL_CONDITION.EXTREMELY_SEVERE' | translate }}
+      </label>
+    </div>
+  </div>
+
+</app-collapsible-block>

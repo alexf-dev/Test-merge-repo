@@ -1,0 +1,19 @@
+<div class="dropdown-field-row">
+  <label class="row-label">{{ labelKey | translate }}</label>
+  <p-dropdown
+    [options]="optionKeys"
+    optionLabel="labelKey"
+    optionValue="value"
+    [ngModel]="value"
+    (ngModelChange)="onValue($event)"
+    [placeholder]="'MAIN.COMMON.SELECT' | translate"
+    styleClass="therapeutic-dropdown"
+  >
+    <ng-template pTemplate="item" let-item>
+      <span>{{ item.labelKey | translate }}</span>
+    </ng-template>
+    <ng-template pTemplate="selectedItem" let-item>
+      <span>{{ item.labelKey | translate }}</span>
+    </ng-template>
+  </p-dropdown>
+</div>

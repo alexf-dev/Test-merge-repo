@@ -1,0 +1,27 @@
+<div class="therapeutic-status-form">
+
+  <app-specialist-data [isExpanded]="isBlockExpanded(0)"></app-specialist-data>
+  <app-patient-condition [isExpanded]="isBlockExpanded(1)"></app-patient-condition>
+  <app-skin-and-mucous [isExpanded]="isBlockExpanded(2)"></app-skin-and-mucous>
+  <app-pharynx [isExpanded]="isBlockExpanded(3)"></app-pharynx>
+  <app-hair-nails [isExpanded]="isBlockExpanded(4)"></app-hair-nails>
+  <app-subcutaneous-fat [isExpanded]="isBlockExpanded(5)"></app-subcutaneous-fat>
+  <app-lymph-nodes [isExpanded]="isBlockExpanded(6)"></app-lymph-nodes>
+  <app-musculoskeletal [isExpanded]="isBlockExpanded(7)"></app-musculoskeletal>
+  <app-muscular-system [isExpanded]="isBlockExpanded(8)"></app-muscular-system>
+  <app-bone-muscle-system [isExpanded]="isBlockExpanded(9)"></app-bone-muscle-system>
+  <app-thyroid-gland [isExpanded]="isBlockExpanded(10)"></app-thyroid-gland>
+  <app-respiratory-system [isExpanded]="isBlockExpanded(11)"></app-respiratory-system>
+  <app-cardiovascular-system [isExpanded]="isBlockExpanded(12)"></app-cardiovascular-system>
+  <app-digestive-system [isExpanded]="isBlockExpanded(13)"></app-digestive-system>
+  <app-urinary-system [isExpanded]="isBlockExpanded(14)"></app-urinary-system>
+
+  <div class="form-actions">
+    <p-button
+      [label]="'MAIN.COMMON.SAVE' | translate"
+      styleClass="save-button"
+      (onClick)="onSave()">
+    </p-button>
+  </div>
+
+</div>

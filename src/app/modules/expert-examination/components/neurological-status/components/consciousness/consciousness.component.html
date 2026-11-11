@@ -1,0 +1,36 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CONSCIOUSNESS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CONSCIOUSNESS.CLEAR'"
+    [(checked)]="model.clear">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CONSCIOUSNESS.LIGHT_STUPOR'"
+    [(checked)]="model.lightStupor">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CONSCIOUSNESS.MODERATE_STUPOR'"
+    [(checked)]="model.moderateStupor">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CONSCIOUSNESS.PRONOUNCED_STUPOR'"
+    [(checked)]="model.pronouncedStupor">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CONSCIOUSNESS.PSYCHOMOTOR_AGITATION'"
+    [(checked)]="model.psychomotorAgitation">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CONSCIOUSNESS.COMMENT'"
+    [(value)]="model.comment"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

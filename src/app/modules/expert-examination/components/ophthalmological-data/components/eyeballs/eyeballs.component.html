@@ -1,0 +1,64 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.SYMMETRICAL'"
+    [(checked)]="model.symmetrical">
+  </app-check-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.SHIFTED_FORWARD'"
+    [(checked)]="model.shiftedForward.checked"
+    [(comment)]="model.shiftedForward.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.SHIFTED_BACKWARD'"
+    [(checked)]="model.shiftedBackward.checked"
+    [(comment)]="model.shiftedBackward.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.SHIFTED_INWARD'"
+    [(checked)]="model.shiftedInward.checked"
+    [(comment)]="model.shiftedInward.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.SHIFTED_OUTWARD'"
+    [(checked)]="model.shiftedOutward.checked"
+    [(comment)]="model.shiftedOutward.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.MOBILE_ALL_DIRECTIONS'"
+    [(checked)]="model.mobileAllDirections.checked"
+    [(comment)]="model.mobileAllDirections.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.ANOPHTHALMOS'"
+    [(checked)]="model.anophthalmos.checked"
+    [(comment)]="model.anophthalmos.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.PROSTHETIZED'"
+    [(checked)]="model.prosthetized.checked"
+    [(comment)]="model.prosthetized.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.NOT_PROSTHETIZED'"
+    [(checked)]="model.notProsthetized.checked"
+    [(comment)]="model.notProsthetized.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.EYEBALLS.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

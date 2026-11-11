@@ -1,0 +1,220 @@
+<div class="grid">
+  <div class="col-12">
+     <p-card styleClass="mb-4 cbdi-filter-card">
+      <ng-template pTemplate="title">
+        {{ 'OMK.APPEAL_JOURNAL.HEAD' | translate }}
+      </ng-template>
+
+      <div class="formgrid grid">
+        <div class="field col-12 md:col-3">
+          <label for="firstname" class="block mb-2">{{ 'OMK.APPEAL_JOURNAL.NUMBER_ACT' | translate }}</label>
+          <input
+            id="firstname"
+            type="text"
+            pInputText
+            class="w-full"
+            placeholder="{{ 'OMK.APPEAL_JOURNAL.NUMBER_ACT' | translate }}"
+            [(ngModel)]="appealJournalFilter.actNumber"
+          />
+        </div>
+
+        <div class="field col-12 md:col-3">
+          <label for="surname" class="block mb-2">{{ 'COMMON.SURNAME' | translate }}</label>
+          <input
+            id="surname"
+            type="text"
+            pInputText
+            class="w-full"
+            placeholder="{{ 'COMMON.SURNAME' | translate }}"
+            [(ngModel)]="appealJournalFilter.lastname"
+          />
+        </div>
+
+        <div class="field col-12 md:col-3">
+          <label for="status" class="block mb-2">{{ 'COMMON.STATUS' | translate }}</label>
+          <p-dropdown
+            id="status"
+            [options]=dicStatus
+            optionLabel="nameRu"
+            optionValue="id"
+            placeholder="{{ 'COMMON.STATUS' | translate }}"
+            class="w-full full-dropdown"
+            [(ngModel)]="appealJournalFilter.status"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <div class="field col-12 md:col-3"  *ngIf="authService.hasAction('COMMITTEE_EDIT')">
+          <label for="region" class="block mb-2">{{ 'COMMON.REGION' | translate }}</label>
+          <p-dropdown
+            id="region"
+            [options]="dicRegion"
+            optionLabel="nameRu"
+            optionValue="code"
+            placeholder="{{ 'COMMON.REGION' | translate }}"
+            class="w-full full-dropdown"
+            [(ngModel)]="appealJournalFilter.regionCode"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+
+
+      <div class="flex gap-2">
+        <button
+          pButton
+          type="button"
+          label="{{ 'COMMON.SEARCH' | translate }}"
+          icon="pi pi-search"
+          (click)="search()"
+          class="p-button-success"
+        ></button>
+
+        <button
+          pButton
+          type="button"
+          label="{{ 'COMMON.CLEAR' | translate }}"
+          icon="pi pi-refresh"
+          class="p-button-secondary"
+          (click)="clear()"
+        ></button>
+      </div>
+    </p-card>
+
+  </div>
+
+  <div class="col-12">
+    <p-card styleClass="cbdi-result-card">
+      <ng-template pTemplate="title">
+        <div class="flex justify-content-between align-items-center w-full">
+          <span>Результат поиска</span>
+          <span class="text-primary font-bold">{{ pageResponse?.total || 0 }}</span>
+        </div>
+      </ng-template>
+
+      <p-table
+        [value]="appealJournalResponse"
+        [responsiveLayout]="'scroll'"
+        [paginator]="true"
+        [rows]="appealJournalFilter.pageSize"
+        [first]="((appealJournalFilter.pageNum || 1) - 1) * (appealJournalFilter.pageSize || 10)"
+        [totalRecords]="pageResponse?.total || 0"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        styleClass="p-datatable-sm"
+        [lazy]="true"
+        (onLazyLoad)="onPageChange($event)"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>{{ 'OMK.APPEAL_JOURNAL.NUMBER_ACT' | translate }}</th>
+            <th>{{ 'OMK.APPEAL_JOURNAL.TYPE' | translate }}</th>
+            <th>{{ 'OMK.APPEAL_JOURNAL.REGISTRATION_DATE' | translate }}</th>
+            <th>{{ 'COMMON.STATUS' | translate }}</th>
+            <th>{{ 'OMK.APPEAL_JOURNAL.INIT' | translate }}</th>
+            <th class="text-center">{{ 'COMMON.ACTION' | translate }}</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-appeal>
+          <tr>
+            <td>{{ appeal.actNumber }}</td>
+            <td>
+              {{
+                (appeal.isAppeal === 1
+                    ? 'OMK.REEXAMINATION.APPEAL'
+                    : appeal.isAppeal === 2
+                      ? 'OMK.REEXAMINATION.CONTROL'
+                      : '-'
+                ) | translate
+              }}
+            </td>
+            <td>{{ appeal.dateAppeal | date:'dd.MM.yyyy' }}</td>
+            <td>{{ getStatusLabel(appeal) }}</td>
+            <td>{{ appeal.fio || '-' }}</td>
+
+            <td class="text-center">
+              <button
+                pButton
+                type="button"
+                icon="pi pi-eye"
+                class="p-button-rounded p-button-text p-button-secondary"
+                pTooltip="Подробнее"
+                tooltipPosition="top"
+                [loading]="loadingAppealId === appeal.id"
+                [disabled]="((appeal.statusId === 15139 || appeal.statusId === 14937) && authService.hasAction('COMMITTEE_EDIT')) || ((appeal.statusId === 15139 || appeal.statusId === 14937) && !authService.hasAnyAction('OMK_EDIT', 'OMK_2_EDIT'))
+                || appeal.isConsidered"
+                (click)="openCommitteeModal(appeal)"
+              ></button>
+
+              <button
+                *ngIf="appeal.isConsidered"
+                pButton
+                type="button"
+                icon="pi pi-external-link"
+                class="p-button-rounded p-button-text p-button-secondary"
+                pTooltip="Открыть заключение"
+                [loading]="loadingPatientId === appeal.patientId"
+                (click)="openExpertOpinion(appeal.patientId)"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="6" class="text-center py-4">
+              Нет данных
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+<!--      <div class="mt-4 flex justify-content-end">-->
+<!--        <p-paginator-->
+<!--          [rows]="pageSize"-->
+<!--          [totalRecords]="totalRecords"-->
+<!--          [first]="(page - 1) * pageSize"-->
+<!--          [showCurrentPageReport]="true"-->
+<!--          currentPageReportTemplate="Страница {currentPage} из {totalPages}"-->
+<!--          (onPageChange)="onPageChange($event)"-->
+<!--        >-->
+<!--        </p-paginator>-->
+<!--      </div>-->
+    </p-card>
+  </div>
+
+  <p-dialog
+    header="{{ 'OMK.REEXAMINATION.APPEAL_REQUEST' | translate }}"
+    [(visible)]="committeeDialogVisible"
+    (onHide)="onCommitteeDialogHide()"
+    [modal]="true"
+    [closable]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [style]="{ width: '800px', maxWidth: '105vw'}"
+    [contentStyle]="{ 'maxHeight': '95vh', 'overflow-y': 'auto'}"
+  >
+    <app-committee-request-form
+      *ngIf="committeeDialogVisible && selectedOmkData"
+      [appeal]="selectedRow"
+      [reExaminationAppealDto]="selectedOmkData"
+      [expertOpinion]="selectedExpertOpinion"
+    ></app-committee-request-form>
+  </p-dialog>
+</div>
+
+

@@ -1,0 +1,55 @@
+.active-button {
+    box-shadow: var(--focus-ring) !important;
+}
+
+.input-container {
+    position: relative;
+    width: 300px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px 40px; /* space for icons */
+}
+
+.input-container .icon-left {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.input-container .icon-right {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.main-container {
+    position: relative;
+    left: 45%;
+    width: 55%;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    //background-image: url('assets/layout/svgs/auth-page-background-2.svg');
+    background-size: cover; /* Ensures the image covers the entire screen */
+    //background-position: center; /* Centers the image */
+    //background-repeat: no-repeat; /* Prevents the image from repeating */
+    z-index: -1; /* Places the background behind other content */
+}
+
+@for $i from 1 through 100 {
+    .font-#{$i} {
+        font-size: #{$i}px;
+    }
+}

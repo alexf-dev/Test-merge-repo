@@ -1,0 +1,47 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'MUSCULOSKELETAL.TITLE'" [isExpanded]="isExpanded">
+
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.VISUALLY_UNCHANGED'" [(checked)]="model.visuallyUnchanged"></app-check-field>
+
+  <app-group-title [titleKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.TITLE'"></app-group-title>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.ENLARGED_IN_VOLUME'" [(checked)]="model.joints.enlargedInVolume"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.DEFORMATION'" [showComment]="true" [(checked)]="model.joints.deformation.checked" [(comment)]="model.joints.deformation.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.SPINDLE_SHAPED'" [(checked)]="model.joints.spindleShaped"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.PAIN_ON_PALPATION'" [showComment]="true" [(checked)]="model.joints.painOnPalpation.checked" [(comment)]="model.joints.painOnPalpation.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.LIMITED_RANGE_OF_MOTION'" [showComment]="true" [(checked)]="model.joints.limitedRangeOfMotion.checked" [(comment)]="model.joints.limitedRangeOfMotion.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.FLUCTUATION'" [showComment]="true" [(checked)]="model.joints.fluctuation.checked" [(comment)]="model.joints.fluctuation.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.LAMENESS'" [(checked)]="model.joints.lameness"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.INGUINAL_FOLDS_SMOOTHED'" [(checked)]="model.joints.inguinalFoldsSmoothed"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.THIGH_ADDUCTED_AND_FLEXED'" [(checked)]="model.joints.thighAdductedAndFlexed"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINTS.ANKYLOSES'" [showComment]="true" [(checked)]="model.joints.ankyloses.checked" [(comment)]="model.joints.ankyloses.comment"></app-check-field>
+
+  <app-group-title [titleKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.TITLE'"></app-group-title>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.NORMAL_CONFIGURATION'" [(checked)]="model.jointConfiguration.normalConfiguration"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.SKIN_SHINY'" [(checked)]="model.jointConfiguration.skinShiny"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.CONTOURS_SMOOTHED'" [showComment]="true" [(checked)]="model.jointConfiguration.contoursSmoothed.checked" [(comment)]="model.jointConfiguration.contoursSmoothed.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.SWELLING'" [showComment]="true" [(checked)]="model.jointConfiguration.swelling.checked" [(comment)]="model.jointConfiguration.swelling.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.PAIN_ON_TAPPING'" [showComment]="true" [(checked)]="model.jointConfiguration.painOnTapping.checked" [(comment)]="model.jointConfiguration.painOnTapping.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.DRUMSTICK_FINGERS'" [showComment]="true" [(checked)]="model.jointConfiguration.drumstickFingers.checked" [(comment)]="model.jointConfiguration.drumstickFingers.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.MOVEMENTS_FULL_RANGE'" [showComment]="true" [(checked)]="model.jointConfiguration.movementsFullRange.checked" [(comment)]="model.jointConfiguration.movementsFullRange.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.CREPITUS'" [showComment]="true" [(checked)]="model.jointConfiguration.crepitus.checked" [(comment)]="model.jointConfiguration.crepitus.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.CONTRACTURES'" [showComment]="true" [(checked)]="model.jointConfiguration.contractures.checked" [(comment)]="model.jointConfiguration.contractures.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.PATELLA_BALLOTTEMENT'" [(checked)]="model.jointConfiguration.patellaBallottement"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.LEG_DRAGGING'" [(checked)]="model.jointConfiguration.legDragging"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.LEG_FORCED_POSITION'" [(checked)]="model.jointConfiguration.legForcedPosition"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.JOINT_CONFIGURATION.LEG_BENT_AT_KNEE'" [(checked)]="model.jointConfiguration.legBentAtKnee"></app-check-field>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'MUSCULOSKELETAL.SPINE.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.SPINE.PAIN_ON_BENDING'" [showComment]="true" [(checked)]="model.spine.painOnBending.checked" [(comment)]="model.spine.painOnBending.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.SPINE.LIMITED_MOVEMENT'" [showComment]="true" [(checked)]="model.spine.limitedMovement.checked" [(comment)]="model.spine.limitedMovement.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.SPINE.SPINOUS_PROCESS_PROTRUSION'" [showComment]="true" [(checked)]="model.spine.spinousProcessProtrusion.checked" [(comment)]="model.spine.spinousProcessProtrusion.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.SPINE.HUMP'" [showComment]="true" [(checked)]="model.spine.hump.checked" [(comment)]="model.spine.hump.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.SPINE.COLD_ABSCESSES'" [showComment]="true" [(checked)]="model.spine.coldAbscesses.checked" [(comment)]="model.spine.coldAbscesses.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.SPINE.FISTULAS'" [showComment]="true" [(checked)]="model.spine.fistulas.checked" [(comment)]="model.spine.fistulas.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'MUSCULOSKELETAL.SPINE.REIN_SYMPTOM'" [showComment]="true" [(checked)]="model.spine.reinSymptom.checked" [(comment)]="model.spine.reinSymptom.comment"></app-check-field>
+    <app-dropdown-field
+      [labelKey]="translationPrefix + 'MUSCULOSKELETAL.SPINE.DEFORMATION_TYPE'"
+      [optionKeys]="spineDeformationTypeOptions"
+      [(value)]="model.spine.deformationType">
+    </app-dropdown-field>
+  </app-collapsible-block>
+
+</app-collapsible-block>

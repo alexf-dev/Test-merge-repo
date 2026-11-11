@@ -1,0 +1,33 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MOBILITY.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.independent" [binary]="true" inputId="independent"></p-checkbox>
+      <label for="independent">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MOBILITY.INDEPENDENT' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.withCane" [binary]="true" inputId="withCane"></p-checkbox>
+      <label for="withCane">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MOBILITY.WITH_CANE' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.withCrutches" [binary]="true" inputId="withCrutches"></p-checkbox>
+      <label for="withCrutches">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MOBILITY.WITH_CRUTCHES' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.wheelchair" [binary]="true" inputId="wheelchair"></p-checkbox>
+      <label for="wheelchair">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MOBILITY.WHEELCHAIR' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.supportOnInjuredLimb" [binary]="true" inputId="supportOnInjuredLimb"></p-checkbox>
+      <label for="supportOnInjuredLimb">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MOBILITY.SUPPORT_ON_INJURED_LIMB' | translate }}</label>
+    </div>
+  </div>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MOBILITY.COMMENT'"
+    [(value)]="model.comment">
+  </app-textarea-field>
+
+</app-collapsible-block>

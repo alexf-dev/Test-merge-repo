@@ -1,0 +1,143 @@
+:host {
+  display: block;
+}
+
+.toolbar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.select-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.actions-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.doc-card {
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 1rem;
+  background: var(--app-card-bg);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.doc-card:hover {
+  border-color: var(--app-border-light);
+}
+
+.doc-card.selected {
+  border-color: var(--app-link);
+  background: var(--app-tint-blue);
+}
+
+.doc-card.disabled {
+  opacity: 0.65;
+}
+
+.doc-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.doc-title {
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.doc-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--app-text-medium);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  word-break: break-word;
+}
+
+.muted-text {
+  color: var(--app-text-secondary);
+}
+
+.selected-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  color: var(--app-success-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.pdf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pdf-title {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+}
+
+.pdf-counter {
+  margin-left: 0.5rem;
+  color: var(--app-text-secondary);
+  font-weight: 400;
+}
+
+.pdf-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: var(--app-text-secondary);
+}
+
+.pdf-frame {
+  width: 100%;
+  height: 72vh;
+  border: none;
+}
+
+@media (max-width: 992px) {
+  .docs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .docs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pdf-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .pdf-title {
+    width: 100%;
+    order: -1;
+  }
+}

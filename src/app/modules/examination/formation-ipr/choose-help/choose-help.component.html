@@ -1,0 +1,60 @@
+<p-dialog
+  [(visible)]="visible"
+  header="Выбрать мероприятия"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [breakpoints]="{ '960px': '95vw', '640px': '98vw' }"
+  [style]="{ width: '1080px', maxWidth: '95vw' }"
+  [contentStyle]="{ overflow: 'hidden', paddingBottom: '0' }"
+  styleClass="events-dialog"
+  (onHide)="onCancel()"
+>
+  <div class="dialog-body">
+    <div class="search-row">
+      <span class="p-input-icon-right w-full">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          class="w-full"
+          placeholder="Поиск"
+          [(ngModel)]="query"
+          (ngModelChange)="applyFilter()"
+        />
+      </span>
+    </div>
+
+    <div class="tree-scroll">
+      <p-tree
+        [value]="filteredNodes"
+        [(selection)]="selection"
+        selectionMode="checkbox"
+        dataKey="key"
+        [propagateSelectionDown]="false"
+        [propagateSelectionUp]="false"
+        (onNodeSelect)="onNodeSelect($event)"
+      ></p-tree>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <div class="dialog-footer">
+      <button
+        pButton
+        type="button"
+        label="Отменить"
+        class="p-button-text"
+        (click)="onCancel()"
+      ></button>
+
+      <button
+        pButton
+        type="button"
+        label="Добавить"
+        [disabled]="selectedIds().length === 0"
+        (click)="onAdd()"
+      ></button>
+    </div>
+  </ng-template>
+</p-dialog>

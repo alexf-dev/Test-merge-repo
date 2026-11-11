@@ -1,0 +1,18 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.BONE_SYSTEM.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.BONE_SYSTEM.DEFORMATION'"
+    [(checked)]="model.deformationChecked"
+    [(comment)]="model.deformation">
+  </app-check-comment-field>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.noDeformation" [binary]="true" inputId="noDeformation"></p-checkbox>
+      <label for="noDeformation">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.BONE_SYSTEM.NO_DEFORMATION' | translate }}</label>
+    </div>
+  </div>
+
+</app-collapsible-block>

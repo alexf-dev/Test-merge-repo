@@ -1,0 +1,41 @@
+
+:host {
+  display: block;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--app-text-medium);
+  font-size: 0.9rem;
+}
+
+.readonly-field {
+  background-color: var(--surface-ground);
+}
+
+.page-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+:host ::ng-deep .p-inputtext,
+:host ::ng-deep .p-dropdown,
+:host ::ng-deep .p-calendar,
+:host ::ng-deep .p-inputmask {
+  width: 100%;
+}
+
+:host ::ng-deep .p-card {
+  margin-top: 1rem;
+}
+
+:host ::ng-deep .p-checkbox {
+  margin-top: 0.1rem;
+}

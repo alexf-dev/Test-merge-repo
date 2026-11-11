@@ -1,0 +1,129 @@
+:host { display: block; min-height: 100%; }
+
+.cbdi-auth-page {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  background: #60c69a;
+  color: #101828;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.cbdi-auth-ornament {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cbdi-auth-shape { position: absolute; display: block; max-width: none; }
+.cbdi-auth-shape--top {
+  width: 311px;
+  height: 557px;
+  left: calc(50% + 26px);
+  top: 12px;
+}
+.cbdi-auth-shape--left {
+  width: 557px;
+  height: 311px;
+  left: calc(50% - 350px);
+  top: calc(50% - 184px);
+}
+.cbdi-auth-shape--right {
+  width: 557px;
+  height: 311px;
+  left: calc(50% + 134px);
+  top: calc(50% - 146px);
+}
+.cbdi-auth-shape--bottom {
+  width: 311px;
+  height: 557px;
+  left: calc(50% + 24px);
+  bottom: 12px;
+}
+
+.cbdi-auth-brand {
+  position: absolute;
+  z-index: 2;
+  top: 62px;
+  left: 54px;
+}
+.cbdi-auth-brand img { display: block; width: 173px; height: 65px; }
+
+.cbdi-auth-caption {
+  position: absolute;
+  z-index: 2;
+  left: 54px;
+  bottom: 72px;
+}
+.cbdi-auth-caption img {
+  display: block;
+  width: min(518px, calc(100vw - 108px));
+  height: auto;
+}
+
+.cbdi-auth-card {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(608px, calc(100vw - 40px));
+  min-height: 674px;
+  padding: 48px;
+  transform: translateX(clamp(0px, 11.8vw, 170px));
+  border-radius: 30px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Вложенные маршруты выводятся внутри блока с полной шириной. */
+.cbdi-auth-inner { width: 100%; min-width: 0; }
+
+@media (max-width: 1199px) {
+  .cbdi-auth-page { padding: 140px 24px 190px; box-sizing: border-box; }
+  .cbdi-auth-brand { top: 32px; left: 32px; }
+  .cbdi-auth-caption { left: 32px; bottom: 24px; }
+  .cbdi-auth-card { transform: none; min-height: 550px; }
+}
+
+@media (max-width: 640px) {
+  .cbdi-auth-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 112px 16px 30px;
+  }
+  .cbdi-auth-brand { top: 24px; left: 22px; }
+  .cbdi-auth-brand img { width: 150px; height: auto; }
+  .cbdi-auth-card {
+    width: 100%;
+    min-height: 0;
+    padding: 42px 24px;
+    border-radius: 22px;
+  }
+  .cbdi-auth-caption {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    margin-top: 32px;
+  }
+  .cbdi-auth-caption img { width: min(100%, 400px); }
+  .cbdi-auth-shape--top { left: 58%; top: -140px; }
+  .cbdi-auth-shape--left { left: -300px; top: 220px; }
+  .cbdi-auth-shape--right { left: 60%; top: 340px; }
+  .cbdi-auth-shape--bottom { left: 40%; bottom: -260px; }
+}
+
+@media (max-width: 360px) {
+  .cbdi-auth-card { padding: 32px 18px; }
+}

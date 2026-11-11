@@ -1,0 +1,73 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.modal {
+    position: fixed;
+    top: 1%;
+    left: 45%;
+    border-radius: 5%;
+    //transform: translate(-1%, -5%);
+    width: 400px;
+    padding: 20px;
+    background: var(--app-tint-ivory);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.has-error {
+    border-color: red;
+}
+span.has-error {
+    color: red;
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+
+.input-container .icon-right,
+.input-container .icon-left {
+    top: 60%;
+}
+
+.icon-middle-padding {
+    vertical-align: middle;
+    padding-right: 3px;
+}
+.vertical-middle {
+    vertical-align: middle;
+}
+
+.modal h3 {
+    margin-top: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+li.satisfied {
+    color: green;
+    text-decoration: line-through;
+}
+
+.cbdi-login-change-password {
+  display: block;
+  width: fit-content;
+  margin: 16px auto 0;
+  color: #506479;
+  font-size: 13px;
+  line-height: 20px;
+  text-decoration: none;
+}
+.cbdi-login-change-password:hover { text-decoration: underline; }

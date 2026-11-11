@@ -1,0 +1,53 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VII.TITLE'"
+  [isExpanded]="isExpanded"
+  [nested]="true">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VII.FACIAL_ASYMMETRY'"
+    [(checked)]="model.facialAsymmetry.checked"
+    [(comment)]="model.facialAsymmetry.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VII.NASOLABIAL_FOREHEAD_FOLDS_SMOOTHED'"
+    [(checked)]="model.nasolabialForeheadFoldsSmoothed.checked"
+    [(comment)]="model.nasolabialForeheadFoldsSmoothed.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VII.MOUTH_CORNER_DROPPED'"
+    [(checked)]="model.mouthCornerDropped.checked"
+    [(comment)]="model.mouthCornerDropped.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VII.LAGOPHTHALMOS'"
+    [(checked)]="model.lagophthalmos.checked"
+    [(comment)]="model.lagophthalmos.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VII.LACRIMATION'"
+    [(checked)]="model.lacrimation.checked"
+    [(comment)]="model.lacrimation.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VII.DRY_EYE'"
+    [(checked)]="model.dryEye.checked"
+    [(comment)]="model.dryEye.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_VII.TASTE_LOSS_ANTERIOR_TWO_THIRDS'"
+    [(checked)]="model.tasteLossAnteriorTwoThirds">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

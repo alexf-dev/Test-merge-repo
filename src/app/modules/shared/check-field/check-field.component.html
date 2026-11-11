@@ -1,0 +1,20 @@
+<div class="check-field-row">
+  <p-checkbox
+    [inputId]="inputId"
+    [binary]="true"
+    [ngModel]="checked"
+    (ngModelChange)="onChecked($event)">
+  </p-checkbox>
+  <label class="checkbox-label" [attr.for]="inputId">
+    {{ labelKey | translate }}
+  </label>
+  <input
+    *ngIf="showComment"
+    type="text"
+    pInputText
+    class="check-comment-input"
+    [ngModel]="comment"
+    (ngModelChange)="onComment($event)"
+    [placeholder]="'MAIN.COMMON.ENTER_VALUE' | translate"
+  />
+</div>

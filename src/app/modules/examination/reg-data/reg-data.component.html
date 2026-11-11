@@ -1,0 +1,205 @@
+<div *ngIf="patient" class="grid">
+  <div class="col-12">
+    <p-card>
+      <ng-template pTemplate="title">
+        {{ 'MAIN.EXAMINATION.REG_DATA.TITLE' | translate }}
+      </ng-template>
+
+      <div class="formgrid grid p-fluid">
+        <div class="field col-12 md:col-4">
+          <label for="lastName">
+            {{ 'MAIN.EXAMINATION.REG_DATA.LASTNAME' | translate }}
+          </label>
+          <input
+            [(ngModel)]="patient.personId.surname"
+            class="readonly-field"
+            id="lastName"
+            name="lastName"
+            pInputText
+            readonly
+            type="text"
+          />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="firstName">
+            {{ 'MAIN.EXAMINATION.REG_DATA.FIRSTNAME' | translate }}
+          </label>
+          <input
+            [(ngModel)]="patient.personId.firstName"
+            class="readonly-field"
+            id="firstName"
+            name="firstName"
+            pInputText
+            readonly
+            type="text"
+          />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="middleName">
+            {{ 'MAIN.EXAMINATION.REG_DATA.MIDDLENAME' | translate }}
+          </label>
+          <input
+            [(ngModel)]="patient.personId.secondName"
+            class="readonly-field"
+            id="middleName"
+            name="middleName"
+            pInputText
+            readonly
+            type="text"
+          />
+        </div>
+      </div>
+
+      <div class="formgrid grid p-fluid">
+        <div class="field col-12 md:col-4">
+          <label for="birthDate">
+            {{ 'MAIN.EXAMINATION.REG_DATA.BIRTH_DATE' | translate }}
+          </label>
+          <p-calendar
+            [(ngModel)]="patient.personId.birthDate"
+            [disabled]="true"
+            [showIcon]="true"
+            appendTo="body"
+            dateFormat="yy-mm-dd"
+            id="birthDate"
+            name="birthDate"
+          ></p-calendar>
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="iin">
+            {{ 'MAIN.EXAMINATION.REG_DATA.IIN' | translate }}
+          </label>
+          <input
+            [(ngModel)]="patient.personId.iin"
+            class="readonly-field"
+            id="iin"
+            name="iin"
+            pInputText
+            readonly
+            type="text"
+          />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="gender">
+            {{ 'MAIN.EXAMINATION.REG_DATA.GENDER' | translate }}
+          </label>
+          <p-dropdown
+            [(ngModel)]="patient.personId.sex.id"
+            [disabled]="true"
+            [options]="dicGenders"
+            id="gender"
+            name="gender"
+            optionValue="id"
+            placeholder="{{ 'COMMON.CHOOSE' | translate }}"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+
+      <div class="formgrid grid p-fluid">
+        <div class="field col-12">
+          <label for="phone">
+            {{ 'MAIN.EXAMINATION.REG_DATA.CONTACT_DETAILS' | translate }}
+          </label>
+          <input
+            [(ngModel)]="patient.phone"
+            class="readonly-field"
+            id="phone"
+            name="phone"
+            pInputText
+            readonly
+            type="text"
+          />
+        </div>
+      </div>
+
+      <div class="formgrid grid p-fluid">
+        <div class="field col-12 md:col-6 flex align-items-center">
+          <p-checkbox
+            [(ngModel)]="patient.isTown"
+            [binary]="true"
+            inputId="isTown"
+            name="isTown"
+          ></p-checkbox>
+          <label class="ml-2" for="isTown">
+            {{ 'MAIN.EXAMINATION.REG_DATA.IS_TOWN' | translate }}
+          </label>
+        </div>
+      </div>
+
+      <div class="formgrid grid p-fluid">
+        <div class="field col-12 md:col-4">
+          <label for="regAddress">
+            {{ 'MAIN.EXAMINATION.REG_DATA.REG_ADDRESS' | translate }}
+          </label>
+          <input
+            [value]="getAddressString(patient.personId.addresses)"
+            class="readonly-field"
+            id="regAddress"
+            name="regAddress"
+            pInputText
+            readonly
+            type="text"
+          />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="actualAddress">
+            {{ 'MAIN.EXAMINATION.REG_DATA.ACTUAL_ADDRESS' | translate }}
+          </label>
+          <input
+            [(ngModel)]="patient.factAddress"
+            id="actualAddress"
+            name="actualAddress"
+            pInputText
+            type="text"
+          />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="dicAddress">
+            {{ 'MAIN.EXAMINATION.REG_DATA.DIC_ADDRESS' | translate }}
+          </label>
+          <p-dropdown
+            [(ngModel)]="patient.districtId"
+            [options]="dicDistricts"
+            [required]="true"
+            [showClear]="true"
+            id="dicAddress"
+            name="dicAddress"
+            optionValue="id"
+            placeholder="{{ 'COMMON.CHOOSE' | translate }}"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+              <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+    </p-card>
+
+    <div class="page-actions">
+      <button
+        (click)="onNext()"
+        label="{{ 'COMMON.NEXT' | translate }}"
+        pButton
+        type="button"
+      ></button>
+    </div>
+  </div>
+</div>

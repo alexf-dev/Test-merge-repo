@@ -1,0 +1,62 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-dropdown-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.ATAXIA'"
+    [optionKeys]="ataxiaOptions"
+    [(value)]="model.ataxia">
+  </app-dropdown-field>
+
+  <app-dropdown-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.TREMOR'"
+    [optionKeys]="tremorOptions"
+    [(value)]="model.tremor">
+  </app-dropdown-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.EYELID_FINGER_TREMOR'"
+    [(checked)]="model.eyelidFingerTremor">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.MISS_TARGETED_MOVEMENTS'"
+    [(checked)]="model.missTargetedMovements">
+  </app-check-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.NYSTAGMUS'"
+    [(checked)]="model.nystagmus.checked"
+    [(comment)]="model.nystagmus.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.SCANNED_SPEECH'"
+    [(checked)]="model.scannedSpeech">
+  </app-check-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.ROMBERG_POSITION'"
+    [(checked)]="model.rombergPosition.checked"
+    [(comment)]="model.rombergPosition.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.FINGER_NOSE_TEST'"
+    [(checked)]="model.fingerNoseTest.checked"
+    [(comment)]="model.fingerNoseTest.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.KNEE_HEEL_TEST'"
+    [(checked)]="model.kneeHeelTest.checked"
+    [(comment)]="model.kneeHeelTest.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.COORDINATION.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

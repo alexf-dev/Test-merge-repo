@@ -1,0 +1,35 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.CARDIOVASCULAR_SYSTEM.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.CARDIOVASCULAR_SYSTEM.HEART_SOUNDS'"
+    [(checked)]="model.heartSoundsChecked"
+    [(comment)]="model.heartSounds">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.CARDIOVASCULAR_SYSTEM.BLOOD_PRESSURE'"
+    [(checked)]="model.bloodPressureChecked"
+    [(comment)]="model.bloodPressure">
+  </app-check-comment-field>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.rhythmicPulse" [binary]="true" inputId="rhythmicPulse"></p-checkbox>
+      <label for="rhythmicPulse">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.CARDIOVASCULAR_SYSTEM.RHYTHMIC_PULSE' | translate }}</label>
+    </div>
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.CARDIOVASCULAR_SYSTEM.PULSE_RATE'"
+    [(checked)]="model.pulseRateChecked"
+    [(comment)]="model.pulseRate">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.CARDIOVASCULAR_SYSTEM.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo">
+  </app-textarea-field>
+
+</app-collapsible-block>

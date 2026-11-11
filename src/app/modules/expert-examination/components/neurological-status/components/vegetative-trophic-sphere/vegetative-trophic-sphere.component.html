@@ -1,0 +1,22 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.VEGETATIVE_TROPHIC_SPHERE.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.VEGETATIVE_TROPHIC_SPHERE.DERMOGRAPHISM'"
+    [(checked)]="model.dermographism.checked"
+    [(comment)]="model.dermographism.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.VEGETATIVE_TROPHIC_SPHERE.PALM_SOLE_HYPERHIDROSIS'"
+    [(checked)]="model.palmSoleHyperhidrosis">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.VEGETATIVE_TROPHIC_SPHERE.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

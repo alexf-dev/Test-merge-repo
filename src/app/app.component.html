@@ -1,0 +1,10 @@
+<router-outlet></router-outlet>
+<p-toast></p-toast>
+<app-error-dialog></app-error-dialog>
+<!-- Кнопки для проверки интерсептора -->
+<div *ngIf="showTestButtons" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #fff; border: 2px solid red; padding: 10px;">
+  <h4>Тест ErrorInterceptor</h4>
+  <button (click)="test404()">Тест 404</button>
+  <button (click)="test500()">Тест 500</button>
+  <button (click)="testNoConnection()">Тест нет сети</button>
+</div>

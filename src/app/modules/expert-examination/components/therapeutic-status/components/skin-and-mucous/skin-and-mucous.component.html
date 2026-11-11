@@ -1,0 +1,22 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'SKIN_MUCOUS.TITLE'" [isExpanded]="isExpanded">
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.NORMAL_COLOR'" [(checked)]="model.normalColor"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.CYANOTIC'" [showComment]="true" [(checked)]="model.cyanotic.checked" [(comment)]="model.cyanotic.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.NASOLABIAL_CYANOSIS'" [(checked)]="model.nasolabialCyanosis"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.HYPEREMIC'" [showComment]="true" [(checked)]="model.hyperemic.checked" [(comment)]="model.hyperemic.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.HEMORRHAGES'" [showComment]="true" [(checked)]="model.hemorrhages.checked" [(comment)]="model.hemorrhages.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.XANTHOMAS'" [showComment]="true" [(checked)]="model.xanthomas.checked" [(comment)]="model.xanthomas.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.DEPIGMENTATION'" [showComment]="true" [(checked)]="model.depigmentation.checked" [(comment)]="model.depigmentation.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.DRY_SKIN'" [showComment]="true" [(checked)]="model.drySkin.checked" [(comment)]="model.drySkin.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.COLD_SKIN'" [showComment]="true" [(checked)]="model.coldSkin.checked" [(comment)]="model.coldSkin.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.ELASTICITY'" [showComment]="true" [(checked)]="model.elasticity.checked" [(comment)]="model.elasticity.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.PALE'" [(checked)]="model.pale"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.ACROCYANOSIS'" [(checked)]="model.acrocyanosis"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.JAUNDICED'" [showComment]="true" [(checked)]="model.jaundiced.checked" [(comment)]="model.jaundiced.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.EARTHY_COLOR'" [showComment]="true" [(checked)]="model.earthyColor.checked" [(comment)]="model.earthyColor.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.SPIDER_VEINS'" [showComment]="true" [(checked)]="model.spiderVeins.checked" [(comment)]="model.spiderVeins.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.PIGMENTATION'" [showComment]="true" [(checked)]="model.pigmentation.checked" [(comment)]="model.pigmentation.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.RASHES'" [showComment]="true" [(checked)]="model.rashes.checked" [(comment)]="model.rashes.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.MOIST_SKIN'" [showComment]="true" [(checked)]="model.moistSkin.checked" [(comment)]="model.moistSkin.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SKIN_MUCOUS.SKIN_TURGOR'" [showComment]="true" [(checked)]="model.skinTurgor.checked" [(comment)]="model.skinTurgor.comment"></app-check-field>
+  <app-textarea-field [(value)]="model.skinTurgorAdditionalInfo"></app-textarea-field>
+</app-collapsible-block>

@@ -1,0 +1,95 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'RESPIRATORY_SYSTEM.TITLE'" [isExpanded]="isExpanded">
+
+  <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.APHONIA'" [(checked)]="model.aphonia"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.HOARSENESS'" [(checked)]="model.hoarseness"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.HUSKINESS'" [(checked)]="model.huskiness"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.NASAL_VOICE'" [(checked)]="model.nasalVoice"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.NASAL_BREATHING'" [(checked)]="model.nasalBreathing"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.OPEN_MOUTH_BREATHING'" [(checked)]="model.openMouthBreathing"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.NASAL_WINGS_PARTICIPATION'" [(checked)]="model.nasalWingsParticipation"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.ACCESSORY_MUSCLES_PARTICIPATION'" [(checked)]="model.accessoryMusclesParticipation"></app-check-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.RESPIRATORY_RATE'" [(value)]="model.respiratoryRate"></app-text-input-field>
+  <app-dropdown-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.THORAX_TYPE'" [optionKeys]="thoraxTypeOptions" [(value)]="model.thoraxType"></app-dropdown-field>
+  <app-dropdown-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.DYSPNEA_TYPE'" [optionKeys]="dyspneaTypeOptions" [(value)]="model.dyspneaType"></app-dropdown-field>
+  <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.SUFFOCATION'" [(checked)]="model.suffocation"></app-check-field>
+  <app-textarea-field [(value)]="model.suffocationAdditionalInfo"></app-textarea-field>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'RESPIRATORY_SYSTEM.PERCUSSION.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.PERCUSSION.CLEAR_PULMONARY'" [(checked)]="model.percussion.clearPulmonary"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.PERCUSSION.DULL_SOUND'" [showComment]="true" [(checked)]="model.percussion.dullSound.checked" [(comment)]="model.percussion.dullSound.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.PERCUSSION.TYMPANIC_SOUND'" [showComment]="true" [(checked)]="model.percussion.tympanicSound.checked" [(comment)]="model.percussion.tympanicSound.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.PERCUSSION.FLAT_SOUND'" [(checked)]="model.percussion.flatSound"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.PERCUSSION.BOX_SOUND'" [showComment]="true" [(checked)]="model.percussion.boxSound.checked" [(comment)]="model.percussion.boxSound.comment"></app-check-field>
+    <app-textarea-field [(value)]="model.percussion.additionalInfo"></app-textarea-field>
+  </app-collapsible-block>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.VESICULAR'" [showComment]="true" [(checked)]="model.breathing.vesicular.checked" [(comment)]="model.breathing.vesicular.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.BRONCHIAL'" [showComment]="true" [(checked)]="model.breathing.bronchial.checked" [(comment)]="model.breathing.bronchial.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.HARSH'" [showComment]="true" [(checked)]="model.breathing.harsh.checked" [(comment)]="model.breathing.harsh.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.DRY_RALES'" [showComment]="true" [(checked)]="model.breathing.dryRales.checked" [(comment)]="model.breathing.dryRales.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.CREPITATION'" [showComment]="true" [(checked)]="model.breathing.crepitation.checked" [(comment)]="model.breathing.crepitation.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.WEAKENING'" [showComment]="true" [(checked)]="model.breathing.weakening.checked" [(comment)]="model.breathing.weakening.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.MIXED'" [showComment]="true" [(checked)]="model.breathing.mixed.checked" [(comment)]="model.breathing.mixed.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.NO_RALES'" [showComment]="true" [(checked)]="model.breathing.noRales.checked" [(comment)]="model.breathing.noRales.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.MOIST_RALES'" [showComment]="true" [(checked)]="model.breathing.moistRales.checked" [(comment)]="model.breathing.moistRales.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.PLEURAL_FRICTION_RUB'" [showComment]="true" [(checked)]="model.breathing.pleuralFrictionRub.checked" [(comment)]="model.breathing.pleuralFrictionRub.comment"></app-check-field>
+    <app-textarea-field [(value)]="model.breathing.additionalInfo"></app-textarea-field>
+
+    <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.COUGH_CHARACTER.TITLE'">
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.COUGH_CHARACTER.DRY'" [(checked)]="model.breathing.coughCharacter.dry"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.COUGH_CHARACTER.MOIST_NON_PRODUCTIVE'" [(checked)]="model.breathing.coughCharacter.moistNonProductive"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.COUGH_CHARACTER.MOIST_PRODUCTIVE'" [(checked)]="model.breathing.coughCharacter.moistProductive"></app-check-field>
+    </app-collapsible-block>
+
+    <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.COUGH_TIMING.TITLE'">
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.COUGH_TIMING.MORNING'" [(checked)]="model.breathing.coughTiming.morning"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.COUGH_TIMING.EVENING'" [(checked)]="model.breathing.coughTiming.evening"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.COUGH_TIMING.NIGHT'" [(checked)]="model.breathing.coughTiming.night"></app-check-field>
+    </app-collapsible-block>
+
+    <app-text-input-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_AMOUNT'" [(value)]="model.breathing.sputumAmount"></app-text-input-field>
+
+    <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_CHARACTER.TITLE'">
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_CHARACTER.MUCOUS'" [(checked)]="model.breathing.sputumCharacter.mucous"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_CHARACTER.SEROUS'" [(checked)]="model.breathing.sputumCharacter.serous"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_CHARACTER.PURULENT'" [(checked)]="model.breathing.sputumCharacter.purulent"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_CHARACTER.MUCOPURULENT'" [(checked)]="model.breathing.sputumCharacter.mucopurulent"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_CHARACTER.SEROPURULENT'" [(checked)]="model.breathing.sputumCharacter.seropurulent"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_CHARACTER.BLOODY_STREAKS'" [(checked)]="model.breathing.sputumCharacter.bloodyStreaks"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_CHARACTER.BLOODY_CLOTS'" [(checked)]="model.breathing.sputumCharacter.bloodyClots"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_CHARACTER.RUSTY'" [(checked)]="model.breathing.sputumCharacter.rusty"></app-check-field>
+    </app-collapsible-block>
+
+    <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_COLOR.TITLE'">
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_COLOR.COLORLESS'" [(checked)]="model.breathing.sputumColor.colorless"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_COLOR.WHITISH_MUCOUS'" [(checked)]="model.breathing.sputumColor.whitishMucous"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_COLOR.GREENISH'" [(checked)]="model.breathing.sputumColor.greenish"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_COLOR.YELLOW'" [(checked)]="model.breathing.sputumColor.yellow"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_COLOR.BROWN'" [(checked)]="model.breathing.sputumColor.brown"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_COLOR.PINK'" [(checked)]="model.breathing.sputumColor.pink"></app-check-field>
+      <app-textarea-field [(value)]="model.breathing.sputumColor.additionalInfo"></app-textarea-field>
+    </app-collapsible-block>
+
+    <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_ODOR.TITLE'">
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_ODOR.ABSENT'" [(checked)]="model.breathing.sputumOdor.absent"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_ODOR.MUSTY'" [(checked)]="model.breathing.sputumOdor.musty"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_ODOR.PUTRID'" [(checked)]="model.breathing.sputumOdor.putrid"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.SPUTUM_ODOR.FOUL'" [(checked)]="model.breathing.sputumOdor.foul"></app-check-field>
+      <app-textarea-field [(value)]="model.breathing.sputumOdor.additionalInfo"></app-textarea-field>
+    </app-collapsible-block>
+
+    <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.HEMOPTYSIS.TITLE'">
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.HEMOPTYSIS.CONSTANT'" [(checked)]="model.breathing.hemoptysis.constant"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.HEMOPTYSIS.RARE'" [(checked)]="model.breathing.hemoptysis.rare"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.HEMOPTYSIS.FREQUENT'" [(checked)]="model.breathing.hemoptysis.frequent"></app-check-field>
+    </app-collapsible-block>
+
+    <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.HEMOPTYSIS_SEVERITY.TITLE'">
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.HEMOPTYSIS_SEVERITY.SIGNIFICANT'" [(checked)]="model.breathing.hemoptysisSeverity.significant"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.HEMOPTYSIS_SEVERITY.MODERATE'" [(checked)]="model.breathing.hemoptysisSeverity.moderate"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'RESPIRATORY_SYSTEM.BREATHING.HEMOPTYSIS_SEVERITY.INSIGNIFICANT'" [(checked)]="model.breathing.hemoptysisSeverity.insignificant"></app-check-field>
+    </app-collapsible-block>
+  </app-collapsible-block>
+
+</app-collapsible-block>

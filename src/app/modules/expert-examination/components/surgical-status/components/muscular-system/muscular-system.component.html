@@ -1,0 +1,78 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <div class="section-title">
+    {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.DEVELOPMENT.TITLE' | translate }}
+  </div>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox
+        [(ngModel)]="model.development.weaklyDeveloped"
+        [binary]="true"
+        inputId="weaklyDeveloped">
+      </p-checkbox>
+      <label for="weaklyDeveloped">
+        {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.DEVELOPMENT.WEAKLY_DEVELOPED' | translate }}
+      </label>
+    </div>
+
+    <div class="checkbox-item">
+      <p-checkbox
+        [(ngModel)]="model.development.satisfactorilyDeveloped"
+        [binary]="true"
+        inputId="satisfactorilyDeveloped">
+      </p-checkbox>
+      <label for="satisfactorilyDeveloped">
+        {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.DEVELOPMENT.SATISFACTORILY_DEVELOPED' | translate }}
+      </label>
+    </div>
+
+    <div class="checkbox-item">
+      <p-checkbox
+        [(ngModel)]="model.development.wellDeveloped"
+        [binary]="true"
+        inputId="wellDeveloped">
+      </p-checkbox>
+      <label for="wellDeveloped">
+        {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.DEVELOPMENT.WELL_DEVELOPED' | translate }}
+      </label>
+    </div>
+  </div>
+
+  <div class="section-title">
+    {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.TONE.TITLE' | translate }}
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.TONE.ATROPHY'"
+    [(checked)]="model.tone.atrophyChecked"
+    [(comment)]="model.tone.atrophy">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.TONE.HYPERTROPHY'"
+    [(checked)]="model.tone.hypertrophyChecked"
+    [(comment)]="model.tone.hypertrophy">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.TONE.HYPOTONIA'"
+    [(checked)]="model.tone.hypotoniaChecked"
+    [(comment)]="model.tone.hypotonia">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.TONE.HYPERTONIA'"
+    [(checked)]="model.tone.hypertoniaChecked"
+    [(comment)]="model.tone.hypertonia">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.MUSCULAR_SYSTEM.TONE.MYOTONIA'"
+    [(checked)]="model.tone.myotoniaChecked"
+    [(comment)]="model.tone.myotonia">
+  </app-check-comment-field>
+
+</app-collapsible-block>

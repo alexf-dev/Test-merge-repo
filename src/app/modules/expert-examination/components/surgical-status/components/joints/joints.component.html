@@ -1,0 +1,93 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.normalConfiguration" [binary]="true" inputId="normalConfiguration"></p-checkbox>
+      <label for="normalConfiguration">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.NORMAL_CONFIGURATION' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.fullRangeOfMotion" [binary]="true" inputId="fullRangeOfMotion"></p-checkbox>
+      <label for="fullRangeOfMotion">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.FULL_RANGE_OF_MOTION' | translate }}</label>
+    </div>
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.SWELLING'"
+    [(checked)]="model.swellingChecked"
+    [(comment)]="model.swelling">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.PAIN'"
+    [(checked)]="model.painChecked"
+    [(comment)]="model.pain">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.LIMITED_MOTION'"
+    [(checked)]="model.limitedMotionChecked"
+    [(comment)]="model.limitedMotion">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.CREPITUS'"
+    [(checked)]="model.crepitusChecked"
+    [(comment)]="model.crepitus">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.FLUCTUATION'"
+    [(checked)]="model.fluctuationChecked"
+    [(comment)]="model.fluctuation">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.CONTRACTURES'"
+    [(checked)]="model.contracturesChecked"
+    [(comment)]="model.contractures">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.ANKYLOSES'"
+    [(checked)]="model.ankylosesChecked"
+    [(comment)]="model.ankyloses">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.LIMITED_ABDUCTION'"
+    [(checked)]="model.limitedAbductionChecked"
+    [(comment)]="model.limitedAbduction">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.CLICK_SYMPTOM'"
+    [(checked)]="model.clickSymptomChecked"
+    [(comment)]="model.clickSymptom">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.SKIN_FOLD_ASYMMETRY'"
+    [(checked)]="model.skinFoldAsymmetryChecked"
+    [(comment)]="model.skinFoldAsymmetry">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.LIMB_SHORTENING'"
+    [(checked)]="model.limbShorteningChecked"
+    [(comment)]="model.limbShortening">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.EXTERNAL_ROTATION'"
+    [(checked)]="model.externalRotationChecked"
+    [(comment)]="model.externalRotation">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.JOINTS.COMMENT'"
+    [(value)]="model.comment">
+  </app-textarea-field>
+
+</app-collapsible-block>

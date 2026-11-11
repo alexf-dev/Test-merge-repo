@@ -1,0 +1,35 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.MUCOSAL_REFLEXES.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.MUCOSAL_REFLEXES.CONJUNCTIVAL'"
+    [(checked)]="model.conjunctival.checked"
+    [(comment)]="model.conjunctival.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.MUCOSAL_REFLEXES.CORNEAL'"
+    [(checked)]="model.corneal.checked"
+    [(comment)]="model.corneal.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.MUCOSAL_REFLEXES.PHARYNGEAL'"
+    [(checked)]="model.pharyngeal.checked"
+    [(comment)]="model.pharyngeal.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.MUCOSAL_REFLEXES.PALATAL'"
+    [(checked)]="model.palatal.checked"
+    [(comment)]="model.palatal.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.MUCOSAL_REFLEXES.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

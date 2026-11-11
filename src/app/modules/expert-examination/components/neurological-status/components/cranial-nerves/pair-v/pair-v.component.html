@@ -1,0 +1,48 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_V.TITLE'"
+  [isExpanded]="isExpanded"
+  [nested]="true">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_V.JAW_MOVEMENT_VOLUME'"
+    [(checked)]="model.jawMovementVolume.checked"
+    [(comment)]="model.jawMovementVolume.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_V.MASTICATORY_MUSCLE_TENSION'"
+    [(checked)]="model.masticatoryMuscleTension.checked"
+    [(comment)]="model.masticatoryMuscleTension.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_V.MASTICATORY_MUSCLE_TROPHIC'"
+    [(checked)]="model.masticatoryMuscleTrophic.checked"
+    [(comment)]="model.masticatoryMuscleTrophic.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_V.FACIAL_PAIN'"
+    [(checked)]="model.facialPain.checked"
+    [(comment)]="model.facialPain.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_V.TRIGEMINAL_EXIT_POINT_PAIN'"
+    [(checked)]="model.trigeminalExitPointPain.checked"
+    [(comment)]="model.trigeminalExitPointPain.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_V.FACIAL_SKIN_SENSITIVITY'"
+    [(checked)]="model.facialSkinSensitivity.checked"
+    [(comment)]="model.facialSkinSensitivity.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

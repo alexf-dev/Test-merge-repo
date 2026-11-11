@@ -1,0 +1,10 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'THYROID_GLAND.TITLE'" [isExpanded]="isExpanded">
+
+  <app-check-field [labelKey]="translationPrefix + 'THYROID_GLAND.NOT_PALPABLE'" [(checked)]="model.notPalpable"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'THYROID_GLAND.ENLARGED'" [showComment]="true" [(checked)]="model.enlarged.checked" [(comment)]="model.enlarged.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'THYROID_GLAND.PAINLESS'" [showComment]="true" [(checked)]="model.painless.checked" [(comment)]="model.painless.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'THYROID_GLAND.PAINFUL'" [(checked)]="model.painful"></app-check-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'THYROID_GLAND.NECK_SHAPE'" [(value)]="model.neckShape"></app-text-input-field>
+  <app-textarea-field [(value)]="model.neckShapeAdditionalInfo"></app-textarea-field>
+
+</app-collapsible-block>

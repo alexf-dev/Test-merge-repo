@@ -1,0 +1,15 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.SPECIALIST_DATA.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-text-input-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.SPECIALIST'"
+    [(value)]="model.specialist">
+  </app-text-input-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.CONCLUSION'"
+    [(value)]="model.conclusion">
+  </app-textarea-field>
+
+</app-collapsible-block>

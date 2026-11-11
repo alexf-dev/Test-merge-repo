@@ -1,0 +1,71 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.IRREGULAR'"
+    [(checked)]="model.irregular.checked"
+    [(comment)]="model.irregular.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.REGULAR'"
+    [(checked)]="model.regular.checked"
+    [(comment)]="model.regular.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.MEDIUM_DEPTH'"
+    [(checked)]="model.mediumDepth.checked"
+    [(comment)]="model.mediumDepth.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.DEEP'"
+    [(checked)]="model.deep.checked"
+    [(comment)]="model.deep.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.SHALLOW'"
+    [(checked)]="model.shallow.checked"
+    [(comment)]="model.shallow.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.ABSENT'"
+    [(checked)]="model.absent.checked"
+    [(comment)]="model.absent.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.CONTENTS_TRANSPARENT'"
+    [(checked)]="model.contentsTransparent.checked"
+    [(comment)]="model.contentsTransparent.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.CONTENTS_CLOUDY'"
+    [(checked)]="model.contentsCloudy.checked"
+    [(comment)]="model.contentsCloudy.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.HYPOPYON'"
+    [(checked)]="model.hypopyon.checked"
+    [(comment)]="model.hypopyon.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.HYPHEMA'"
+    [(checked)]="model.hyphema.checked"
+    [(comment)]="model.hyphema.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.ANTERIOR_CHAMBER.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

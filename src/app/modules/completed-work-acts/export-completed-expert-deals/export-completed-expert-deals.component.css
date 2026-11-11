@@ -1,0 +1,11 @@
+:host {
+    display: inline-block;
+}
+
+:host ::ng-deep .p-dialog .p-message {
+    width: 100%;
+}
+
+:host ::ng-deep .p-progressbar {
+    height: 1.25rem;
+}

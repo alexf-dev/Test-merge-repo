@@ -1,0 +1,1152 @@
+<div class="expert-layout">
+  <aside class="side-nav">
+    <ul class="side-nav-list">
+      <li
+        *ngFor="let s of visibleSubnav"
+        [class.active]="activeSub() === s"
+        (click)="setSub(s)"
+      >
+        <ng-container *ngIf="s !== 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.TITLE' || isDirectionUptHas">
+          {{ s | translate }}
+        </ng-container>
+      </li>
+    </ul>
+  </aside>
+
+
+  <main class="content">
+
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.GOAL'"
+      id="consultation"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.GOAL' | translate }}
+        </ng-template>
+
+          <div class="check-grid mb-4">
+            <div *ngFor="let g of dicGoals" class="check-item">
+              <p-checkbox
+                (onChange)="onGoalChange(g.id, $event.checked)"
+                [binary]="true"
+                [inputId]="'goal-' + g.id"
+                [ngModel]="isGoalChecked(g.id)"
+              ></p-checkbox>
+              <label [for]="'goal-' + g.id" class="ml-2">
+                {{ g | translateDictionary }}
+              </label>
+          </div>
+        </div>
+      </p-card>
+    </section>
+
+    <!-- CONSULTATION -->
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONSULTATION'"
+      id="consultation"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONSULTATION' | translate }}
+        </ng-template>
+
+        <div class="p-fluid">
+          <div class="goals-grid"></div>
+        </div>
+      </p-card>
+    </section>
+
+    <!-- DIAGNOSIS -->
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.DIAGNOSIS.TITLE'"
+      id="diagnosis"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.DIAGNOSIS.TITLE' | translate }}
+        </ng-template>
+
+        <form [formGroup]="diagnosisForm" class="p-fluid form-section">
+          <div class="formgrid grid">
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.DIAGNOSIS.CLASS' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="nameClasses"
+                [options]="nameClasses"
+                optionValue="id"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full"
+              >
+                <ng-template let-item pTemplate="item">
+                  {{ item | translateDictionary }}
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span *ngIf="item">{{ item | translateDictionary }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.DIAGNOSIS.MKB' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="diseaseMkb"
+                [options]="mkbList"
+                optionValue="id"
+                [disabled]="!mkbList.length"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full"
+              >
+                <ng-template let-item pTemplate="item">
+                  {{ item | translateDictionary }}
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span *ngIf="item">{{ item | translateDictionary }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.DIAGNOSIS.MAIN' | translate }}
+              </label>
+              <textarea
+                pInputTextarea
+                rows="3"
+                class="w-full"
+                formControlName="mainDiagnosis"
+                [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+              ></textarea>
+            </div>
+
+            <div class="field col-12">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.DIAGNOSIS.COMORBID' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="comorbidId"
+                [options]="nameClasses"
+                optionValue="id"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full"
+              >
+                <ng-template let-item pTemplate="item">
+                  {{ item | translateDictionary }}
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span *ngIf="item">{{ item | translateDictionary }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.DIAGNOSIS.COMPLICATION' | translate }}
+              </label>
+              <textarea
+                pInputTextarea
+                rows="3"
+                class="w-full"
+                formControlName="complications"
+                [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+              ></textarea>
+            </div>
+
+            <div class="field col-12">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.DIAGNOSIS.JUSTIFICATION' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="justification"
+                [options]="justificationOptions"
+                optionValue="id"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full"
+              >
+                <ng-template let-item pTemplate="item">
+                  {{ item | translateDictionary }}
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span *ngIf="item">{{ item | translateDictionary }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+        </form>
+      </p-card>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.TITLE'"
+      id="conclusion"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.TITLE' | translate }}
+        </ng-template>
+
+        <form [formGroup]="conclusionForm" class="p-fluid form-section">
+          <div class="formgrid grid">
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.GROUP' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="groupId"
+                [options]="filteredDisabilityGroups"
+                optionValue="id"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full"
+                (onChange)="onGroupChange($event.value)"
+              >
+                <ng-template let-item pTemplate="item">
+                  {{ item | translateDictionary }}
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span *ngIf="item">{{ item | translateDictionary }}</span>
+                </ng-template>
+              </p-dropdown>
+
+              <div class="flex align-items-center mt-3">
+                <p-checkbox
+                  formControlName="temporaryDisabled"
+                  [binary]="true"
+                  inputId="temporaryDisabled"
+                ></p-checkbox>
+                <label for="temporaryDisabled" class="ml-2">
+                  {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.TEMP_DISABLED' | translate }}
+                </label>
+              </div>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.COUNTED_FROM' | translate }}
+              </label>
+              <p-calendar
+                formControlName="countedFrom"
+                [showIcon]="true"
+                dateFormat="dd.mm.yy"
+                inputId="countedFrom"
+                appendTo="body"
+                styleClass="w-full"
+              ></p-calendar>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.TERM' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="termCode"
+                [options]="filteredDeadline"
+                optionValue="id"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full"
+              >
+                <ng-template let-item pTemplate="item">
+                  {{ item | translateDictionary }}
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span *ngIf="item">{{ item | translateDictionary }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.TERM_UNTIL' | translate }}
+              </label>
+              <p-calendar
+                formControlName="termUntil"
+                [showIcon]="true"
+                dateFormat="dd.mm.yy"
+                inputId="termUntil"
+                [disabled]="isIndefiniteTerm"
+                appendTo="body"
+                styleClass="w-full"
+              ></p-calendar>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.REASON_FORM7' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="reasonForm7Id"
+                [options]="dicReasonsForm7"
+                optionValue="id"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full reason-dropdown"
+                panelStyleClass="reason-dropdown-panel"
+              >
+                <ng-template let-item pTemplate="item">
+                  <div
+                    class="dropdown-item-wrap"
+                    [title]="item | translateDictionary"
+                  >
+                    {{ item | translateDictionary }}
+                  </div>
+                </ng-template>
+                <ng-template let-selectedItem pTemplate="selectedItem">
+                  <div
+                    *ngIf="selectedItem"
+                    class="dropdown-selected-ellipsis">
+                    <span *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</span>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.REASON_TEXT' | translate }}
+              </label>
+              <textarea
+                pInputTextarea
+                rows="3"
+                class="w-full"
+                formControlName="reasonText"
+                [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+              ></textarea>
+            </div>
+
+            <div class="field col-12 md:col-4">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.UOT_DEGREE' | translate }}
+              </label>
+              <input
+                pInputText
+                type="number"
+                formControlName="uotDegreeId"
+                [min]="uotMin"
+                [max]="uotMax"
+              />
+              <div class="error" *ngIf="conclusionForm.get('uotDegreeId')?.hasError('uotByGroup')">
+                <span *ngIf="conclusionForm.get('groupId')?.value === 766">Процент должен быть ≥ 80</span>
+                <span *ngIf="conclusionForm.get('groupId')?.value === 767">Процент должен быть от 60 до 79</span>
+                <span *ngIf="conclusionForm.get('groupId')?.value === 768">Процент должен быть &lt; 60</span>
+              </div>
+            </div>
+
+            <div class="field col-12 md:col-4">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.UOT_TERM' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="uotTermCode"
+                [options]="dicUotTerms"
+                optionValue="id"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full"
+              >
+                <ng-template let-item pTemplate="item">
+                  {{ item | translateDictionary }}
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span *ngIf="item">{{ item | translateDictionary }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12 md:col-4">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.UOT_COUNTED_TO' | translate }}
+              </label>
+              <p-calendar
+                formControlName="uotCountedTo"
+                [showIcon]="true"
+                dateFormat="dd.mm.yy"
+                inputId="uotCountedTo"
+                appendTo="body"
+                styleClass="w-full"
+              ></p-calendar>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.UOT_CERT_DATE' | translate }}
+              </label>
+              <p-calendar
+                formControlName="uotCertificateDate"
+                [showIcon]="true"
+                dateFormat="dd.mm.yy"
+                inputId="uotCertificateDate"
+                appendTo="body"
+                styleClass="w-full"
+              ></p-calendar>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONCLUSION.REEXAM_DATE' | translate }}
+              </label>
+              <p-calendar
+                formControlName="reexaminationDate"
+                [showIcon]="true"
+                dateFormat="dd.mm.yy"
+                inputId="reexaminationDate"
+                appendTo="body"
+                styleClass="w-full"
+              ></p-calendar>
+            </div>
+          </div>
+        </form>
+      </p-card>
+    </section>
+
+    <!-- JUSTIFICATION -->
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.JUSTIFICATION'"
+      id="justification"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.JUSTIFICATION' | translate }}
+        </ng-template>
+
+        <div class="check-grid">
+          <div *ngFor="let g of dicBriefJustification" class="check-item">
+            <p-checkbox
+              [binary]="true"
+              [formControl]="$any(goalControlsJustification)[String(g.id)]"
+              [inputId]="'just-' + g.id"
+            ></p-checkbox>
+            <label class="ml-2" [for]="'just-' + g.id">
+              {{ g | translateDictionary }}
+            </label>
+          </div>
+        </div>
+      </p-card>
+    </section>
+
+    <!-- LIMITATIONS -->
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.LIMITATIONS.TITLE'"
+      id="limitations"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.LIMITATIONS.TITLE' | translate }}
+        </ng-template>
+
+        <div class="check-grid mb-4">
+          <div *ngFor="let g of filteredLimitations" class="check-item">
+            <p-checkbox
+              [binary]="true"
+              [formControl]="$any(goalControlsLimitation)[String(g.id)]"
+              [inputId]="'lim-' + g.id"
+              (onChange)="onLimitationChange()"
+            ></p-checkbox>
+            <label class="ml-2" [for]="'lim-' + g.id">
+              {{ g | translateDictionary }}
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="block mb-2">
+            {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.LIMITATIONS.ADDITIONAL_INFORMATION' | translate }}
+          </label>
+          <textarea
+            pInputTextarea
+            rows="3"
+            class="w-full"
+            [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+          ></textarea>
+        </div>
+      </p-card>
+    </section>
+
+    <!-- DEFECTS -->
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.DEFECTS'"
+      id="defects"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.DEFECTS' | translate }}
+        </ng-template>
+
+        <div class="check-grid mb-4">
+          <div *ngFor="let g of dicDefects" class="check-item">
+            <p-checkbox
+              [binary]="true"
+              [formControl]="$any(goalControlsDefects)[String(g.id)]"
+              [inputId]="'def-' + g.id"
+              (onChange)="onToggleDefects(String(g.id))"
+            ></p-checkbox>
+            <label class="ml-2" [for]="'def-' + g.id">
+              {{ g | translateDictionary }}
+            </label>
+          </div>
+        </div>
+
+        <div class="field" *ngIf="isAdditionalInfoActive">
+          <label class="block mb-2">
+            {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.LIMITATIONS.ADDITIONAL_INFORMATION' | translate }}
+          </label>
+          <textarea
+            pInputTextarea
+            rows="3"
+            class="w-full"
+            [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+          ></textarea>
+        </div>
+      </p-card>
+    </section>
+
+    <!-- UPT -->
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.TITLE' && isDirectionUptHas"
+      id="upt"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.TITLE' | translate }}
+        </ng-template>
+
+        <form [formGroup]="uptForm" class="p-fluid form-section">
+          <div class="info-strip">
+            <div><strong>Номер акта:</strong> {{ uptForm.value.actNumber || 'H1 1' }}</div>
+            <div>
+              <strong>Наименование:</strong> {{ uptForm.value.companyName || 'Товарищество с ограниченной ответственностью "Востокцветмет"' }}
+            </div>
+            <div><strong>БИН:</strong> {{ uptForm.value.bin || '140740012829' }}</div>
+          </div>
+
+          <div class="formgrid grid">
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.UOT_DEGREE' | translate }}
+              </label>
+              <input
+                pInputText
+                type="number"
+                min="0"
+                max="100"
+                formControlName="uotDegree"
+                placeholder="50"
+              />
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.UOT_COUNTED_FROM' | translate }}
+              </label>
+              <p-calendar
+                formControlName="uotCountedFrom"
+                [showIcon]="true"
+                dateFormat="dd.mm.yy"
+                inputId="uotCountedFrom"
+                appendTo="body"
+                styleClass="w-full"
+              ></p-calendar>
+            </div>
+
+            <div class="field col-12">
+              <div class="flex align-items-center">
+                <p-checkbox
+                  formControlName="agreedWithDisabilityTerm"
+                  [binary]="true"
+                  inputId="agreedWithDisabilityTerm"
+                ></p-checkbox>
+                <label for="agreedWithDisabilityTerm" class="ml-2">
+                  {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.AGREED_WITH_TERM' | translate }}
+                </label>
+              </div>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.REASON' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="uptReasonId"
+                [options]="dicCauseUpt"
+                optionValue="id"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full"
+              >
+                <ng-template let-item pTemplate="item">
+                  {{ item | translateDictionary }}
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span *ngIf="item">{{ item | translateDictionary }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.TERM_TYPE' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="uptTermCode"
+                [options]="dicUotTerms"
+                optionValue="id"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full"
+              >
+                <ng-template let-item pTemplate="item">
+                  {{ item | translateDictionary }}
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span *ngIf="item">{{ item | translateDictionary }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.UOT_UNTIL' | translate }}
+              </label>
+              <p-calendar
+                formControlName="uotUntil"
+                [showIcon]="true"
+                dateFormat="dd.mm.yy"
+                appendTo="body"
+                styleClass="w-full"
+              ></p-calendar>
+            </div>
+
+            <div class="field col-12">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.CERT_REF' | translate }}
+              </label>
+              <input
+                pInputText
+                formControlName="uotCertificateRef"
+                placeholder="50%"
+              />
+            </div>
+          </div>
+
+          <div class="sub-card" [class.disabled-block]="!uptForm.value.extraHelpEnabled">
+            <div class="flex align-items-center mb-3">
+              <p-checkbox
+                formControlName="extraHelpEnabled"
+                [binary]="true"
+                inputId="extraHelpEnabled"
+              ></p-checkbox>
+              <label for="extraHelpEnabled" class="ml-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.EXTRA_HELP.DEVELOP' | translate }}
+              </label>
+            </div>
+
+            <div class="formgrid grid">
+              <div class="field col-12">
+                <label class="block mb-2">
+                  {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.UPT.EXTRA_HELP.NEED_TEXT' | translate }}
+                </label>
+                <input
+                  pInputText
+                  formControlName="extraHelpNeedText"
+                  [disabled]="!uptForm.value.extraHelpEnabled"
+                />
+              </div>
+
+              <div class="col-12">
+                <div class="check-grid">
+                  <div *ngFor="let g of dicHelps" class="check-item">
+                    <p-checkbox
+                      [binary]="true"
+                      [formControl]="$any(goalAddHelps)[g.id]"
+                      [inputId]="'help-' + g.id"
+                    ></p-checkbox>
+                    <label class="ml-2" [for]="'help-' + g.id">
+                      {{ g | translateDictionary }}
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field col-12 md:col-6">
+                <input
+                  pInputText
+                  formControlName="device1"
+                  placeholder="Одноопорная трость"
+                  [disabled]="!uptForm.value.extraHelpEnabled"
+                />
+              </div>
+
+              <div class="field col-12 md:col-6">
+                <input
+                  pInputText
+                  formControlName="device2"
+                  placeholder="Одноопорная трость"
+                  [disabled]="!uptForm.value.extraHelpEnabled"
+                />
+              </div>
+
+              <div class="field col-12">
+                <label class="block mb-2">Заключение по ДВП:</label>
+                <input
+                  pInputText
+                  formControlName="dvpConclusion"
+                  placeholder="4250161-022"
+                  [disabled]="!uptForm.value.extraHelpEnabled"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </p-card>
+    </section>
+
+    <!-- REHABILITATION -->
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.REHABILITATION.TITLE'"
+      id="rehabilitation"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.REHABILITATION.TITLE' | translate }}
+        </ng-template>
+
+        <form [formGroup]="recommendationForms" class="p-fluid form-section">
+          <div class="field">
+            <label class="block mb-2">
+              {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.REHABILITATION.MED_RECOMMENDATION' | translate }}
+            </label>
+            <textarea
+              pInputTextarea
+              rows="3"
+              class="w-full readonly-field"
+              formControlName="medicalRehabilation"
+              readonly
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="block mb-2">
+              {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.REHABILITATION.SOC_RECOMMENDATION' | translate }}
+            </label>
+            <textarea
+              pInputTextarea
+              rows="3"
+              class="w-full"
+              formControlName="socialRehabilation"
+              [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label class="block mb-2">
+              {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.REHABILITATION.PROF_RECOMMENDATION' | translate }}
+            </label>
+            <textarea
+              pInputTextarea
+              rows="3"
+              class="w-full"
+              formControlName="profRehabilation"
+              [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+            ></textarea>
+          </div>
+
+          <div class="flex flex-column gap-3">
+            <div class="flex align-items-center">
+              <p-checkbox
+                formControlName="socOrProdRecommendationCheckbox"
+                [binary]="true"
+                inputId="socOrProdRecommendationCheckbox"
+              ></p-checkbox>
+              <label for="socOrProdRecommendationCheckbox" class="ml-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.REHABILITATION.SOC_OR_PROF_CHECKBOX' | translate }}
+              </label>
+            </div>
+
+            <div class="flex align-items-center">
+              <p-checkbox
+                formControlName="medRecommendationCheckbox"
+                [binary]="true"
+                inputId="medRecommendationCheckbox"
+              ></p-checkbox>
+              <label for="medRecommendationCheckbox" class="ml-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.REHABILITATION.MED_CHECKBOX' | translate }}
+              </label>
+            </div>
+          </div>
+
+          <div class="formgrid grid">
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.REHABILITATION.NEED_DYNAMIC_MONITORING' | translate }}
+              </label>
+              <p-dropdown
+                formControlName="needDynamicMonitoring"
+                [options]="dicNeedDynamicMonitoring"
+                optionValue="id"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+                styleClass="w-full"
+              >
+                <ng-template let-item pTemplate="item">
+                  {{ item | translateDictionary }}
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span *ngIf="item">{{ item | translateDictionary }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label class="block mb-2">
+                {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.REHABILITATION.TERM' | translate }}
+              </label>
+              <p-calendar
+                formControlName="term"
+                [showIcon]="true"
+                dateFormat="dd.mm.yy"
+                inputId="term"
+                [disabled]="isIndefiniteTerm"
+                appendTo="body"
+                styleClass="w-full"
+              ></p-calendar>
+            </div>
+          </div>
+        </form>
+      </p-card>
+    </section>
+
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONDITION.TITLE'"
+      id="condition"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.CONDITION.TITLE' | translate }}
+        </ng-template>
+
+        <form [formGroup]="organForm" class="p-fluid form-section">
+          <ng-container *ngFor="let s of organConfig; let si = index">
+            <div class="accordion-card">
+              <div
+                class="accordion-title"
+                [class.open]="organOpen()[sectionPath([s], si)]"
+                (click)="toggleOrgan(sectionPath([s], si))"
+              >
+                <span>{{ s.titleKey | translate }}</span>
+              </div>
+
+              <div class="accordion-body" *ngIf="organOpen()[sectionPath([s], si)]">
+                <div class="formgrid grid" *ngIf="s.fields?.length">
+                  <div class="field col-12 md:col-6 lg:col-4" *ngFor="let f of s.fields">
+                    <ng-container [ngSwitch]="f.type">
+                      <ng-container *ngSwitchCase="'select'">
+                        <label class="block mb-2">{{ f.labelKey | translate }}</label>
+                        <p-dropdown
+                          [formControlName]="f.name"
+                          [options]="organCommonOptions"
+                          optionValue="id"
+                          [placeholder]="'COMMON.CHOOSE' | translate"
+                          styleClass="w-full"
+                          appendTo="body"
+                        >
+                          <ng-template let-item pTemplate="item">
+                            {{ item | translateDictionary }}
+                          </ng-template>
+                          <ng-template let-item pTemplate="selectedItem">
+                            <span *ngIf="item">{{ item | translateDictionary }}</span>
+                          </ng-template>
+                        </p-dropdown>
+                      </ng-container>
+
+                      <ng-container *ngSwitchCase="'textarea'">
+                        <label class="block mb-2">{{ f.labelKey | translate }}</label>
+                        <textarea
+                          pInputTextarea
+                          class="w-full"
+                          rows="2"
+                          [formControlName]="f.name"
+                          [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+                        ></textarea>
+                      </ng-container>
+
+                      <ng-container *ngSwitchCase="'checkbox'">
+                        <div class="flex align-items-center mt-4">
+                          <p-checkbox
+                            [formControlName]="f.name"
+                            [binary]="true"
+                            [inputId]="f.name"
+                          ></p-checkbox>
+                          <label class="ml-2" [for]="f.name">{{ f.labelKey | translate }}</label>
+                        </div>
+                      </ng-container>
+                    </ng-container>
+                  </div>
+                </div>
+
+                <ng-container *ngFor="let r of s.rows">
+                  <div class="formgrid grid mt-2">
+                    <div class="field col-12 md:col-6 lg:col-4" *ngFor="let f of r">
+                      <ng-container [ngSwitch]="f.type">
+                        <ng-container *ngSwitchCase="'select'">
+                          <label class="block mb-2">{{ f.labelKey | translate }}</label>
+                          <p-dropdown
+                            [formControlName]="f.name"
+                            [options]="organCommonOptions"
+                            optionValue="id"
+                            [placeholder]="'COMMON.CHOOSE' | translate"
+                            styleClass="w-full"
+                            appendTo="body"
+                          >
+                            <ng-template let-item pTemplate="item">
+                              {{ item | translateDictionary }}
+                            </ng-template>
+                            <ng-template let-item pTemplate="selectedItem">
+                              <span *ngIf="item">{{ item | translateDictionary }}</span>
+                            </ng-template>
+                          </p-dropdown>
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="'textarea'">
+                          <label class="block mb-2">{{ f.labelKey | translate }}</label>
+                          <textarea
+                            pInputTextarea
+                            class="w-full"
+                            rows="2"
+                            [formControlName]="f.name"
+                            [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+                          ></textarea>
+                        </ng-container>
+                      </ng-container>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <ng-container *ngFor="let c of s.children; let ci = index">
+                  <div class="sub-card mt-3">
+                    <div
+                      class="accordion-title accordion-title--nested"
+                      [class.open]="organOpen()[sectionPath([s, c], si, ci)]"
+                      (click)="toggleOrgan(sectionPath([s, c], si, ci))"
+                    >
+                      <span>{{ c.titleKey | translate }}</span>
+                    </div>
+
+                    <div class="accordion-body" *ngIf="organOpen()[sectionPath([s, c], si, ci)]">
+                      <div class="formgrid grid" *ngIf="c.fields?.length">
+                        <div class="field col-12 md:col-6 lg:col-4" *ngFor="let f of c.fields">
+                          <label class="block mb-2">{{ f.labelKey | translate }}</label>
+                          <p-dropdown
+                            [formControlName]="f.name"
+                            [options]="organCommonOptions"
+                            optionValue="id"
+                            [placeholder]="'COMMON.CHOOSE' | translate"
+                            styleClass="w-full"
+                            appendTo="body"
+                          >
+                            <ng-template let-item pTemplate="item">
+                              {{ item | translateDictionary }}
+                            </ng-template>
+                            <ng-template let-item pTemplate="selectedItem">
+                              <span *ngIf="item">{{ item | translateDictionary }}</span>
+                            </ng-template>
+                          </p-dropdown>
+                        </div>
+                      </div>
+
+                      <ng-container *ngFor="let r of c.rows || []">
+                        <div class="formgrid grid mt-2">
+                          <div class="field col-12 md:col-6 lg:col-4" *ngFor="let f of r">
+                            <ng-container [ngSwitch]="f.type">
+                              <ng-container *ngSwitchCase="'select'">
+                                <label class="block mb-2">{{ f.labelKey | translate }}</label>
+                                <p-dropdown
+                                  [formControlName]="f.name"
+                                  [options]="organCommonOptions"
+                                  optionValue="id"
+                                  [placeholder]="'COMMON.CHOOSE' | translate"
+                                  styleClass="w-full"
+                                  appendTo="body"
+                                >
+                                  <ng-template let-item pTemplate="item">
+                                    {{ item | translateDictionary }}
+                                  </ng-template>
+                                  <ng-template let-item pTemplate="selectedItem">
+                                    <span *ngIf="item">{{ item | translateDictionary }}</span>
+                                  </ng-template>
+                                </p-dropdown>
+                              </ng-container>
+
+                              <ng-container *ngSwitchCase="'textarea'">
+                                <label class="block mb-2">{{ f.labelKey | translate }}</label>
+                                <textarea
+                                  pInputTextarea
+                                  class="w-full"
+                                  rows="2"
+                                  [formControlName]="f.name"
+                                  [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+                                ></textarea>
+                              </ng-container>
+
+                              <ng-container *ngSwitchCase="'checkbox'">
+                                <div class="flex align-items-center mt-4">
+                                  <p-checkbox
+                                    [formControlName]="f.name"
+                                    [binary]="true"
+                                    [inputId]="f.name"
+                                  ></p-checkbox>
+                                  <label class="ml-2" [for]="f.name">{{ f.labelKey | translate }}</label>
+                                </div>
+                              </ng-container>
+                            </ng-container>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <div class="field mt-3" *ngIf="s.bottomTextarea">
+                  <label class="block mb-2">{{ s.bottomTextarea.labelKey | translate }}</label>
+                  <textarea
+                    pInputTextarea
+                    class="w-full"
+                    rows="3"
+                    [formControlName]="s.bottomTextarea.name"
+                    [placeholder]="'COMMON.PLACEHOLDER.FILL' | translate"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </form>
+      </p-card>
+    </section>
+
+
+    <section
+      *ngIf="activeSub() === 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.IRREVERSIBLE_DEFECTS'"
+      id="irreversible-defects"
+    >
+      <p-card styleClass="section-card cbdi-expert-card">
+        <ng-template pTemplate="title">
+          {{ 'MAIN.EXAMINATION.EXPERT-CONCLUSION.SUBNAV.IRREVERSIBLE_DEFECTS' | translate }}
+        </ng-template>
+
+        <form *ngIf="defsReady" [formGroup]="irreversibleForm" class="p-fluid form-section">
+          <ng-container *ngFor="let root of displayRoots; trackBy: trackByNode">
+            <div class="accordion-card">
+              <div
+                class="accordion-title"
+                [class.open]="defOpen()[root.item.id]"
+                (click)="toggleDef(root)"
+              >
+                <span>{{ root.item | translateDictionary }}</span>
+              </div>
+
+              <div class="accordion-body" *ngIf="defOpen()[root.item.id]">
+                <div class="check-list" *ngIf="root.leaves.length">
+                  <div class="check-item" *ngFor="let l of root.leaves; trackBy: trackByLeaf">
+                    <p-checkbox
+                      [binary]="true"
+                      [formControlName]="leafKey(l.id)"
+                      [inputId]="'leaf-' + l.id"
+                      (onChange)="onIrreversibleDefectChange()"
+                    ></p-checkbox>
+                    <label class="ml-2" [for]="'leaf-' + l.id">
+                      {{ l | translateDictionary }}
+                    </label>
+                  </div>
+                </div>
+
+                <div class="sub-card mt-3" *ngFor="let g of root.groups; trackBy: trackByNode">
+                  <div
+                    class="accordion-title accordion-title--nested"
+                    [class.open]="defOpen()[g.item.id]"
+                    (click)="toggleDef(g)"
+                  >
+                    <span>{{ g.item | translateDictionary }}</span>
+                  </div>
+
+                  <div class="accordion-body" *ngIf="defOpen()[g.item.id]">
+                    <div class="check-list" *ngIf="g.leaves.length">
+                      <div class="check-item" *ngFor="let l of g.leaves; trackBy: trackByLeaf">
+                        <p-checkbox
+                          [binary]="true"
+                          [formControlName]="leafKey(l.id)"
+                          [inputId]="'leaf-' + l.id"
+                          (onChange)="onIrreversibleDefectChange()"
+                        ></p-checkbox>
+                        <label class="ml-2" [for]="'leaf-' + l.id">
+                          {{ l | translateDictionary }}
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="sub-card mt-3" *ngFor="let gg of g.groups; trackBy: trackByNode">
+                      <div
+                        class="accordion-title accordion-title--nested"
+                        [class.open]="defOpen()[gg.item.id]"
+                        (click)="toggleDef(gg)"
+                      >
+                        <span>{{ gg.item | translateDictionary }}</span>
+                      </div>
+
+                      <div class="accordion-body" *ngIf="defOpen()[gg.item.id]">
+                        <div class="check-list" *ngIf="gg.leaves.length">
+                          <div class="check-item" *ngFor="let l of gg.leaves; trackBy: trackByLeaf">
+                            <p-checkbox
+                              [binary]="true"
+                              [formControlName]="leafKey(l.id)"
+                              [inputId]="'leaf-' + l.id"
+                              (onChange)="onIrreversibleDefectChange()"
+                            ></p-checkbox>
+                            <label class="ml-2" [for]="'leaf-' + l.id">
+                              {{ l | translateDictionary }}
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+        </form>
+      </p-card>
+    </section>
+
+
+    <!-- ACTIONS -->
+    <div class="page-actions center-actions">
+      <button
+        pButton
+        type="button"
+        class="p-button-outlined"
+        [disabled]="activeIndex === 0"
+        (click)="prevStep()"
+      >
+        ← {{ 'COMMON.BACK' | translate }}
+      </button>
+
+      <button
+        pButton
+        type="button"
+        class="p-button-success"
+        [disabled]="isSaving"
+        (click)="save()"
+      >
+        <ng-container *ngIf="!isSaving">{{ 'COMMON.SAVE' | translate }}</ng-container>
+        <ng-container *ngIf="isSaving">{{ 'COMMON.SAVING' | translate }}…</ng-container>
+      </button>
+
+      <button
+        pButton
+        type="button"
+        [disabled]="activeIndex === visibleSubnav.length - 1"
+        (click)="nextStep()"
+      >
+        {{ 'COMMON.NEXT' | translate }} →
+      </button>
+    </div>
+  </main>
+</div>

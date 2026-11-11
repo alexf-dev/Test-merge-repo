@@ -1,0 +1,65 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.PENDULAR'"
+    [(checked)]="model.pendular.checked"
+    [(comment)]="model.pendular.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.JERKY'"
+    [(checked)]="model.jerky.checked"
+    [(comment)]="model.jerky.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.HORIZONTAL'"
+    [(checked)]="model.horizontal.checked"
+    [(comment)]="model.horizontal.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.VERTICAL'"
+    [(checked)]="model.vertical.checked"
+    [(comment)]="model.vertical.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.ROTATORY'"
+    [(checked)]="model.rotatory.checked"
+    [(comment)]="model.rotatory.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.CIRCUMFERENTIAL'"
+    [(checked)]="model.circumferential.checked"
+    [(comment)]="model.circumferential.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.POSITIONAL'"
+    [(checked)]="model.positional.checked"
+    [(comment)]="model.positional.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.MACRO_AMPLITUDE'"
+    [(checked)]="model.macroAmplitude.checked"
+    [(comment)]="model.macroAmplitude.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.MESO_AMPLITUDE'"
+    [(checked)]="model.mesoAmplitude.checked"
+    [(comment)]="model.mesoAmplitude.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.NYSTAGMUS.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

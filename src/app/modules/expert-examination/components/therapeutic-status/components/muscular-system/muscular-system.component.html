@@ -1,0 +1,18 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'MUSCULAR_SYSTEM.TITLE'" [isExpanded]="isExpanded">
+
+  <app-group-title [titleKey]="translationPrefix + 'MUSCULAR_SYSTEM.DEVELOPMENT.TITLE'"></app-group-title>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULAR_SYSTEM.DEVELOPMENT.WEAKLY_DEVELOPED'" [(checked)]="model.development.weaklyDeveloped"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULAR_SYSTEM.DEVELOPMENT.SATISFACTORILY_DEVELOPED'" [(checked)]="model.development.satisfactorilyDeveloped"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULAR_SYSTEM.DEVELOPMENT.WELL_DEVELOPED'" [(checked)]="model.development.wellDeveloped"></app-check-field>
+
+  <app-group-title [titleKey]="translationPrefix + 'MUSCULAR_SYSTEM.TROPHIC.TITLE'"></app-group-title>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULAR_SYSTEM.TROPHIC.ATROPHY'" [showComment]="true" [(checked)]="model.trophic.atrophy.checked" [(comment)]="model.trophic.atrophy.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULAR_SYSTEM.TROPHIC.HYPERTROPHY'" [showComment]="true" [(checked)]="model.trophic.hypertrophy.checked" [(comment)]="model.trophic.hypertrophy.comment"></app-check-field>
+
+  <app-group-title [titleKey]="translationPrefix + 'MUSCULAR_SYSTEM.TONE.TITLE'"></app-group-title>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULAR_SYSTEM.TONE.HYPOTONIA'" [showComment]="true" [(checked)]="model.tone.hypotonia.checked" [(comment)]="model.tone.hypotonia.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULAR_SYSTEM.TONE.HYPERTONIA'" [showComment]="true" [(checked)]="model.tone.hypertonia.checked" [(comment)]="model.tone.hypertonia.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'MUSCULAR_SYSTEM.TONE.MYOTONIA'" [showComment]="true" [(checked)]="model.tone.myotonia.checked" [(comment)]="model.tone.myotonia.comment"></app-check-field>
+  <app-textarea-field [(value)]="model.toneAdditionalInfo"></app-textarea-field>
+
+</app-collapsible-block>

@@ -1,0 +1,44 @@
+<h2>Лист ожидание</h2>
+
+<!-- Панель фильтров -->
+<div class="waiting-list-layout">
+
+  <div class="p-5">
+    Всего: {{ filteredItems.length }}
+  </div>
+
+  <!-- Таблица -->
+  <p-table
+    [value]="filteredItems"
+    [paginator]="true"
+    [rows]="10"
+    [rowsPerPageOptions]="[10,25,50]"
+    [responsiveLayout]="'scroll'">
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Пациент</th>
+        <th>Дата рождения</th>
+        <th>Цель</th>
+        <th>Дата начала экспертизы</th>
+        <th>Решение руководителя</th>
+        <th>Дата создания</th>
+        <th>Сотрудник</th>
+        <th>Действие</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-row>
+      <tr>
+        <td>{{ row.patient }}</td>
+        <td>{{ row.birthDate | date:'dd.MM.yyyy' }}</td>
+        <td>{{ row.purpose || '-' }}</td>
+        <td>{{ row.expertiseStart | date:'dd.MM.yyyy' }}</td>
+        <td>{{ row.managerDecision || '-' }}</td>
+        <td>{{ row.createdAt | date:'dd.MM.yyyy' }}</td>
+        <td>{{ row.employee }}</td>
+      </tr>
+    </ng-template>
+
+  </p-table>
+</div>

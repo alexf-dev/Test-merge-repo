@@ -1,0 +1,30 @@
+<div class="ophthalmological-data-form">
+  <app-oph-specialist-data></app-oph-specialist-data>
+  <app-oph-visual-acuity [isExpanded]="true"></app-oph-visual-acuity>
+  <app-oph-perimetry [isExpanded]="true"></app-oph-perimetry>
+  <app-oph-intraocular-pressure [isExpanded]="true"></app-oph-intraocular-pressure>
+  <app-oph-eyelids [isExpanded]="true"></app-oph-eyelids>
+  <app-oph-eyeballs [isExpanded]="true"></app-oph-eyeballs>
+  <app-oph-nystagmus [isExpanded]="true"></app-oph-nystagmus>
+  <app-oph-conjunctiva [isExpanded]="true"></app-oph-conjunctiva>
+  <app-oph-lacrimal-apparatus [isExpanded]="true"></app-oph-lacrimal-apparatus>
+  <app-oph-cornea [isExpanded]="true"></app-oph-cornea>
+  <app-oph-sclera [isExpanded]="true"></app-oph-sclera>
+  <app-oph-anterior-chamber [isExpanded]="true"></app-oph-anterior-chamber>
+  <app-oph-pupils [isExpanded]="true"></app-oph-pupils>
+  <app-oph-iris [isExpanded]="true"></app-oph-iris>
+  <app-oph-vitreous-body [isExpanded]="true"></app-oph-vitreous-body>
+  <app-oph-lens [isExpanded]="true"></app-oph-lens>
+  <app-oph-fundus [isExpanded]="true"></app-oph-fundus>
+  <app-oph-patient-behavior [isExpanded]="true"></app-oph-patient-behavior>
+  <app-oph-signed-in-journal [isExpanded]="true"></app-oph-signed-in-journal>
+  <app-oph-glasses-correction [isExpanded]="true"></app-oph-glasses-correction>
+
+  <div class="form-actions">
+    <p-button
+      [label]="'MAIN.COMMON.SAVE' | translate"
+      styleClass="save-button"
+      (onClick)="onSave()">
+    </p-button>
+  </div>
+</div>

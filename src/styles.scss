@@ -1,0 +1,1180 @@
+/* Compatibility tokens used by legacy component CSS/SCSS.
+ * Each --app-* token is given a concrete fallback when the CBDI theme is absent.
+ * Required because app components reference these names extensively. */
+:root {
+  --app-font-family: var(--cbdi-font, Inter, Arial, sans-serif);
+  --app-text: var(--cbdi-text, #010516);
+  --app-text-heading: var(--cbdi-heading-soft, #334154);
+  --app-text-secondary: var(--cbdi-muted, #64748a);
+  --app-text-medium: #475569;
+  --app-text-faint: #94a3b8;
+  --app-text-steel: #66788f;
+  --app-card-bg: #ffffff;
+  --app-surface-page: #ffffff;
+  --app-surface-panel: var(--cbdi-panel, #f0f4f9);
+  --app-sidebar-bg: var(--cbdi-panel, #f0f4f9);
+  --app-block-header-bg: var(--cbdi-panel, #f0f4f9);
+  --app-block-header-border: var(--cbdi-border, #e2e8ef);
+  --app-block-header-hover: #e6edf4;
+  --app-block-header-nested: #e8eef5;
+  --app-block-content-bg: var(--cbdi-panel-light, #f8fafc);
+  --app-border: var(--cbdi-border, #e2e8ef);
+  --app-border-light: var(--cbdi-border-soft, #edf1f5);
+  --app-input-bg: #ffffff;
+  --app-link: var(--cbdi-accent-blue, #54a5f2);
+  --app-accent-teal: var(--cbdi-primary, #50b190);
+  --app-tint-blue: #eaf4ff;
+  --app-tint-blue-strong: #d6e8ff;
+  --app-tint-cyan: #e7f8fb;
+  --app-tint-ivory: #fffdf7;
+  --app-bg-danger-tint: #fff1f2;
+  --app-bg-warn-tint: #fff7e5;
+  --app-bg-success-tint: #e8f6f0;
+  --app-danger-text: #b42318;
+  --app-success-text: #1b7d5f;
+  --app-success-bg: var(--cbdi-primary, #50b190);
+  --app-success-bg-hover: var(--cbdi-primary-hover, #449e80);
+  --app-focus-color: var(--cbdi-primary, #50b190);
+  --app-focus-shadow: rgba(80, 177, 144, 0.18);
+  --app-space-4: 4px;
+  --app-space-6: 6px;
+  --app-space-8: 8px;
+  --app-space-12: 12px;
+  --app-space-16: 16px;
+  --app-space-20: 20px;
+  --app-space-24: 24px;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  //overflow-x:hidden;
+  //overflow-y: auto;
+}
+app-root{
+  display:block;
+  width:100%;
+  height:100%;
+}
+*{
+  box-sizing:border-box;
+}
+
+.section-title {
+  margin: 1.25rem 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.page-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.readonly-field {
+  background: var(--surface-ground);
+}
+
+.p-card {
+  border-radius: var(--cbdi-radius-panel, 9px);
+}
+
+.p-card .p-card-title {
+  color: var(--cbdi-heading, #101827);
+  font-weight: 600;
+}
+
+.p-fluid .p-calendar,
+.p-fluid .p-dropdown {
+  width: 100%;
+}
+
+/* выбранное значение в самом поле */
+.dropdown-selected-ellipsis {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* элементы в выпадающем списке */
+.dropdown-item-wrap {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.35;
+}
+
+/* label внутри dropdown */
+.reason-dropdown .p-dropdown-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* панель выпадающего списка */
+.reason-dropdown-panel .p-dropdown-item {
+  white-space: normal !important;
+  word-break: break-word;
+  line-height: 1.35;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+/* чтобы панель не была слишком узкой */
+.reason-dropdown-panel {
+  max-width: min(700px, calc(100vw - 24px));
+}
+
+
+
+@media (max-width: 768px) {
+  .page-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* ===================== */
+/* SECTION / CARD LAYOUT */
+/* ===================== */
+
+.section-card {
+  border-radius: 14px !important;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.section-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ===================== */
+/* COMMON BLOCKS */
+/* ===================== */
+
+.select-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  background: var(--surface-card);
+}
+
+/* ===================== */
+/* TABLE (GLOBAL STYLE) */
+/* ===================== */
+
+.p-datatable.docs-table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.p-datatable.docs-table .p-datatable-thead > tr > th {
+  background: var(--surface-ground);
+  font-weight: 600;
+  color: var(--text-color-secondary);
+  font-size: 0.85rem;
+}
+
+.p-datatable.docs-table .p-datatable-tbody > tr > td {
+  vertical-align: middle;
+  font-size: 0.9rem;
+}
+
+.p-datatable.docs-table .p-button {
+  white-space: nowrap;
+}
+
+/* ===================== */
+/* ACCORDION (TABLE) */
+/* ===================== */
+
+.accordion-trigger-row td {
+  padding: 0 !important;
+  background: var(--surface-ground);
+}
+
+.accordion-trigger {
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.accordion-trigger:hover {
+  background: var(--highlight-bg);
+}
+
+.nested-accordion-wrap {
+  border-top: 1px solid var(--surface-border);
+}
+
+.nested-accordion-item {
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--surface-border);
+  transition: background-color 0.2s ease;
+}
+
+.nested-accordion-item:hover {
+  background: var(--surface-ground);
+}
+
+.nested-accordion-title {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.nested-accordion-content {
+  padding: 1rem 1rem 1rem 2.25rem;
+  background: var(--surface-ground);
+  border-bottom: 1px solid var(--surface-border);
+  color: var(--text-color-secondary);
+}
+
+/* ===================== */
+/* DOC CARDS (GRID) */
+/* ===================== */
+
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.doc-item {
+  padding: 0.875rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  background: var(--surface-card);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 110px;
+}
+
+.doc-item:hover {
+  border-color: var(--primary-color);
+  background: var(--highlight-bg);
+}
+
+.doc-item.selected {
+  border-color: var(--primary-color);
+  background: var(--highlight-bg);
+}
+
+.doc-item.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--surface-ground);
+}
+
+.doc-item-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.doc-item-title {
+  font-weight: 600;
+}
+
+.doc-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-color-secondary);
+}
+
+.doc-picked {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--green-500);
+}
+
+/* ===================== */
+/* FORM HELPERS */
+/* ===================== */
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.subsection-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* ===================== */
+/* BUTTON GROUPS */
+/* ===================== */
+
+.page-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* ===================== */
+/* PDF VIEW */
+/* ===================== */
+
+.pdf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.pdf-title {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+}
+
+.pdf-counter {
+  margin-left: 0.5rem;
+  color: var(--text-color-secondary);
+}
+
+.pdf-frame {
+  width: 100%;
+  height: calc(90vh - 9rem);
+  border: none;
+  border-radius: 8px;
+}
+
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
+
+@media (max-width: 992px) {
+  .doc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .section-actions {
+    justify-content: flex-end;
+  }
+
+  .doc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-actions {
+    flex-direction: column;
+  }
+}
+
+.auth-panel-content {
+  opacity: 0;
+  transform: translateX(32px);
+  animation: authFadeSlideIn 0.75s ease-out forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes authFadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === Стили для всех блоков формы "Данные лабораторных исследований" === */
+
+/* === БЛОК (контейнер) === */
+.laboratory-block,
+app-additional-methods,
+app-blood-test,
+app-biochemical-blood-test,
+app-urine-test {
+  display: block;
+  width: 100%;
+}
+
+/* === ЗАГОЛОВОК БЛОКА (шапка с фоном) === */
+.laboratory-block .block-header,
+app-additional-methods .block-header,
+app-blood-test .block-header,
+app-biochemical-blood-test .block-header,
+app-urine-test .block-header {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 48px !important;
+  padding: var(--app-space-8) var(--app-space-16) !important;
+  background: var(--app-block-header-bg) !important;
+  border-bottom: 1px solid var(--app-block-header-border) !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+
+.laboratory-block .block-header:hover,
+app-additional-methods .block-header:hover,
+app-blood-test .block-header:hover,
+app-biochemical-blood-test .block-header:hover,
+app-urine-test .block-header:hover {
+  background: var(--app-block-header-hover) !important;
+}
+
+/* === СТРЕЛКА === */
+.laboratory-block .block-header .pi-chevron-down,
+app-additional-methods .block-header .pi-chevron-down,
+app-blood-test .block-header .pi-chevron-down,
+app-biochemical-blood-test .block-header .pi-chevron-down,
+app-urine-test .block-header .pi-chevron-down {
+  transition: transform 0.2s ease !important;
+  flex-shrink: 0 !important;
+  margin-right: var(--app-space-8) !important;
+  font-size: 12px !important;
+  color: var(--app-text-heading) !important;
+}
+
+.laboratory-block .block-header .pi-chevron-down.rotated,
+app-additional-methods .block-header .pi-chevron-down.rotated,
+app-blood-test .block-header .pi-chevron-down.rotated,
+app-biochemical-blood-test .block-header .pi-chevron-down.rotated,
+app-urine-test .block-header .pi-chevron-down.rotated {
+  transform: rotate(180deg) !important;
+}
+
+/* === Текст заголовка блока (Bold) === */
+.laboratory-block .block-header .block-title,
+app-additional-methods .block-header .block-title,
+app-blood-test .block-header .block-title,
+app-biochemical-blood-test .block-header .block-title,
+app-urine-test .block-header .block-title {
+  font-family: var(--app-font-family) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  line-height: 100% !important;
+  letter-spacing: 0% !important;
+  color: var(--app-text-heading) !important;
+  flex: 1 !important;
+}
+
+/* === СОДЕРЖИМОЕ БЛОКА === */
+.laboratory-block .block-content,
+app-additional-methods .block-content,
+app-blood-test .block-content,
+app-biochemical-blood-test .block-content,
+app-urine-test .block-content {
+  padding: var(--app-space-16) !important;
+  background: var(--app-block-content-bg) !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+
+/* === Контейнер полей === */
+.laboratory-block .fields-container,
+app-additional-methods .fields-container,
+app-blood-test .fields-container,
+app-biochemical-blood-test .fields-container,
+app-urine-test .fields-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--app-space-16) !important;
+}
+
+/* === LABEL ПОЛЕЙ (Medium) === */
+.laboratory-block .field-label,
+app-additional-methods .field-label,
+app-blood-test .field-label,
+app-biochemical-blood-test .field-label,
+app-urine-test .field-label {
+  font-family: var(--app-font-family) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0% !important;
+  color: var(--app-text) !important;
+  display: block !important;
+  margin-bottom: var(--app-space-8) !important;
+}
+
+/* === TEXTAREA И INPUT (Regular) === */
+.laboratory-block textarea,
+.laboratory-block input[type="text"],
+app-additional-methods textarea,
+app-additional-methods input[type="text"],
+app-blood-test textarea,
+app-blood-test input[type="text"],
+app-biochemical-blood-test textarea,
+app-biochemical-blood-test input[type="text"],
+app-urine-test textarea,
+app-urine-test input[type="text"] {
+  font-family: var(--app-font-family) !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0% !important;
+  color: var(--app-text) !important;
+  border: 1px solid var(--app-border) !important;
+  border-radius: 4px !important;
+  padding: var(--app-space-8) var(--app-space-12) !important;
+  background: var(--app-input-bg) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s ease !important;
+}
+
+/* === PLACEHOLDER (Regular, muted) === */
+.laboratory-block textarea::placeholder,
+.laboratory-block input::placeholder,
+app-additional-methods textarea::placeholder,
+app-additional-methods input::placeholder,
+app-blood-test textarea::placeholder,
+app-blood-test input::placeholder,
+app-biochemical-blood-test textarea::placeholder,
+app-biochemical-blood-test input::placeholder,
+app-urine-test textarea::placeholder,
+app-urine-test input::placeholder {
+  font-family: var(--app-font-family) !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0% !important;
+  color: var(--app-text-secondary) !important;
+}
+
+/* === ПОДСКАЗКИ ПОД ПОЛЯМИ (Regular, muted) === */
+.laboratory-block .field-hint,
+app-additional-methods .field-hint,
+app-blood-test .field-hint,
+app-biochemical-blood-test .field-hint,
+app-urine-test .field-hint {
+  font-family: var(--app-font-family) !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0% !important;
+  color: var(--app-text-secondary) !important;
+  display: block !important;
+  margin-top: var(--app-space-6) !important;
+}
+
+/* === СЕТКА ПОЛЕЙ (для blood-test) === */
+.laboratory-block .fields-grid,
+app-blood-test .fields-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: var(--app-space-16) !important;
+}
+
+.laboratory-block .field-group,
+app-additional-methods .field-group,
+app-blood-test .field-group,
+app-biochemical-blood-test .field-group,
+app-urine-test .field-group {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.laboratory-block .field-group.full-width,
+app-blood-test .field-group.full-width {
+  grid-column: 1 / -1 !important;
+}
+
+/* === ЧЕКБОКС (для blood-test) === */
+.laboratory-block .checkbox-row,
+app-blood-test .checkbox-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--app-space-8) !important;
+  margin-bottom: var(--app-space-8) !important;
+}
+
+.laboratory-block .checkbox-row .checkbox-label,
+app-blood-test .checkbox-row .checkbox-label {
+  font-family: var(--app-font-family) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  color: var(--app-text) !important;
+  cursor: pointer !important;
+}
+
+/* === ТЕКСТ-ЗАГЛУШКА (для пустых блоков) === */
+.laboratory-block .placeholder-text,
+app-biochemical-blood-test .placeholder-text,
+app-urine-test .placeholder-text {
+  font-family: var(--app-font-family) !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  color: var(--app-text-secondary) !important;
+  text-align: center !important;
+  margin: var(--app-space-20) 0 !important;
+}
+
+/* === ФОКУС НА ПОЛЕ === */
+.laboratory-block textarea:focus,
+.laboratory-block input:focus,
+app-additional-methods textarea:focus,
+app-additional-methods input:focus,
+app-blood-test textarea:focus,
+app-blood-test input:focus,
+app-biochemical-blood-test textarea:focus,
+app-biochemical-blood-test input:focus,
+app-urine-test textarea:focus,
+app-urine-test input:focus {
+  outline: none !important;
+  border-color: var(--app-focus-color) !important;
+  box-shadow: 0 0 0 2px var(--app-focus-shadow) !important;
+}
+
+app-laboratory-data {
+  display: block;
+}
+
+.laboratory-data-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--app-space-24) !important;
+}
+
+/* ========================================
+   Shared-компоненты: стили для UI-примитивов
+   ======================================== */
+
+/* Глобальная защита от переполнения и корректный расчёт ширины */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Раскрывающийся блок (collapsible-block) ---------- */
+/* Блок: больше НЕ режем содержимое по вертикали */
+.laboratory-block {
+  width: 100%;
+  min-width: 0;
+  overflow: visible;      /* БЫЛО: hidden — из-за него обрезалась нижняя textarea */
+  border-radius: 8px;
+  background: var(--app-card-bg);
+}
+
+/* Тело блока: grid для выравнивания чекбокс-строк */
+/* Тело раскрывающегося блока: grid для выравнивания строк */
+.block-content .block-body {
+  display: grid;
+  /* [чекбокс] [лейбл = самый длинный, не шире 50%] [поле на остаток] */
+  grid-template-columns: auto max-content 1fr;
+  column-gap: var(--app-space-16);
+  align-items: center;
+  padding: var(--app-space-16);
+  width: 100%;
+  min-width: 0;
+}
+
+/* Ограничиваем ширину лейблов чекбоксов и селектов */
+.check-field-row .checkbox-label,
+.dropdown-field-row .row-label {
+  max-width: 50vw;           /* не шире половины экрана */
+  min-width: 0;
+  overflow-wrap: break-word; /* перенос длинных слов */
+  word-wrap: break-word;
+  white-space: normal;       /* разрешаем перенос строк */
+}
+
+/* Строка "чекбокс + label + поле" */
+.check-field-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  column-gap: var(--app-space-16);
+  align-items: center;
+  padding: var(--app-space-4) 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.check-field-row .check-comment-input {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Textarea всегда занимает всю ширину блока (отдельная строка grid) */
+.block-body > app-textarea-field {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+}
+
+.block-header {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-8);
+  padding: var(--app-space-12) var(--app-space-16);
+  background: var(--app-block-header-bg);
+  cursor: pointer;
+  user-select: none;
+}
+
+.block-title {
+  font-family: var(--app-font-family);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--app-text);
+}
+
+.block-content {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Тело блока: block-body ВЛОЖЕН в block-content, поэтому селектор с пробелом */
+.block-content .block-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-8);
+  padding: var(--app-space-16);
+  width: 100%;
+  min-width: 0;
+}
+
+/* Вложенные раскрывающиеся блоки */
+.laboratory-block.nested-block {
+  margin-left: var(--app-space-24);
+}
+
+.laboratory-block.nested-block > .block-header {
+  background: var(--app-block-header-nested);
+  height: 40px;
+}
+
+/* ---------- Check-field: чекбокс + label + опциональное поле справа ---------- */
+.check-field-row {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-8);
+  padding: var(--app-space-4) 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.check-field-row .checkbox-label {
+  flex: 0 1 auto;
+  min-width: 0;
+  cursor: pointer;
+  font-family: var(--app-font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--app-text);
+}
+
+.check-field-row .check-comment-input {
+  flex: 0 1 320px;
+  width: 320px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* ---------- Text-input-field: label слева + input ---------- */
+.input-field-row {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-16);
+  padding: var(--app-space-4) 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.input-field-row .row-label {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-family: var(--app-font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--app-text);
+}
+
+.input-field-row input,
+.input-field-row textarea {
+  flex: 0 1 320px;
+  width: 320px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.input-field-row .row-label,
+.dropdown-field-row .row-label {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-family: var(--app-font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--app-text);
+}
+
+/* ---------- Dropdown-field: label слева + dropdown ---------- */
+.dropdown-field-row {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-16);
+  padding: var(--app-space-4) 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.dropdown-field-row .p-dropdown.therapeutic-dropdown {
+  flex: 0 1 320px;
+  width: 320px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* ---------- Textarea-field: на всю ширину ---------- */
+app-textarea-field textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---------- Контейнеры форм ---------- */
+app-therapeutic-status,
+app-laboratory-data,
+app-surgical-status,
+app-specialists-conclusion,
+app-rehabilitation-conclusion,
+app-neurological-status,
+app-ophthalmological-data {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.therapeutic-status-form,
+.laboratory-data-form,
+.surgical-status-form,
+.neurological-status-form,
+.ophthalmological-data-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-24);
+  width: 100%;
+  min-width: 0;
+}
+
+/* ---------- Подзаголовок пункта (group-title) ---------- */
+.group-title {
+  font-family: var(--app-font-family);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--app-text);
+  margin-top: var(--app-space-8);
+}
+
+/* ---------- Тело раскрывающегося блока: grid для выравнивания строк ---------- */
+.block-content .block-body {
+  display: grid;
+  /* [чекбокс] [лейбл: растёт до контента, но НЕ шире 50%] [поле на остаток] */
+  grid-template-columns: auto minmax(auto, 50%) 1fr;
+  column-gap: var(--app-space-16);
+  align-items: center;
+  padding: var(--app-space-16);
+  width: 100%;
+  min-width: 0;
+}
+
+/* Host check-компонентов "прозрачен", чтобы строка стала grid-элементом block-body */
+.block-body app-check-field,
+.block-body app-check-comment-field {
+  display: contents;
+}
+
+/* Прочие дети блока (заголовки, textarea, dropdown, вложенные блоки) — на всю ширину */
+.block-body > *:not(app-check-field):not(app-check-comment-field) {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Строка "чекбокс + label + поле" ---------- */
+.check-field-row {
+  grid-column: 1 / -1;            /* строка занимает всю ширину блока */
+  display: grid;
+  grid-template-columns: subgrid; /* наследует колонки родителя → выравнивание */
+  column-gap: var(--app-space-16);
+  align-items: center;
+  padding: var(--app-space-4) 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.check-field-row .checkbox-label {
+  min-width: 0;
+  cursor: pointer;
+  font-family: var(--app-font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--app-text);
+}
+
+/* Поле комментария: растягивается на всю 3-ю колонку (до правого края) */
+.check-field-row .check-comment-input {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Модификатор: label сверху, поле на всю ширину (включается через [stacked]="true") */
+.input-field-row--stacked {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--app-space-6);
+}
+
+.input-field-row--stacked .row-label {
+  font-weight: 600;
+}
+
+.input-field-row--stacked input,
+.input-field-row--stacked textarea {
+  flex: none;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =========================================
+   FIX: сворачиваемые блоки НЕ должны обрезать содержимое.
+   Держать в конце styles.scss, чтобы перебивать легаси-стили.
+   ========================================= */
+.laboratory-block,
+.laboratory-block .block-header,
+.laboratory-block .block-content,
+.laboratory-block .block-content .block-body {
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+.laboratory-block .block-content .block-body {
+  padding: var(--app-space-16);
+  column-gap: var(--app-space-16);
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================
+   FIX: контейнер сворачиваемого блока не должен фиксировать высоту
+   и обрезать последнее поле. Держать в конце styles.scss.
+   ========================================= */
+.laboratory-block .block-content,
+.laboratory-block .block-content .block-body {
+  height: auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Последнее поле блока не прилипает к нижней границе */
+.laboratory-block .block-content .block-body > *:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   Группа селектов: на широком экране — в линию (лейбл сверху),
+   на узком — в колонку с выравниванием по самому длинному лейблу
+   ========================================= */
+.selects-row {
+  display: grid;
+  grid-template-columns: auto minmax(auto, 50%) 1fr;  /* узкий: колонка */
+  column-gap: var(--app-space-16);
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.selects-row > app-dropdown-field {
+  display: contents;
+}
+
+.selects-row .dropdown-field-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  column-gap: var(--app-space-16);
+  align-items: center;
+  padding: var(--app-space-4) 0;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Широкий экран: три селекта в линию, лейбл сверху */
+@media (min-width: 1200px) {
+  .selects-row {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    column-gap: var(--app-space-24);
+  }
+  .selects-row .dropdown-field-row {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--app-space-6);
+  }
+  .selects-row .dropdown-field-row .row-label {
+    font-weight: 600;
+  }
+  .selects-row .dropdown-field-row .p-dropdown {
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* =========================================
+   Лейблы сверху (stacked) тоже не шире половины экрана
+   ========================================= */
+.input-field-row--stacked .row-label {
+  max-width: 50%;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Тело раскрывающегося блока: grid для выравнивания строк */
+.block-content .block-body {
+  display: grid;
+  /* [чекбокс] [лейбл = самый длинный, не шире 50%] [поле на остаток] */
+  grid-template-columns: auto max-content 1fr;
+  column-gap: var(--app-space-16);
+  align-items: center;
+  padding: var(--app-space-16);
+  width: 100%;
+  min-width: 0;
+}
+
+/* Ограничиваем ширину лейблов чекбоксов и селектов */
+.check-field-row .checkbox-label,
+.dropdown-field-row .row-label {
+  max-width: 50vw;           /* не шире половины экрана */
+  min-width: 0;
+  overflow-wrap: break-word; /* перенос длинных слов */
+  word-wrap: break-word;
+  white-space: normal;       /* разрешаем перенос строк */
+}
+
+/* Строка "чекбокс + label + поле" */
+.check-field-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  column-gap: var(--app-space-16);
+  align-items: center;
+  padding: var(--app-space-4) 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.check-field-row .check-comment-input {
+  width: 100%;
+  min-width: 0;
+}
+
+/* ---------- Панель действий формы (кнопка Сохранить) ---------- */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--app-space-16) 0;
+}
+
+
+/* FIX: кнопка Сохранить слева на всех формах (перебивает legacy flex-end) */
+.neurological-status-form .form-actions,
+.surgical-status-form .form-actions,
+.therapeutic-status-form .form-actions,
+.form-actions {
+  justify-content: flex-start;
+}
+
+/* === CBDI v3 layout fixes: override repeated legacy grid declarations. === */
+.block-content .block-body {
+  grid-template-columns: auto minmax(0, 50%) minmax(0, 1fr);
+}
+.selects-row {
+  grid-template-columns: auto minmax(0, 50%) minmax(0, 1fr);
+}
+@media (max-width: 767px) {
+  .block-content .block-body,
+  .selects-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .check-field-row {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr);
+    grid-column: 1 / -1;
+    gap: 8px;
+  }
+  .check-field-row .check-comment-input {
+    grid-column: 2;
+    width: 100%;
+  }
+  .selects-row .dropdown-field-row,
+  .dropdown-field-row {
+    grid-template-columns: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+  .dropdown-field-row .p-dropdown,
+  .input-field-row input,
+  .input-field-row textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+  .input-field-row:not(.input-field-row--stacked) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .input-field-row--stacked .row-label { max-width: 100%; }
+  .laboratory-block .fields-grid,
+  app-blood-test .fields-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}

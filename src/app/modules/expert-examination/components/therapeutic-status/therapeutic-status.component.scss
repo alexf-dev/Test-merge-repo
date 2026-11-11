@@ -1,0 +1,37 @@
+.form-actions {
+  display: flex;
+  justify-content: flex-start;
+  padding: 24px 0;
+}
+
+:host ::ng-deep .save-button.p-button {
+  width: 226px;
+  height: 40px;
+  min-width: 80px;
+  padding: 8px 12px;
+  gap: 4px;
+  border-radius: 6px;
+  background: var(--app-success-bg) !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: var(--app-success-bg-hover) !important;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(81, 178, 145, 0.3) !important;
+  }
+
+  .p-button-label {
+    color: #FFFFFF !important;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,67 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.TRANSPARENT'"
+    [(checked)]="model.transparent.checked"
+    [(comment)]="model.transparent.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.AVASCULAR'"
+    [(checked)]="model.avascular.checked"
+    [(comment)]="model.avascular.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.CLOUDY'"
+    [(checked)]="model.cloudy.checked"
+    [(comment)]="model.cloudy.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.EDEMATOUS'"
+    [(checked)]="model.edematous.checked"
+    [(comment)]="model.edematous.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.CENTRAL_LEUCOMA'"
+    [(checked)]="model.centralLeucoma.checked"
+    [(comment)]="model.centralLeucoma.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.PERIPHERAL_LEUCOMA'"
+    [(checked)]="model.peripheralLeucoma.checked"
+    [(comment)]="model.peripheralLeucoma.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.CATEGORY_I'"
+    [(checked)]="model.categoryI">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.CATEGORY_II'"
+    [(checked)]="model.categoryII">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.CATEGORY_III'"
+    [(checked)]="model.categoryIII">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.CATEGORY_IV'"
+    [(checked)]="model.categoryIV">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.CORNEA.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

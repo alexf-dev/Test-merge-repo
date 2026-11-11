@@ -1,0 +1,230 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="formgrid grid p-fluid mb-3">
+      <div class="field col-12 md:col-4">
+        <label for="iinTop">Введите ИИН</label>
+        <input
+          [(ngModel)]="searchIin"
+          id="iinTop"
+          name="iinTop"
+          pInputText
+          placeholder="Введите ИИН"
+          type="text"
+        />
+      </div>
+
+      <div class="field col-12 md:col-2 flex align-items-end">
+        <button
+          (click)="requestDataByIin()"
+          label="Запросить данные"
+          pButton
+          type="button"
+        ></button>
+      </div>
+    </div>
+
+    <p-card>
+      <ng-template pTemplate="title">
+        Данные законного представителя
+      </ng-template>
+
+      <ng-container *ngIf="guardian && guardian.personId">
+        <div class="formgrid grid p-fluid">
+          <div class="field col-12 md:col-4">
+            <label for="surname">Фамилия</label>
+            <input
+              [(ngModel)]="guardian.personId.surname"
+              class="readonly-field"
+              id="surname"
+              name="surname"
+              pInputText
+              readonly
+              type="text"
+            />
+          </div>
+
+          <div class="field col-12 md:col-4">
+            <label for="firstName">Имя</label>
+            <input
+              [(ngModel)]="guardian.personId.firstName"
+              class="readonly-field"
+              id="firstName"
+              name="firstName"
+              pInputText
+              readonly
+              type="text"
+            />
+          </div>
+
+          <div class="field col-12 md:col-4">
+            <label for="secondName">Отчество</label>
+            <input
+              [(ngModel)]="guardian.personId.secondName"
+              class="readonly-field"
+              id="secondName"
+              name="secondName"
+              pInputText
+              readonly
+              type="text"
+            />
+          </div>
+        </div>
+
+        <div class="formgrid grid p-fluid">
+          <div class="field col-12 md:col-4">
+            <label for="iin">ИИН</label>
+            <input
+              [(ngModel)]="guardian.personId.iin"
+              class="readonly-field"
+              id="iin"
+              name="iin"
+              pInputText
+              readonly
+              type="text"
+            />
+          </div>
+
+          <div class="field col-12 md:col-4">
+            <label for="birthDate">Дата рождения</label>
+            <p-calendar
+              [(ngModel)]="guardian.personId.birthDate"
+              [disabled]="true"
+              [showIcon]="true"
+              appendTo="body"
+              dateFormat="yy-mm-dd"
+              id="birthDate"
+              name="birthDate"
+            ></p-calendar>
+          </div>
+
+          <div class="field col-12 md:col-4">
+            <label for="gender">
+              {{ 'MAIN.EXAMINATION.REG_DATA.GENDER' | translate }}
+            </label>
+            <p-dropdown
+              [(ngModel)]="guardian.personId.sex.id"
+              [disabled]="true"
+              [options]="dicGenders"
+              id="gender"
+              name="gender"
+              optionValue="id"
+              placeholder="{{ 'COMMON.CHOOSE' | translate }}"
+            >
+              <ng-template let-item pTemplate="item">
+                <div>{{ item | translateDictionary }}</div>
+              </ng-template>
+              <ng-template let-selectedItem pTemplate="selectedItem">
+                <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+                <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+              </ng-template>
+            </p-dropdown>
+          </div>
+        </div>
+
+        <div class="formgrid grid p-fluid">
+          <div class="field col-12 md:col-6">
+            <label for="phoneBmg">Контактные данные из БМГ</label>
+            <input
+              [(ngModel)]="guardian.phone"
+              class="readonly-field"
+              id="phoneBmg"
+              name="phoneBmg"
+              pInputText
+              readonly
+              type="text"
+            />
+          </div>
+
+          <div class="field col-12 md:col-6">
+            <label for="dicRelativeType">Степень родства</label>
+            <p-dropdown
+              [(ngModel)]="guardian.relTypeId"
+              [options]="dicRelativeType"
+              id="dicRelativeType"
+              name="dicRelativeType"
+              optionValue="id"
+              placeholder="{{ 'COMMON.CHOOSE' | translate }}"
+            >
+              <ng-template let-item pTemplate="item">
+                <div>{{ item | translateDictionary }}</div>
+              </ng-template>
+              <ng-template let-selectedItem pTemplate="selectedItem">
+                <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+                <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+              </ng-template>
+            </p-dropdown>
+          </div>
+        </div>
+
+        <div class="formgrid grid p-fluid">
+          <div class="field col-12 md:col-4 flex align-items-center">
+            <p-checkbox
+              [(ngModel)]="guardian.isENebdApproved"
+              [binary]="true"
+              [disabled]="true"
+              inputId="isENebdApproved"
+              name="isENebdApproved"
+            ></p-checkbox>
+            <label class="ml-2 mb-0" for="isENebdApproved">
+              Подтверждено системой «E-попечительство»
+            </label>
+          </div>
+
+          <div class="field col-12 md:col-4 flex align-items-center">
+            <p-checkbox
+              [(ngModel)]="guardian.isPatronizeApproved"
+              [binary]="true"
+              [disabled]="true"
+              inputId="isPatronizeApproved"
+              name="isPatronizeApproved"
+            ></p-checkbox>
+            <label class="ml-2 mb-0" for="isPatronizeApproved">
+              Подтверждено системой «E-собес»
+            </label>
+          </div>
+
+          <div class="field col-12 md:col-4 flex align-items-center">
+            <p-checkbox
+              [(ngModel)]="guardian.isZagsApproved"
+              [binary]="true"
+              [disabled]="true"
+              inputId="isZagsApproved"
+              name="isZagsApproved"
+            ></p-checkbox>
+            <label class="ml-2 mb-0" for="isZagsApproved">
+              Подтверждено системой «E-Загс»
+            </label>
+          </div>
+        </div>
+
+        <app-identity-card *ngIf="guardian?.personHistoryId"
+                           [historyId]="guardian.personHistoryId"></app-identity-card>
+
+      </ng-container>
+
+      <div class="mt-4">
+        <app-additional-documents
+          [patientId]="patientId"
+          [type]="'guardian'"
+        ></app-additional-documents>
+      </div>
+    </p-card>
+
+    <div class="page-actions">
+      <button
+        (click)="onPrev()"
+        class="p-button-text"
+        label="{{ 'COMMON.BACK' | translate }}"
+        pButton
+        type="button"
+      ></button>
+
+      <button
+        (click)="onNext()"
+        label="{{ 'COMMON.NEXT' | translate }}"
+        pButton
+        type="button"
+      ></button>
+    </div>
+  </div>
+</div>

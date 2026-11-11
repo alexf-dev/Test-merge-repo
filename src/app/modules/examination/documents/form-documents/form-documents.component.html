@@ -1,0 +1,339 @@
+<div class="block">
+  <div class="block-head">
+    <div class="block-title appendix-title">
+      <i class="pi pi-paperclip"></i>
+      <span>Приложения к форме 031-У</span>
+    </div>
+
+    <div class="block-actions">
+      <button
+        pButton
+        type="button"
+        icon="pi pi-eye"
+        label="Посмотреть"
+        class="p-button-secondary p-button-outlined"
+        [disabled]="!allSelectedAppendixDocs.length"
+        (click)="openAllSelectedAppendixDocuments()">
+      </button>
+
+      <button
+        pButton
+        type="button"
+        icon="pi pi-th-large"
+        class="p-button-secondary p-button-outlined p-button-icon-only">
+      </button>
+
+      <button
+        pButton
+        type="button"
+        icon="pi pi-bars"
+        class="p-button-secondary p-button-outlined p-button-icon-only">
+      </button>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <div class="section-line">
+    <div class="section-line-left">
+      <button
+        pButton
+        type="button"
+        class="p-button-text p-button-rounded line-toggle-btn"
+        [icon]="consultExpanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"
+        (click)="consultExpanded = !consultExpanded">
+      </button>
+
+      <span class="section-line-title">
+        Результаты консультации специалистов
+      </span>
+    </div>
+
+    <div class="section-line-actions">
+      <button
+        pButton
+        type="button"
+        icon="pi pi-eye"
+        label="Посмотреть"
+        class="p-button-secondary p-button-outlined"
+        [disabled]="!getSelectedDocs(consultationDocs).length"
+        (click)="openSelectedDocuments(consultationDocs)">
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="consultExpanded">
+    <div class="select-row">
+      <p-checkbox
+        [(ngModel)]="selectAllConsultation"
+        [binary]="true"
+        inputId="consultationAll"
+        (onChange)="toggleAllSection(consultationDocs, selectAllConsultation)">
+      </p-checkbox>
+      <label for="consultationAll">Выбрать все документы для просмотра</label>
+    </div>
+
+    <div class="cards">
+      <div
+        *ngFor="let d of consultationDocs"
+        class="doc-card"
+        [class.disabled]="!d.fileId"
+        [class.selected]="d.selected"
+        (click)="toggleCard(d, consultationDocs, 'consultation')"
+      >
+        <div class="dc-top">
+          <div class="dc-title">{{ d.name }}</div>
+
+          <button
+            pButton
+            type="button"
+            icon="pi pi-eye"
+            class="p-button-secondary p-button-text p-button-sm card-action-btn"
+            [disabled]="!d.fileId"
+            (click)="$event.stopPropagation(); viewSingleDocument(d)">
+          </button>
+        </div>
+
+        <div *ngIf="d.fileId" class="dc-meta">
+          <div class="meta-row">
+            <i class="pi pi-calendar"></i>
+            <span>{{ d.dat | date:'dd.MM.yyyy' }}</span>
+          </div>
+
+          <div class="meta-row">
+            <i class="pi pi-building"></i>
+            <span>{{ d.org }}</span>
+          </div>
+        </div>
+
+        <div *ngIf="!d.fileId" class="dc-missing">
+          <i class="pi pi-times-circle"></i>
+          <span>Файл не загружен</span>
+        </div>
+
+        <div *ngIf="d.selected" class="dc-picked">
+          <i class="pi pi-check"></i>
+          <span>Выбрано</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="section-line border-top">
+    <div class="section-line-left">
+      <button
+        pButton
+        type="button"
+        class="p-button-text p-button-rounded line-toggle-btn"
+        [icon]="clinicalExpanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"
+        (click)="clinicalExpanded = !clinicalExpanded">
+      </button>
+
+      <span class="section-line-title">
+        Результаты клинического, лабораторного, рентгенологического и других исследований
+      </span>
+    </div>
+
+    <div class="section-line-actions">
+      <button
+        pButton
+        type="button"
+        icon="pi pi-eye"
+        label="Посмотреть"
+        class="p-button-secondary p-button-outlined"
+        [disabled]="!getSelectedDocs(clinicalDocs).length"
+        (click)="openSelectedDocuments(clinicalDocs)">
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="clinicalExpanded">
+    <div class="select-row">
+      <p-checkbox
+        [(ngModel)]="selectAllClinical"
+        [binary]="true"
+        inputId="clinicalAll"
+        (onChange)="toggleAllSection(clinicalDocs, selectAllClinical)">
+      </p-checkbox>
+      <label for="clinicalAll">Выбрать все документы для просмотра</label>
+    </div>
+
+    <div class="cards">
+      <div
+        *ngFor="let d of clinicalDocs"
+        class="doc-card"
+        [class.disabled]="!d.fileId"
+        [class.selected]="d.selected"
+        (click)="toggleCard(d, clinicalDocs, 'clinical')"
+      >
+        <div class="dc-top">
+          <div class="dc-title">{{ d.name }}</div>
+
+          <button
+            pButton
+            type="button"
+            icon="pi pi-eye"
+            class="p-button-secondary p-button-text p-button-sm card-action-btn"
+            [disabled]="!d.fileId"
+            (click)="$event.stopPropagation(); viewSingleDocument(d)">
+          </button>
+        </div>
+
+        <div *ngIf="d.fileId" class="dc-meta">
+          <div class="meta-row">
+            <i class="pi pi-calendar"></i>
+            <span>{{ d.dat | date:'dd.MM.yyyy' }}</span>
+          </div>
+
+          <div class="meta-row">
+            <i class="pi pi-building"></i>
+            <span>{{ d.org }}</span>
+          </div>
+        </div>
+
+        <div *ngIf="!d.fileId" class="dc-missing">
+          <i class="pi pi-times-circle"></i>
+          <span>Файл не загружен</span>
+        </div>
+
+        <div *ngIf="d.selected" class="dc-picked">
+          <i class="pi pi-check"></i>
+          <span>Выбрано</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section-line border-top">
+    <div class="section-line-left">
+      <button
+        pButton
+        type="button"
+        class="p-button-text p-button-rounded line-toggle-btn"
+        [icon]="treatmentExpanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"
+        (click)="treatmentExpanded = !treatmentExpanded">
+      </button>
+
+      <span class="section-line-title">
+        Результаты о пролеченном(-ых) случае(-ях) стационарного, стационарозамещающего лечения, лечения в реабилитационных центрах
+      </span>
+    </div>
+
+    <div class="section-line-actions">
+      <button
+        pButton
+        type="button"
+        icon="pi pi-eye"
+        label="Посмотреть"
+        class="p-button-secondary p-button-outlined"
+        [disabled]="!getSelectedDocs(treatmentDocs).length"
+        (click)="openSelectedDocuments(treatmentDocs)">
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="treatmentExpanded">
+    <div class="select-row">
+      <p-checkbox
+        [(ngModel)]="selectAllTreatment"
+        [binary]="true"
+        inputId="treatmentAll"
+        (onChange)="toggleAllSection(treatmentDocs, selectAllTreatment)">
+      </p-checkbox>
+      <label for="treatmentAll">Выбрать все документы для просмотра</label>
+    </div>
+
+    <div class="cards">
+      <div
+        *ngFor="let d of treatmentDocs"
+        class="doc-card"
+        [class.disabled]="!d.fileId"
+        [class.selected]="d.selected"
+        (click)="toggleCard(d, treatmentDocs, 'treatment')"
+      >
+        <div class="dc-top">
+          <div class="dc-title">{{ d.name }}</div>
+
+          <button
+            pButton
+            type="button"
+            icon="pi pi-eye"
+            class="p-button-secondary p-button-text p-button-sm card-action-btn"
+            [disabled]="!d.fileId"
+            (click)="$event.stopPropagation(); viewSingleDocument(d)">
+          </button>
+        </div>
+
+        <div *ngIf="d.fileId" class="dc-meta">
+          <div class="meta-row">
+            <i class="pi pi-calendar"></i>
+            <span>{{ d.dat | date:'dd.MM.yyyy' }}</span>
+          </div>
+
+          <div class="meta-row">
+            <i class="pi pi-building"></i>
+            <span>{{ d.org }}</span>
+          </div>
+        </div>
+
+        <div *ngIf="!d.fileId" class="dc-missing">
+          <i class="pi pi-times-circle"></i>
+          <span>Файл не загружен</span>
+        </div>
+
+        <div *ngIf="d.selected" class="dc-picked">
+          <i class="pi pi-check"></i>
+          <span>Выбрано</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog
+  [(visible)]="pdfDialogVisible"
+  header="Просмотр документов"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '90vw', height: '90vh' }"
+  (onHide)="onDialogHide()"
+>
+  <div *ngIf="selectedFiles.length" class="pdf-toolbar">
+    <button
+      pButton
+      type="button"
+      icon="pi pi-angle-left"
+      class="p-button-secondary p-button-outlined"
+      [disabled]="currentPdfIndex === 0"
+      (click)="prevPdf()">
+    </button>
+
+    <div class="pdf-title">
+      {{ selectedFiles[currentPdfIndex]?.name }}
+      <span class="pdf-counter">
+        {{ currentPdfIndex + 1 }} / {{ selectedFiles.length }}
+      </span>
+    </div>
+
+    <button
+      pButton
+      type="button"
+      icon="pi pi-angle-right"
+      class="p-button-secondary p-button-outlined"
+      [disabled]="currentPdfIndex === selectedFiles.length - 1"
+      (click)="nextPdf()">
+    </button>
+  </div>
+
+  <div *ngIf="loadingPdf" class="pdf-loading">
+    Загрузка PDF...
+  </div>
+
+  <iframe
+    *ngIf="pdfSrc && !loadingPdf"
+    [src]="pdfSrc"
+    class="pdf-frame">
+  </iframe>
+</p-dialog>

@@ -1,0 +1,49 @@
+<div class="neurological-status-form">
+  <app-specialist-data [isExpanded]="true"></app-specialist-data>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.NO_FOCAL_PATHOLOGY'"
+    [(checked)]="noFocalPathology">
+  </app-check-field>
+
+  <app-general-condition [isExpanded]="true"></app-general-condition>
+  <app-consciousness [isExpanded]="true"></app-consciousness>
+  <app-reaction-to-surroundings [isExpanded]="true"></app-reaction-to-surroundings>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.SKULL_DEFORMITIES'"
+    [(checked)]="skullDeformities.checked"
+    [(comment)]="skullDeformities.comment">
+  </app-check-comment-field>
+
+  <app-dysraphic-status [isExpanded]="true"></app-dysraphic-status>
+
+  <!-- Порядок блоков ниже — строго по макету -->
+  <app-cranial-nerves [isExpanded]="true"></app-cranial-nerves>
+  <app-motor-sphere [isExpanded]="true"></app-motor-sphere>
+  <app-tendon-periosteal-reflexes [isExpanded]="true"></app-tendon-periosteal-reflexes>
+  <app-skin-reflexes [isExpanded]="true"></app-skin-reflexes>
+  <app-vegetative-trophic-sphere [isExpanded]="true"></app-vegetative-trophic-sphere>
+  <app-higher-cortical-functions [isExpanded]="true"></app-higher-cortical-functions>
+  <app-hyperkinesias [isExpanded]="true"></app-hyperkinesias>
+  <app-sensory-disorders [isExpanded]="true"></app-sensory-disorders>
+  <app-pelvic-disorders [isExpanded]="true"></app-pelvic-disorders>
+  <app-spine [isExpanded]="true"></app-spine>
+  <app-pathological-reflexes [isExpanded]="true"></app-pathological-reflexes>
+  <app-pathological-synkinesias [isExpanded]="true"></app-pathological-synkinesias>
+  <app-mucosal-reflexes [isExpanded]="true"></app-mucosal-reflexes>
+
+  <!-- ВРЕМЕННО: блоки есть в ТЗ, но отсутствуют на макете.
+       Позиция согласовывается отдельно (см. вопросы ниже) -->
+  <app-coordination [isExpanded]="true"></app-coordination>
+  <app-gait [isExpanded]="true"></app-gait>
+  <app-nerve-root-tension-symptoms [isExpanded]="true"></app-nerve-root-tension-symptoms>
+
+  <div class="form-actions">
+    <p-button
+      [label]="'MAIN.COMMON.SAVE' | translate"
+      styleClass="save-button"
+      (onClick)="onSave()">
+    </p-button>
+  </div>
+</div>

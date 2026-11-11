@@ -1,0 +1,232 @@
+<div class="flex flex-column gap-4">
+  <div class="flex justify-content-center gap-2" *ngIf="patient">
+    <div class="flex align-items-center">
+      <p-radioButton
+        name="requestType"
+        inputId="appeal"
+        [value]="1"
+        [(ngModel)]="reExaminationAppealDto.isAppeal"
+        [disabled]="isViewMode || isLoading"
+      ></p-radioButton>
+      <label for="appeal" class="ml-2">
+        {{ 'OMK.REEXAMINATION.APPEAL' | translate }}
+      </label>
+    </div>
+
+    <div class="flex align-items-center">
+      <p-radioButton
+        name="requestType"
+        inputId="control"
+        [value]="2"
+        [(ngModel)]="reExaminationAppealDto.isAppeal"
+        [disabled]="isViewMode || isLoading"
+      ></p-radioButton>
+      <label for="control" class="ml-2">
+        {{ 'OMK.REEXAMINATION.CONTROL' | translate }}
+      </label>
+    </div>
+  </div>
+
+  <div class="w-full flex flex-column gap-2">
+    <label for="appealStatus" class="font-semibold">
+      {{ 'OMK.REEXAMINATION.COMPLAINTS' | translate }}
+      <span class="text-red-500">*</span>
+    </label>
+
+    <p-multiSelect
+      [ngModel]="selectedComplaintIds"
+      (ngModelChange)="onComplaintChange($event)"
+      [options]="appealStatuses"
+      id="appealStatus"
+      name="selectedComplaintIds"
+      optionValue="id"
+      [disabled]="isViewMode || isLoading"
+      [filter]="false"
+      [showToggleAll]="false"
+      [showClear]="false"
+      [placeholder]="'COMMON.CHOOSE' | translate"
+      [style]="{ width: '100%' }"
+      class="w-full custom-multiselect"
+    >
+      <ng-template pTemplate="item" let-item>
+        <div>{{ item | translateDictionary }}</div>
+      </ng-template>
+
+      <ng-template pTemplate="selectedItems">
+      <span *ngIf="!selectedComplaintIds?.length" class="text-color-secondary">
+        {{ 'COMMON.CHOOSE' | translate }}
+      </span>
+        <span *ngIf="selectedComplaintIds?.length">
+        {{ 'COMMON.SELECTED' | translate }}: {{ selectedComplaintIds.length }}
+      </span>
+      </ng-template>
+    </p-multiSelect>
+
+    <div
+      class="flex flex-wrap gap-2 mt-2"
+      *ngIf="selectedComplaintItems.length"
+    >
+      <p-chip
+        *ngFor="let item of selectedComplaintItems"
+        [label]="item | translateDictionary"
+        [removable]="!isLoading && !isViewMode"
+        (onRemove)="!isLoading && !isViewMode && removeComplaint(item.id)"
+      >
+      </p-chip>
+    </div>
+  </div>
+
+
+  <div class="flex flex-column gap-2">
+    <label class="font-semibold">{{ 'OMK.COMPLAINTS_PATIENT' | translate }}</label>
+    <textarea
+      pInputTextarea
+      rows="2"
+      class="w-full"
+      [(ngModel)]="reExaminationAppealDto.notes"
+      [ngModelOptions]="{ standalone: true }"
+      placeholder="{{ 'OMK.REEXAMINATION.WRITE' | translate }}"
+      [disabled]="isViewMode || isLoading"
+    ></textarea>
+  </div>
+
+  <div class="flex flex-column gap-2" *ngIf="patient">
+    <label class="font-semibold">{{ 'OMK.OBJECTIVE_EXAMINATION' | translate }}</label>
+    <textarea
+      pInputTextarea
+      rows="2"
+      class="w-full"
+      [(ngModel)]="reExaminationAppealDto.objectiveExamination"
+      [ngModelOptions]="{ standalone: true }"
+      placeholder="{{ 'OMK.REEXAMINATION.WRITE' | translate }}"
+      [disabled]="isViewMode || isLoading"
+    ></textarea>
+  </div>
+
+  <div class="flex flex-column gap-2" *ngIf="patient">
+    <label class="font-semibold">{{ 'OMK.ADDITIONAL_LAB_DATA' | translate }}</label>
+    <textarea
+      pInputTextarea
+      rows="2"
+      class="w-full"
+      [(ngModel)]="reExaminationAppealDto.additionalLabData"
+      [ngModelOptions]="{ standalone: true }"
+      placeholder="{{ 'OMK.REEXAMINATION.WRITE' | translate }}"
+      [disabled]="isViewMode || isLoading"
+    ></textarea>
+  </div>
+
+  <div class="flex flex-column gap-2" *ngIf="patient">
+    <label class="font-semibold">{{ 'OMK.CONCLUSION_RECOMMENDATIONS' | translate }}</label>
+    <textarea
+      pInputTextarea
+      rows="2"
+      class="w-full"
+      [(ngModel)]="reExaminationAppealDto.conclusionRecommendations"
+      [ngModelOptions]="{ standalone: true }"
+      placeholder="{{ 'OMK.REEXAMINATION.WRITE' | translate }}"
+      [disabled]="isViewMode || isLoading"
+    ></textarea>
+  </div>
+
+  <div class="flex justify-content-center gap-5">
+    <div class="w-full flex flex-column gap-2">
+      <label class="font-semibold">
+        {{ 'OMK.REEXAMINATION.LETTER_RECEIVED_DATE' | translate }}
+      </label>
+      <p-calendar
+        [(ngModel)]="reExaminationAppealDto.dateReceipt"
+        [showIcon]="true"
+        dateFormat="dd.mm.yy"
+        inputId="term"
+        appendTo="body"
+        styleClass="w-full"
+        [maxDate]="maxSelectableDate"
+        [readonlyInput]="true"
+        [disabled]="isViewMode || isLoading"
+      ></p-calendar>
+    </div>
+
+    <div class="w-full flex flex-column gap-2">
+      <label class="font-semibold">
+        {{ 'OMK.REEXAMINATION.INCOMING_LETTER_NUMBER' | translate }}
+      </label>
+      <input
+        pInputText
+        class="w-full"
+        [(ngModel)]="reExaminationAppealDto.incomingLetterNo"
+        [placeholder]="'OMK.REEXAMINATION.INCOMING_LETTER_NUMBER' | translate"
+        [disabled]="isViewMode || isLoading"
+      />
+    </div>
+  </div>
+
+  <div class="flex flex-column gap-2">
+    <label class="font-semibold">
+      {{ 'OMK.REEXAMINATION.ATTACH_EOTINISH_FILE' | translate }}
+      <span class="text-red-500">*</span>
+    </label>
+
+    <div class="border-1 border-dashed border-300 border-round p-5 surface-50">
+      <div class="flex flex-column align-items-center gap-3 text-center">
+        <i class="pi pi-cloud-upload text-2xl"></i>
+
+        <input
+          #fileInput
+          type="file"
+          hidden
+          (change)="onFileSelect($event)"
+          (click)="$event.stopPropagation()"
+          accept=".pdf, application/pdf"
+          [disabled]="isViewMode || isLoading"
+        />
+
+        <div *ngIf="!selectedFileName">
+          {{ 'OMK.REEXAMINATION.DROP_FILE' | translate }}
+          <span
+            class="text-primary cursor-pointer"
+            (click)="!isLoading && !isViewMode && openFileDialog($event, fileInput)"
+          >
+        {{ 'OMK.REEXAMINATION.HINT_FILE' | translate }}
+      </span>
+        </div>
+
+        <div *ngIf="selectedFileName" class="flex align-items-center gap-2">
+          <span>{{ selectedFileName }}</span>
+
+          <i
+            class="pi pi-times cursor-pointer text-red-500"
+            (click)="!isLoading && !isViewMode && removeFile(fileInput)"
+          ></i>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="selectedFileName" class="surface-100 border-round p-2">
+      {{ selectedFileName }}
+    </div>
+  </div>
+
+  <div class="flex justify-content-between align-items-center gap-5">
+    <div class="flex align-items-center gap-2" *ngIf="isLoading || isViewMode">
+      <label class="font-semibold">
+        {{ 'OMK.REEXAMINATION.STATUS_LABEL' | translate }}:
+      </label>
+      <p-tag
+        [value]="reExaminationAppealDto.status | translateDictionary"
+        severity="info"
+      ></p-tag>
+    </div>
+
+    <button
+      pButton
+      type="button"
+      label="{{ 'OMK.REEXAMINATION.SEND' | translate }}"
+      class="p-button-success ml-auto"
+      (click)="submitMock()"
+      [disabled]="((isLoading || isViewMode || !(selectedComplaintIds.length > 0) || !reExaminationAppealDto.isAppeal) && patient) || ((isLoading || isViewMode || !(selectedComplaintIds.length > 0)) && resolution)"
+    ></button>
+  </div>
+  <!--      [disabled]="isLoading || isViewMode || !(selectedComplaintIds.length > 0) || !reExaminationAppealDto.isAppeal"-->
+
+</div>

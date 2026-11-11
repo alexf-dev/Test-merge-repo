@@ -1,0 +1,47 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.LENS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.LENS.TRANSPARENT'"
+    [(checked)]="model.transparent.checked"
+    [(comment)]="model.transparent.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.LENS.SUBCAPSULAR_CLOUDY'"
+    [(checked)]="model.subcapsularCloudy.checked"
+    [(comment)]="model.subcapsularCloudy.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.LENS.CAPSULAR_CLOUDY'"
+    [(checked)]="model.capsularCloudy.checked"
+    [(comment)]="model.capsularCloudy.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.LENS.ABSENT'"
+    [(checked)]="model.absent.checked"
+    [(comment)]="model.absent.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.LENS.INTRAOCULAR_LENS'"
+    [(checked)]="model.intraocularLens.checked"
+    [(comment)]="model.intraocularLens.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.LENS.SURGERY_CONTRAINDICATED'"
+    [(checked)]="model.surgeryContraindicated.checked"
+    [(comment)]="model.surgeryContraindicated.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.LENS.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

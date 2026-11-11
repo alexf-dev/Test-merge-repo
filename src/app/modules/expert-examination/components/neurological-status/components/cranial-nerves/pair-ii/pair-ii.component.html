@@ -1,0 +1,82 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.TITLE'"
+  [isExpanded]="isExpanded"
+  [nested]="true">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.VISUAL_ACUITY_OD'"
+    [(checked)]="model.visualAcuityOD.checked"
+    [(comment)]="model.visualAcuityOD.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.VISUAL_ACUITY_OS'"
+    [(checked)]="model.visualAcuityOS.checked"
+    [(comment)]="model.visualAcuityOS.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.AMBLYOPIA'"
+    [(checked)]="model.amblyopia">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.AMAUROSIS'"
+    [(checked)]="model.amaurosis">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.COLOR_VISION_PRESERVED'"
+    [(checked)]="model.colorVisionPreserved">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.ACHROMATOPSIA'"
+    [(checked)]="model.achromatopsia">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.DYSCHROMATOPSIA'"
+    [(checked)]="model.dyschromatopsia">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.SCOTOMAS'"
+    [(checked)]="model.scotomas">
+  </app-check-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.HOMONYMOUS_HEMIANOPIA'"
+    [(checked)]="model.homonymousHemianopia.checked"
+    [(comment)]="model.homonymousHemianopia.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.HETERONYMOUS_HEMIANOPIA'"
+    [(checked)]="model.heteronymousHemianopia.checked"
+    [(comment)]="model.heteronymousHemianopia.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.CONCENTRIC_VISUAL_FIELD_CONSTRICTION'"
+    [(checked)]="model.concentricVisualFieldConstriction">
+  </app-check-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.FUNDUS'"
+    [(checked)]="model.fundus.checked"
+    [(comment)]="model.fundus.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_II.VISUAL_HALLUCINATIONS'"
+    [(checked)]="model.visualHallucinations">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

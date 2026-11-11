@@ -1,0 +1,11 @@
+<div class="input-field-row" [class.input-field-row--stacked]="stacked">
+  <label class="row-label" [attr.for]="inputId">{{ labelKey | translate }}</label>
+  <input
+    [id]="inputId"
+    type="text"
+    pInputText
+    [ngModel]="value"
+    (ngModelChange)="onValue($event)"
+    [placeholder]="placeholderKey | translate"
+  />
+</div>

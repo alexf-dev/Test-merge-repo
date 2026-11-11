@@ -1,0 +1,20 @@
+.expand-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: #64748b;
+}
+
+.expand-btn:hover {
+  color: #334155;
+}
+
+:host ::ng-deep {
+  .full-dropdown,
+  .full-dropdown .p-dropdown,
+  .p-calendar,
+  .p-calendar .p-inputtext {
+    width: 100%;
+  }
+}

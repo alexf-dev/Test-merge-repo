@@ -1,0 +1,101 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.NOT_OPHTHALMOSCOPED'"
+    [(checked)]="model.notOphthalmoscoped.checked"
+    [(comment)]="model.notOphthalmoscoped.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.OPTIC_DISC'"
+    [(checked)]="model.opticDisc.checked"
+    [(comment)]="model.opticDisc.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.BORDERS_CLEAR'"
+    [(checked)]="model.bordersClear.checked"
+    [(comment)]="model.bordersClear.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.BORDERS_BLURRED'"
+    [(checked)]="model.bordersBlurred.checked"
+    [(comment)]="model.bordersBlurred.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.OPTIC_DISC_EDEMA'"
+    [(checked)]="model.opticDiscEdema.checked"
+    [(comment)]="model.opticDiscEdema.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.PERIPAPILLARY_STAPHYLOMA'"
+    [(checked)]="model.peripapillaryStaphyloma.checked"
+    [(comment)]="model.peripapillaryStaphyloma.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.MACULA_NO_PATHOLOGY'"
+    [(checked)]="model.maculaNoPathology.checked"
+    [(comment)]="model.maculaNoPathology.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.REFLEXES_PRESERVED'"
+    [(checked)]="model.reflexesPreserved.checked"
+    [(comment)]="model.reflexesPreserved.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.RETINA_TRANSPARENT'"
+    [(checked)]="model.retinaTransparent.checked"
+    [(comment)]="model.retinaTransparent.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.RETINA_EDEMA'"
+    [(checked)]="model.retinaEdema.checked"
+    [(comment)]="model.retinaEdema.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.PERIPHERAL_LASER_COAGULATES'"
+    [(checked)]="model.peripheralLaserCoagulates.checked"
+    [(comment)]="model.peripheralLaserCoagulates.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.PERIPHERAL_DEGENERATION_FOCI'"
+    [(checked)]="model.peripheralDegenerationFoci.checked"
+    [(comment)]="model.peripheralDegenerationFoci.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.VESSELS_NORMAL_CALIBER'"
+    [(checked)]="model.vesselsNormalCaliber.checked"
+    [(comment)]="model.vesselsNormalCaliber.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.VESSELS_CONSTRICTED'"
+    [(checked)]="model.vesselsConstricted.checked"
+    [(comment)]="model.vesselsConstricted.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.VESSELS_DILATED'"
+    [(checked)]="model.vesselsDilated.checked"
+    [(comment)]="model.vesselsDilated.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.FUNDUS.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

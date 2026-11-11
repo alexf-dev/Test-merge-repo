@@ -1,0 +1,38 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'URINARY_SYSTEM.TITLE'" [isExpanded]="isExpanded">
+
+  <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.FREE_PAINLESS_URINATION'" [(checked)]="model.freePainlessUrination"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.PAINFUL_URINATION'" [(checked)]="model.painfulUrination"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.URINARY_INCONTINENCE'" [(checked)]="model.urinaryIncontinence"></app-check-field>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'URINARY_SYSTEM.LOCALIZED_EDEMA.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.LOCALIZED_EDEMA.ON_FACE'" [(checked)]="model.localizedEdema.onFace"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.LOCALIZED_EDEMA.ON_EYELIDS'" [(checked)]="model.localizedEdema.onEyelids"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.LOCALIZED_EDEMA.ON_TRUNK'" [(checked)]="model.localizedEdema.onTrunk"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.LOCALIZED_EDEMA.ON_ABDOMEN'" [(checked)]="model.localizedEdema.onAbdomen"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.LOCALIZED_EDEMA.ON_LEGS'" [(checked)]="model.localizedEdema.onLegs"></app-check-field>
+    <app-textarea-field [(value)]="model.localizedEdema.additionalInfo"></app-textarea-field>
+  </app-collapsible-block>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'URINARY_SYSTEM.DAILY_DIURESIS.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.DAILY_DIURESIS.ADEQUATE'" [(checked)]="model.dailyDiuresis.adequate"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.DAILY_DIURESIS.POLYURIA'" [(checked)]="model.dailyDiuresis.polyuria"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.DAILY_DIURESIS.OLIGURIA'" [(checked)]="model.dailyDiuresis.oliguria"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.DAILY_DIURESIS.ANURIA'" [(checked)]="model.dailyDiuresis.anuria"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.DAILY_DIURESIS.NOCTURIA'" [(checked)]="model.dailyDiuresis.nocturia"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.DAILY_DIURESIS.ISCHURIA'" [(checked)]="model.dailyDiuresis.ischuria"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.DAILY_DIURESIS.POLLAKIURIA'" [(checked)]="model.dailyDiuresis.pollakiuria"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.DAILY_DIURESIS.ENURESIS'" [(checked)]="model.dailyDiuresis.enuresis"></app-check-field>
+    <app-textarea-field [(value)]="model.dailyDiuresis.additionalInfo"></app-textarea-field>
+  </app-collapsible-block>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'URINARY_SYSTEM.KIDNEYS.TITLE'">
+    <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'URINARY_SYSTEM.KIDNEYS.PERCUSSION_SYMPTOM.TITLE'">
+      <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.KIDNEYS.PERCUSSION_SYMPTOM.POSITIVE'" [showComment]="true" [(checked)]="model.kidneys.percussionSymptom.positive.checked" [(comment)]="model.kidneys.percussionSymptom.positive.comment"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.KIDNEYS.PERCUSSION_SYMPTOM.NEGATIVE'" [showComment]="true" [(checked)]="model.kidneys.percussionSymptom.negative.checked" [(comment)]="model.kidneys.percussionSymptom.negative.comment"></app-check-field>
+      <app-textarea-field [(value)]="model.kidneys.percussionSymptom.additionalInfo"></app-textarea-field>
+    </app-collapsible-block>
+  </app-collapsible-block>
+
+  <app-text-input-field [labelKey]="translationPrefix + 'URINARY_SYSTEM.PERIPHERAL_VESSELS_PULSATION'" [(value)]="model.peripheralVesselsPulsation"></app-text-input-field>
+
+</app-collapsible-block>

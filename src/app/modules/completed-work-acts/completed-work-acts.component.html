@@ -1,0 +1,241 @@
+<div class="grid">
+    <div class="col-12">
+        <p-card styleClass="mb-4 cbdi-filter-card">
+            <ng-template pTemplate="title">
+                Акт выполненных работ
+            </ng-template>
+
+            <div class="formgrid grid">
+                <div class="field col-12 md:col-3">
+                    <label class="block mb-2 font-bold" for="region">Регион</label>
+                    <p-dropdown
+                            [options]="dicRegion"
+                            appendTo="body"
+                            inputId="region"
+                            optionLabel="nameRu"
+                            optionValue="id"
+                            placeholder="Регион"
+                            styleClass="w-full">
+                    </p-dropdown>
+                </div>
+
+                <div class="field col-12 md:col-3">
+                    <label class="block mb-2 font-bold" for="status">Статус</label>
+                    <p-dropdown
+                            [options]="dicStatus"
+                            appendTo="body"
+                            inputId="status"
+                            optionLabel="nameRu"
+                            optionValue="id"
+                            placeholder="Статус"
+                            styleClass="w-full">
+                    </p-dropdown>
+                </div>
+
+                <div class="field col-12 md:col-3">
+                    <label class="block mb-2 font-bold" for="year">Год</label>
+                    <p-dropdown
+                            (onChange)="yearChange()"
+                            [options]="dicYear"
+                            appendTo="body"
+                            inputId="year"
+                            optionLabel="nameRu"
+                            optionValue="id"
+                            placeholder="Год"
+                            styleClass="w-full">
+                    </p-dropdown>
+                </div>
+
+                <div class="field col-12 md:col-3">
+                    <label class="block mb-2 font-bold" for="month">Месяц</label>
+                    <p-dropdown
+                            [options]="dicMonth"
+                            appendTo="body"
+                            inputId="month"
+                            optionLabel="nameRu"
+                            optionValue="id"
+                            placeholder="Месяц"
+                            styleClass="w-full">
+                    </p-dropdown>
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <button
+                        (click)="search()"
+                        class="p-button-success"
+                        icon="pi pi-search"
+                        label="Поиск"
+                        pButton
+                        type="button">
+                </button>
+
+                <button
+                        (click)="clear()"
+                        class="p-button-secondary"
+                        icon="pi pi-refresh"
+                        label="Очистить"
+                        pButton
+                        type="button">
+                </button>
+            </div>
+        </p-card>
+    </div>
+
+    <div class="col-12">
+        <p-card styleClass="cbdi-result-card">
+            <ng-template pTemplate="title">
+                <div class="flex justify-content-between align-items-center w-full">
+                    <span>Результат поиска</span>
+                    <span class="text-primary font-bold">
+            {{ pageResponse?.total || 0 }}
+          </span>
+                </div>
+            </ng-template>
+
+            <p-table
+                    (onLazyLoad)="onPageChange($event)"
+                    [first]="(indepExpertActsFilter.pageNum - 1) * indepExpertActsFilter.pageSize"
+                    [lazy]="true"
+                    [paginator]="true"
+                    [rowsPerPageOptions]="[10, 25, 50]"
+                    [rows]="indepExpertActsFilter.pageSize"
+                    [scrollable]="true"
+                    [tableStyle]="{ 'min-width': '120rem' }"
+                    [totalRecords]="pageResponse?.total || 0"
+                    [value]="journalCompletedWorkActsResponse"
+                    styleClass="p-datatable-sm p-datatable-gridlines">
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>№</th>
+                        <th>Регион</th>
+                        <th>Период</th>
+                        <th>ФИО независимого эксперта</th>
+                        <th>Дата создания акта</th>
+                        <th>Дата согласования независимым экспертом</th>
+                        <th>Дата отправки на доработку</th>
+                        <th>Дата согласования после доработки</th>
+                        <th>Утвердил от комитета</th>
+                        <th>Дата утверждения</th>
+                        <th>Статус</th>
+                        <th>Срок рассмотрения</th>
+                        <th>Акт</th>
+                        <th>Экспорт</th>
+                    </tr>
+                </ng-template>
+
+                <ng-template let-i="rowIndex" let-row pTemplate="body">
+                    <tr>
+                        <td>
+                            {{ (indepExpertActsFilter.pageNum - 1)
+                        * indepExpertActsFilter.pageSize + i + 1 }}
+                        </td>
+                        <td>{{ row.regionRu }}</td>
+                        <td>{{ row.period }}</td>
+                        <td>{{ row.expertFullName }}</td>
+                        <td>{{ row.rdate | date:'dd.MM.yyyy HH:mm' }}</td>
+                        <td>{{ row.expertDate | date:'dd.MM.yyyy HH:mm' }}</td>
+                        <td>{{ row.bossRevisionDate | date:'dd.MM.yyyy HH:mm' }}</td>
+                        <td>{{ row.expRevisionDate | date:'dd.MM.yyyy HH:mm' }}</td>
+                        <td>{{ row.bossFullName }}</td>
+                        <td>{{ row.bossDate | date:'dd.MM.yyyy HH:mm' }}</td>
+                        <td>{{ statusNames[row.status] || 'Неизвестный статус' }}</td>
+                        <td>{{ row.deadline || '—' }}</td>
+                        <td>
+                            <button
+                                    (click)="openAct(row)"
+                                    class="p-button-outlined p-button-success p-button-sm"
+                                    label="Открыть"
+                                    pButton
+                                    type="button">
+                            </button>
+                        </td>
+                        <td>
+                            <button
+                                    (click)="showExportComponent(row)"
+                                    class="p-button-outlined p-button-sm"
+                                    label="Экспортировать в Excel"
+                                    pButton
+                                    type="button">
+                            </button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td class="text-center py-4" colspan="14">
+                            Данные не найдены
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+
+    <p-dialog
+            (onHide)="onActDialogHide()"
+            [(visible)]="actDialogVisible"
+            [draggable]="false"
+            [maximizable]="true"
+            [modal]="true"
+            [resizable]="false"
+            [style]="{ width: '90vw' }"
+            header="Акт выполненных работ">
+
+        <div *ngIf="documentLoading" class="text-center py-4">
+            Загрузка документа...
+        </div>
+
+        <iframe
+                *ngIf="pdfUrl && !documentLoading"
+                [src]="pdfUrl"
+                style="width: 100%; height: 70vh; border: none;"
+                title="Акт выполненных работ">
+        </iframe>
+
+        <div
+                *ngIf="!documentLoading && !pdfUrl"
+                class="text-center py-4">
+            Не удалось загрузить документ.
+        </div>
+
+        <ng-template pTemplate="footer">
+            <button
+                    (click)="sendForRevision()"
+                    *ngIf="(authService.hasAction('COMMITTEE_EDIT')) && selectedAct.status != 4 && selectedAct.status != 3 "
+                    [disabled]="(documentLoading || !pdfUrl)"
+                    class="p-button-warning"
+                    icon="pi pi-replay"
+                    label="Отправить на доработку"
+                    pButton
+                    type="button">
+            </button>
+
+            <button
+                    (click)="signAct()"
+                    *ngIf="selectedAct.status != 3"
+                    [disabled]="(documentLoading || !pdfUrl)"
+                    class="p-button-success"
+                    icon="pi pi-pencil"
+                    label="Подписать"
+                    pButton
+                    type="button">
+            </button>
+        </ng-template>
+    </p-dialog>
+
+    <app-revision-reason-dialog
+            (saved)="onRevisionSaved($event)"
+            [(visible)]="revisionDialogVisible"
+            [actId]="selectedAct?.id ?? null">
+    </app-revision-reason-dialog>
+
+    <app-export-completed-expert-deals
+            [(visible)]="exportVisible"
+            [actId]="selectedAct?.id"
+            [period]="selectedAct?.period">
+    </app-export-completed-expert-deals>
+</div>
+

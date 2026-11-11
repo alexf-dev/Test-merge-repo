@@ -1,0 +1,24 @@
+<div class="laboratory-data-form">
+
+  <!-- Блок 1: Данные дополнительных и лабораторных методов обследования -->
+  <app-additional-methods></app-additional-methods>
+
+  <!-- Блок 2: Общий анализ крови -->
+  <app-blood-test></app-blood-test>
+
+  <!-- Блок 3: Биохимический анализ крови -->
+  <app-biochemical-blood-test></app-biochemical-blood-test>
+
+  <!-- Блок 4: Общий анализ мочи -->
+  <app-urine-test></app-urine-test>
+
+  <!-- Кнопка Сохранить -->
+  <div class="form-actions">
+    <p-button
+      label="{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SAVE' | translate }}"
+      styleClass="save-button"
+      (onClick)="onSave()">
+    </p-button>
+  </div>
+
+</div>

@@ -1,0 +1,15 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.SIGNED_IN_JOURNAL.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.SIGNED_IN_JOURNAL.INDEPENDENTLY'"
+    [(checked)]="model.independently">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.SIGNED_IN_JOURNAL.WITH_HELP'"
+    [(checked)]="model.withHelp">
+  </app-check-field>
+
+</app-collapsible-block>

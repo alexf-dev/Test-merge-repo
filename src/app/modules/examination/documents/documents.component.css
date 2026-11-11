@@ -1,0 +1,73 @@
+:host {
+  display: block;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--app-text-medium);
+  font-size: 0.9rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.muted-text {
+  color: var(--app-text-secondary);
+}
+
+.doc-name {
+  font-weight: 600;
+  color: var(--app-text);
+}
+
+.expanded-row > td {
+  background: var(--app-surface-page);
+  padding: 0.75rem 1rem;
+}
+
+.expanded-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nested-section {
+  padding: 0.75rem;
+  background: var(--app-card-bg);
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+}
+
+.pdf-loading {
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--app-text-secondary);
+  font-size: 1rem;
+}
+
+:host ::ng-deep .p-card {
+  margin-bottom: 0;
+}
+
+:host ::ng-deep .p-inputtext,
+:host ::ng-deep .p-calendar,
+:host ::ng-deep .p-dropdown {
+  width: 100%;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  font-weight: 600;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  vertical-align: middle;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-content {
+  padding: 0;
+}

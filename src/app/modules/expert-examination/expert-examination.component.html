@@ -1,0 +1,25 @@
+<div class="expert-examination-page">
+  <div class="expert-examination-content-wrapper">
+    <h1 class="page-title">
+      {{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.TITLE' | translate }}
+    </h1>
+
+    <div class="expert-examination-wrapper">
+      <div class="expert-examination-sidebar">
+        <div class="sidebar-menu">
+          <ul class="menu-list">
+              <li *ngFor="let item of menuItems">
+                  <a [routerLink]="item.route" routerLinkActive="active-menu-item" class="menu-item">
+                      {{ item.label | translate }}
+                  </a>
+              </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="expert-examination-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

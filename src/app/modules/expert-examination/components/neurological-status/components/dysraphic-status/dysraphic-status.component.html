@@ -1,0 +1,19 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-dysraphic-skull [isExpanded]="true"></app-dysraphic-skull>
+  <app-dysraphic-face [isExpanded]="true"></app-dysraphic-face>
+  <app-dysraphic-eyes [isExpanded]="true"></app-dysraphic-eyes>
+  <app-dysraphic-ears></app-dysraphic-ears>
+  <app-dysraphic-neck [isExpanded]="true"></app-dysraphic-neck>
+  <app-dysraphic-hands [isExpanded]="true"></app-dysraphic-hands>
+  <app-dysraphic-feet [isExpanded]="true"></app-dysraphic-feet>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.ADDITIONAL_INFO'"
+    [(value)]="additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

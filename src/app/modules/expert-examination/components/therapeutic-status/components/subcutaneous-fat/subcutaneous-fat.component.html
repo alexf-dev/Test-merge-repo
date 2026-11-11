@@ -1,0 +1,6 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'SUBCUTANEOUS_FAT.TITLE'" [isExpanded]="isExpanded">
+  <app-check-field [labelKey]="translationPrefix + 'SUBCUTANEOUS_FAT.WEAKLY_DEVELOPED'" [(checked)]="model.weaklyDeveloped"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SUBCUTANEOUS_FAT.MODERATELY_DEVELOPED'" [(checked)]="model.moderatelyDeveloped"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'SUBCUTANEOUS_FAT.EXCESSIVELY_DEVELOPED'" [(checked)]="model.excessivelyDeveloped"></app-check-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'SUBCUTANEOUS_FAT.PASTINESS'" [(value)]="model.pastiness"></app-text-input-field>
+</app-collapsible-block>

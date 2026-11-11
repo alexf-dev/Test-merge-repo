@@ -1,0 +1,52 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_XI.TITLE'"
+  [isExpanded]="isExpanded"
+  [nested]="true">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_XI.HEAD_ROTATION_DIFFICULTY'"
+    [(checked)]="model.headRotationDifficulty.checked"
+    [(comment)]="model.headRotationDifficulty.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_XI.SHOULDER_DROPPED'"
+    [(checked)]="model.shoulderDropped.checked"
+    [(comment)]="model.shoulderDropped.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_XI.ARM_ELEVATION_LIMITED'"
+    [(checked)]="model.armElevationLimited.checked"
+    [(comment)]="model.armElevationLimited.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_XI.TRAPEZIUS_STERNOCLEIDOMASTOID_TENSION'"
+    [(checked)]="model.trapeziusSternocleidomastoidTension.checked"
+    [(comment)]="model.trapeziusSternocleidomastoidTension.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_XI.TRAPEZIUS_STERNOCLEIDOMASTOID_TROPHIC'"
+    [(checked)]="model.trapeziusSternocleidomastoidTrophic.checked"
+    [(comment)]="model.trapeziusSternocleidomastoidTrophic.value">
+  </app-check-comment-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_XI.CONGENITAL_TORTICOLLIS'"
+    [(checked)]="model.congenitalTorticollis">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.PAIR_XI.ACQUIRED_TORTICOLLIS'"
+    [(checked)]="model.acquiredTorticollis">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

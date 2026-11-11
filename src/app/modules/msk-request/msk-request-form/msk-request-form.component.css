@@ -1,0 +1,123 @@
+.page {
+  padding: 1rem 1.25rem;
+}
+
+.section-title {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.upload-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  background: var(--surface-card);
+}
+
+.upload-ico {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: var(--highlight-bg);
+  color: var(--primary-color);
+}
+
+.upload-note {
+  margin-top: 0.25rem;
+  max-width: 860px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--text-color-secondary);
+}
+
+.drop {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  border: 1px dashed var(--surface-border);
+  border-radius: 12px;
+  background: var(--surface-ground);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.drop.dragging {
+  border-color: var(--primary-color);
+  background: var(--highlight-bg);
+}
+
+.drop-empty {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+  color: var(--text-color-secondary);
+}
+
+.drop-ico,
+.file-ico {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--surface-border);
+  background: var(--surface-card);
+  flex-shrink: 0;
+}
+
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  background: var(--surface-ground);
+}
+
+.file-name {
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.file-size {
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  color: var(--text-color-secondary);
+}
+
+.link-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.error {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--red-500);
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .drop-empty {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,57 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'DIGESTIVE_SYSTEM.TITLE'" [isExpanded]="isExpanded">
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'DIGESTIVE_SYSTEM.TONGUE.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.TONGUE.MOIST'" [(checked)]="model.tongue.moist"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.TONGUE.DRY'" [(checked)]="model.tongue.dry"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.TONGUE.CLEAN'" [(checked)]="model.tongue.clean"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.TONGUE.COATED'" [showComment]="true" [(checked)]="model.tongue.coated.checked" [(comment)]="model.tongue.coated.comment"></app-check-field>
+  </app-collapsible-block>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.SOFT'" [(checked)]="model.abdomen.soft"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.PAINLESS'" [(checked)]="model.abdomen.painless"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.TENSE'" [(checked)]="model.abdomen.tense"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.NORMAL_SIZE'" [(checked)]="model.abdomen.normalSize"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.DISTENDED'" [(checked)]="model.abdomen.distended"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.ENLARGED_DUE_TO_ASCITES'" [(checked)]="model.abdomen.enlargedDueToAscites"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.ANTERIOR_VEINS_DILATATION'" [(checked)]="model.abdomen.anteriorVeinsDilatation"></app-check-field>
+
+    <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.PAINFUL.TITLE'">
+      <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.PAINFUL.IN_EPIGASTRIUM'" [(checked)]="model.abdomen.painful.inEpigastrium"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.PAINFUL.IN_RIGHT_HYPOCHONDRIUM'" [(checked)]="model.abdomen.painful.inRightHypochondrium"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.PAINFUL.IN_LEFT_HYPOCHONDRIUM'" [(checked)]="model.abdomen.painful.inLeftHypochondrium"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.PAINFUL.AROUND_NAVEL'" [(checked)]="model.abdomen.painful.aroundNavel"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.PAINFUL.ABOVE_PUBIS'" [(checked)]="model.abdomen.painful.abovePubis"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.PAINFUL.IN_RIGHT_ILIAC_REGION'" [(checked)]="model.abdomen.painful.inRightIliacRegion"></app-check-field>
+      <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.ABDOMEN.PAINFUL.IN_LEFT_ILIAC_REGION'" [(checked)]="model.abdomen.painful.inLeftIliacRegion"></app-check-field>
+    </app-collapsible-block>
+  </app-collapsible-block>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'DIGESTIVE_SYSTEM.LIVER.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.LIVER.NOT_PALPABLE'" [(checked)]="model.liver.notPalpable"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.LIVER.ALONG_COSTAL_ARCH'" [(checked)]="model.liver.alongCostalArch"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.LIVER.PROTRUDES_FROM_RIGHT_HYPOCHONDRIUM'" [showComment]="true" [(checked)]="model.liver.protrudesFromRightHypochondrium.checked" [(comment)]="model.liver.protrudesFromRightHypochondrium.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.LIVER.PAINFUL'" [(checked)]="model.liver.painful"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.LIVER.PAINLESS'" [(checked)]="model.liver.painless"></app-check-field>
+    <app-dropdown-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.LIVER.MARGIN_TYPE'" [optionKeys]="liverMarginTypeOptions" [(value)]="model.liver.marginType"></app-dropdown-field>
+    <app-textarea-field [(value)]="model.liver.additionalInfo"></app-textarea-field>
+  </app-collapsible-block>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'DIGESTIVE_SYSTEM.SPLEEN.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.SPLEEN.PALPABLE'" [(checked)]="model.spleen.palpable"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.SPLEEN.NOT_PALPABLE'" [(checked)]="model.spleen.notPalpable"></app-check-field>
+
+    <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'DIGESTIVE_SYSTEM.SPLEEN.DIMENSIONS.TITLE'">
+      <app-text-input-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.SPLEEN.DIMENSIONS.TRANSVERSE'" [(value)]="model.spleen.dimensions.transverse"></app-text-input-field>
+      <app-text-input-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.SPLEEN.DIMENSIONS.LONGITUDINAL'" [(value)]="model.spleen.dimensions.longitudinal"></app-text-input-field>
+    </app-collapsible-block>
+  </app-collapsible-block>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'DIGESTIVE_SYSTEM.PHYSIOLOGICAL_FUNCTIONS.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.PHYSIOLOGICAL_FUNCTIONS.REGULAR'" [(checked)]="model.physiologicalFunctions.regular"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.PHYSIOLOGICAL_FUNCTIONS.CONSTIPATION_TENDENCY'" [(checked)]="model.physiologicalFunctions.constipationTendency"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'DIGESTIVE_SYSTEM.PHYSIOLOGICAL_FUNCTIONS.DIARRHEA_TENDENCY'" [(checked)]="model.physiologicalFunctions.diarrheaTendency"></app-check-field>
+    <app-textarea-field [(value)]="model.physiologicalFunctions.additionalInfo"></app-textarea-field>
+  </app-collapsible-block>
+
+</app-collapsible-block>

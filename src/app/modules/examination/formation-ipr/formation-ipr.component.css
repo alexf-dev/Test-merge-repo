@@ -1,0 +1,162 @@
+/*:host {*/
+/*  display: block;*/
+/*}*/
+
+/*.ipr-scope {*/
+/*  background: #f6f8fb;*/
+/*  padding: 16px;*/
+/*  font-size: 14px;*/
+/*  line-height: 1.45;*/
+/*  color: var(--app-text);*/
+/*}*/
+
+/*.section-title {*/
+/*  font-size: 16px;*/
+/*  font-weight: 700;*/
+/*  margin: 6px 0 12px;*/
+/*  color: var(--app-text);*/
+/*}*/
+
+/*.ipr-card {*/
+/*  background: var(--app-card-bg);*/
+/*  border-radius: 12px;*/
+/*  padding: 16px;*/
+/*  margin-bottom: 12px;*/
+/*  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);*/
+/*  border: 1px solid #eef2f7;*/
+/*}*/
+
+/*.section-bar {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  gap: 8px;*/
+/*  margin-bottom: 12px;*/
+/*  flex-wrap: wrap;*/
+/*}*/
+
+/*.section-name {*/
+/*  font-weight: 700;*/
+/*}*/
+
+/*.section-name.blue {*/
+/*  color: #2f6feb;*/
+/*}*/
+
+/*.flex-1 {*/
+/*  flex: 1;*/
+/*}*/
+
+/*.p-label {*/
+/*  font-size: 12.5px;*/
+/*  color: #6b7280;*/
+/*  display: block;*/
+/*  margin: 0 0 6px;*/
+/*}*/
+
+/*.med-wrap {*/
+/*  padding: 0.25rem 0 0.5rem;*/
+/*  background-color: #fff;*/
+/*  border-radius: 12px;*/
+/*}*/
+
+/*.med-hdr {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*  width: 100%;*/
+/*  gap: 1rem;*/
+/*}*/
+
+/*.med-title {*/
+/*  display: inline-flex;*/
+/*  align-items: center;*/
+/*  gap: 0.5rem;*/
+/*  font-weight: 600;*/
+/*  color: #1a1a1a;*/
+/*  font-size: 15px;*/
+/*}*/
+
+/*.med-title i {*/
+/*  font-size: 1rem;*/
+/*}*/
+
+/*.med-title small {*/
+/*  font-weight: 400;*/
+/*  color: #6b7280;*/
+/*  font-size: 13px;*/
+/*}*/
+
+/*.checkbox-inline {*/
+/*  align-items: center;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .p-inputtext,*/
+/*:host ::ng-deep .ipr-scope .p-dropdown,*/
+/*:host ::ng-deep .ipr-scope .p-calendar {*/
+/*  width: 100%;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .p-inputtext,*/
+/*:host ::ng-deep .ipr-scope .p-calendar .p-inputtext,*/
+/*:host ::ng-deep .ipr-scope .p-dropdown .p-dropdown-label {*/
+/*  height: 40px;*/
+/*  border-radius: 10px;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .p-button {*/
+/*  font-weight: 600;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .p-table .p-datatable-thead > tr > th {*/
+/*  font-size: 12.5px;*/
+/*  font-weight: 600;*/
+/*  color: var(--app-text);*/
+/*  background: var(--app-card-bg);*/
+/*  border-bottom: 1px solid #e5e7eb;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .p-table .p-datatable-tbody > tr > td {*/
+/*  font-size: 14px;*/
+/*  border-bottom: 1px solid #f1f5f9;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .p-table .p-datatable-tbody > tr:hover {*/
+/*  background: #fafcff;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .p-accordion .p-accordion-header .p-accordion-header-link {*/
+/*  background: var(--app-surface-panel);*/
+/*  border: 1px solid #e6ebf2;*/
+/*  border-radius: 8px;*/
+/*  font-weight: 600;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .p-accordion .p-accordion-content {*/
+/*  border: 1px solid #e6ebf2;*/
+/*  border-top: 0;*/
+/*  border-radius: 0 0 8px 8px;*/
+/*  padding-top: 12px;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .p-panel .p-panel-header {*/
+/*  background: var(--app-surface-page);*/
+/*  border: 1px solid #e6ebf2;*/
+/*  border-radius: 10px 10px 0 0;*/
+/*  font-weight: 600;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .p-panel .p-panel-content {*/
+/*  border: 1px solid #e6ebf2;*/
+/*  border-top: none;*/
+/*  border-radius: 0 0 10px 10px;*/
+/*}*/
+
+/*:host ::ng-deep .ipr-scope .ipr-panel {*/
+/*  box-shadow: none;*/
+/*}*/
+
+/*@media (max-width: 768px) {*/
+/*  .section-bar {*/
+/*    align-items: stretch;*/
+/*  }*/
+/*}*/

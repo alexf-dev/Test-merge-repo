@@ -1,0 +1,115 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.tongueCleanMoist" [binary]="true" inputId="tongueCleanMoist"></p-checkbox>
+      <label for="tongueCleanMoist">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.TONGUE_CLEAN_MOIST' | translate }}</label>
+    </div>
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.TONGUE_COATED'"
+    [(checked)]="model.tongueCoatedChecked"
+    [(comment)]="model.tongueCoated">
+  </app-check-comment-field>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.abdomenSoft" [binary]="true" inputId="abdomenSoft"></p-checkbox>
+      <label for="abdomenSoft">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.ABDOMEN_SOFT' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.abdomenDistended" [binary]="true" inputId="abdomenDistended"></p-checkbox>
+      <label for="abdomenDistended">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.ABDOMEN_DISTENDED' | translate }}</label>
+    </div>
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.POSTOPERATIVE_SCAR'"
+    [(checked)]="model.postoperativeScarChecked"
+    [(comment)]="model.postoperativeScar">
+  </app-check-comment-field>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.abdomenPainless" [binary]="true" inputId="abdomenPainless"></p-checkbox>
+      <label for="abdomenPainless">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.ABDOMEN_PAINLESS' | translate }}</label>
+    </div>
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.ABDOMEN_PAINFUL_IN'"
+    [(checked)]="model.abdomenPainfulInChecked"
+    [(comment)]="model.abdomenPainfulIn">
+  </app-check-comment-field>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.umbilicalHernia" [binary]="true" inputId="umbilicalHernia"></p-checkbox>
+      <label for="umbilicalHernia">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.UMBILICAL_HERNIA' | translate }}</label>
+    </div>
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.INGUINAL_HERNIA'"
+    [(checked)]="model.inguinalHerniaChecked"
+    [(comment)]="model.inguinalHernia">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.FEMORAL_HERNIA'"
+    [(checked)]="model.femoralHerniaChecked"
+    [(comment)]="model.femoralHernia">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.LINEA_ALBA_HERNIA'"
+    [(checked)]="model.lineaAlbaHerniaChecked"
+    [(comment)]="model.lineaAlbaHernia">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.RECTUS_DIASTASIS'"
+    [(checked)]="model.rectusDiastasisChecked"
+    [(comment)]="model.rectusDiastasis">
+  </app-check-comment-field>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.liverNotPalpable" [binary]="true" inputId="liverNotPalpable"></p-checkbox>
+      <label for="liverNotPalpable">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.LIVER_NOT_PALPABLE' | translate }}</label>
+    </div>
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.LIVER_PROTRUDES'"
+    [(checked)]="model.liverProtrudesChecked"
+    [(comment)]="model.liverProtrudes">
+  </app-check-comment-field>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.spleenNotPalpable" [binary]="true" inputId="spleenNotPalpable"></p-checkbox>
+      <label for="spleenNotPalpable">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.SPLEEN_NOT_PALPABLE' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.stoolNormal" [binary]="true" inputId="stoolNormal"></p-checkbox>
+      <label for="stoolNormal">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.STOOL_NORMAL' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.stoolUnstable" [binary]="true" inputId="stoolUnstable"></p-checkbox>
+      <label for="stoolUnstable">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.STOOL_UNSTABLE' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.spasticConstipation" [binary]="true" inputId="spasticConstipation"></p-checkbox>
+      <label for="spasticConstipation">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.SPASTIC_CONSTIPATION' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.atonicConstipation" [binary]="true" inputId="atonicConstipation"></p-checkbox>
+      <label for="atonicConstipation">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.GASTROINTESTINAL_TRACT.ATONIC_CONSTIPATION' | translate }}</label>
+    </div>
+  </div>
+
+</app-collapsible-block>

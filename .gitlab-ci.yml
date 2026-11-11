@@ -1,0 +1,24 @@
+variables:
+  IMAGE: 'node:20'
+
+stages:
+  - package-test
+  - containerize-test
+  - deploy-test
+  - deploy-dev
+  - package-prod
+  - containerize-prod
+  - deploy-prod
+  
+include:
+  - project: 'devops/esobes/ci-cd'
+    ref: main
+    file: 'build/node.yml'
+  
+  - project: 'devops/esobes/ci-cd'
+    ref: main
+    file: 'containerize/docker-frontend.yml'
+    
+  - project: 'devops/esobes/ci-cd'
+    ref: main
+    file: 'deploy/deploy-frontend.yml'

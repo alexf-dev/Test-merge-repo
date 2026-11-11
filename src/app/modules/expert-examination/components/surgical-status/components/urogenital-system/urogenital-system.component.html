@@ -1,0 +1,33 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.UROGENITAL_SYSTEM.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.UROGENITAL_SYSTEM.EDEMA'"
+    [(checked)]="model.edemaChecked"
+    [(comment)]="model.edema">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.UROGENITAL_SYSTEM.PERCUSSION_SYMPTOM'"
+    [(checked)]="model.percussionSymptomChecked"
+    [(comment)]="model.percussionSymptom">
+  </app-check-comment-field>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.normalUrination" [binary]="true" inputId="normalUrination"></p-checkbox>
+      <label for="normalUrination">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.UROGENITAL_SYSTEM.NORMAL_URINATION' | translate }}</label>
+    </div>
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.painfulUrination" [binary]="true" inputId="painfulUrination"></p-checkbox>
+      <label for="painfulUrination">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.UROGENITAL_SYSTEM.PAINFUL_URINATION' | translate }}</label>
+    </div>
+  </div>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.UROGENITAL_SYSTEM.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo">
+  </app-textarea-field>
+
+</app-collapsible-block>

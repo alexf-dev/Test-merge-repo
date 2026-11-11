@@ -1,0 +1,73 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'CARDIOVASCULAR.TITLE'" [isExpanded]="isExpanded">
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'CARDIOVASCULAR.DYSPNEA.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.DYSPNEA.AT_REST'" [(checked)]="model.dyspnea.atRest"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.DYSPNEA.ON_PHYSICAL_LOAD'" [(checked)]="model.dyspnea.onPhysicalLoad"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.DYSPNEA.ON_EXCITEMENT'" [(checked)]="model.dyspnea.onExcitement"></app-check-field>
+    <app-textarea-field [(value)]="model.dyspnea.additionalInfo"></app-textarea-field>
+  </app-collapsible-block>
+
+  <app-text-input-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.CARDIAC_HUMP'" [(value)]="model.cardiacHump"></app-text-input-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.APICAL_IMPULSE'" [(value)]="model.apicalImpulse"></app-text-input-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.CARDIAC_IMPULSE'" [(value)]="model.cardiacImpulse"></app-text-input-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.CAROTID_DANCE'" [(value)]="model.carotidDance"></app-text-input-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.MUSSI_SYMPTOM'" [(value)]="model.mussiSymptom"></app-text-input-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.CAPILLARY_PULSE'" [(value)]="model.capillaryPulse"></app-text-input-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.VENOUS_PULSE'" [(value)]="model.venousPulse"></app-text-input-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.EPIGASTRIC_PULSATION'" [(value)]="model.epigastricPulsation"></app-text-input-field>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'CARDIOVASCULAR.CAT_PURR.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.CAT_PURR.OVER_HEART_APEX'" [(checked)]="model.catPurr.overHeartApex"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.CAT_PURR.OVER_AORTA'" [(checked)]="model.catPurr.overAorta"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.CAT_PURR.OVER_PULMONARY_ARTERY'" [(checked)]="model.catPurr.overPulmonaryArtery"></app-check-field>
+  </app-collapsible-block>
+
+  <app-text-input-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.PERIPHERAL_VESSELS_PULSATION'" [(value)]="model.peripheralVesselsPulsation"></app-text-input-field>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'CARDIOVASCULAR.HEART_BORDERS.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_BORDERS.WITHIN_NORMAL_RANGE'" [(checked)]="model.heartBorders.withinNormalRange"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_BORDERS.UPPER'" [showComment]="true" [(checked)]="model.heartBorders.upper.checked" [(comment)]="model.heartBorders.upper.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_BORDERS.RIGHT'" [showComment]="true" [(checked)]="model.heartBorders.right.checked" [(comment)]="model.heartBorders.right.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_BORDERS.LEFT'" [showComment]="true" [(checked)]="model.heartBorders.left.checked" [(comment)]="model.heartBorders.left.comment"></app-check-field>
+  </app-collapsible-block>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'CARDIOVASCULAR.HEART_SOUNDS.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_SOUNDS.CLEAR'" [(checked)]="model.heartSounds.clear"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_SOUNDS.MUFFLED'" [(checked)]="model.heartSounds.muffled"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_SOUNDS.ACCENT_II_ON_PULMONARY_ARTERY'" [(checked)]="model.heartSounds.accentIIOnPulmonaryArtery"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_SOUNDS.SYSTOLIC_MURMUR'" [(checked)]="model.heartSounds.systolicMurmur"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_SOUNDS.SUBDUED'" [(checked)]="model.heartSounds.subdued"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_SOUNDS.ACCENT_II_ON_AORTA'" [(checked)]="model.heartSounds.accentIIOnAorta"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_SOUNDS.RHYTHMIC'" [(checked)]="model.heartSounds.rhythmic"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_SOUNDS.DIASTOLIC_MURMUR'" [(checked)]="model.heartSounds.diastolicMurmur"></app-check-field>
+    <app-textarea-field [(value)]="model.heartSounds.additionalInfo"></app-textarea-field>
+  </app-collapsible-block>
+
+  <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.HEART_RATE'" [showComment]="true" [(checked)]="model.heartRate.checked" [(comment)]="model.heartRate.comment"></app-check-field>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'CARDIOVASCULAR.ARRHYTHMIA.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.ARRHYTHMIA.TACHYCARDIA'" [(checked)]="model.arrhythmia.tachycardia"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.ARRHYTHMIA.BRADYCARDIA'" [(checked)]="model.arrhythmia.bradycardia"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.ARRHYTHMIA.EXTRASYSTOLE'" [(checked)]="model.arrhythmia.extrasystole"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.ARRHYTHMIA.ATRIAL_FIBRILLATION'" [(checked)]="model.arrhythmia.atrialFibrillation"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.ARRHYTHMIA.PAROXYSMAL_TACHYCARDIA'" [(checked)]="model.arrhythmia.paroxysmalTachycardia"></app-check-field>
+    <app-textarea-field [(value)]="model.arrhythmia.additionalInfo"></app-textarea-field>
+  </app-collapsible-block>
+
+  <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.FIRST_SOUND_SPLITTING'" [showComment]="true" [(checked)]="model.firstSoundSplitting.checked" [(comment)]="model.firstSoundSplitting.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.GALLOP_RHYTHM'" [showComment]="true" [(checked)]="model.gallopRhythm.checked" [(comment)]="model.gallopRhythm.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.SYSTOLIC_MURMUR'" [showComment]="true" [(checked)]="model.systolicMurmur.checked" [(comment)]="model.systolicMurmur.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.SECOND_SOUND_SPLITTING'" [showComment]="true" [(checked)]="model.secondSoundSplitting.checked" [(comment)]="model.secondSoundSplitting.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.QUAIL_RHYTHM'" [showComment]="true" [(checked)]="model.quailRhythm.checked" [(comment)]="model.quailRhythm.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.DIASTOLIC_MURMUR'" [showComment]="true" [(checked)]="model.diastolicMurmur.checked" [(comment)]="model.diastolicMurmur.comment"></app-check-field>
+
+  <app-text-input-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.BLOOD_PRESSURE'" [(value)]="model.bloodPressure"></app-text-input-field>
+
+  <app-collapsible-block [nested]="true" [isExpanded]="false" [titleKey]="translationPrefix + 'CARDIOVASCULAR.PULSE.TITLE'">
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.PULSE.RHYTHMIC'" [(checked)]="model.pulse.rhythmic"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.PULSE.ARRHYTHMIC'" [showComment]="true" [(checked)]="model.pulse.arrhythmic.checked" [(comment)]="model.pulse.arrhythmic.comment"></app-check-field>
+    <app-check-field [labelKey]="translationPrefix + 'CARDIOVASCULAR.PULSE.RATE_PER_MINUTE'" [showComment]="true" [(checked)]="model.pulse.ratePerMinute.checked" [(comment)]="model.pulse.ratePerMinute.comment"></app-check-field>
+    <app-textarea-field [(value)]="model.pulse.additionalInfo"></app-textarea-field>
+  </app-collapsible-block>
+
+</app-collapsible-block>

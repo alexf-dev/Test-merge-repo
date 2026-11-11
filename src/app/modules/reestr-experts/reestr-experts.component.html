@@ -1,0 +1,412 @@
+<div class="grid">
+  <div class="col-12">
+
+    <div class="formgrid grid" *ngIf="authService.hasAction('DEPUTE_DIRECTOR_EDIT')">
+      <div class="field col-12">
+        <div class="flex justify-content-end gap-2">
+          <button
+            pButton
+            type="button"
+            [label]="'REESTR_EXPERTS.INCLUDING_EXPERTS' | translate"
+            icon="pi pi-plus"
+            class="p-button-cbdi-sotr"
+            (click)="openPageNewExpert()"
+          ></button>
+        </div>
+      </div></div>
+
+    <p-card styleClass="mb-4 cbdi-filter-card">
+      <ng-template pTemplate="title">
+        {{ 'REESTR_EXPERTS.TITLE' | translate }}
+      </ng-template>
+
+      <div class="formgrid grid">
+        <div class="field col-12 md:col-4">
+          <label for="iin" class="block mb-2">
+            {{ 'COMMON.IIN' | translate }}
+          </label>
+
+          <input
+            id="iin"
+            type="text"
+            pInputText
+            class="w-full"
+            [placeholder]="'COMMON.IIN' | translate"
+            [(ngModel)]="reestrExpertsFilter.iin"
+          />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="status" class="block mb-2">
+            {{ 'COMMON.STATUS' | translate }}
+          </label>
+
+          <p-dropdown
+            id="status"
+            [options]="dicStatus"
+            optionLabel="nameRu"
+            optionValue="id"
+            [placeholder]="'COMMON.STATUS' | translate"
+            class="w-full full-dropdown"
+            [(ngModel)]="reestrExpertsFilter.status"
+          >
+            <ng-template let-item pTemplate="item">
+              <div>{{ item | translateDictionary }}</div>
+            </ng-template>
+
+            <ng-template let-selectedItem pTemplate="selectedItem">
+              <div *ngIf="selectedItem">
+                {{ selectedItem | translateDictionary }}
+              </div>
+              <span *ngIf="!selectedItem">
+                {{ 'COMMON.CHOOSE' | translate }}
+              </span>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+      </div>
+
+      <div class="flex gap-2">
+        <button
+          pButton
+          type="button"
+          [label]="'COMMON.SEARCH' | translate"
+          icon="pi pi-search"
+          (click)="search()"
+          class="p-button-success"
+        ></button>
+
+        <button
+          pButton
+          type="button"
+          [label]="'COMMON.CLEAR' | translate"
+          icon="pi pi-refresh"
+          class="p-button-secondary"
+          (click)="clear()"
+        ></button>
+      </div>
+    </p-card>
+  </div>
+
+  <div class="col-12">
+    <p-card styleClass="cbdi-result-card">
+      <ng-template pTemplate="title">
+        <div class="flex justify-content-between align-items-center w-full">
+          <span>Результат поиска </span>
+          <span class="text-primary font-bold">{{ pageResponse?.total || 0 }}</span>
+        </div>
+      </ng-template>
+
+      <p-table
+        [value]="reestrExpertsResponse"
+        [responsiveLayout]="'scroll'"
+        [paginator]="true"
+        [lazy]="true"
+        [rows]="reestrExpertsFilter.pageSize"
+        [first]="((reestrExpertsFilter.pageNum || 1) - 1) * (reestrExpertsFilter.pageSize || 10)"
+        [totalRecords]="pageResponse?.total || 0"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        (onLazyLoad)="onPageChange($event)"
+        styleClass="p-datatable-sm"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th></th>
+            <th>№</th>
+            <th>{{ 'COMMON.FIO' | translate }}</th>
+            <th>{{ 'COMMON.IIN' | translate }}</th>
+            <th>{{ 'COMMON.REGION' | translate }}</th>
+            <th>{{ 'REESTR_EXPERTS.WORK_PLACE' | translate }}</th>
+            <th>{{ 'REESTR_EXPERTS.WORK_EXPERIENCE_MSE' | translate }}</th>
+            <th>{{ 'REESTR_EXPERTS.DATE_INCLUDED' | translate }}</th>
+            <th>{{ 'REESTR_EXPERTS.DATE_EXCLUDED' | translate }}</th>
+            <th>{{ 'COMMON.STATUS' | translate }}</th>
+            <th>{{ 'COMMON.ACTION' | translate }}</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-expert let-expanded="expanded">
+          <tr>
+            <td>
+              <button
+                type="button"
+                class="expand-btn"
+                (click)="toggleExpert(expert)">
+                <i
+                  class="pi"
+                  [ngClass]="expandedExpertId === expert.id ? 'pi-chevron-up' : 'pi-chevron-down'">
+                </i>
+              </button>
+            </td>
+
+            <td>{{ expert.id }}</td>
+            <td>{{ expert.empFullName }}</td>
+            <td>{{ expert.iin }}</td>
+            <td>{{ expert.region | translateDictionary }}</td>
+            <td>{{ expert.workPlace }}</td>
+            <td>{{ expert.mseWorkExperience }}</td>
+            <td>{{ (expert?.dateOfEmployment | date:'dd.MM.yyyy') || '-' }}</td>
+            <td class="text-center">{{ (expert.dateOfDismissal | date:'dd.MM.yyyy') || '-' }}</td>
+            <td>{{ expert.status | translateDictionary }}</td>
+            <td>
+              <div class="flex align-items-center gap-2">
+                <button *ngIf="authService.hasAction('DEPUTE_DIRECTOR_EDIT')"
+                        pButton
+                        type="button"
+                        icon="pi pi-user-minus"
+                        class="p-button-rounded p-button-text p-button-secondary"
+                        [pTooltip]="'REESTR_EXPERTS.EXCLUDING_EXPERTS' | translate"
+                        tooltipPosition="top"
+                        [disabled]="!(expert.status.id === 14972)"
+                        (click)="openPageExcludeExpert(expert)"
+                ></button>
+                <button *ngIf="authService.hasAction('COMMITTEE_EDIT') && expert.status.id === 14971"
+                        pButton
+                        type="button"
+                        icon="pi pi-check-circle"
+                        class="p-button-rounded p-button-text p-button-success"
+                        [pTooltip]="'REESTR_EXPERTS.APPROVE_INCLUSION' | translate"
+                        tooltipPosition="top"
+                        (click)="confirmUpdateStatus(expert,14972, 'include')"
+                ></button>
+
+                <button *ngIf="authService.hasAction('COMMITTEE_EDIT') && expert.status.id === 14971"
+                        pButton
+                        type="button"
+                        icon="pi pi-times-circle"
+                        class="p-button-rounded p-button-text p-button-danger"
+                        [pTooltip]="'REESTR_EXPERTS.DECLINE_INCLUSION' | translate"
+                        tooltipPosition="top"
+                        (click)="confirmUpdateStatus(expert,14975, 'declineInclude')"
+                ></button>
+
+                <button *ngIf="authService.hasAction('COMMITTEE_EDIT') && expert.status.id === 14969"
+                        pButton
+                        type="button"
+                        icon="pi pi-check-circle"
+                        class="p-button-rounded p-button-text p-button-success"
+                        [pTooltip]="'REESTR_EXPERTS.APPROVE_EXCLUSION' | translate"
+                        tooltipPosition="top"
+                        (click)="confirmUpdateStatus(expert,14970, 'exclude')"
+                ></button>
+
+                <button *ngIf="authService.hasAction('COMMITTEE_EDIT') && expert.status.id === 14969"
+                        pButton
+                        type="button"
+                        icon="pi pi-times-circle"
+                        class="p-button-rounded p-button-text p-button-danger"
+                        [pTooltip]="'REESTR_EXPERTS.DECLINE_EXCLUSION' | translate"
+                        tooltipPosition="top"
+                        (click)="confirmUpdateStatus(expert,14974, 'declineExclude')"
+                ></button>
+
+              </div>
+            </td>
+          </tr>
+
+          <tr *ngIf="expandedExpertId === expert.id">
+            <td colspan="11">
+              <!-- МКБ -->
+              <div class="mb-4" *ngIf="mkbsVacationsMap[expert.id] as data">
+                <div class="grid">
+
+                  <div class="col-12 md:col-3">
+                    <div class="flex align-items-center gap-2">
+                      <span class="font-medium">
+                        {{ 'REESTR_EXPERTS.MKBS' | translate }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="col-12 md:col-9">
+                    <div class="flex flex-wrap gap-2">
+                      <ng-container *ngIf="data.mkbs?.length; else noMkbs">
+                        <p-tag
+                          *ngFor="let mkb of data.mkbs"
+                          severity="warning"
+                          [value]="mkb">
+                        </p-tag>
+                      </ng-container>
+
+                      <ng-template #noMkbs>
+                        <span>{{ 'COMMON.NOT_FOUND2' | translate }}</span>
+                      </ng-template>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <!-- Отпуска -->
+              <div class="mb-4" *ngIf="mkbsVacationsMap[expert.id] as data">
+                <div class="grid">
+                  <div class="col-12 md:col-3">
+                    <div class="flex align-items-center gap-2">
+                    <span class="font-medium">
+                      {{ 'REESTR_EXPERTS.VACATIONS_PERIOD' | translate }}</span>
+                    </div>
+                  </div>
+
+                  <div class="col-12 md:col-9">
+                    <div class="flex flex-wrap gap-2">
+                      <ng-container *ngIf="data.vacations?.length; else noVacations">
+                        <p-tag
+                          *ngFor="let vacation of data.vacations"
+                          [value]="vacation || '-'"
+                          severity="success">
+                        </p-tag>
+                      </ng-container>
+                      <ng-template #noVacations>
+                        <span>{{ 'COMMON.NOT_FOUND2' | translate }}</span>
+                      </ng-template>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <div class="mb-4" *ngIf="mkbsVacationsMap[expert.id] as data">
+                <div class="grid">
+                  <div class="col-12 md:col-3">
+                    <div class="flex align-items-center gap-2">
+                    <span class="font-medium">
+                      {{ 'REESTR_EXPERTS.FIELD_SESSIONS_PERIOD' | translate }}</span>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-9">
+                    <div class="flex flex-wrap gap-2">
+                      <ng-container *ngIf="data.fieldSessions?.length; else noFieldSessions">
+                        <p-tag
+                          *ngFor="let fieldSection of data.fieldSessions"
+                          [value]="fieldSection || '-'"
+                          [style]="{
+                                'background-color': 'rgba(45, 167, 188, 0.15)',
+                                'color': '#2DA7BC',
+                                'border': '1px solid #2DA7BC'
+                                }">
+                        </p-tag>
+                      </ng-container>
+                      <ng-template #noFieldSessions>
+                        <span>{{ 'COMMON.NOT_FOUND2' | translate }}</span>
+                      </ng-template>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="mb-4" *ngIf="mkbsVacationsMap[expert.id] as data">
+                <div class="grid">
+
+                  <div class="col-12 md:col-3">
+                    <div class="flex align-items-center gap-2">
+                      <span class="font-medium">
+                        {{ 'REESTR_EXPERTS.TEMPORARY_DISABILITY_PERIOD' | translate }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="col-12 md:col-9">
+                    <div class="flex flex-wrap gap-2">
+                      <ng-container *ngIf="data.temporaryDisability?.length; else noDisability">
+                        <p-tag
+                          *ngFor="let temporaryDisability of data.temporaryDisability"
+                          [value]="temporaryDisability || '-'"
+                          severity="danger">
+                        </p-tag>
+                      </ng-container>
+                      <ng-template #noDisability>
+                        <span>{{ 'COMMON.NOT_FOUND2' | translate }}</span>
+                      </ng-template>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </td>
+          </tr>
+
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="11" class="text-center py-4">
+              {{ 'COMMON.NOT_FOUND2' | translate }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <p-confirmDialog></p-confirmDialog>
+
+
+      <!--            <div class="mt-4 flex justify-content-end">-->
+      <!--              <p-paginator-->
+      <!--                [rows]="pageSize"-->
+      <!--                [totalRecords]="totalRecords"-->
+      <!--                [first]="(page - 1) * pageSize"-->
+      <!--                [showCurrentPageReport]="true"-->
+      <!--                currentPageReportTemplate="Страница {currentPage} из {totalPages}"-->
+      <!--                (onPageChange)="onPageChange($event)"-->
+      <!--              >-->
+      <!--              </p-paginator>-->
+      <!--            </div>-->
+    </p-card>
+  </div>
+</div>
+
+<p-dialog
+  header="{{ 'REESTR_EXPERTS.EXCLUDING_EXPERTS' | translate }}"
+  [(visible)]="excludingDialogVisible"
+  [modal]="true"
+  [closable]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '500px' }"
+  [contentStyle]="{overflow: 'visible'}"
+>
+  <div class="flex flex-column gap-4">
+    <div class="flex flex-column gap-2">
+      <label class="font-semibold">{{ 'REESTR_EXPERTS.CAUSE_OF_EXCLUDING' | translate }}
+        <span class="text-red-500">*</span>
+      </label>
+      <textarea
+        pInputTextarea
+        rows="5"
+        class="w-full"
+        [(ngModel)]="updateStatusExpert.note"
+        placeholder="{{ 'COMMON.ENTER' | translate }}"
+      ></textarea>
+    </div>
+
+    <div class="flex justify-content-between">
+      <div class="flex align-items-center ">
+        <button
+          pButton
+          type="button"
+          label="{{ 'REESTR_EXPERTS.SEND_COMMITTEE' | translate }}"
+          class="p-button-success ml-auto"
+          [disabled]="isUpdated"
+          (click)="updateStatus(14969)"
+        ></button>
+      </div>
+
+      <div class="flex align-items-center">
+        <button
+          pButton
+          type="button"
+          label="{{ 'COMMON.CANCEL' | translate }}"
+          class="p-button-secondary ml-auto"
+        ></button>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</p-dialog>
+

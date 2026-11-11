@@ -1,0 +1,32 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FEET.TITLE'"
+  [isExpanded]="isExpanded"
+  [nested]="true">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FEET.BRACHYDACTYLY'"
+    [(checked)]="model.brachydactyly">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FEET.ARACHNODACTYLY'"
+    [(checked)]="model.arachnodactyly">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FEET.SYNDACTYLY'"
+    [(checked)]="model.syndactyly">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FEET.TOE_OVERLAPPING'"
+    [(checked)]="model.toeOverlapping">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.FEET.COMMENT'"
+    [(value)]="model.comment"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

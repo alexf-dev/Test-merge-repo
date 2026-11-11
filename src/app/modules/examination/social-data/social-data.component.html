@@ -1,0 +1,315 @@
+<div *ngIf="socialData" class="grid">
+  <div class="col-12">
+    <p-card>
+      <ng-template pTemplate="title">
+        {{ 'MAIN.EXAMINATION.SOCIAL-DATA.TITLE' | translate }}
+      </ng-template>
+
+      <p-accordion [multiple]="true" styleClass="mb-4">
+        <p-accordionTab [selected]="true">
+          <ng-template pTemplate="header">
+            {{ 'MAIN.EXAMINATION.SOCIAL-DATA.SOCIAL_STATUS.TITLE' | translate }}
+          </ng-template>
+
+          <div class="formgrid grid p-fluid">
+            <div class="field col-12 md:col-6">
+              <label for="maritalStatus">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.SOCIAL_STATUS.MARITAL_STATUS' | translate }}
+              </label>
+              <p-dropdown
+                [(ngModel)]="socialData.familyStId"
+                [options]="dicFamilySt"
+                id="maritalStatus"
+                name="familyStId"
+                optionValue="id"
+                [showClear]="true"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+              >
+                <ng-template let-item pTemplate="item">
+                  <div>{{ item | translateDictionary }}</div>
+                </ng-template>
+                <ng-template let-selectedItem pTemplate="selectedItem">
+                  <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+                  <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label for="socialStatus">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.SOCIAL_STATUS.SOCIAL_ECONOMIC_STATUS' | translate }}
+              </label>
+              <p-dropdown
+                [(ngModel)]="socialData.socEconomicStId"
+                [options]="dicSocialEconomicStatus"
+                id="socialStatus"
+                name="socEconomicStId"
+                optionValue="id"
+                [showClear]="true"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+              >
+                <ng-template let-item pTemplate="item">
+                  <div>{{ item | translateDictionary }}</div>
+                </ng-template>
+                <ng-template let-selectedItem pTemplate="selectedItem">
+                  <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+                  <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+        </p-accordionTab>
+
+        <p-accordionTab>
+          <ng-template pTemplate="header">
+            {{ 'MAIN.EXAMINATION.SOCIAL-DATA.HOME_IMPROVEMENT.TITLE' | translate }}
+          </ng-template>
+
+          <div class="formgrid grid p-fluid">
+            <div class="field col-12 md:col-6">
+              <label for="envConditions">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.HOME_IMPROVEMENT.SOCIAL_ENVIRONMENTAL_CONDITIONS' | translate }}
+              </label>
+              <p-dropdown
+                [(ngModel)]="socialData.socEconomicStId"
+                [options]="dicSocialEconomicStatus"
+                id="envConditions"
+                name="envConditions"
+                optionValue="id"
+                [showClear]="true"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+              >
+                <ng-template let-item pTemplate="item">
+                  <div>{{ item | translateDictionary }}</div>
+                </ng-template>
+                <ng-template let-selectedItem pTemplate="selectedItem">
+                  <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+                  <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12 md:col-2">
+              <label for="floor">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.HOME_IMPROVEMENT.FLOOR' | translate }}
+              </label>
+              <p-inputNumber
+                [(ngModel)]="socialData.floor"
+                [max]="99"
+                [min]="0"
+                [step]="1"
+                inputId="floor"
+                mode="decimal"
+                name="floor"
+              >
+              </p-inputNumber>
+            </div>
+          </div>
+
+          <div class="formgrid grid p-fluid">
+            <div class="field col-12 md:col-4 flex align-items-center">
+              <p-checkbox
+                [(ngModel)]="socialData.isRampant"
+                [binary]="true"
+                inputId="ramp"
+                name="hasRamp"
+              ></p-checkbox>
+              <label class="ml-2" for="ramp">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.HOME_IMPROVEMENT.RAMP' | translate }}
+              </label>
+            </div>
+
+            <div class="field col-12 md:col-4 flex align-items-center">
+              <p-checkbox
+                [(ngModel)]="socialData.isHeating"
+                [binary]="true"
+                inputId="heating"
+                name="hasHeating"
+              ></p-checkbox>
+              <label class="ml-2" for="heating">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.HOME_IMPROVEMENT.HEATING' | translate }}
+              </label>
+            </div>
+
+            <div class="field col-12 md:col-4 flex align-items-center">
+              <p-checkbox
+                [(ngModel)]="socialData.isElevator"
+                [binary]="true"
+                inputId="elevator"
+                name="hasElevator"
+              ></p-checkbox>
+              <label class="ml-2" for="elevator">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.HOME_IMPROVEMENT.ELEVATOR' | translate }}
+              </label>
+            </div>
+          </div>
+        </p-accordionTab>
+
+        <p-accordionTab>
+          <ng-template pTemplate="header">
+            {{ 'MAIN.EXAMINATION.SOCIAL-DATA.EDUCATION_EMPLOYMENT_INFORMATION.TITLE' | translate }}
+          </ng-template>
+
+          <div class="formgrid grid p-fluid">
+            <div class="field col-12 md:col-6">
+              <label for="educationLevel">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.EDUCATION_EMPLOYMENT_INFORMATION.EDUCATION_TRAINING' | translate }}
+              </label>
+              <p-dropdown
+                [(ngModel)]="socialData.educationTypeId"
+                [options]="dicEducationType"
+                id="educationLevel"
+                name="educationLevel"
+                optionValue="id"
+                [showClear]="true"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+              >
+                <ng-template let-item pTemplate="item">
+                  <div>{{ item | translateDictionary }}</div>
+                </ng-template>
+                <ng-template let-selectedItem pTemplate="selectedItem">
+                  <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+                  <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+
+            <div class="field col-12 md:col-6">
+              <label for="newProfession">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.EDUCATION_EMPLOYMENT_INFORMATION.MAIN_PROFESSION' | translate }}
+              </label>
+              <p-dropdown
+                [(ngModel)]="socialData.newProfessionId"
+                [options]="dicNewProfession"
+                id="newProfession"
+                name="newProfession"
+                optionValue="id"
+                [showClear]="true"
+                [placeholder]="'COMMON.CHOOSE' | translate"
+              >
+                <ng-template let-item pTemplate="item">
+                  <div>{{ item | translateDictionary }}</div>
+                </ng-template>
+                <ng-template let-selectedItem pTemplate="selectedItem">
+                  <div *ngIf="selectedItem">{{ selectedItem | translateDictionary }}</div>
+                  <span *ngIf="!selectedItem">{{ 'COMMON.CHOOSE' | translate }}</span>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+        </p-accordionTab>
+
+        <p-accordionTab>
+          <ng-template pTemplate="header">
+            {{ 'MAIN.EXAMINATION.SOCIAL-DATA.HARMFUL_PRODUCTION_FACTORS.TITLE' | translate }}
+          </ng-template>
+
+          <div class="formgrid grid p-fluid">
+            <div
+              *ngFor="let factor of dicHarmfulFactors; let i = index"
+              class="field col-12 md:col-4 flex align-items-center"
+            >
+              <p-checkbox
+                [binary]="true"
+                [ngModel]="isChecked(factor.id) > -1"
+                (onChange)="pushItemFactor(factor.id, $event.checked)"
+                [inputId]="'harmfulFactor' + i"
+              ></p-checkbox>
+              <label class="ml-2" [for]="'harmfulFactor' + i">
+                {{ factor | translateDictionary }}
+              </label>
+            </div>
+          </div>
+        </p-accordionTab>
+
+        <p-accordionTab>
+          <ng-template pTemplate="header">
+            {{ 'MAIN.EXAMINATION.SOCIAL-DATA.PLACE_OF_STUDY.TITLE' | translate }}
+          </ng-template>
+
+          <div class="formgrid grid p-fluid">
+            <div class="field col-12">
+              <label for="studyPlace">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.PLACE_OF_STUDY.PLACE_OF_STUDY' | translate }}
+              </label>
+              <input
+                [(ngModel)]="socialData.studyPlace"
+                id="studyPlace"
+                name="studyPlace"
+                pInputText
+                type="text"
+              />
+            </div>
+          </div>
+
+          <div class="formgrid grid p-fluid">
+            <div class="field col-12 md:col-6 flex align-items-center">
+              <p-checkbox
+                [(ngModel)]="socialData.isKindergarten"
+                [binary]="true"
+                inputId="kindergarten"
+                name="kindergarten"
+              ></p-checkbox>
+              <label class="ml-2" for="kindergarten">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.PLACE_OF_STUDY.KINDERGARTEN' | translate }}
+              </label>
+            </div>
+
+            <div class="field col-12 md:col-6 flex align-items-center">
+              <p-checkbox
+                [(ngModel)]="socialData.isSchool"
+                [binary]="true"
+                inputId="school"
+                name="school"
+              ></p-checkbox>
+              <label class="ml-2" for="school">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.PLACE_OF_STUDY.SCHOOL' | translate }}
+              </label>
+            </div>
+
+            <div class="field col-12 md:col-6 flex align-items-center">
+              <p-checkbox
+                [(ngModel)]="socialData.isSpecSchool"
+                [binary]="true"
+                inputId="specSchool"
+                name="specSchool"
+              ></p-checkbox>
+              <label class="ml-2" for="specSchool">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.PLACE_OF_STUDY.SPEC_SCHOOL' | translate }}
+              </label>
+            </div>
+
+            <div class="field col-12 md:col-6 flex align-items-center">
+              <p-checkbox
+                [(ngModel)]="socialData.isSpecKindergarten"
+                [binary]="true"
+                inputId="specKindergarten"
+                name="specKindergarten"
+              ></p-checkbox>
+              <label class="ml-2" for="specKindergarten">
+                {{ 'MAIN.EXAMINATION.SOCIAL-DATA.PLACE_OF_STUDY.SPEC_KINDERGARTEN' | translate }}
+              </label>
+            </div>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </p-card>
+
+    <div class="page-actions">
+      <button
+        pButton
+        type="button"
+        class="p-button-text"
+        (click)="onPrev()"
+        label="{{ 'COMMON.BACK' | translate }}"
+      ></button>
+
+      <button
+        pButton
+        type="button"
+        (click)="onNext()"
+        label="{{ 'COMMON.NEXT' | translate }}"
+      ></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,126 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card>
+      <ng-template pTemplate="title">
+        Удостоверение личности гражданина Республики Казахстан
+      </ng-template>
+
+      <div class="grid">
+        <div class="col-12 lg:col-6">
+          <div class="info-panel">
+            <div class="info-row">
+              <div class="info-label">ИИН</div>
+              <div class="info-value">{{ data?.iin || '-' }}</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">ФИО</div>
+              <div class="info-value">{{ data?.fio || '-' }}</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">День рождения</div>
+              <div class="info-value">{{ data?.birthDate || '-' }}</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">Пол</div>
+              <div class="info-value">{{ data?.gender || '-' }}</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">Национальность</div>
+              <div class="info-value">{{ data?.nationality || '-' }}</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">Гражданство</div>
+              <div class="info-value">{{ data?.citizenship || '-' }}</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">Статус</div>
+              <div class="info-value success-text">{{ data?.status || '-' }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 lg:col-6">
+          <div class="info-panel">
+            <div class="section-block">
+              <div class="section-label">АДРЕС ПРОПИСКИ</div>
+              <div class="info-value">{{ data?.registrationAddress || '-' }}</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">Статус регистрации</div>
+              <div class="info-value link-text">{{ data?.registrationStatus || '-' }}</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">Причина</div>
+              <div class="info-value">{{ data?.registrationReason || '-' }}</div>
+            </div>
+
+            <div class="section-block">
+              <div class="section-label">МЕСТО РОЖДЕНИЯ</div>
+              <div class="info-value">{{ data?.birthPlace || '-' }}</div>
+            </div>
+
+            <div class="section-block">
+              <div class="section-label">АДРЕС ВРЕМЕННОЙ РЕГИСТРАЦИИ</div>
+              <div class="info-value">{{ data?.temporaryRegistrationAddress || '-' }}</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">Дата регистрации</div>
+              <div class="info-value">{{ data?.registrationDate || '-' }}</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">Срок</div>
+              <div class="info-value">{{ data?.registrationUntil || '-' }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-card>
+
+    <p-card class="mt-3">
+      <ng-template pTemplate="title">
+        Данные свидетельства о рождении
+      </ng-template>
+
+      <div class="info-panel">
+        <div class="info-row">
+          <div class="info-label">Номер свидетельства</div>
+          <div class="info-value">{{ data?.birthCertificateNumber || '-' }}</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Дата выдачи</div>
+          <div class="info-value">{{ data?.birthCertificateIssueDate || '-' }}</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Организация</div>
+          <div class="info-value">{{ data?.birthCertificateOrg || '-' }}</div>
+        </div>
+      </div>
+    </p-card>
+
+    <p-card class="mt-3">
+      <ng-template pTemplate="title">
+        Паспортные данные
+      </ng-template>
+
+      <div class="passport-main">
+        {{ data?.passportInfo || '-' }}
+      </div>
+
+      <div class="passport-status">
+        {{ data?.passportStatus || '-' }}
+      </div>
+    </p-card>
+  </div>
+</div>

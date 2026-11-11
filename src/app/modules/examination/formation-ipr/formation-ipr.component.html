@@ -1,0 +1,287 @@
+<div *ngIf="iprDataList" class="grid">
+  <div class="col-12">
+    <p-card>
+      <ng-template pTemplate="title">
+        План реабилитационных мероприятий
+      </ng-template>
+
+      <p-accordion [multiple]="true" styleClass="mb-4">
+        <!-- СОЦИАЛЬНАЯ ЧАСТЬ -->
+        <p-accordionTab [selected]="true">
+          <ng-template pTemplate="header">
+            <div class="flex align-items-center justify-content-between w-full">
+              <span>Социальная часть реабилитации</span>
+
+              <button
+                pButton
+                type="button"
+                icon="pi pi-plus"
+                label="Добавить"
+                (click)="open(); $event.stopPropagation()"
+              ></button>
+            </div>
+          </ng-template>
+
+          <p-table
+            *ngIf="iprDataList?.socialIpr?.length"
+            [value]="iprDataList.socialIpr"
+            responsiveLayout="scroll"
+            styleClass="p-datatable-sm"
+          >
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Наименование мероприятий</th>
+                <th>Дата назначения</th>
+                <th>Количество</th>
+                <th>Дата закрытия</th>
+                <th>Причина закрытия</th>
+                <th>Дата выполнения</th>
+                <th>Срок эксплуатации</th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-r>
+              <tr>
+                <td>{{ r.helpId?.rname }}</td>
+                <td>{{ expertOpinion?.examinationDate | dateFormat }}</td>
+                <td>{{ r.helpId?.periodCnt }}</td>
+                <td>{{ r.dtClose | dateFormat }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </ng-template>
+          </p-table>
+
+          <div *ngIf="!iprDataList?.socialIpr?.length" class="text-500">
+            Нет данных для отображения.
+          </div>
+        </p-accordionTab>
+
+        <!-- ПРОФЕССИОНАЛЬНАЯ ЧАСТЬ -->
+        <p-accordionTab>
+          <ng-template pTemplate="header">
+            Профессиональная часть реабилитации
+          </ng-template>
+
+          <ng-container *ngIf="iprDataList?.profIpr?.length; else emptyProf">
+            <p-accordion [multiple]="true">
+              <p-accordionTab
+                *ngFor="let item of iprDataList.profIpr; trackBy: trackByProf"
+                [selected]="item.showBlock"
+              >
+                <ng-template pTemplate="header">
+                  <div class="flex align-items-center justify-content-between w-full">
+                    <div class="flex align-items-center gap-2">
+                      <p-checkbox
+                        [(ngModel)]="item.checked"
+                        [binary]="true"
+                        [inputId]="'prof-' + (item.helpId?.id ?? item.id)"
+                        (onChange)="onChangeCheckboxProf(item); $event.originalEvent?.stopPropagation?.()"
+                      ></p-checkbox>
+
+                      <label
+                        [for]="'prof-' + (item.helpId?.id ?? item.id)"
+                        class="font-semibold"
+                      >
+                        {{ item.helpId?.nameRu }}
+                      </label>
+                    </div>
+                  </div>
+                </ng-template>
+
+                <div class="formgrid grid p-fluid">
+                  <div class="field col-12 md:col-4">
+                    <label [for]="'iprDate-' + (item.helpId?.id ?? item.id)">
+                      Дата разработки
+                    </label>
+                    <p-calendar
+                      [(ngModel)]="item.iprDate"
+                      [inputId]="'iprDate-' + (item.helpId?.id ?? item.id)"
+                      [name]="'iprDate-' + (item.helpId?.id ?? item.id)"
+                      [showIcon]="true"
+                      appendTo="body"
+                      dateFormat="yy-mm-dd"
+                    ></p-calendar>
+                  </div>
+
+                  <div class="field col-12 md:col-4">
+                    <label [for]="'deadlineDate-' + (item.helpId?.id ?? item.id)">
+                      Срок выполнения
+                    </label>
+                    <p-calendar
+                      [(ngModel)]="item.deadlineDate"
+                      [inputId]="'deadlineDate-' + (item.helpId?.id ?? item.id)"
+                      [name]="'deadlineDate-' + (item.helpId?.id ?? item.id)"
+                      [showIcon]="true"
+                      appendTo="body"
+                      dateFormat="yy-mm-dd"
+                    ></p-calendar>
+                  </div>
+
+                  <div class="field col-12 md:col-4">
+                    <label [for]="'recommended-' + (item.helpId?.id ?? item.id)">
+                      Рекомендовано
+                    </label>
+                    <input
+                      pInputText
+                      type="text"
+                      [(ngModel)]="item.recommended"
+                      [id]="'recommended-' + (item.helpId?.id ?? item.id)"
+                      [name]="'recommended-' + (item.helpId?.id ?? item.id)"
+                      [ngModelOptions]="{ standalone: true }"
+                      placeholder="По показаниям"
+                    />
+                  </div>
+                </div>
+              </p-accordionTab>
+            </p-accordion>
+          </ng-container>
+
+          <ng-template #emptyProf>
+            <div class="text-500">Нет данных для отображения.</div>
+          </ng-template>
+        </p-accordionTab>
+
+        <!-- МЕДИЦИНСКАЯ ЧАСТЬ -->
+        <p-accordionTab>
+          <ng-template pTemplate="header">
+            Медицинская часть реабилитации
+          </ng-template>
+
+          <ng-container *ngIf="iprDataList?.medIpr?.length; else emptyMed">
+            <p-accordion [multiple]="true">
+              <p-accordionTab
+                *ngFor="let item of iprDataList.medIpr; trackBy: trackById"
+              >
+                <ng-template pTemplate="header">
+                  <div class="flex align-items-center gap-2">
+                    <span>{{ item.helpId?.nameRu }}</span>
+                    <small *ngIf="item.helpId?.nameRu">
+                      ({{ item.helpId?.nameRu }})
+                    </small>
+                  </div>
+                </ng-template>
+
+                <div class="formgrid grid p-fluid">
+                  <div class="field col-12 flex align-items-center">
+                    <p-checkbox
+                      [(ngModel)]="item.checked"
+                      [binary]="true"
+                      [inputId]="'med-' + (item.helpId?.id ?? item.id)"
+                      (onChange)="onChangeCheckboxMed(item)"
+                    ></p-checkbox>
+
+                    <label
+                      class="ml-2"
+                      [for]="'med-' + (item.helpId?.id ?? item.id)"
+                    >
+                      Назначено
+                    </label>
+                  </div>
+
+                  <div class="field col-12 md:col-4">
+                    <label [for]="'createDate-' + item.id">
+                      Дата разработки
+                    </label>
+                    <p-calendar
+                      [(ngModel)]="item.iprDate"
+                      [inputId]="'createDate-' + item.id"
+                      [name]="'createDate-' + item.id"
+                      [showIcon]="true"
+                      appendTo="body"
+                      dateFormat="yy-mm-dd"
+                    ></p-calendar>
+                  </div>
+
+                  <div class="field col-12 md:col-4">
+                    <label [for]="'deadlineDate-' + item.id">
+                      Срок выполнения
+                    </label>
+                    <p-calendar
+                      [(ngModel)]="item.deadlineDate"
+                      [inputId]="'deadlineDate-' + item.id"
+                      [name]="'deadlineDate-' + item.id"
+                      [showIcon]="true"
+                      appendTo="body"
+                      dateFormat="yy-mm-dd"
+                    ></p-calendar>
+                  </div>
+
+                  <div class="field col-12 md:col-4">
+                    <label [for]="'recommended-' + item.id">
+                      Рекомендовано
+                    </label>
+                    <input
+                      pInputText
+                      [(ngModel)]="item.recommended"
+                      [id]="'recommended-' + item.id"
+                      [name]="'recommended-' + item.id"
+                      placeholder="Введите"
+                    />
+                  </div>
+
+                  <div class="field col-12 md:col-4">
+                    <label [for]="'duration-' + item.id">
+                      Длительность
+                    </label>
+                    <input
+                      pInputText
+                      [(ngModel)]="item.duration"
+                      [id]="'duration-' + item.id"
+                      [name]="'duration-' + item.id"
+                      placeholder="Введите"
+                    />
+                  </div>
+
+                  <div class="field col-12 md:col-4">
+                    <label [for]="'fold-' + item.id">
+                      Кратность
+                    </label>
+                    <input
+                      pInputText
+                      [(ngModel)]="item.fold"
+                      [id]="'fold-' + item.id"
+                      [name]="'fold-' + item.id"
+                      placeholder="Введите"
+                    />
+                  </div>
+                </div>
+              </p-accordionTab>
+            </p-accordion>
+          </ng-container>
+
+          <ng-template #emptyMed>
+            <div class="text-500">Нет данных для отображения.</div>
+          </ng-template>
+        </p-accordionTab>
+      </p-accordion>
+    </p-card>
+
+    <div class="page-actions">
+      <button
+        pButton
+        type="button"
+        class="p-button-text"
+        (click)="onPrev()"
+        label="{{ 'COMMON.BACK' | translate }}"
+      ></button>
+
+      <button
+        pButton
+        type="button"
+        (click)="onSave()"
+        label="{{ 'COMMON.SAVE' | translate }}"
+      ></button>
+    </div>
+
+    <app-choose-help
+      [expertOpinion]="expertOpinion"
+      [lang]="lang"
+      [patientId]="patientId"
+      [visible]="showModal"
+      (cancel)="showModal = false"
+      (confirm)="onConfirm($event)"
+    ></app-choose-help>
+  </div>
+</div>

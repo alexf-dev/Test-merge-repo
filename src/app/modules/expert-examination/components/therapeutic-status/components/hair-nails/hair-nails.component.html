@@ -1,0 +1,8 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'HAIR_NAILS.TITLE'" [isExpanded]="isExpanded">
+  <app-check-field [labelKey]="translationPrefix + 'HAIR_NAILS.MALE_PATTERN_HAIR'" [showComment]="true" [(checked)]="model.malePatternHair.checked" [(comment)]="model.malePatternHair.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'HAIR_NAILS.SPLIT_ENDS'" [showComment]="true" [(checked)]="model.splitEnds.checked" [(comment)]="model.splitEnds.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'HAIR_NAILS.BRITTLE_NAILS'" [showComment]="true" [(checked)]="model.brittleNails.checked" [(comment)]="model.brittleNails.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'HAIR_NAILS.FEMALE_PATTERN_HAIR'" [showComment]="true" [(checked)]="model.femalePatternHair.checked" [(comment)]="model.femalePatternHair.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'HAIR_NAILS.HAIR_LOSS'" [showComment]="true" [(checked)]="model.hairLoss.checked" [(comment)]="model.hairLoss.comment"></app-check-field>
+  <app-textarea-field [(value)]="model.hairLossAdditionalInfo"></app-textarea-field>
+</app-collapsible-block>

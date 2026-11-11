@@ -1,0 +1,367 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card>
+      <ng-template pTemplate="title">
+        Создать заявление
+      </ng-template>
+
+      <ng-template pTemplate="subtitle">
+        Заявление на проведение медико-социальной экспертизы
+      </ng-template>
+
+      <div class="mb-4">
+        <a class="p-link font-semibold">
+          Департамент Комитета труда и социальной защиты по области (городу), отдел
+        </a>
+      </div>
+
+      <form #f="ngForm" (ngSubmit)="sign()" class="p-fluid" novalidate>
+        <div class="formgrid grid">
+          <div class="field col-12 md:col-6">
+            <label class="block mb-2" for="iin">ИИН</label>
+            <input
+              [(ngModel)]="patient.iin"
+              class="w-full"
+              id="iin"
+              name="iin"
+              pInputText
+              placeholder="031230650906"
+              type="text"
+            />
+          </div>
+
+          <div class="field col-12 md:col-6">
+            <label class="block mb-2" for="fullName">
+              Фамилия, имя, отчество (при его наличии) освидетельствуемого лица
+            </label>
+            <input
+              [ngModel]="getFullName(patient)"
+              class="w-full"
+              id="fullName"
+              name="fullName"
+              pInputText
+              placeholder="Айсина Назира Жұбанқызы"
+              readonly
+              type="text"
+            />
+          </div>
+        </div>
+
+        <div class="formgrid grid">
+          <div class="field col-12 md:col-6">
+            <label class="block mb-2" for="guardianIin">Индивидуальный идентификационный номер опекуна/законного
+              представителя: </label>
+            <input
+              [(ngModel)]="guardian.iin"
+              class="w-full"
+              id="guardianIin"
+              name="guardianIin"
+              pInputText
+              placeholder="031230650906"
+              type="text"
+            />
+          </div>
+
+          <div class="field col-12 md:col-6">
+            <label class="block mb-2" for="guardianFullName">
+              Фамилия, имя, отчество (при его наличии) опекуна/законного представителя:
+            </label>
+            <input
+              [ngModel]="getFullName(guardian)"
+              class="w-full"
+              id="guardianFullName"
+              name="guardianFullName"
+              pInputText
+              placeholder="Айсина Назира Жұбанқызы"
+              readonly
+              type="text"
+            />
+          </div>
+
+          <div class="field col-12 md:col-6">
+            <label class="block mb-2" for="socialSecurityCode">
+              Статус факта участия (неучастия) в системе обезательного социального страхования
+              – {{model?.socialSecurityCode == '1' ? 'Застрахован' : 'Не застрахован'}}
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="section-title">
+            Прошу Вас провести медико-социальную экспертизу с целью:
+          </h3>
+
+          <div class="flex flex-column gap-3">
+            <div class="flex align-items-start">
+              <p-checkbox
+                [(ngModel)]="model?.jsonData?.purposes.disability"
+                [binary]="true"
+                inputId="p_disability"
+                name="p_disability"
+              ></p-checkbox>
+              <label class="ml-2 line-height-3 cursor-pointer" for="p_disability">
+                установления инвалидности: первичное установление инвалидности, повторное установление инвалидности
+                (переосвидетельствование), изменение причины инвалидности (нужное подчеркнуть)
+              </label>
+            </div>
+
+            <div class="flex align-items-start">
+              <p-checkbox
+                [(ngModel)]="model?.jsonData.purposes.capacityLoss"
+                [binary]="true"
+                inputId="p_capacity"
+                name="p_capacity"
+              ></p-checkbox>
+              <label class="ml-2 line-height-3 cursor-pointer" for="p_capacity">
+                установления степени утраты общей трудоспособности, степени утраты профессиональной трудоспособности
+                (нужное подчеркнуть)
+              </label>
+            </div>
+
+            <div class="flex align-items-start">
+              <p-checkbox
+                [(ngModel)]="model?.jsonData.purposes.ipr"
+                [binary]="true"
+                inputId="p_ipr"
+                name="p_ipr"
+              ></p-checkbox>
+              <label class="ml-2 line-height-3 cursor-pointer" for="p_ipr">
+                формирования индивидуальной программы абилитации и реабилитации лица с инвалидностью (ИПР), коррекции
+                ИПР, определения нуждаемости пострадавшего работника в дополнительных видах помощи и уходе
+                (нужное подчеркнуть)
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="section-title">
+            Перечень документов и сведений, полученных из информационных систем государственных органов для проведения
+            медико-социальной экспертизы (МСЭ):
+          </h3>
+
+          <p-table
+            [responsiveLayout]="'scroll'"
+            [value]="model?.jsonData.docs"
+            styleClass="p-datatable-sm"
+          >
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Наименование документа</th>
+                <th class="text-center">Действие</th>
+              </tr>
+            </ng-template>
+
+            <ng-template let-d let-i="rowIndex" pTemplate="body">
+              <tr>
+                <td>{{ d.dic.nameRu }}</td>
+                <td>
+                  <div class="flex align-items-center gap-4">
+                    <div class="flex align-items-center">
+                      <p-radioButton
+                        [(ngModel)]="d.mode"
+                        [inputId]="'doc-el-' + i"
+                        [name]="'doc' + i"
+                        [value]="'electronic'"
+                      ></p-radioButton>
+                      <label [for]="'doc-el-' + i" class="ml-2">Электр.</label>
+                    </div>
+
+                    <div class="flex align-items-center">
+                      <p-radioButton
+                        [(ngModel)]="d.mode"
+                        [inputId]="'doc-pa-' + i"
+                        [name]="'doc' + i"
+                        [value]="'paper'"
+                      ></p-radioButton>
+                      <label [for]="'doc-pa-' + i" class="ml-2">Бумаж.</label>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="section-title">
+            В соответствии с заключением врачебно-консультативной комиссии даю согласие на проведение
+            освидетельствования
+          </h3>
+
+          <div class="flex flex-column md:flex-row gap-3">
+            <div class="flex align-items-center">
+              <p-radioButton
+                [(ngModel)]="model?.jsonData.consentPlace"
+                inputId="consent-home"
+                name="consentPlace"
+                value="home"
+              ></p-radioButton>
+              <label class="ml-2" for="consent-home">На дому</label>
+            </div>
+
+            <div class="flex align-items-center">
+              <p-radioButton
+                [(ngModel)]="model?.jsonData.consentPlace"
+                inputId="consent-stationary"
+                name="consentPlace"
+                value="stationary"
+              ></p-radioButton>
+              <label class="ml-2" for="consent-stationary">В стационаре</label>
+            </div>
+
+            <div class="flex align-items-center">
+              <p-radioButton
+                [(ngModel)]="model?.jsonData.consentPlace"
+                inputId="consent-remote"
+                name="consentPlace"
+                value="remote"
+              ></p-radioButton>
+              <label class="ml-2" for="consent-remote">Заочно</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="section-title">
+            При досрочном переосвидетельствовании указать причину
+          </h3>
+
+          <div class="flex flex-column gap-3">
+            <div class="flex align-items-start">
+              <p-checkbox
+                [(ngModel)]="model?.jsonData.earlyReasons.agreePD"
+                [binary]="true"
+                inputId="agreePD"
+                name="agreePD"
+              ></p-checkbox>
+              <label class="ml-2 line-height-3 cursor-pointer" for="agreePD">
+                Даю согласие на сбор и обработку моих персональных данных и сведений, составляющих охраняемую законом
+                тайну,
+                необходимых для установления инвалидности и/или степени утраты трудоспособности и/или определения
+                необходимых мер социальной защиты.
+              </label>
+            </div>
+
+            <div class="flex align-items-start">
+              <p-checkbox
+                [(ngModel)]="model?.jsonData.earlyReasons.warnedFake"
+                [binary]="true"
+                inputId="warnedFake"
+                name="warnedFake"
+              ></p-checkbox>
+              <label class="ml-2 line-height-3 cursor-pointer" for="warnedFake">
+                Предупрежден(а) об ответственности за предоставление недостоверных сведений и поддельных документов.
+              </label>
+            </div>
+
+            <div class="flex align-items-start">
+              <p-checkbox
+                [(ngModel)]="model?.jsonData.earlyReasons.warnedChange"
+                [binary]="true"
+                inputId="warnedChange"
+                name="warnedChange"
+              ></p-checkbox>
+              <label class="ml-2 line-height-3 cursor-pointer" for="warnedChange">
+                Предупрежден(а) о том, что при переосвидетельствовании возможно изменение группы инвалидности, а также
+                изменение размера пособия.
+              </label>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <button
+              (click)="exportDraft()"
+              class="p-button-secondary"
+              icon="pi pi-download"
+              label="Экспорт"
+              pButton
+              type="button"
+            ></button>
+          </div>
+        </div>
+
+        <div class="upload-card">
+          <div class="flex align-items-start gap-3 mb-3">
+            <span class="upload-ico">
+              <i class="pi pi-upload"></i>
+            </span>
+
+            <div>
+              <div class="font-semibold">Выложить файл</div>
+              <div class="upload-note">
+                Если нет возможности подписать через eGov, вы можете экспортировать эту страницу, подписать документ,
+                отсканировать его и загрузить обратно сюда
+              </div>
+            </div>
+          </div>
+
+          <div
+            (dragleave)="onDragLeave($event)"
+            (dragover)="onDragOver($event)"
+            (drop)="onDrop($event)"
+            [class.dragging]="isDragging"
+            class="drop"
+          >
+            <div *ngIf="!appFile" class="drop-empty">
+              <div class="drop-ico">
+                <i class="pi pi-cloud-upload"></i>
+              </div>
+
+              <div>
+                Перетащите файл сюда или
+                <button (click)="fileInput.click()" class="link-btn" type="button">выберите файл</button>
+              </div>
+            </div>
+
+            <div *ngIf="appFile" class="file-row">
+              <div class="file-ico">
+                <i class="pi pi-file"></i>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div class="file-name">{{ appFile.name }}</div>
+                <div class="file-size">{{ formatBytes(appFile.size) }}</div>
+                <p-progressBar
+                  [showValue]="false"
+                  [value]="uploadProgress"
+                  styleClass="mt-2"
+                ></p-progressBar>
+              </div>
+
+              <button
+                (click)="removeFile()"
+                class="p-button-text p-button-rounded p-button-danger"
+                icon="pi pi-times"
+                pButton
+                type="button"
+              ></button>
+            </div>
+
+            <input
+              #fileInput
+              (change)="onFileSelected($event)"
+              accept=".pdf,.doc,.docx"
+              hidden
+              type="file"
+            />
+          </div>
+
+          <div *ngIf="showFormError" class="error">
+            Необходимо заполнить все поля
+          </div>
+
+          <div class="mt-3">
+            <button
+              [disabled]="model?.status!='NEW'"
+              class="w-full"
+              label="Отправить"
+              pButton
+              type="submit"
+            ></button>
+          </div>
+        </div>
+      </form>
+    </p-card>
+  </div>
+</div>

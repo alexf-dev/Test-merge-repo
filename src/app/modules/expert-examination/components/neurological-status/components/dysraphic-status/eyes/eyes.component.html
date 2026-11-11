@@ -1,0 +1,22 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.EYES.TITLE'"
+  [isExpanded]="isExpanded"
+  [nested]="true">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.EYES.EPICANTHUS'"
+    [(checked)]="model.epicanthus">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.EYES.ASYMMETRIC_EYE_SLITS'"
+    [(checked)]="model.asymmetricEyeSlits">
+  </app-check-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.DYSRAPHIC_STATUS.EYES.COMMENT'"
+    [(value)]="model.comment"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

@@ -1,0 +1,15 @@
+<app-collapsible-block [titleKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.TITLE'" [isExpanded]="isExpanded">
+
+  <app-check-field [labelKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.NO_DEFORMATIONS'" [(checked)]="model.noDeformations"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.DEFORMATION'" [showComment]="true" [(checked)]="model.deformation.checked" [(comment)]="model.deformation.comment"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.DOLICHOCEPHALIC'" [(checked)]="model.dolichocephalic"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.BRACHYCEPHALIC'" [(checked)]="model.brachycephalic"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.TOWER_SKULL'" [(checked)]="model.towerSkull"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.MESOCRANIA'" [(checked)]="model.mesocrania"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.MICROCEPHALY'" [(checked)]="model.microcephaly"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.HYDROCEPHALY'" [(checked)]="model.hydrocephaly"></app-check-field>
+  <app-check-field [labelKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.CRANIOSTENOSIS'" [(checked)]="model.craniostenosis"></app-check-field>
+  <app-textarea-field [(value)]="model.additionalInfo"></app-textarea-field>
+  <app-text-input-field [labelKey]="translationPrefix + 'BONE_MUSCLE_SYSTEM.LARGE_FONTANEL'" [(value)]="model.largeFontanel"></app-text-input-field>
+
+</app-collapsible-block>

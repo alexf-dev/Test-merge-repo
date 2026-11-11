@@ -1,0 +1,20 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.CRANIAL_NERVES.NO_PATHOLOGY'"
+    [(checked)]="noPathology">
+  </app-check-field>
+
+  <app-cranial-nerve-pair-i [isExpanded]="true"></app-cranial-nerve-pair-i>
+  <app-cranial-nerve-pair-ii [isExpanded]="true"></app-cranial-nerve-pair-ii>
+  <app-cranial-nerve-pair-iii-iv-vi [isExpanded]="true"></app-cranial-nerve-pair-iii-iv-vi>
+  <app-cranial-nerve-pair-v [isExpanded]="true"></app-cranial-nerve-pair-v>
+  <app-cranial-nerve-pair-vii [isExpanded]="true"></app-cranial-nerve-pair-vii>
+  <app-cranial-nerve-pair-viii [isExpanded]="true"></app-cranial-nerve-pair-viii>
+  <app-cranial-nerve-pair-ix-x [isExpanded]="true"></app-cranial-nerve-pair-ix-x>
+  <app-cranial-nerve-pair-xi [isExpanded]="true"></app-cranial-nerve-pair-xi>
+  <app-cranial-nerve-pair-xii [isExpanded]="true"></app-cranial-nerve-pair-xii>
+
+</app-collapsible-block>

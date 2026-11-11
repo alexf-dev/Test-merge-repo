@@ -1,0 +1,1459 @@
+{
+  "MAIN": {
+    "EXAMINATION": {
+      "EXPERT_EXAMINATION": {
+        "TITLE": "Экспертное обследование",
+        "SAVE": "Сохранить",
+        "LABORATORY_DATA": {
+          "TITLE": "Данные лабораторных исследований",
+          "ADDITIONAL_METHODS_SECTION": "Данные дополнительных и лабораторных методов обследования",
+          "KAG": "КАГ",
+          "XRAY": "Рентгенография",
+          "ULTRASOUND": "УЗИ",
+          "ABDOMINAL_ULTRASOUND": "УЗИ органов брюшной полости",
+          "HEART_ULTRASOUND": "УЗИ сердца",
+          "ECG": "ЭКГ",
+          "EEG": "ЭЭГ",
+          "OTHER": "Другие",
+          "BLOOD_TEST": "Общий анализ крови",
+          "IN_NORMAL_RANGE": "В пределах нормы",
+          "ERYTHROCYTES": "Эритроциты",
+          "HEMOGLOBIN": "Hb",
+          "COLOR_INDEX": "ЦП",
+          "HEMATOCRIT": "Гематокрит",
+          "PLATELETS": "Тромбоциты",
+          "LEUKOCYTES": "Лейкоциты",
+          "BAND_NUCLEAR": "Палочкоядерные",
+          "SEGMENTED_NUCLEAR": "Сегментоядерные",
+          "EOSINOPHILS": "Эозинофилы",
+          "BASOPHILS": "Базофилы",
+          "LYMPHOCYTES": "Лимфоциты",
+          "MONOCYTES": "Моноциты",
+          "ESR": "СОЭ",
+          "BIOCHEMICAL_BLOOD_TEST": "Биохимический анализ крови",
+          "URINE_TEST": "Общий анализ мочи",
+          "SAVE": "Сохранить",
+          "ENTER_VALUE": "Введите",
+          "TOTAL_PROTEIN": "Общий белок",
+          "ALBUMIN": "Альбумин",
+          "GLOBULINS": "Глобулины",
+          "FIBRINOGEN": "Фибриноген",
+          "PTI": "ПТИ",
+          "ALPHA_1_GLOBULINS": "Альфа-1-глобулины",
+          "ALPHA_2_GLOBULINS": "Альфа-2-глобулины",
+          "BETA_GLOBULINS": "Бета-глобулины",
+          "GAMMA_GLOBULINS": "Гамма-глобулины",
+          "THYMOL_TEST": "Тимоловая проба",
+          "SUBLIMATE_TEST": "Сулемовая проба",
+          "SUREMOCOID": "Суремокоид",
+          "C_REACTIVE_PROTEIN": "С-реактивный белок",
+          "CREATININE": "Креатинин",
+          "UREA": "Мочевина",
+          "SUGAR": "Сахар",
+          "GLUCOSE": "Глюкоза",
+          "BILIRUBIN_TOTAL": "Общий билирубин",
+          "BILIRUBIN_DIRECT": "Прямой билирубин",
+          "BILIRUBIN_INDIRECT": "Непрямой билирубин",
+          "ALT": "АЛТ",
+          "AST": "АСТ",
+          "ALPHA_AMYLASE": "Альфа-амилаза",
+          "TOTAL_CHOLESTEROL": "Общий холестерин",
+          "BETA_LIPOPROTEINS": "Бета-липопротеиды",
+          "TRIGLYCERIDES": "Триглицериды",
+          "CALCIUM_SERUM": "Кальций сыворотки",
+          "DAILY_VOLUME": "Количество за сутки",
+          "SPECIFIC_GRAVITY": "Уд вес",
+          "COLOR": "Цвет",
+          "TRANSPARENCY": "Прозрачность",
+          "PH": "PH мочи",
+          "PROTEIN": "Белок",
+          "SUGAR_URINE": "Сахар",
+          "ACETONE": "Ацетон",
+          "KETONE_BODIES": "Кетоновые тела",
+          "UROBILIN_BODIES": "Уробилиновые тела",
+          "BILIRUBIN_URINE": "Билирубин",
+          "AMMONIA": "Аммиак",
+          "SQUAMOUS_EPITHELIUM_CELLS": "Клетки плоского эпителия",
+          "TRANSITIONAL_EPITHELIUM_CELLS": "Клетки переходного эпителия",
+          "RENAL_EPITHELIUM_CELLS": "Клетки почечного эпителия",
+          "LEUKOCYTES_URINE": "Лейкоциты",
+          "ERYTHROCYTES_URINE": "Эритроциты",
+          "CYLINDERS": "Цилиндры",
+          "MUCUS": "Слизь",
+          "BACTERIA": "Бактерии",
+          "INORGANIC_SEDIMENT": "Неорганический осадок",
+          "HINT": {
+            "ERYTHROCYTES": "Муж. 4,0~5,1×10¹², Жен. 3,7~4,7×10¹²",
+            "HEMOGLOBIN": "Муж. 130~160 г/л, Жен. 120~140 г/л",
+            "COLOR_INDEX": "0,85~1,0",
+            "HEMATOCRIT": "Муж. 40~48%, Жен. 36~42%",
+            "PLATELETS": "180~320×10⁹",
+            "LEUKOCYTES": "4,0~9,0×10",
+            "BAND_NUCLEAR": "1~6%",
+            "SEGMENTED_NUCLEAR": "47~72%",
+            "EOSINOPHILS": "0,5~5%",
+            "BASOPHILS": "0~1%",
+            "LYMPHOCYTES": "19~37%",
+            "MONOCYTES": "3~11%",
+            "ESR": "Муж. 1~10 мм/ч, Жен. 2~15 мм/ч",
+            "TOTAL_PROTEIN": "65-85 г/л",
+            "ALBUMIN": "56,5-66,8%",
+            "GLOBULINS": "33,2-43,5%",
+            "FIBRINOGEN": "2-4 г/л",
+            "PTI": "80-100%",
+            "ALPHA_1_GLOBULINS": "3,5-6,0%",
+            "ALPHA_2_GLOBULINS": "6,9-10,5%",
+            "BETA_GLOBULINS": "7,3-12,5%",
+            "GAMMA_GLOBULINS": "12,8-19%",
+            "THYMOL_TEST": "0-6 Ед",
+            "SUBLIMATE_TEST": "1,6-2,2 мл",
+            "SUREMOCOID": "0,13-0,2 Ед",
+            "C_REACTIVE_PROTEIN": "Отсутствует",
+            "CREATININE": "44-115 мкмоль/л",
+            "UREA": "2,5-8,3 ммоль/л",
+            "SUGAR": "3,33-5,55 ммоль/л",
+            "GLUCOSE": "3,38-5,55 ммоль/л",
+            "BILIRUBIN_TOTAL": "8,5-20,5 мкмоль/л",
+            "BILIRUBIN_DIRECT": "0-5,1 мкмоль/л",
+            "BILIRUBIN_INDIRECT": "До 16 мкмоль/л",
+            "ALT": "0,1-0,68 ммоль/(ч*л)",
+            "AST": "0,1-0,45 ммоль/(ч*л)",
+            "ALPHA_AMYLASE": "12-32 г/(ч*л)",
+            "TOTAL_CHOLESTEROL": "3,11-6,48 ммоль/л",
+            "BETA_LIPOPROTEINS": "До 55 Ед",
+            "TRIGLYCERIDES": "<2,3 ммоль/л",
+            "CALCIUM_SERUM": "2,25-3,0 ммоль/л",
+            "DAILY_VOLUME": "800-1500 мл",
+            "SPECIFIC_GRAVITY": "1002-1030",
+            "COLOR": "Соломенно-жёлтый",
+            "TRANSPARENCY": "Прозрачная",
+            "PH": "4,5-8,0",
+            "PROTEIN": "Отсутствует или следы",
+            "SUGAR_URINE": "Отсутствует",
+            "ACETONE": "Отсутствует",
+            "KETONE_BODIES": "Отсутствуют",
+            "UROBILIN_BODIES": "Отсутствуют",
+            "BILIRUBIN_URINE": "Отсутствует",
+            "AMMONIA": "Отсутствует",
+            "SQUAMOUS_EPITHELIUM_CELLS": "Единичные",
+            "TRANSITIONAL_EPITHELIUM_CELLS": "Единичные",
+            "RENAL_EPITHELIUM_CELLS": "Единичные",
+            "LEUKOCYTES_URINE": "Муж 0-3, Жен 3-5 в п/зр",
+            "ERYTHROCYTES_URINE": "Муж 0-3, Жен 3-5 в п/зр",
+            "CYLINDERS": "Отсутствуют",
+            "MUCUS": "Незначительное количество",
+            "BACTERIA": "Отсутствуют",
+            "INORGANIC_SEDIMENT": "Неорганический осадок"
+          }
+        },
+        "THERAPEUTIC_STATUS": {
+          "TITLE": "Терапевтический статус",
+          "SPECIALIST_DATA": {
+            "TITLE": "Данные специалиста",
+            "SPECIALIST": "Специалист"
+          },
+          "DIGESTIVE_SYSTEM": {
+            "TITLE": "Система органов пищеварения",
+            "TONGUE": {
+              "TITLE": "Язык",
+              "MOIST": "Влажный",
+              "DRY": "Сухой",
+              "CLEAN": "Чистый",
+              "COATED": "Обложенный"
+            },
+            "ABDOMEN": {
+              "TITLE": "Живот",
+              "SOFT": "Мягкий",
+              "PAINLESS": "Безболезненный",
+              "TENSE": "Напряженный",
+              "NORMAL_SIZE": "Обычных размеров",
+              "DISTENDED": "Вздут",
+              "ENLARGED_DUE_TO_ASCITES": "Увеличен за счет асцита",
+              "ANTERIOR_VEINS_DILATATION": "Расширение вен передней брюшной стенки",
+              "PAINFUL": {
+                "TITLE": "Болезненный",
+                "IN_EPIGASTRIUM": "В эпигастрии",
+                "IN_RIGHT_HYPOCHONDRIUM": "В правом подреберье",
+                "IN_LEFT_HYPOCHONDRIUM": "В левом подреберье",
+                "AROUND_NAVEL": "Около пупка",
+                "ABOVE_PUBIS": "Над лобком",
+                "IN_RIGHT_ILIAC_REGION": "В правой подвздошной области",
+                "IN_LEFT_ILIAC_REGION": "В левой подвздошной области"
+              }
+            },
+            "LIVER": {
+              "TITLE": "Печень",
+              "NOT_PALPABLE": "Не пальпируется",
+              "ALONG_COSTAL_ARCH": "По краю рёберной дуги",
+              "PROTRUDES_FROM_RIGHT_HYPOCHONDRIUM": "Выступает из-под правого подреберья на",
+              "PAINFUL": "Болезненная",
+              "PAINLESS": "Безболезненная",
+              "MARGIN_TYPE": "Край печени",
+              "OPTIONS": {
+                "MARGIN_TYPE": {
+                  "SHARP": "Острый",
+                  "ROUNDED": "Закругленный",
+                  "SMOOTH": "Ровный",
+                  "SOFT": "Мягкий",
+                  "SCALLOPED": "Фестончатый",
+                  "DENSE": "Плотный"
+                }
+              }
+            },
+            "SPLEEN": {
+              "TITLE": "Селезенка",
+              "PALPABLE": "Пальпируется",
+              "NOT_PALPABLE": "Не пальпируется",
+              "DIMENSIONS": {
+                "TITLE": "Размеры",
+                "TRANSVERSE": "Поперечник",
+                "LONGITUDINAL": "Длинник"
+              }
+            },
+            "PHYSIOLOGICAL_FUNCTIONS": {
+              "TITLE": "Физиологические отправления",
+              "REGULAR": "Регулярные",
+              "CONSTIPATION_TENDENCY": "Склонность к запорам",
+              "DIARRHEA_TENDENCY": "Склонность к поносам"
+            }
+          },
+          "URINARY_SYSTEM": {
+            "TITLE": "Система мочеотделения",
+            "FREE_PAINLESS_URINATION": "Мочеиспускание свободное, безболезненное",
+            "PAINFUL_URINATION": "Болезненное мочеиспускание",
+            "URINARY_INCONTINENCE": "Недержание мочи",
+            "PERIPHERAL_VESSELS_PULSATION": "Пульсация периферических сосудов (a.dorsalis pedis)",
+            "LOCALIZED_EDEMA": {
+              "TITLE": "Отёки локализованы",
+              "ON_FACE": "На лице",
+              "ON_EYELIDS": "На веках",
+              "ON_TRUNK": "На туловище",
+              "ON_ABDOMEN": "На животе",
+              "ON_LEGS": "На ногах"
+            },
+            "DAILY_DIURESIS": {
+              "TITLE": "Суточный диурез",
+              "ADEQUATE": "Адекватный",
+              "POLYURIA": "Полиурия",
+              "OLIGURIA": "Олигурия",
+              "ANURIA": "Анурия",
+              "NOCTURIA": "Никтурия",
+              "ISCHURIA": "Ишурия",
+              "POLLAKIURIA": "Поллакиурия",
+              "ENURESIS": "Энурез"
+            },
+            "KIDNEYS": {
+              "TITLE": "Почки",
+              "PERCUSSION_SYMPTOM": {
+                "TITLE": "Симптом поколачивания",
+                "POSITIVE": "Положительный",
+                "NEGATIVE": "Отрицательный"
+              }
+            }
+          },
+          "CARDIOVASCULAR": {
+            "TITLE": "Сердечно сосудистая система",
+            "CARDIAC_HUMP": "Сердечный горб",
+            "APICAL_IMPULSE": "Верхушечный толчок",
+            "CARDIAC_IMPULSE": "Сердечный толчок",
+            "CAROTID_DANCE": "Пляска каротид",
+            "MUSSI_SYMPTOM": "Симптом Мюсси",
+            "CAPILLARY_PULSE": "Капиллярный пульс",
+            "VENOUS_PULSE": "Венный пульс",
+            "EPIGASTRIC_PULSATION": "Эпигастральная пульсация",
+            "PERIPHERAL_VESSELS_PULSATION": "Пульсация периферических сосудов",
+            "HEART_RATE": "Частота сердечных сокращений",
+            "FIRST_SOUND_SPLITTING": "Раздвоение первого тона",
+            "GALLOP_RHYTHM": "Ритм галопа",
+            "SYSTOLIC_MURMUR": "Систолический шум",
+            "SECOND_SOUND_SPLITTING": "Раздвоение второго тона",
+            "QUAIL_RHYTHM": "Ритм перепела",
+            "DIASTOLIC_MURMUR": "Диастолический шум",
+            "BLOOD_PRESSURE": "Артериальное давление",
+            "DYSPNEA": {
+              "TITLE": "Одышка",
+              "AT_REST": "В покое",
+              "ON_PHYSICAL_LOAD": "При физической нагрузке",
+              "ON_EXCITEMENT": "При волнении"
+            },
+            "CAT_PURR": {
+              "TITLE": "Кошачье мурлыканье",
+              "OVER_HEART_APEX": "Над верхушкой сердца",
+              "OVER_AORTA": "Над аортой",
+              "OVER_PULMONARY_ARTERY": "Над лёгочной артерией"
+            },
+            "HEART_BORDERS": {
+              "TITLE": "Границы относительной тупости сердца",
+              "WITHIN_NORMAL_RANGE": "В пределах нормы",
+              "UPPER": "Верхняя",
+              "RIGHT": "Правая",
+              "LEFT": "Левая"
+            },
+            "HEART_SOUNDS": {
+              "TITLE": "Тоны сердца",
+              "CLEAR": "Ясные",
+              "MUFFLED": "Глухие",
+              "ACCENT_II_ON_PULMONARY_ARTERY": "Акцент II тона на лёгочной артерии",
+              "SYSTOLIC_MURMUR": "Систолический шум",
+              "SUBDUED": "Приглушены",
+              "ACCENT_II_ON_AORTA": "Акцент II тона на аорте",
+              "RHYTHMIC": "Ритмичные",
+              "DIASTOLIC_MURMUR": "Диастолический шум"
+            },
+            "ARRHYTHMIA": {
+              "TITLE": "Аритмия",
+              "TACHYCARDIA": "Тахикардия",
+              "BRADYCARDIA": "Брадикардия",
+              "EXTRASYSTOLE": "Экстрасистолия",
+              "ATRIAL_FIBRILLATION": "Мерцательная аритмия",
+              "PAROXYSMAL_TACHYCARDIA": "Пароксизмальная тахикардия"
+            },
+            "PULSE": {
+              "TITLE": "Пульс",
+              "RHYTHMIC": "Ритмичный",
+              "ARRHYTHMIC": "Аритмичный",
+              "RATE_PER_MINUTE": "Частота (в мин)"
+            }
+          },
+          "RESPIRATORY_SYSTEM": {
+            "TITLE": "Система органов дыхания",
+            "APHONIA": "Афония",
+            "HOARSENESS": "Охриплость голоса",
+            "HUSKINESS": "Осиплость голоса",
+            "NASAL_VOICE": "Гнусавость",
+            "NASAL_BREATHING": "Дыхание через нос",
+            "OPEN_MOUTH_BREATHING": "Дыхание открытым ртом",
+            "NASAL_WINGS_PARTICIPATION": "Активное участие крыльев носа",
+            "ACCESSORY_MUSCLES_PARTICIPATION": "В акте дыхания участвует вспомогательная мускулатура",
+            "RESPIRATORY_RATE": "Частота дыхания в минуту",
+            "THORAX_TYPE": "Грудная клетка",
+            "DYSPNEA_TYPE": "Одышка",
+            "SUFFOCATION": "Удушье",
+            "OPTIONS": {
+              "THORAX_TYPE": {
+                "ASYMMETRIC": "Асимметричная",
+                "REGULAR": "Правильной формы",
+                "BARREL": "Бочкообразная",
+                "EMPHYSEMATOUS": "Эмфизематозная",
+                "RACHITIC": "Рахитическая",
+                "FUNNEL": "Воронкообразная",
+                "KEEL": "Килевидная",
+                "PARALYTIC": "Паралитическая"
+              },
+              "DYSPNEA_TYPE": {
+                "INSPIRATORY": "Инспираторная",
+                "EXPIRATORY": "Экспираторная",
+                "MIXED": "Смешанная"
+              }
+            },
+            "PERCUSSION": {
+              "TITLE": "Перкуторно над легкими",
+              "CLEAR_PULMONARY": "Ясный легочный звук",
+              "DULL_SOUND": "Притупленный звук",
+              "TYMPANIC_SOUND": "Тимпанический звук",
+              "FLAT_SOUND": "Тупой звук",
+              "BOX_SOUND": "Коробочный звук"
+            },
+            "BREATHING": {
+              "TITLE": "Дыхание над легкими",
+              "VESICULAR": "Везикулярное",
+              "BRONCHIAL": "Бронхиальное",
+              "HARSH": "Жёсткое",
+              "DRY_RALES": "Сухие хрипы",
+              "CREPITATION": "Крепитация",
+              "WEAKENING": "Ослабление",
+              "MIXED": "Смешанное",
+              "NO_RALES": "Хрипов нет",
+              "MOIST_RALES": "Влажные хрипы",
+              "PLEURAL_FRICTION_RUB": "Шум трения плевры",
+              "COUGH_CHARACTER": {
+                "TITLE": "Характер",
+                "DRY": "Сухой",
+                "MOIST_NON_PRODUCTIVE": "Влажный непродуктивный",
+                "MOIST_PRODUCTIVE": "Влажный продуктивный"
+              },
+              "COUGH_TIMING": {
+                "TITLE": "Время появления кашля",
+                "MORNING": "Утром",
+                "EVENING": "Вечером",
+                "NIGHT": "Ночью"
+              },
+              "SPUTUM_AMOUNT": "Количество мокроты",
+              "SPUTUM_CHARACTER": {
+                "TITLE": "Характер мокроты",
+                "MUCOUS": "Слизистая",
+                "SEROUS": "Серозная",
+                "PURULENT": "Гнойная",
+                "MUCOPURULENT": "Слизисто-гнойная",
+                "SEROPURULENT": "Серозно-гнойная",
+                "BLOODY_STREAKS": "Кровянистая в виде прожилок крови",
+                "BLOODY_CLOTS": "В виде кровянистых сгустков",
+                "RUSTY": "Ржавая"
+              },
+              "SPUTUM_COLOR": {
+                "TITLE": "Цвет мокроты",
+                "COLORLESS": "Бесцветная",
+                "WHITISH_MUCOUS": "Беловато-слизистая",
+                "GREENISH": "Зеленоватая",
+                "YELLOW": "Желтая",
+                "BROWN": "Коричневая",
+                "PINK": "Розовая"
+              },
+              "SPUTUM_ODOR": {
+                "TITLE": "Запах мокроты",
+                "ABSENT": "Отсутствует",
+                "MUSTY": "Затхлый",
+                "PUTRID": "Гнилостный",
+                "FOUL": "Зловонный"
+              },
+              "HEMOPTYSIS": {
+                "TITLE": "Кровохарканье",
+                "CONSTANT": "Постоянное",
+                "RARE": "Редкое",
+                "FREQUENT": "Часто повторяющееся"
+              },
+              "HEMOPTYSIS_SEVERITY": {
+                "TITLE": "Кровохарканье выраженно",
+                "SIGNIFICANT": "Значительно",
+                "MODERATE": "Умеренно",
+                "INSIGNIFICANT": "Незначительно"
+              }
+            }
+          },
+          "CONDITION": {
+            "TITLE": "Состояние",
+            "NO_ORGAN_PATHOLOGY": "По внутренним органам без патологии",
+            "GENERAL_STATUS": "Общее состояние",
+            "PATIENT_POSITION": "Положение больного",
+            "BODY_TYPE": "Тип телосложения",
+            "OPTIONS": {
+              "GENERAL_STATUS": {
+                "SATISFACTORY": "Удовлетворительное",
+                "RELATIVELY_SATISFACTORY": "Относительно удовлетворительное",
+                "MODERATE": "Средней тяжести",
+                "SEVERE": "Тяжелое",
+                "EXTREMELY_SEVERE": "Крайне тяжелое"
+              },
+              "PATIENT_POSITION": {
+                "ACTIVE": "Активное",
+                "PASSIVE": "Пассивное",
+                "FORCED": "Вынужденное"
+              },
+              "BODY_TYPE": {
+                "ASTHENIC": "Астенический",
+                "NORMOSTHENIC": "Нормостенический",
+                "HYPERSTHENIC": "Гиперстенический"
+              }
+            }
+          },
+          "SKIN_MUCOUS": {
+            "TITLE": "Кожа и видимые слизистые",
+            "NORMAL_COLOR": "Обычной окраски",
+            "CYANOTIC": "Цианотичные",
+            "NASOLABIAL_CYANOSIS": "Цианоз носогубного треугольника",
+            "HYPEREMIC": "Гипермированы",
+            "HEMORRHAGES": "Геморрагии",
+            "XANTHOMAS": "Ксантомы",
+            "DEPIGMENTATION": "Депигментация",
+            "DRY_SKIN": "Кожа сухая",
+            "COLD_SKIN": "Кожа холодная на ощупь",
+            "ELASTICITY": "Эластичность",
+            "PALE": "Бледные",
+            "ACROCYANOSIS": "Акроцианоз",
+            "JAUNDICED": "Желтушные",
+            "EARTHY_COLOR": "Землистого цвета",
+            "SPIDER_VEINS": "Сосудистые звездочки",
+            "PIGMENTATION": "Пигментация",
+            "RASHES": "Сыпи",
+            "MOIST_SKIN": "Кожа влажная",
+            "SKIN_TURGOR": "Тургор кожи"
+          },
+          "PHARYNX": {
+            "TITLE": "Зев",
+            "PINK_CLEAN": "Розовый чистый",
+            "LOOSE": "Рыхлый",
+            "HYPEREMIC": "Гиперемирован"
+          },
+          "HAIR_NAILS": {
+            "TITLE": "Волосы/ногти",
+            "MALE_PATTERN_HAIR": "Оволосение по мужскому типу",
+            "SPLIT_ENDS": "Волосы секутся",
+            "BRITTLE_NAILS": "Ногти ломкие",
+            "FEMALE_PATTERN_HAIR": "Оволосение по женскому типу",
+            "HAIR_LOSS": "Выпадение волос"
+          },
+          "SUBCUTANEOUS_FAT": {
+            "TITLE": "Подкожно-жировая клетчатка",
+            "WEAKLY_DEVELOPED": "Развита слабо",
+            "MODERATELY_DEVELOPED": "Умеренно развита",
+            "EXCESSIVELY_DEVELOPED": "Чрезмерно развита",
+            "PASTINESS": "Пастозность"
+          },
+          "LYMPH_NODES": {
+            "TITLE": "Периферические лимфатические узлы",
+            "MAIN_SIGNS": "Основные признаки",
+            "NOT_ENLARGED": "Не увеличены",
+            "PAINLESS": "Безболезненные",
+            "ENLARGED": {
+              "TITLE": "Увеличены",
+              "SUBMANDIBULAR": "Подчелюстные",
+              "CERVICAL": "Шейные",
+              "SUPRACLAVICULAR": "Надключичные",
+              "INFRACLAVICULAR": "Подключичные",
+              "AXILLARY": "Подмышечные",
+              "ELBOW": "Локтевые"
+            },
+            "ADDITIONAL_SIGNS": "Доп признаки",
+            "PAINFUL": "Болезненные",
+            "NOT_MATTED": "Не спаяны",
+            "MATTED": "Спаянные"
+          },
+          "MUSCULOSKELETAL": {
+            "TITLE": "Опорно-двигательный аппарат",
+            "VISUALLY_UNCHANGED": "Визуально не изменен",
+            "JOINTS": {
+              "TITLE": "Суставы",
+              "ENLARGED_IN_VOLUME": "Сустав увеличен в объёме",
+              "DEFORMATION": "Деформация суставов",
+              "SPINDLE_SHAPED": "Сустав веретенообразной формы",
+              "PAIN_ON_PALPATION": "Болезненность при ощупывании",
+              "LIMITED_RANGE_OF_MOTION": "Объем движений ограничен",
+              "FLUCTUATION": "Флюктуация",
+              "LAMENESS": "Хромота",
+              "INGUINAL_FOLDS_SMOOTHED": "Паховые и ягодичные складки сглажены",
+              "THIGH_ADDUCTED_AND_FLEXED": "Бедро приведено и согнуто",
+              "ANKYLOSES": "Анкилозы"
+            },
+            "JOINT_CONFIGURATION": {
+              "TITLE": "Конфигурация/кожа/движения",
+              "NORMAL_CONFIGURATION": "Суставы нормальной конфигурации",
+              "SKIN_SHINY": "Кожа над суставом блестящая",
+              "CONTOURS_SMOOTHED": "Контуры сустава сглажены",
+              "SWELLING": "Припухлость суставов",
+              "PAIN_ON_TAPPING": "Болезненность при поколачивании",
+              "DRUMSTICK_FINGERS": "Барабанные пальцы",
+              "MOVEMENTS_FULL_RANGE": "Движения в полном объеме",
+              "CREPITUS": "Хруст",
+              "CONTRACTURES": "Контрактуры",
+              "PATELLA_BALLOTTEMENT": "Симптом баллотирования надколенника",
+              "LEG_DRAGGING": "Подтягивание ноги при ходьбе",
+              "LEG_FORCED_POSITION": "Вынужденное положение ноги",
+              "LEG_BENT_AT_KNEE": "Нога согнута в коленном суставе"
+            },
+            "SPINE": {
+              "TITLE": "Позвоночник",
+              "PAIN_ON_BENDING": "Боли при наклоне туловища",
+              "LIMITED_MOVEMENT": "Ограничение движений позвоночного столба",
+              "SPINOUS_PROCESS_PROTRUSION": "Выступание остистого отростка",
+              "HUMP": "Горб",
+              "COLD_ABSCESSES": "Натёчные абсцессы",
+              "FISTULAS": "Свищи",
+              "REIN_SYMPTOM": "Симптом вожже",
+              "DEFORMATION_TYPE": "Искривление позвоночника по типу",
+              "OPTIONS": {
+                "DEFORMATION_TYPE": {
+                  "LORDOSIS": "Лордоз",
+                  "KYPHOSIS": "Кифоз",
+                  "SCOLIOSIS": "Сколиоз",
+                  "KYPHOSCOLIOSIS": "Кифосколиоз"
+                }
+              }
+            }
+          },
+          "MUSCULAR_SYSTEM": {
+            "TITLE": "Мышечная система",
+            "DEVELOPMENT": {
+              "TITLE": "Степень развития мышц",
+              "WEAKLY_DEVELOPED": "Развита слабо",
+              "SATISFACTORILY_DEVELOPED": "Развита удовлетворительно",
+              "WELL_DEVELOPED": "Хорошо развита"
+            },
+            "TROPHIC": {
+              "TITLE": "Мышечный трофик",
+              "ATROPHY": "Атрофия мышц",
+              "HYPERTROPHY": "Гипертрофия мышц"
+            },
+            "TONE": {
+              "TITLE": "Мышечный тонус",
+              "HYPOTONIA": "Гипотонус",
+              "HYPERTONIA": "Гипертонус",
+              "MYOTONIA": "Миотония"
+            }
+          },
+          "BONE_MUSCLE_SYSTEM": {
+            "TITLE": "Костно-мышечная система",
+            "NO_DEFORMATIONS": "Без деформаций",
+            "DEFORMATION": "Деформация",
+            "DOLICHOCEPHALIC": "Форма головы долихоцефалическая",
+            "BRACHYCEPHALIC": "Форма головы брахицефалическая",
+            "TOWER_SKULL": "Башенный череп",
+            "MESOCRANIA": "Мезокрания",
+            "MICROCEPHALY": "Микроцефалия",
+            "HYDROCEPHALY": "Гидроцефалия",
+            "CRANIOSTENOSIS": "Краниостеноз",
+            "LARGE_FONTANEL": "Большой родничок"
+          },
+          "THYROID_GLAND": {
+            "TITLE": "Щитовидная железа",
+            "NOT_PALPABLE": "Не пальпируется",
+            "ENLARGED": "Увеличена",
+            "PAINLESS": "Безболезненная",
+            "PAINFUL": "Болезненная",
+            "NECK_SHAPE": "Форма шеи"
+          }
+        },
+        "SPECIALIST_CONCLUSION": {
+          "TITLE": "Заключение специалистов ЛПУ",
+          "SPECIALIST_1_TITLE": "1-й специалист",
+          "SPECIALIST_2_TITLE": "2-й специалист",
+          "FULL_NAME": "ФИО специалиста",
+          "SPECIALTY": "Специальность",
+          "CONCLUSION": "Заключение"
+        },
+        "REHABILITATION_CONCLUSION": {
+          "TITLE": "Реабилитационно-экспертное заключение",
+          "SPECIALIST": "Специалист",
+          "DIAGNOSTICS_SECTION": "Реабилитационно-экспертная диагностика",
+          "REHABILITATION_POTENTIAL": "Реабилитационный потенциал",
+          "REHABILITATION_PROGNOSIS": "Реабилитационный прогноз",
+          "CLINICAL_PROGNOSIS": "Клинический прогноз",
+          "RECOMMENDATIONS_SECTION": "Рекомендации по реабилитации",
+          "SOCIAL_REHABILITATION": "Социальная реабилитация",
+          "PROFESSIONAL_REHABILITATION": "Профессиональная реабилитация"
+        },
+        "IIN_MERGE": {
+          "TITLE": "Объеденение ИИН"
+        },
+        "SURGICAL_STATUS": {
+          "TITLE": "Хирургический статус",
+          "SAVE": "Сохранить",
+          "ENTER_VALUE": "Введите",
+          "SPECIALIST": "Специалист",
+          "CONCLUSION": "Заключение",
+
+          "SPECIALIST_DATA": {
+            "TITLE": "Специалист"
+          },
+
+          "SURGICAL_PATHOLOGY_DATA": {
+            "TITLE": "Данные за хирургическую патологию",
+            "HAS_SURGICAL_PATHOLOGY": "Данные за хирургическую патологию"
+          },
+
+          "GENERAL_CONDITION": {
+            "TITLE": "Общее состояние",
+            "SATISFACTORY": "Удовлетворительное",
+            "RELATIVELY_SATISFACTORY": "Относительно удовлетворительное",
+            "MODERATE": "Средней тяжести",
+            "SEVERE": "Тяжелое",
+            "EXTREMELY_SEVERE": "Крайне тяжелое"
+          },
+
+          "MOBILITY": {
+            "TITLE": "Передвижение",
+            "INDEPENDENT": "Самостоятельное",
+            "WITH_CANE": "С помощью трости",
+            "WITH_CRUTCHES": "На костыле",
+            "WHEELCHAIR": "На коляске",
+            "SUPPORT_ON_INJURED_LIMB": "С опорой на поврежденную конечность",
+            "COMMENT": "Комментарий"
+          },
+
+          "SKIN_MUCOUS": {
+            "TITLE": "Кожные покровы и видимые слизистые",
+            "NORMAL": "Кожные покровы и видимые слизистые"
+          },
+
+          "MUSCULAR_SYSTEM": {
+            "TITLE": "Мышечная система",
+            "DEVELOPMENT": {
+              "TITLE": "Степень развития мышц",
+              "WEAKLY_DEVELOPED": "Развита слабо",
+              "SATISFACTORILY_DEVELOPED": "Развита удовлетворительно",
+              "WELL_DEVELOPED": "Хорошо развита"
+            },
+            "TONE": {
+              "TITLE": "Мышечный тонус",
+              "ATROPHY": "Атрофия мышц",
+              "HYPERTROPHY": "Гипертрофия мышц",
+              "HYPOTONIA": "Гипотонус",
+              "HYPERTONIA": "Гипертонус",
+              "MYOTONIA": "Миотония"
+            }
+          },
+
+          "BONE_SYSTEM": {
+            "TITLE": "Костная система",
+            "DEFORMATION": "Деформация",
+            "NO_DEFORMATION": "Без деформации"
+          },
+
+          "JOINTS": {
+            "TITLE": "Суставы",
+            "NORMAL_CONFIGURATION": "Обычной конфигурации",
+            "FULL_RANGE_OF_MOTION": "Движения в полном объёме",
+            "SWELLING": "Припухлость",
+            "PAIN": "Болезненность",
+            "LIMITED_MOTION": "Объём движений ограничен",
+            "CREPITUS": "Хруст при движениях",
+            "FLUCTUATION": "Флюктуация",
+            "CONTRACTURES": "Контрактуры",
+            "ANKYLOSES": "Анкилозы",
+            "LIMITED_ABDUCTION": "Ограничение отведения ноги",
+            "CLICK_SYMPTOM": "Симптом \"щелчка\" при разведении бедер",
+            "SKIN_FOLD_ASYMMETRY": "Асимметрия кожных складок на бедрах",
+            "LIMB_SHORTENING": "Укорочение конечности",
+            "EXTERNAL_ROTATION": "Наружная ротация конечности",
+            "COMMENT": "Комментарий"
+          },
+
+          "LYMPH_NODES": {
+            "TITLE": "Периферические лимфатические узлы",
+            "MAIN_SIGNS": "Основные признаки",
+            "NOT_PALPABLE": "Не пальпируются",
+            "NOT_ENLARGED": "Не увеличены",
+            "ENLARGED": {
+              "TITLE": "Увеличены",
+              "SUBMANDIBULAR": "Подчелюстные",
+              "CERVICAL": "Шейные",
+              "SUPRACLAVICULAR": "Надключичные",
+              "INFRACLAVICULAR": "Подключичные",
+              "ELBOW": "Локтевые",
+              "AXILLARY": "Подмышечные",
+              "INGUINAL": "Паховые"
+            },
+            "ADDITIONAL_SIGNS": "Доп. признаки",
+            "MOBILE": "Подвижные",
+            "PAINFUL": "Болезненные",
+            "NOT_MATTED": "Не спаяны",
+            "MATTED": "Спаянные с окружающими тканями",
+            "DENSE": "Плотные",
+            "ADDITIONAL_INFO": "Дополнительная информация"
+          },
+
+          "RESPIRATORY_SYSTEM": {
+            "TITLE": "Система дыхания",
+            "VESICULAR_BREATHING": "Дыхание везикулярное",
+            "LUNG_RALES": "Хрипы в лёгких",
+            "CLEAR_PERCUSSION": "Перкуторно ясный лёгочный звук",
+            "DULL_PERCUSSION": "Притупление перкуторного звука",
+            "ADDITIONAL_INFO": "Дополнительная информация"
+          },
+
+          "CARDIOVASCULAR_SYSTEM": {
+            "TITLE": "Сердечно сосудистая система",
+            "HEART_SOUNDS": "Тоны сердца",
+            "BLOOD_PRESSURE": "Артериальное давление",
+            "RHYTHMIC_PULSE": "Пульс ритмичный",
+            "PULSE_RATE": "Частота пульса в минуту",
+            "ADDITIONAL_INFO": "Дополнительная информация"
+          },
+
+          "GASTROINTESTINAL_TRACT": {
+            "TITLE": "Желудочно-кишечный тракт",
+            "TONGUE_CLEAN_MOIST": "Язык чистый, влажный",
+            "TONGUE_COATED": "Язык обложен",
+            "ABDOMEN_SOFT": "Живот мягкий",
+            "ABDOMEN_DISTENDED": "Живот вздут",
+            "POSTOPERATIVE_SCAR": "Послеоперационный рубец",
+            "ABDOMEN_PAINLESS": "При пальпации живот безболезненный",
+            "ABDOMEN_PAINFUL_IN": "При пальпации живот болезненный в",
+            "UMBILICAL_HERNIA": "Пупочная грыжа",
+            "INGUINAL_HERNIA": "Паховая грыжа",
+            "FEMORAL_HERNIA": "Бедренная грыжа",
+            "LINEA_ALBA_HERNIA": "Грыжа белой линии живота",
+            "RECTUS_DIASTASIS": "Расхождение прямых мышц живота",
+            "LIVER_NOT_PALPABLE": "Печень не пальпируется",
+            "LIVER_PROTRUDES": "Печень выступает из-под реберья на",
+            "SPLEEN_NOT_PALPABLE": "Селезёнка не пальпируется",
+            "STOOL_NORMAL": "Стул нормальный",
+            "STOOL_UNSTABLE": "Стул неустойчивый",
+            "SPASTIC_CONSTIPATION": "Запор спастический",
+            "ATONIC_CONSTIPATION": "Запор атонический"
+          },
+
+          "UROGENITAL_SYSTEM": {
+            "TITLE": "Мочеполовая система",
+            "EDEMA": "Отёки",
+            "PERCUSSION_SYMPTOM": "Симптом поколачивания",
+            "NORMAL_URINATION": "Мочеиспускание нормальное",
+            "PAINFUL_URINATION": "Мочеиспускание болезненное, учащённое",
+            "ADDITIONAL_INFO": "Дополнительная информация"
+          },
+
+          "LOCAL_STATUS": {
+            "TITLE": "Локальный статус",
+            "DESCRIPTION": "Локальный статус"
+          },
+
+          "ORGAN_FUNCTION_IMPAIRMENT": {
+            "TITLE": "Нарушение функций органа или области",
+            "ORGAN_SIZE": "Размеры поврежденного органа",
+            "SPREAD": "Распространенность",
+            "BOUNDARIES": "Границы",
+            "IMMOBILIZATION": "Иммобилизация",
+            "FIXATION_DEVICE": "Фиксирующий аппарат",
+            "PATHOLOGICAL_MOBILITY": "Патологическая подвижность",
+            "DEFORMATION": "Деформация",
+            "HYPOTROPHY": "Гипотрофия",
+            "ATROPHY": "Атрофия",
+            "WOUND_SIZE": "Размеры раны",
+            "FISTULA_SIZE": "Размеры свища",
+            "WOUND_DISCHARGE": "Характер отделяемого из раны",
+            "PERIPHERAL_VESSEL_PULSATION": "Пульсация периферических сосудов",
+            "TROPHIC_CHANGES": "Трофические изменения конечностей"
+          }
+        },
+        "NEUROLOGICAL_STATUS": {
+          "NO_FOCAL_PATHOLOGY": "Без очаговой патологии",
+          "CONSCIOUSNESS": {
+            "TITLE": "Сознание",
+            "CLEAR": "Ясное",
+            "LIGHT_STUPOR": "Легкая заторможенность",
+            "MODERATE_STUPOR": "Умеренная заторможенность",
+            "PRONOUNCED_STUPOR": "Выраженная заторможенность",
+            "PSYCHOMOTOR_AGITATION": "Психомоторное возбуждение",
+            "COMMENT": "Комментарий"
+          },
+          "REACTION_TO_SURROUNDINGS": {
+            "TITLE": "Реакция на окружающее",
+            "ADEQUATE": "Адекватная",
+            "INADEQUATE": "Неадекватная",
+            "COMMENT": "Комментарий"
+          },
+          "TITLE": "Неврологический статус",
+          "SKULL_DEFORMITIES": "Костные деформации черепа",
+          "DYSRAPHIC_STATUS": {
+            "TITLE": "Дизрафический статус",
+            "SKULL": {
+              "TITLE": "Череп",
+              "MICROCEPHALIC": "Микроцефальный",
+              "HYDROCEPHALIC": "Гидроцефальный",
+              "BRACHYCEPHALIC": "Брахицефалический",
+              "DOLICHOCEPHALIC": "Долихоцефалический",
+              "ASYMMETRIC": "Ассиметричный",
+              "COMMENT": "Комментарий"
+            },
+            "FACE": {
+              "TITLE": "Лицо",
+              "STRAIGHT_LINE_SLOPING_FOREHEAD": "Прямая линия скошенного лба и носа",
+              "MONGOLOID_EYE_SLIT": "Монголоидный разрез глаз",
+              "ANTI_MONGOLOID_EYE_SLIT": "Антимонголоидный разрез глаз",
+              "HYPOTELORISM": "Гипотелоризм",
+              "SADDLE_NOSE": "Седловидный нос",
+              "FACIAL_ASYMMETRY": "Ассиметрия лица",
+              "MACROGNATHIA": "Макрогнатия",
+              "MICROGNATHIA": "Микрогнатия",
+              "CLEFT_CHIN": "Раздвоенный подбородок",
+              "COMMENT": "Комментарий"
+            },
+            "EYES": {
+              "TITLE": "Глаза",
+              "EPICANTHUS": "Эпикант",
+              "ASYMMETRIC_EYE_SLITS": "Ассиметрия глазных щелей",
+              "COMMENT": "Комментарий"
+            },
+            "EARS": {
+              "CHECKED": "Уши",
+              "LARGE_PROTRUDING": "Большие оттопыренные",
+              "SMALL_DEFORMED": "Малые деформированные",
+              "DIFFERENT_SIZES": "Разновеликие",
+              "DIFFERENTLY_POSITIONED": "Различно расположены",
+              "LOW_POSITIONED": "Низкорасположенные",
+              "COMMENT": "Комментарий"
+            },
+            "NECK": {
+              "TITLE": "Шея",
+              "SHORT": "Короткая",
+              "LONG": "Длинная",
+              "TORTICOLLIS": "Кривошея",
+              "PTERYGOID_FOLDS": "Крыловидные складки",
+              "EXCESSIVE_FOLDS": "Избыточные складки",
+              "COMMENT": "Комментарий"
+            },
+            "HANDS": {
+              "TITLE": "Кисти",
+              "BRACHYDACTYLY": "Брахидактилия",
+              "ARACHNODACTYLY": "Арахнодактилия",
+              "SYNDACTYLY": "Синдактилия",
+              "TRANSVERSE_PALMAR_CREASE": "Поперечная борозда ладони",
+              "FINGER_CURVATURE": "Искривление всех пальцев",
+              "COMMENT": "Комментарий"
+            },
+            "FEET": {
+              "TITLE": "Стопы",
+              "BRACHYDACTYLY": "Брахидактилия",
+              "ARACHNODACTYLY": "Арахнодактилия",
+              "SYNDACTYLY": "Синдактилия",
+              "TOE_OVERLAPPING": "Нахождение пальцев друг на друга",
+              "COMMENT": "Комментарий"
+            },
+            "ADDITIONAL_INFO": ""
+          },
+          "CRANIAL_NERVES": {
+            "TITLE": "Черепно-мозговые нервы",
+            "NO_PATHOLOGY": "Без патологии",
+            "ADDITIONAL_INFO": "",
+            "PAIR_I": {
+              "TITLE": "I пара",
+              "ANOSMIA": "Аносмия",
+              "HYPOSMIA": "Гипосмия",
+              "HYPEROSMIA": "Гиперосмия",
+              "DYSOSMIA": "Дизосмия",
+              "OLFACTORY_HALLUCINATIONS": "Обонятельные галлюцинации"
+            },
+            "PAIR_II": {
+              "TITLE": "II пара",
+              "VISUAL_ACUITY_OD": "Острота зрения OD",
+              "VISUAL_ACUITY_OS": "Острота зрения OS",
+              "AMBLYOPIA": "Амблиопия",
+              "AMAUROSIS": "Амавроз",
+              "COLOR_VISION_PRESERVED": "Цветоощущение сохранено",
+              "ACHROMATOPSIA": "Ахроматопсия",
+              "DYSCHROMATOPSIA": "Дисхроматопсия",
+              "SCOTOMAS": "Скотомы",
+              "HOMONYMOUS_HEMIANOPIA": "Гомонимная гемианопсия",
+              "HETERONYMOUS_HEMIANOPIA": "Гетеронимная гемианопсия",
+              "CONCENTRIC_VISUAL_FIELD_CONSTRICTION": "Концентрическое сужение полей зрения",
+              "FUNDUS": "Глазное дно",
+              "VISUAL_HALLUCINATIONS": "Зрительные галлюцинации"
+            },
+            "PAIR_III_IV_VI": {
+              "TITLE": "III, IV, VI пары",
+              "PTOSIS": "Птоз",
+              "EXOPHTHALMOS": "Экзофтальм",
+              "ENOPHTHALMOS": "Энофтальм",
+              "FULL_EYE_MOVEMENT": "Движения глазных яблок в полном объёме",
+              "UPWARD_GAZE_PARESIS": "Парез взора вверх",
+              "DOWNWARD_GAZE_PARESIS": "Парез взора вниз",
+              "CONVERGENT_STRABISMUS": "Сходящееся косоглазие",
+              "DIVERGENT_STRABISMUS": "Расходящееся косоглазие",
+              "EQUAL_PUPILS": "Зрачки равномерные",
+              "ANISOCORIA": "Анизокория",
+              "MIOSIS": "Миоз",
+              "MYDRIASIS": "Мидриаз",
+              "DIRECT_PUPIL_LIGHT_REACTION": "Прямая реакция зрачков на свет",
+              "CONSENSUAL_PUPIL_LIGHT_REACTION": "Содружественная реакция зрачков на свет",
+              "CONVERGENCE": "Конвергенция",
+              "ACCOMMODATION": "Аккомодация"
+            },
+            "PAIR_V": {
+              "TITLE": "V пара",
+              "JAW_MOVEMENT_VOLUME": "Объем движений нижней челюсти",
+              "MASTICATORY_MUSCLE_TENSION": "Напряжение жевательных мышц",
+              "MASTICATORY_MUSCLE_TROPHIC": "Трофика жевательных мышц",
+              "FACIAL_PAIN": "Боли в лице",
+              "TRIGEMINAL_EXIT_POINT_PAIN": "Болезненность точек выхода ветвей V пары",
+              "FACIAL_SKIN_SENSITIVITY": "Чувствительность кожи лица"
+            },
+            "PAIR_VII": {
+              "TITLE": "VII пара",
+              "FACIAL_ASYMMETRY": "Асимметрия лица",
+              "NASOLABIAL_FOREHEAD_FOLDS_SMOOTHED": "Носогубная и лобная складки сглажены",
+              "MOUTH_CORNER_DROPPED": "Угол рта опущен",
+              "LAGOPHTHALMOS": "Лагофтальм",
+              "LACRIMATION": "Слёзотечение",
+              "DRY_EYE": "Сухость глаза",
+              "TASTE_LOSS_ANTERIOR_TWO_THIRDS": "Снижение вкуса на передней 2/3 языка"
+            },
+            "PAIR_VIII": {
+              "TITLE": "VIII пара",
+              "HEARING_ACUITY_D": "Острота слуха D",
+              "HEARING_ACUITY_S": "Острота слуха S",
+              "DEAFNESS": "Глухота",
+              "TINNITUS": "Шум в ушах",
+              "SYSTEMIC_VERTIGO": "Системное головокружение",
+              "NON_SYSTEMIC_VERTIGO": "Несистемное головокружение",
+              "NYSTAGMUS": "Нистагм"
+            },
+            "PAIR_IX_X": {
+              "TITLE": "IX, X пары",
+              "SOFT_PALATE_DROOPING": "Свисание мягкого нёба",
+              "UVULA_DEVIATION": "Язычок отклонён",
+              "DYSPHAGIA": "Дисфагия",
+              "DYSPHONIA": "Дисфония",
+              "DYSARTHRIA": "Дизартрия",
+              "VOCAL_CORD_PARESIS": "Парез голосовых связок",
+              "HYPOSALIVATION": "Гипосаливация",
+              "TASTE_LOSS_POSTERIOR_ONE_THIRD": "Снижение вкуса на задней 1/3 языка",
+              "PARASYMPATHETIC_DENERVATION": "Парасимпатическая денервация внутренних органов"
+            },
+            "PAIR_XI": {
+              "TITLE": "XI пара",
+              "HEAD_ROTATION_DIFFICULTY": "Затруднён поворот головы",
+              "SHOULDER_DROPPED": "Плечо опущено",
+              "ARM_ELEVATION_LIMITED": "Ограничение поднимания руки выше горизонтального уровня",
+              "TRAPEZIUS_STERNOCLEIDOMASTOID_TENSION": "Напряжение трапецивидной и кивательной мышц",
+              "TRAPEZIUS_STERNOCLEIDOMASTOID_TROPHIC": "Трофика трапецивидной и кивательной мышц",
+              "CONGENITAL_TORTICOLLIS": "Кривошея врождённая",
+              "ACQUIRED_TORTICOLLIS": "Кривошея приобретённая"
+            },
+            "PAIR_XII": {
+              "TITLE": "XII пара",
+              "TONGUE_MUSCLE_ATROPHY": "Атрофия мышц языка",
+              "TONGUE_FIBRILLATIONS": "Фибриллярные подергивания мышц языка",
+              "TONGUE_DEVIATION": "Отклонение языка при высовывании",
+              "DYSARTHRIA": "Дизартрия",
+              "TONGUE_IMMOBILITY": "Неподвижность языка",
+              "ANARTHRIA": "Анартрия"
+            }
+          },
+          "MOTOR_SPHERE": {
+            "TITLE": "Двигательная сфера",
+            "JOINT_MOVEMENT_VOLUME": "Объём движений в суставах",
+            "MUSCLE_STRENGTH": "Сила мышц",
+            "MUSCLE_ATROPHY": "Атрофия мышц",
+            "MUSCLE_HYPOTROPHY": "Гипотрофия мышц",
+            "MUSCLE_HYPERTROPHY": "Гипертрофия мышц",
+            "MUSCLE_HYPERTONUS": "Гипертонус мышц",
+            "MUSCLE_HYPOTONUS": "Гипотонус мышц",
+            "MUSCLE_ATONIA": "Атония мышц",
+            "MONOPARESIS": "Монопарез",
+            "PARAPARESIS": "Парапарез",
+            "HEMIPARESIS": "Гемипарез",
+            "TRIPARESIS": "Трипарез",
+            "TETRAPARESIS": "Тетрапарез",
+            "MONOPLEGIA": "Моноплегия",
+            "PARAPLEGIA": "Параплегия",
+            "HEMIPLEGIA": "Гемиплегия",
+            "TRIPLEGIA": "Триплегия",
+            "TETRAPLEGIA": "Тетраплегия",
+            "FIBRILLATIONS": "Фибрилляции",
+            "FASCICULAR_TWITCHING": "Фасцикулярные подёргивания",
+            "RETRACTIONS": "Ретракции",
+            "CONTRACTURES": "Контрактуры",
+            "ADDITIONAL_INFO": ""
+          },
+          "TENDON_PERIOSTEAL_REFLEXES": {
+            "TITLE": "Сухожильные и надкостичные рефлексы",
+            "D_EQUALS_S": "D=S",
+            "D_GREATER_THAN_S_BY_HEMITYPE": "D>S по гемитипу",
+            "S_GREATER_THAN_D_BY_HEMITYPE": "S>D по гемитипу",
+            "NORMAL": "Живые",
+            "INCREASED": "Оживлены",
+            "UNIFORMLY_DECREASED": "Снижены равномерно",
+            "DECREASED_IN_DISTAL": "Снижены в дистальных отделах конечностей",
+            "DECREASED": "Снижены",
+            "MANDIBULAR": "Нижнечелюстной",
+            "SUPRAORBITAL": "Надбровный",
+            "BICEPS": "Рефлекс с двуглавой мышцы плеча",
+            "TRICEPS": "Рефлекс с трехглавой мышцы плеча",
+            "CARPORADIAL": "Карпорадиальный",
+            "COSTABDOMINAL": "Реберно-абдоминальный",
+            "SCAPULOHUMERAL": "Лопаточно-плечевой",
+            "PUBIC": "Лобковый",
+            "KNEE": "Коленный",
+            "ACHILLES": "Ахиллов",
+            "PLANTAR": "Подошвенный",
+            "ADDITIONAL_INFO": ""
+          },
+          "SKIN_REFLEXES": {
+            "TITLE": "Кожные рефлексы",
+            "UPPER_ABDOMINAL": "Верхний брюшной",
+            "MIDDLE_ABDOMINAL": "Средний брюшной",
+            "LOWER_ABDOMINAL": "Нижний брюшной",
+            "CREMASTERIC": "Кремастерные",
+            "ANAL": "Анальный",
+            "GLUTEAL": "Ягодичный",
+            "PLANTAR": "Подошвенный",
+            "ADDITIONAL_INFO": ""
+          },
+          "MUCOSAL_REFLEXES": {
+            "TITLE": "Рефлексы со слизистых оболочек",
+            "CONJUNCTIVAL": "Конъюнктивальный",
+            "CORNEAL": "Корнеальный",
+            "PHARYNGEAL": "Глоточный",
+            "PALATAL": "Небный",
+            "ADDITIONAL_INFO": ""
+          },
+          "PATHOLOGICAL_REFLEXES": {
+            "TITLE": "Патологические рефлексы",
+            "ROSSOLIMO": "Россолимо",
+            "ZHUKOVSKY": "Жуковского",
+            "JACOBSON_LASK": "Якобсона-Ласка",
+            "BEKHTEREV_1": "Бехтерева-1",
+            "BEKHTEREV_2": "Бехтерева-2",
+            "BABINSKI": "Бабинского",
+            "OPPENHEIM": "Оппенгейма",
+            "GORDON": "Гордона",
+            "SCHAEFFER": "Шеффера",
+            "MARINESCU_RADOVICI": "Маринеску-Радовичи",
+            "HAND_CLONUS": "Клонус кистей",
+            "FOOT_CLONUS": "Клонус стоп",
+            "PATELLAR_CLONUS": "Клонус коленных чашечек",
+            "BEKHTEREV_MARIE_FOIX": "Симптом Бехтерева-Мари-Фуа",
+            "ADDITIONAL_INFO": ""
+          },
+          "PATHOLOGICAL_SYNKINESES": {
+            "TITLE": "Патологические синкинезии",
+            "STRUMPELL_TIBIAL_PHENOMENON": "Тибиальный феномен Штрюмпелля",
+            "PRONATOR_SYNKINESIS": "Пронаторная синкинезия",
+            "RADIAL_SYNKINESIS": "Радиальная синкинезия",
+            "RAIMIST_SYNKINESIS": "Синкинезия Раймиста",
+            "ADDITIONAL_INFO": ""
+          },
+          "COORDINATION": {
+            "TITLE": "Координация движений",
+            "ATAXIA": "Атаксия",
+            "ATAXIA_OPTIONS": {
+              "CEREBELLAR": "Мозжечковая",
+              "CORTICAL": "Корковая",
+              "VESTIBULAR": "Вестибулярная",
+              "POSTERIOR_COLUMN": "Заднестолбовая"
+            },
+            "TREMOR": "Тремор",
+            "TREMOR_OPTIONS": {
+              "STATIC": "Статический",
+              "INTENTIONAL": "Интенционный",
+              "LARGE_AMPLITUDE": "Крупноразмашистый",
+              "SMALL_AMPLITUDE": "Мелкоразмашистый"
+            },
+            "EYELID_FINGER_TREMOR": "Тремор век и пальцев рук",
+            "MISS_TARGETED_MOVEMENTS": "Промахивание при выполнении целенаправленных движений",
+            "NYSTAGMUS": "Нистагм",
+            "SCANNED_SPEECH": "Скандированная речь",
+            "ROMBERG_POSITION": "В позе Ромберга",
+            "FINGER_NOSE_TEST": "Пальценосовая проба",
+            "KNEE_HEEL_TEST": "Коленно-пяточная проба",
+            "ADDITIONAL_INFO": ""
+          },
+          "GAIT": {
+            "TITLE": "Походка",
+            "SPARING": "Щадящая",
+            "PARETIC": "Паретическая",
+            "STEPPAGE": "Степпаж",
+            "HEMIPARETIC": "Гемипаретическая",
+            "SPASTIC_PARETIC": "Спастико-паретическая",
+            "ATACTIC": "Атактическая",
+            "DUCK": "Утиная",
+            "SLOW_SMALL_STEPS": "Замедленная, мелкими шагами",
+            "ADDITIONAL_INFO": ""
+          },
+          "SPINE": {
+            "TITLE": "Позвоночник",
+            "DEFORMITIES": "Искривления",
+            "DEFORMITIES_OPTIONS": {
+              "SCOLIOSIS": "Сколиоз",
+              "KYPHOSIS": "Кифоз",
+              "KYPHOSCOLIOSIS": "Кифосколиоз",
+              "LORDOSIS": "Лордоз",
+              "LORDOSIS_SMOOTHED": "Лордоз сглажен",
+              "HYPERLORDOSIS": "Гиперлордоз",
+              "HUMP": "Горб"
+            },
+            "PARAVERTEBRAL_POINT_PALPATION": "Пальпация паравертебральных точек",
+            "RADICULAR_PAIN": "Корешковые боли",
+            "BACK_MUSCLE_TENSION": "Напряжение мышц спины",
+            "MOVEMENT_VOLUME": "Объём движений",
+            "ADDITIONAL_INFO": ""
+          },
+          "NERVE_ROOT_TENSION_SYMPTOMS": {
+            "TITLE": "Симптомы натяжения нервных корешков",
+            "SITTING_SYMPTOM": "Симптом посадки",
+            "LESEGUE_SYMPTOM": "Симптом Ласега",
+            "WASSERMAN_SYMPTOM": "Симптом Вассермана",
+            "BEKHTEREV_SYMPTOM": "Симптом Бехтерева",
+            "MACKEWICZ_SYMPTOM": "Симптом Мацкевича",
+            "NERI_SYMPTOM": "Симптом Нери",
+            "SPINOUS_PROCESS_SYMPTOM": "Симптом остистого отростка",
+            "ADDITIONAL_INFO": ""
+          },
+          "HYPERKINESIAS": {
+            "TITLE": "Гиперкинезы",
+            "ATHETOSIS": "Атетоз",
+            "CHOREIC_CONVULSIONS": "Хореические судороги",
+            "TICS": "Тики",
+            "MYOCLONIA": "Миоклония",
+            "HEMIBALLISMUS": "Гемибаллизм",
+            "TREMOR": "Дрожание",
+            "TORSION_SPASM": "Торсионный спазм",
+            "BLEPHAROSPASM": "Блефароспазм",
+            "FACIAL_HEMISPASM": "Лицевой гемиспазм",
+            "ADDITIONAL_INFO": ""
+          },
+          "SENSORY_DISORDERS": {
+            "TITLE": "Типы нарушений чувствительности",
+            "PERIPHERAL_TYPE": "Периферический тип",
+            "SEGMENTAL_TYPE": "Сегментарный тип",
+            "CONDUCTOR_TYPE": "Проводниковый тип",
+            "CORTICAL_TYPE": "Корковый тип",
+            "DISSOCIATED_SENSORY_DISORDERS": "Диссоциированные расстройства чувствительности",
+            "ADDITIONAL_INFO": ""
+          },
+          "PELVIC_DISORDERS": {
+            "TITLE": "Тазовые расстройства",
+            "URINARY_INCONTINENCE": "Недержание мочи",
+            "FECAL_INCONTINENCE": "Недержание стула",
+            "URINARY_RETENTION": "Задержка мочи",
+            "FECAL_RETENTION": "Задержка стула",
+            "IMPERATIVE_URGE": "Императивные позывы",
+            "NO_URGE": "Отсутствие позывов",
+            "IMPOTENCE": "Импотенция",
+            "INFERTILITY": "Бесплодие"
+          },
+          "VEGETATIVE_TROPHIC_SPHERE": {
+            "TITLE": "Вегетативно-трофическая сфера",
+            "DERMOGRAPHISM": "Дермографизм",
+            "PALM_SOLE_HYPERHIDROSIS": "Гипергидроз ладоней и стоп",
+            "ADDITIONAL_INFO": ""
+          },
+          "HIGHER_CORTICAL_FUNCTIONS": {
+            "TITLE": "Высшие корковые функции",
+            "ASTHENIZATION": "Астенизация",
+            "MOOD": "Настроение",
+            "EMOTIONS": "Эмоции",
+            "THINKING": "Мышление",
+            "SPEECH": "Речь",
+            "ORIENTATION": "Ориентировка",
+            "CONTACT_ACCESSIBILITY": "Доступность к контакту",
+            "MEMORY": "Память",
+            "ATTENTION": "Внимание",
+            "INTELLIGENCE": "Интеллект",
+            "INTERESTS": "Интересы",
+            "BEHAVIOR": "Поведение",
+            "SLEEP": "Сон",
+            "PSYCHOMOTOR_DEVELOPMENT": {
+              "TITLE": "Психомоторное развитие ребёнка",
+              "RESPONDS_TO_AUDITORY_STIMULI": "Реагирует на слуховые раздражители",
+              "RESPONDS_TO_VISUAL_STIMULI": "Реагирует на зрительные раздражители",
+              "HOLDS_HEAD": "Держит голову",
+              "SITS_WITH_SUPPORT": "Сидит с поддержкой",
+              "SITS_STABLY": "Сидит устойчиво",
+              "CRAWLS": "Ползает",
+              "GETS_ON_ALL_FOURS": "Встаёт на четверенки",
+              "STANDS": "Стоит",
+              "WALKS_INDEPENDENTLY": "Ходит самостоятельно",
+              "WALKS_WITH_SUPPORT": "Ходит с поддержкой",
+              "COOS": "Гулит",
+              "BABBLES": "Лепечет",
+              "MAKES_SOUNDS": "Произносит звуки",
+              "UNDERSTANDS_ADDRESSED_SPEECH": "Понимает обращенную речь",
+              "PLAYS_WITH_TOYS": "Играет с игрушками",
+              "EATS_DRINKS_INDEPENDENTLY": "Самостоятельно ест и пьёт",
+              "ADDITIONAL_INFO": ""
+            },
+            "ADDITIONAL_INFO": ""
+          },
+          "SPECIALIST_DATA": {
+            "TITLE": "Специалист",
+            "SPECIALIST": "Специалист",
+            "CONCLUSION": "Заключение"
+          },
+          "GENERAL_CONDITION": {
+            "TITLE": "Общее состояние",
+            "SATISFACTORY": "Удовлетворительное",
+            "RELATIVELY_SATISFACTORY": "Относительно удовлетворительное",
+            "MODERATE": "Средней тяжести",
+            "SEVERE": "Тяжёлое",
+            "EXTREMELY_SEVERE": "Крайне тяжелое"
+          }
+        },
+        "OPHTHALMOLOGY_DATA": {
+          "TITLE": "Офтальмологические данные",
+          "SPECIALIST": "Специалист",
+          "SPECIALIST_COMMENT": "Комментарий специалиста",
+          "VISUAL_ACUITY": {
+            "TITLE": "Острота зрения",
+            "OD_WITHOUT_CORRECTION": "OD без коррекции",
+            "OS_WITHOUT_CORRECTION": "OS без коррекции",
+            "OD_WITH_CORRECTION": "OD с коррекцией",
+            "OS_WITH_CORRECTION": "OS с коррекцией",
+            "ADDITIONAL_INFO": "Дополнительные сведения"
+          },
+          "PERIMETRY": {
+            "TITLE": "Периметрия",
+            "NO_PATHOLOGY": "Без патологии",
+            "HETERONYMOUS_BINASAL_HEMIANOPIA": "Гетеронимная биназальная гемианопсия",
+            "HETERONYMOUS_BITEMPORAL_HEMIANOPIA": "Гетеронимная битемпоральная гемианопсия",
+            "QUADRANT_HEMIANOPIA": "Квадрантная гемианопсия",
+            "HOMONYMOUS_HEMIANOPIA": "Гомонимная гемианопсия",
+            "CONCENTRIC_VISUAL_FIELD_CONSTRICTION": "Концентрическое сужение полей зрения",
+            "CENTRAL_SCOTOMAS": "Центральные скотомы",
+            "PARACENTRAL_SCOTOMAS": "Парацентральные скотомы",
+            "PERIPHERAL_SCOTOMAS": "Периферические скотомы",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "INTRAOCULAR_PRESSURE": {
+            "TITLE": "Внутриглазное давление (ВГД)",
+            "OD": "OD",
+            "OS": "OS"
+          },
+          "EYEBALLS": {
+            "TITLE": "Глазные яблоки",
+            "SYMMETRICAL": "Симметричные",
+            "SHIFTED_FORWARD": "Смещены кпереди (экзофтальм)",
+            "SHIFTED_BACKWARD": "Смещены кзади (энофтальм)",
+            "SHIFTED_INWARD": "Смещены кнутри (сходящееся косоглазие)",
+            "SHIFTED_OUTWARD": "Смещены наружу (расходящееся)",
+            "MOBILE_ALL_DIRECTIONS": "Подвижны во все стороны",
+            "ANOPHTHALMOS": "Анофтальм",
+            "PROSTHETIZED": "Протезирован",
+            "NOT_PROSTHETIZED": "Не протезирован",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "NYSTAGMUS": {
+            "TITLE": "Нистагм",
+            "PENDULAR": "Маятникообразный",
+            "JERKY": "Толчкообразный",
+            "HORIZONTAL": "Горизонтальный",
+            "VERTICAL": "Вертикальный",
+            "ROTATORY": "Ротаторный",
+            "CIRCUMFERENTIAL": "Вращательный",
+            "POSITIONAL": "Установочный",
+            "MACRO_AMPLITUDE": "Крупноразмашистый",
+            "MESO_AMPLITUDE": "Среднеразмашистый",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "CONJUNCTIVA": {
+            "TITLE": "Конъюнктива",
+            "PALE_PINK": "Бледнорозовая",
+            "PINK": "Розовая",
+            "GLOSSY": "Блестящая",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "LACRIMAL_APPARATUS": {
+            "TITLE": "Слёзный аппарат",
+            "ADDITIONAL_INFO": ""
+          },
+          "CORNEA": {
+            "TITLE": "Роговица",
+            "TRANSPARENT": "Прозрачная",
+            "AVASCULAR": "Лишена кровеносных сосудов",
+            "CLOUDY": "Мутная",
+            "EDEMATOUS": "Отёчная",
+            "CENTRAL_LEUCOMA": "Бельмо центральное",
+            "PERIPHERAL_LEUCOMA": "Бельмо периферическое",
+            "CATEGORY_I": "I категории",
+            "CATEGORY_II": "II категории",
+            "CATEGORY_III": "III категории",
+            "CATEGORY_IV": "IV категории",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "SCLERA": {
+            "TITLE": "Склера",
+            "CONGESTED_INJECTION": "Застойная инъекция сосудов",
+            "CONJUNCTIVAL_INJECTION": "Конъюнктивальная инъекция сосудов",
+            "MIXED_INJECTION": "Смешанная инъекция сосудов",
+            "MILD": "Лёгкая",
+            "MODERATE": "Умеренная",
+            "MARKED": "Резко выражена",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "ANTERIOR_CHAMBER": {
+            "TITLE": "Передняя камера",
+            "IRREGULAR": "Неравномерная",
+            "REGULAR": "Равномерная",
+            "MEDIUM_DEPTH": "Средней глубины",
+            "DEEP": "Глубокая",
+            "SHALLOW": "Мелкая",
+            "ABSENT": "Отсутствует",
+            "CONTENTS_TRANSPARENT": "Содержимое прозрачно",
+            "CONTENTS_CLOUDY": "Содержимое мутное",
+            "HYPOPYON": "Гипопион",
+            "HYPHEMA": "Гифема",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "PUPILS": {
+            "TITLE": "Зрачки",
+            "BLACK_COLOR": "Чёрного цвета",
+            "ROUND_SHAPE": "Круглой формы",
+            "MEDIUM_SIZE": "Средней величины",
+            "SIZES": "Размеры",
+            "CONSTRICTED": "Сужены",
+            "DILATED": "Расширены",
+            "PUPIL_OCCLUSION": "Окклюзия зрачка",
+            "DIRECT_LIGHT_REACTION": "Прямая реакция на свет",
+            "CONSENSUAL_LIGHT_REACTION": "Содружественная реакция на свет",
+            "PSEUDOEXFOLIATIONS": "По зрачковому краю псевдоэксфолиации",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "IRIS": {
+            "TITLE": "Радужка",
+            "COLOR": "Цвет",
+            "DECOLORIZED": "Обесцвечена",
+            "PATTERN_CLEAR": "Рисунок чёткий",
+            "ADHESION_TO_CORNEA": "Сращена с роговицей",
+            "ADHESION_TO_LENS": "Сращено с хрусталиком",
+            "DYSTROPHIC": "Дистрофична",
+            "BASAL_COLOBOMA": "Колобома радужки базальная",
+            "TOTAL_COLOBOMA": "Колобома радужки полная",
+            "IRIDOCELE": "Иридоцеле",
+            "BOMBE": "Бомбаж радужки",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "VITREOUS_BODY": {
+            "TITLE": "Стекловидное тело",
+            "TRANSPARENT": "Прозрачное",
+            "NOT_OBSERVABLE": "Не обозримо",
+            "OPACITY": "Помутнение",
+            "MARKED": "Резко выражено",
+            "MODERATELY_MARKED": "Умеренно выражено",
+            "TOTAL": "Тотальное",
+            "IMPREGNATED_WITH_HEME": "Пропитано плотной взвесью гемы",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "LENS": {
+            "TITLE": "Хрусталик",
+            "TRANSPARENT": "Прозрачный",
+            "SUBCAPSULAR_CLOUDY": "Помутнён субкапсулярно",
+            "CAPSULAR_CLOUDY": "Помутнён капсулярно",
+            "ABSENT": "Отсутствует",
+            "INTRAOCULAR_LENS": "Интраокулярная линза",
+            "SURGERY_CONTRAINDICATED": "Оперативное лечение противопоказано",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "FUNDUS": {
+            "TITLE": "Глазное дно",
+            "NOT_OPHTHALMOSCOPED": "Не офтальмоскопируется",
+            "OPTIC_DISC": "Диск зрительного нерва",
+            "BORDERS_CLEAR": "Границы чёткие",
+            "BORDERS_BLURRED": "Границы смазанные",
+            "OPTIC_DISC_EDEMA": "Отёк диска зрительного нерва",
+            "PERIPAPILLARY_STAPHYLOMA": "Вокруг диска обширные стафиломы",
+            "MACULA_NO_PATHOLOGY": "В макуле без патологии",
+            "REFLEXES_PRESERVED": "Рефлексы сохранены",
+            "RETINA_TRANSPARENT": "Сетчатка прозрачна",
+            "RETINA_EDEMA": "Отёк сетчатки",
+            "PERIPHERAL_LASER_COAGULATES": "По периферии сетчатки-лазерные коагуляты",
+            "PERIPHERAL_DEGENERATION_FOCI": "По периферии сетчатки-очаги дегенерации",
+            "VESSELS_NORMAL_CALIBER": "Сосуды нормального калибра",
+            "VESSELS_CONSTRICTED": "Сосуды сужены",
+            "VESSELS_DILATED": "Сосуды расширены",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "PATIENT_BEHAVIOR": {
+            "TITLE": "Поведение больного",
+            "ORIENTATES_FREELY": "В кабинете свободно ориентируется",
+            "DOES_NOT_ORIENTATE": "В кабинете не ориентируется",
+            "WALKS_WITH_HELP": "Ходит с посторонней помощью",
+            "WALKS_WITH_CANE": "Ходит при помощи трости",
+            "WALKS_INDEPENDENTLY": "Ходит самостоятельно",
+            "OVERCOMES_OBSTACLES_FREELY": "Препятствия преодолевает свободно",
+            "OVERCOMES_OBSTACLES_WITH_DIFFICULTY": "Препятствия преодолевает с трудом",
+            "FINDS_DOOR_HANDLE_CHAIR": "Самостоятельно находит ручку двери, стул",
+            "DRESSES_INDEPENDENTLY": "Одевается самостоятельно",
+            "DRESSES_WITH_HELP": "Одевается с посторонней помощью",
+            "FOLLOWS_HAND_MOVEMENT": "Следит за движением руки врача, движущими предметами"
+          },
+          "SIGNED_IN_JOURNAL": {
+            "TITLE": "Расписался в журнале",
+            "INDEPENDENTLY": "Самостоятельно",
+            "WITH_HELP": "При помощи посторонних"
+          },
+          "GLASSES_CORRECTION": {
+            "TITLE": "Очковой коррекцией",
+            "USES": "Пользуется",
+            "DOES_NOT_USE": "Не пользуется"
+          },
+          "EYELIDS": {
+            "TITLE": "Веки",
+            "WITHIN_NORMAL": "В пределах нормы",
+            "PTOSIS": "Опущены (Птоз)",
+            "HALF_PTOSIS": "Полуопущены (Полуптоз)",
+            "ADDITIONAL_INFO": "Дополнительно"
+          }
+        }
+      }
+    }
+  }
+}

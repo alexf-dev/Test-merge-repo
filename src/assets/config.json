@@ -1,0 +1,10 @@
+{
+  "enableTestButtons": false,
+  "enableDebugLogs": false,
+  "apiTimeout": 30000,
+  "featureFlags": {
+    "newDashboard": false,
+    "experimentalForms": false
+  },
+  "showThemeSelector": true
+}

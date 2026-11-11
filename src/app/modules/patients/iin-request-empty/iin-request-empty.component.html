@@ -1,0 +1,40 @@
+
+<div class="grid justify-content-center">
+  <div class="col-12 md:col-8 lg:col-6">
+      <div class="flex justify-content-center mb-4">
+        <div
+          class="flex align-items-center justify-content-center border-circle"
+          style="width: 4rem; height: 4rem; background: var(--blue-50);"
+        >
+          <i class="pi pi-user text-primary" style="font-size: 1.5rem"></i>
+        </div>
+      </div>
+
+      <p class="line-height-3 text-color-secondary mb-4">
+        По указанному ИИН или ФИО не найдено данных в базе АИС ЦБДИ.
+        Вы можете отправить запрос в ГБдФЛ, для этого введите ИИН для получения информации.
+      </p>
+
+      <div class="flex flex-column md:flex-row gap-2 justify-content-center">
+        <input
+          pInputText
+          type="text"
+          maxlength="12"
+          placeholder="Введите ИИН"
+          [(ngModel)]="iin"
+          name="iin"
+          class="w-full md:w-20rem"
+          (keypress)="onlyDigits($event)"
+        />
+
+        <button
+          pButton
+          type="button"
+          label="Отправить запрос"
+          icon="pi pi-send"
+          [disabled]="disabled"
+          (click)="send()"
+        ></button>
+      </div>
+  </div>
+</div>

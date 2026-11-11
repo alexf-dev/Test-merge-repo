@@ -1,0 +1,19 @@
+<p-dialog
+  [header]="titleKey | translate"
+  [visible]="visible"
+  [modal]="true"
+  [closable]="false"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '440px' }">
+
+  <p class="error-dialog__message">{{ messageKey | translate }}</p>
+
+  <ng-template pTemplate="footer">
+    <p-button
+      [label]="'MAIN.COMMON.CLOSE' | translate"
+      (onClick)="onClose()">
+    </p-button>
+  </ng-template>
+
+</p-dialog>

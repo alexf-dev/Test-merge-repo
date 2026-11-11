@@ -1,0 +1,35 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PATHOLOGICAL_SYNKINESES.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PATHOLOGICAL_SYNKINESES.STRUMPELL_TIBIAL_PHENOMENON'"
+    [(checked)]="model.strumpellTibialPhenomenon.checked"
+    [(comment)]="model.strumpellTibialPhenomenon.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PATHOLOGICAL_SYNKINESES.PRONATOR_SYNKINESIS'"
+    [(checked)]="model.pronatorSynkinesis.checked"
+    [(comment)]="model.pronatorSynkinesis.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PATHOLOGICAL_SYNKINESES.RADIAL_SYNKINESIS'"
+    [(checked)]="model.radialSynkinesis.checked"
+    [(comment)]="model.radialSynkinesis.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PATHOLOGICAL_SYNKINESES.RAIMIST_SYNKINESIS'"
+    [(checked)]="model.raimistSynkinesis.checked"
+    [(comment)]="model.raimistSynkinesis.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.PATHOLOGICAL_SYNKINESES.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

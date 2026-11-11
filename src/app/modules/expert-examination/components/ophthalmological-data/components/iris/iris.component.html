@@ -1,0 +1,71 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.COLOR'"
+    [(checked)]="model.color.checked"
+    [(comment)]="model.color.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.DECOLORIZED'"
+    [(checked)]="model.decolorized.checked"
+    [(comment)]="model.decolorized.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.PATTERN_CLEAR'"
+    [(checked)]="model.patternClear.checked"
+    [(comment)]="model.patternClear.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.ADHESION_TO_CORNEA'"
+    [(checked)]="model.adhesionToCornea.checked"
+    [(comment)]="model.adhesionToCornea.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.ADHESION_TO_LENS'"
+    [(checked)]="model.adhesionToLens.checked"
+    [(comment)]="model.adhesionToLens.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.DYSTROPHIC'"
+    [(checked)]="model.dystrophic.checked"
+    [(comment)]="model.dystrophic.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.BASAL_COLOBOMA'"
+    [(checked)]="model.basalColoboma.checked"
+    [(comment)]="model.basalColoboma.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.TOTAL_COLOBOMA'"
+    [(checked)]="model.totalColoboma.checked"
+    [(comment)]="model.totalColoboma.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.IRIDOCELE'"
+    [(checked)]="model.iridocele.checked"
+    [(comment)]="model.iridocele.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.BOMBE'"
+    [(checked)]="model.bombe.checked"
+    [(comment)]="model.bombe.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.IRIS.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

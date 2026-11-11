@@ -1,0 +1,53 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.NERVE_ROOT_TENSION_SYMPTOMS.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.NERVE_ROOT_TENSION_SYMPTOMS.SITTING_SYMPTOM'"
+    [(checked)]="model.sittingSymptom.checked"
+    [(comment)]="model.sittingSymptom.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.NERVE_ROOT_TENSION_SYMPTOMS.LESEGUE_SYMPTOM'"
+    [(checked)]="model.lasegueSymptom.checked"
+    [(comment)]="model.lasegueSymptom.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.NERVE_ROOT_TENSION_SYMPTOMS.WASSERMAN_SYMPTOM'"
+    [(checked)]="model.wassermanSymptom.checked"
+    [(comment)]="model.wassermanSymptom.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.NERVE_ROOT_TENSION_SYMPTOMS.BEKHTEREV_SYMPTOM'"
+    [(checked)]="model.bekhterevSymptom.checked"
+    [(comment)]="model.bekhterevSymptom.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.NERVE_ROOT_TENSION_SYMPTOMS.MACKEWICZ_SYMPTOM'"
+    [(checked)]="model.mackiewiczSymptom.checked"
+    [(comment)]="model.mackiewiczSymptom.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.NERVE_ROOT_TENSION_SYMPTOMS.NERI_SYMPTOM'"
+    [(checked)]="model.neriSymptom.checked"
+    [(comment)]="model.neriSymptom.value">
+  </app-check-comment-field>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.NERVE_ROOT_TENSION_SYMPTOMS.SPINOUS_PROCESS_SYMPTOM'"
+    [(checked)]="model.spinousProcessSymptom.checked"
+    [(comment)]="model.spinousProcessSymptom.value">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.NEUROLOGICAL_STATUS.NERVE_ROOT_TENSION_SYMPTOMS.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo"
+    [stacked]="true">
+  </app-textarea-field>
+
+</app-collapsible-block>

@@ -1,0 +1,133 @@
+/* Основные стили, как раньше */
+.docs-card {
+  background: var(--app-card-bg);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px #e5eaf333;
+  padding: 20px 25px;
+  margin: 20px 0;
+}
+
+.docs-header {
+  margin-bottom: 15px;
+}
+
+.docs-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 15px;
+}
+
+.docs-table thead tr {
+  background: var(--app-surface-page);
+}
+
+.docs-table th, .docs-table td {
+  padding: 12px 10px;
+  text-align: left;
+}
+
+.docs-table th {
+  color: var(--app-text-secondary);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.docs-table tr {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.accordion-row {
+  background: var(--app-surface-page);
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+}
+
+.accordion-arrow {
+  display: inline-block;
+  border: solid #8997b3;
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+  margin-right: 10px;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.accordion-arrow.open {
+  transform: rotate(-135deg);
+}
+.accordion-arrow.small {
+  margin-right: 7px;
+  padding: 2px;
+}
+
+/* Внутренний аккордеон */
+.inner-accordion {
+  background: var(--app-surface-page);
+  padding: 9px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #e5eaf3;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  transition: background 0.15s;
+}
+.inner-accordion:hover {
+  background: var(--app-tint-blue);
+}
+
+.inner-content {
+  padding: 13px 40px;
+  background: var(--app-surface-page);
+  font-size: 14px;
+  color: var(--app-text);
+  border-left: 3px solid #e5eaf3;
+  border-bottom: 1px solid #e5eaf3;
+}
+
+.request-btn, .attach-btn, .view-btn {
+  background: var(--app-surface-page);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background 0.18s;
+}
+
+.request-btn {
+  background: #166af5;
+  color: #f7f8fa;
+  border: 1px solid #b4ccf8;
+}
+.attach-btn {
+  background: var(--app-surface-page);
+  color: var(--app-text-medium);
+  border: 1px solid #e5eaf3;
+  display: flex;
+  align-items: center;
+}
+.view-btn {
+  background: var(--app-surface-page);
+  color: var(--app-text-secondary);
+  border: 1px solid #e5eaf3;
+}
+.request-btn:hover, .attach-btn:hover, .view-btn:hover {
+  background: var(--app-tint-blue-strong);
+}
+
+/* Иконки (заглушки, можно заменить на svg) */
+.refresh-icon::before {
+  content: '⟳';
+  font-size: 13px;
+  margin-left: 3px;
+}
+.attach-icon::before {
+  content: '📎';
+  font-size: 15px;
+  margin-right: 4px;
+}

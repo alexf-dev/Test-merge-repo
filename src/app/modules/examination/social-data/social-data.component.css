@@ -1,0 +1,9 @@
+:host ::ng-deep .formgrid .field label,
+:host ::ng-deep .formgrid .p-field-checkbox label {
+  color: var(--app-text) !important;
+}
+
+:host ::ng-deep .field .p-dropdown,
+:host ::ng-deep .field .p-inputnumber {
+  width: 100% !important;
+}

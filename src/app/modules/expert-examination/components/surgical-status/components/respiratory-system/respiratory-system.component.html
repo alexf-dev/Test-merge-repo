@@ -1,0 +1,36 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.RESPIRATORY_SYSTEM.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.vesicularBreathing" [binary]="true" inputId="vesicularBreathing"></p-checkbox>
+      <label for="vesicularBreathing">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.RESPIRATORY_SYSTEM.VESICULAR_BREATHING' | translate }}</label>
+    </div>
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.RESPIRATORY_SYSTEM.LUNG_RALES'"
+    [(checked)]="model.lungRalesChecked"
+    [(comment)]="model.lungRales">
+  </app-check-comment-field>
+
+  <div class="checkbox-list">
+    <div class="checkbox-item">
+      <p-checkbox [(ngModel)]="model.clearPercussion" [binary]="true" inputId="clearPercussion"></p-checkbox>
+      <label for="clearPercussion">{{ 'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.RESPIRATORY_SYSTEM.CLEAR_PERCUSSION' | translate }}</label>
+    </div>
+  </div>
+
+  <app-check-comment-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.RESPIRATORY_SYSTEM.DULL_PERCUSSION'"
+    [(checked)]="model.dullPercussionChecked"
+    [(comment)]="model.dullPercussion">
+  </app-check-comment-field>
+
+  <app-textarea-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.RESPIRATORY_SYSTEM.ADDITIONAL_INFO'"
+    [(value)]="model.additionalInfo">
+  </app-textarea-field>
+
+</app-collapsible-block>

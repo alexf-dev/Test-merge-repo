@@ -1,0 +1,858 @@
+/* =====================================================
+   CBDI THEME TOKENS v2
+   Светлая тема = текущий дизайн проекта (не трогаем).
+   Тёмная тема = html[data-theme="dark"].
+   Префикс html[...] даёт специфичность выше компонентных стилей.
+   ===================================================== */
+
+/* ---------- Токены приложения (светлая = текущие значения) ---------- */
+:root {
+  --app-bg: #f8f9fa;
+  --app-content-bg: #ffffff;
+  --app-topbar-bg: #ffffff;
+  --app-topbar-border: #e5e7eb;
+  --app-sidebar-bg: #01475C;
+  --app-sidebar-text: #ffffff;
+  --app-card-bg: #ffffff;
+  --app-card-border: #e5e7eb;
+  --app-text: #020617;          /* основной текст: лейблы, поля, чекбоксы */
+  --app-text-heading: #262626;  /* текст шапок блоков и стрелок */
+  --app-text-secondary: #64748b;
+  --app-border: #d1d5db;
+  --app-block-header-bg: #F1F5F9;
+  --app-block-header-border: #E2E8F0;
+  --app-input-bg: #ffffff;
+  --app-font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  --app-font-size-base: 14px;
+  /* Шапки сворачиваемых блоков форм */
+  --app-block-header-hover: #E8ECF1;
+  --app-block-header-nested: #F8FAFC;
+  --app-block-content-bg: rgba(241, 245, 249, 0.5);
+  /* Фокус полей */
+  --app-focus-color: #3B82F6;
+  --app-focus-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  /* Отступы (масштаб проекта, значения = текущим) — для шага 1b */
+  --app-space-4: 4px;
+  --app-space-6: 6px;
+  --app-space-8: 8px;
+  --app-space-12: 12px;
+  --app-space-16: 16px;
+  --app-space-24: 24px;
+  --app-space-32: 32px;
+
+  /* Расширенная шкала текста (значения = текущим из компонентных CSS) */
+  --app-text-medium: #475569;
+  --app-text-faint: #94a3b8;
+  /* Семантика и ссылки */
+  --app-link: #2563eb;
+  --app-success-text: #198754;
+  --app-danger-text: #ef233c;
+  --app-accent-teal: #08a6c1;
+  --app-agreement-link: #CC400C;
+  /* Светлые границы и подложки */
+  --app-border-light: #e5e7eb;
+  --app-bg-warn-tint: #fff7e6;
+  --app-bg-success-tint: #e8fbe8;
+  --app-text-steel: #4c6b80;
+  /* Поверхности */
+  --app-surface-page: #f8fafc;
+  --app-surface-panel: #f1f5f9;
+  --app-hover-bg: #f1f5f9;
+  /* Цветные подложки */
+  --app-tint-blue: #eff6ff;
+  --app-tint-blue-strong: #dde8fd;
+  --app-tint-cyan: #e7f8fb;
+  --app-tint-ivory: #fffdf8;
+  --app-bg-danger-tint: #feecec;
+  /* Кнопки успеха */
+  --app-success-bg: #51B291;
+  --app-success-bg-hover: #45A080;
+}
+
+/* Применение шрифтовых токенов globally (демо: поменяй токен — изменится весь сайт) */
+body {
+  font-family: var(--app-font-family);
+  font-size: var(--app-font-size-base);
+}
+
+/* =====================================================
+   ТЁМНАЯ ТЕМА
+   ===================================================== */
+html[data-theme="dark"] {
+  /* Токены приложения */
+  --app-bg: #0b1220;
+  --app-content-bg: #111827;
+  --app-topbar-bg: #1e293b;
+  --app-topbar-border: #334155;
+  --app-sidebar-bg: #012b38;
+  --app-sidebar-text: #e2e8f0;
+  --app-card-bg: #1e293b;
+  --app-card-border: #334155;
+  --app-text: #e5e7eb;
+  --app-text-secondary: #94a3b8;
+  --app-border: #475569;
+  --app-block-header-bg: #243244;
+  --app-block-header-border: #334155;
+  --app-input-bg: #0f172a;
+
+  /* Демо-возможность: раскомментируй, чтобы показать смену ШРИФТА всей системы */
+   /*--app-font-family: 'Segoe UI', Tahoma, sans-serif;*/
+
+  /* Переменные PrimeNG (saga) — перекрашивают все p-компоненты */
+  --surface-a: #1e293b;
+  --surface-b: #0b1220;
+  --surface-c: #243244;
+  --surface-d: #334155;
+  --surface-e: #1e293b;
+  --surface-f: #1e293b;
+  --text-color: #e5e7eb;
+  --text-color-secondary: #94a3b8;
+  --primary-color: #8b7cf6;
+  --primary-color-text: #ffffff;
+  --hover-bg: #243244;
+  --maskbg: rgba(0, 0, 0, 0.6);
+  --focus-ring: 0 0 0 1px #a79cf8;
+
+  --app-block-header-hover: #2b3a4e;
+  --app-block-header-nested: #1f2b3d;
+  --app-block-content-bg: rgba(30, 41, 59, 0.5);
+  --app-focus-color: #8b7cf6;
+  --app-focus-shadow: 0 0 0 2px rgba(139, 124, 246, 0.25);
+  --app-text-heading: #e5e7eb;
+
+  --app-text-medium: #cbd5e1;
+  --app-text-faint: #64748b;
+  --app-link: #93c5fd;
+  --app-success-text: #4ade80;
+  --app-danger-text: #f87171;
+  --app-accent-teal: #22d3ee;
+  --app-agreement-link: #fb923c;
+  --app-border-light: #334155;
+  --app-bg-warn-tint: rgba(234, 179, 8, 0.12);
+  --app-bg-success-tint: rgba(34, 197, 94, 0.12);
+  --app-text-steel: #9fc0d8;
+
+  --app-surface-page: #0b1220;
+  --app-surface-panel: #18202e;
+  --app-hover-bg: rgba(255, 255, 255, 0.08);
+  --app-tint-blue: rgba(59, 130, 246, 0.15);
+  --app-tint-blue-strong: rgba(59, 130, 246, 0.30);
+  --app-tint-cyan: rgba(34, 211, 238, 0.12);
+  --app-tint-ivory: rgba(234, 179, 8, 0.08);
+  --app-bg-danger-tint: rgba(239, 68, 68, 0.12);
+  --app-success-bg: #51B291;
+  --app-success-bg-hover: #45A080;
+}
+
+/* ---------- Layout ---------- */
+html[data-theme="dark"] .layout-wrapper { background: var(--app-bg); }
+html[data-theme="dark"] .layout-sidebar { background: var(--app-sidebar-bg); color: var(--app-sidebar-text); }
+html[data-theme="dark"] .layout-topbar { background: var(--app-topbar-bg); border-bottom-color: var(--app-topbar-border); }
+html[data-theme="dark"] .layout-content { background: var(--app-content-bg); }
+html[data-theme="dark"] .topbar-menu-button { color: var(--app-text-secondary); }
+html[data-theme="dark"] .topbar-menu-button:hover { background: rgba(255, 255, 255, 0.08); }
+html[data-theme="dark"] .menu-item:hover,
+html[data-theme="dark"] .menu-item.active-route,
+html[data-theme="dark"] .menu-item.active-parent { background: rgba(255, 255, 255, 0.14); }
+html[data-theme="dark"] .submenu-item:hover { background: rgba(255, 255, 255, 0.10); }
+
+/* ---------- PrimeFlex-утилиты по всему приложению ---------- */
+html[data-theme="dark"] .bg-white { background-color: var(--app-card-bg) !important; }
+html[data-theme="dark"] .text-900,
+html[data-theme="dark"] .text-800,
+html[data-theme="dark"] .text-700 { color: var(--app-text) !important; }
+html[data-theme="dark"] .text-600,
+html[data-theme="dark"] .text-500 { color: var(--app-text-secondary) !important; }
+
+/* ---------- PrimeNG: видимые компоненты ---------- */
+html[data-theme="dark"] .p-inputtext {
+  background: var(--app-input-bg);
+  border-color: var(--app-border);
+  color: var(--app-text);
+}
+html[data-theme="dark"] .p-inputtext:enabled:focus { border-color: var(--primary-color); }
+html[data-theme="dark"] .p-inputtext::placeholder { color: var(--app-text-secondary); }
+html[data-theme="dark"] .p-dropdown { background: var(--app-input-bg); border-color: var(--app-border); }
+html[data-theme="dark"] .p-dropdown .p-dropdown-label { color: var(--app-text); }
+html[data-theme="dark"] .p-dropdown-panel,
+html[data-theme="dark"] .p-datepicker { background: var(--app-card-bg); border-color: var(--app-card-border); }
+html[data-theme="dark"] .p-dropdown-item { color: var(--app-text); }
+html[data-theme="dark"] .p-dropdown-item:hover { background: rgba(255, 255, 255, 0.08); }
+html[data-theme="dark"] .p-dropdown-item.p-highlight { background: var(--primary-color); color: #ffffff; }
+html[data-theme="dark"] .p-datepicker .p-highlight { background: var(--primary-color); color: #ffffff; }
+html[data-theme="dark"] .p-datatable .p-datatable-thead > tr > th {
+  background: #243244;
+  color: #cbd5e1;
+  border-color: var(--app-card-border);
+}
+html[data-theme="dark"] .p-datatable .p-datatable-tbody > tr > td {
+  background: var(--app-card-bg);
+  color: var(--app-text);
+  border-color: var(--app-card-border);
+}
+html[data-theme="dark"] .p-datatable .p-datatable-tbody > tr.p-highlight > td { background: #243244; }
+html[data-theme="dark"] .p-paginator { background: var(--app-card-bg); color: var(--app-text-secondary); border-color: var(--app-card-border); }
+html[data-theme="dark"] .p-paginator .p-paginator-page,
+html[data-theme="dark"] .p-paginator .p-paginator-prev,
+html[data-theme="dark"] .p-paginator .p-paginator-next { color: var(--app-text-secondary); }
+html[data-theme="dark"] .p-paginator .p-paginator-page.p-highlight { background: var(--primary-color); color: #ffffff; }
+html[data-theme="dark"] .p-button.p-button-secondary { background: #334155; border-color: #334155; color: #e5e7eb; }
+html[data-theme="dark"] .p-checkbox .p-checkbox-box { background: var(--app-input-bg); border-color: var(--app-border); }
+html[data-theme="dark"] .p-tag.p-tag-info { background: rgba(139, 124, 246, 0.25); color: #c4b5fd; }
+html[data-theme="dark"] .p-tabmenu .p-tabmenu-nav { background: transparent; border-color: var(--app-card-border); }
+html[data-theme="dark"] .p-tabmenu .p-menuitem-link { color: var(--app-text-secondary); }
+html[data-theme="dark"] .p-tabmenu .p-menuitem.p-highlight .p-menuitem-link { color: var(--primary-color); }
+html[data-theme="dark"] .p-card { background: var(--app-card-bg); border-color: var(--app-card-border); color: var(--app-text); }
+
+/* ---------- Login ---------- */
+html[data-theme="dark"] .auth-panel {
+  background: var(--app-content-bg) !important;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.45) !important;
+}
+html[data-theme="dark"] img[src="/assets/images/login-bg.svg"] {
+  background: #16233a !important;
+  filter: brightness(0.85);
+}
+
+/* ---------- Dashboard ---------- */
+html[data-theme="dark"] .page-title,
+html[data-theme="dark"] .card-header h2,
+html[data-theme="dark"] .summary-title,
+html[data-theme="dark"] .metric-value,
+html[data-theme="dark"] .metric-title { color: var(--app-text); }
+html[data-theme="dark"] .metric-card { border: 1px solid var(--app-card-border); }
+html[data-theme="dark"] .metric-blue   { background: rgba(59, 130, 246, 0.18); }
+html[data-theme="dark"] .metric-cyan   { background: rgba(34, 211, 238, 0.16); }
+html[data-theme="dark"] .metric-yellow { background: rgba(234, 179, 8, 0.18); }
+html[data-theme="dark"] .metric-red    { background: rgba(239, 68, 68, 0.18); }
+html[data-theme="dark"] .metric-green  { background: rgba(34, 197, 94, 0.18); }
+html[data-theme="dark"] .table-card,
+html[data-theme="dark"] .summary-card,
+html[data-theme="dark"] .consultation-card {
+  background: var(--app-card-bg);
+  border: 1px solid var(--app-card-border);
+}
+html[data-theme="dark"] .card-header { border-bottom: 1px solid var(--app-card-border); }
+html[data-theme="dark"] .summary-row { color: var(--app-text); }
+html[data-theme="dark"] .summary-row:hover { background: rgba(255, 255, 255, 0.06); }
+html[data-theme="dark"] .role-btn {
+  background: var(--app-card-bg);
+  border: 1px solid var(--app-card-border);
+  color: var(--app-text-secondary);
+}
+html[data-theme="dark"] .role-btn.active { background: var(--primary-color); border-color: var(--primary-color); color: #ffffff; }
+html[data-theme="dark"] .committee-tab { color: var(--app-text-secondary); }
+html[data-theme="dark"] .committee-tab-active { color: var(--app-text); }
+html[data-theme="dark"] .case-link { color: #93c5fd; }
+html[data-theme="dark"] .overdue-text { color: #f87171; }
+
+/* ---------- Кнопка переключения темы ---------- */
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border: 1px solid var(--app-card-border);
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+.theme-toggle-btn:hover { background: rgba(128, 128, 128, 0.15); }
+
+/* =====================================================
+   FIX 1: кнопка переключения темы — видна в обеих темах
+   ===================================================== */
+.theme-toggle-btn {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #475569;
+}
+.theme-toggle-btn:hover {
+  background: #f1f5f9;
+}
+
+html[data-theme="dark"] .theme-toggle-btn {
+  background: #334155;
+  border-color: #475569;
+  color: #fcd34d; /* жёлтое «солнце» заметно на тёмном */
+}
+html[data-theme="dark"] .theme-toggle-btn:hover {
+  background: #3f4c63;
+}
+
+/* =====================================================
+   FIX 2: сайдбар в тёмной теме — заметно отличается
+   (в светлой он фирменно-бирюзовый #01475C,
+    в тёмной делаем графитовый с фиолетовым акцентом)
+   ===================================================== */
+html[data-theme="dark"] .layout-sidebar {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-right: 1px solid #334155;
+}
+html[data-theme="dark"] .layout-sidebar-header {
+  border-bottom: 1px solid #334155;
+}
+html[data-theme="dark"] .menu-item:hover,
+html[data-theme="dark"] .menu-item.active-route,
+html[data-theme="dark"] .menu-item.active-parent {
+  background: rgba(139, 124, 246, 0.22);
+  color: #c4b5fd;
+}
+html[data-theme="dark"] .submenu-item {
+  color: rgba(226, 232, 240, 0.85);
+}
+html[data-theme="dark"] .submenu-item:hover {
+  background: rgba(139, 124, 246, 0.16);
+  color: #c4b5fd;
+}
+html[data-theme="dark"] .submenu-list::before {
+  background: rgba(148, 163, 184, 0.45);
+}
+
+/* =====================================================
+   FIX 3: тёмная тема — переменные surface нового набора
+   (именно эти имена использует theme.css проекта)
+   ===================================================== */
+html[data-theme="dark"] {
+  --surface-ground: #0b1220;
+  --surface-section: #0b1220;
+  --surface-card: #1e293b;
+  --surface-border: #334155;
+  --surface-hover: #243244;
+  --surface-overlay: #1e293b;
+  --highlight-bg: rgba(139, 124, 246, 0.22);
+  --highlight-text-color: #c4b5fd;
+  --content-bg: #111827;
+}
+
+/* ---------- Панели страницы и карточки ---------- */
+html[data-theme="dark"] .p-card,
+html[data-theme="dark"] .section-card {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+  color: var(--text-color);
+}
+
+/* ---------- Заголовки страниц внутри контента ---------- */
+html[data-theme="dark"] .layout-content h1,
+html[data-theme="dark"] .layout-content h2,
+html[data-theme="dark"] .layout-content h3 {
+  color: var(--app-text);
+}
+
+/* ---------- Dropdown: панель и пункты ---------- */
+html[data-theme="dark"] .p-dropdown-panel {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+}
+html[data-theme="dark"] .p-dropdown-items {
+  background: var(--surface-overlay);
+}
+html[data-theme="dark"] .p-dropdown-item {
+  background: transparent;
+  color: var(--text-color);
+}
+html[data-theme="dark"] .p-dropdown-item.p-highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+html[data-theme="dark"] .p-dropdown-item:not(.p-highlight):hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+
+/* ---------- Панель календаря ---------- */
+html[data-theme="dark"] .p-datepicker {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+}
+html[data-theme="dark"] .p-datepicker .p-datepicker-header {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+  color: var(--text-color);
+}
+html[data-theme="dark"] .p-datepicker td.p-datepicker-today > span {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+
+/* =====================================================
+   Селект темы — адаптация под темы
+   ===================================================== */
+html[data-theme="dark"] .theme-selector,
+html[data-theme="state"] .theme-selector {
+  background: var(--surface-card, #1e293b);
+  border-color: var(--surface-border, #334155);
+}
+html[data-theme="dark"] .theme-selector:hover,
+html[data-theme="state"] .theme-selector:hover {
+  background: var(--surface-hover, #243244);
+}
+html[data-theme="dark"] .theme-selector-icon,
+html[data-theme="state"] .theme-selector-icon {
+  color: var(--text-color, #e5e7eb);
+}
+html[data-theme="dark"] .theme-selector-select,
+html[data-theme="state"] .theme-selector-select {
+  color: var(--text-color, #e5e7eb);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23e5e7eb' d='M0 0l5 6 5-6z'/></svg>");
+}
+html[data-theme="dark"] .theme-selector-select option,
+html[data-theme="state"] .theme-selector-select option {
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+/* =====================================================
+   ТРЕТЬЯ ТЕМА: «Государственная»
+   Фирменные цвета Казахстана:
+     - небесно-голубой #00AEC7 (фон флага)
+     - золотой #F4C430 (солнце и орёл)
+   ===================================================== */
+html[data-theme="state"] {
+  --surface-ground: #f0f9fb;
+  --surface-section: #f0f9fb;
+  --surface-card: #ffffff;
+  --surface-border: #cfe8ef;
+  --surface-hover: #dff1f5;
+  --surface-overlay: #ffffff;
+  --text-color: #0a2e36;
+  --text-color-secondary: #3a6a75;
+  --primary-color: #00AEC7;
+  --primary-color-text: #ffffff;
+  --highlight-bg: rgba(244, 196, 48, 0.22);
+  --highlight-text-color: #7a5e00;
+  --content-bg: #f0f9fb;
+
+  --app-bg: #f0f9fb;
+  --app-content-bg: #ffffff;
+  --app-topbar-bg: #ffffff;
+  --app-topbar-border: #cfe8ef;
+  --app-sidebar-bg: #004C5F;
+  --app-sidebar-text: #ffffff;
+  --app-card-bg: #ffffff;
+  --app-card-border: #cfe8ef;
+  --app-text: #0a2e36;
+  --app-text-secondary: #3a6a75;
+  --app-border: #bfd9e0;
+  --app-block-header-bg: #dff1f5;
+  --app-block-header-border: #cfe8ef;
+  --app-input-bg: #ffffff;
+
+  --app-block-header-hover: #d0e9ef;
+  --app-block-header-nested: #e8f6f9;
+  --app-block-content-bg: rgba(223, 241, 245, 0.5);
+  --app-focus-color: #00AEC7;
+  --app-focus-shadow: 0 0 0 2px rgba(0, 174, 199, 0.15);
+  --app-text-heading: #0a2e36;
+
+  --surface-a: #ffffff;
+  --surface-b: #f0f9fb;
+  --surface-c: #dff1f5;
+  --surface-d: #bfd9e0;
+  --surface-e: #ffffff;
+  --surface-f: #ffffff;
+  --focus-ring: 0 0 0 2px rgba(0, 174, 199, 0.2);
+
+  --app-text-medium: #40606b;
+  --app-text-faint: #7d99a3;
+  --app-link: #00607a;
+  --app-success-text: #0f7a4d;
+  --app-danger-text: #c1121f;
+  --app-accent-teal: #00AEC7;
+  --app-agreement-link: #a33500;
+  --app-border-light: #d5e8ee;
+  --app-bg-warn-tint: #fdf3d7;
+  --app-bg-success-tint: #e2f6e9;
+  --app-text-steel: #33606e;
+
+  --app-surface-page: #e8f4f8;
+  --app-surface-panel: #dff1f5;
+  --app-hover-bg: #d8edf3;
+  --app-tint-blue: #e0f2f7;
+  --app-tint-blue-strong: #cfe8ef;
+  --app-tint-cyan: #dff1f5;
+  --app-tint-ivory: #fbf6e3;
+  --app-bg-danger-tint: #fbe3e3;
+  --app-success-bg: #51B291;
+  --app-success-bg-hover: #45A080;
+}
+
+html[data-theme="state"] .layout-sidebar {
+  background: var(--app-sidebar-bg);
+}
+html[data-theme="state"] .menu-item:hover,
+html[data-theme="state"] .menu-item.active-route,
+html[data-theme="state"] .menu-item.active-parent {
+  background: rgba(244, 196, 48, 0.28);
+  color: #fff;
+}
+html[data-theme="state"] .submenu-item:hover {
+  background: rgba(244, 196, 48, 0.20);
+  color: #fff;
+}
+html[data-theme="state"] .p-button.p-button-primary,
+html[data-theme="state"] .p-button:not(.p-button-secondary):not(.p-button-danger):not(.p-button-success):not(.p-button-warning):not(.p-button-help):not(.p-button-info):not(.p-button-outlined):not(.p-button-text) {
+  background: #00AEC7;
+  border-color: #00AEC7;
+}
+html[data-theme="state"] .p-button.p-button-primary:hover {
+  background: #0091a5;
+  border-color: #0091a5;
+}
+html[data-theme="state"] .p-tag.p-tag-info {
+  background: rgba(244, 196, 48, 0.25);
+  color: #7a5e00;
+}
+
+/* =====================================================
+   Этап 2, база: состояния компонентов (dark + state)
+   ===================================================== */
+html[data-theme="dark"] .p-inputtext.ng-invalid.ng-dirty,
+html[data-theme="state"] .p-inputtext.ng-invalid.ng-dirty {
+  border-color: #f87171;
+}
+
+html[data-theme="dark"] .p-inputtext:disabled,
+html[data-theme="state"] .p-inputtext:disabled {
+  background: var(--surface-hover);
+  color: var(--text-color-secondary);
+  opacity: 1;
+}
+
+html[data-theme="dark"] .p-button:disabled,
+html[data-theme="state"] .p-button:disabled {
+  background: var(--surface-hover);
+  color: var(--text-color-secondary);
+  border-color: transparent;
+  opacity: 0.7;
+}
+
+html[data-theme="dark"] .p-dropdown.p-invalid,
+html[data-theme="state"] .p-dropdown.p-invalid {
+  border-color: #f87171;
+}
+
+/* =====================================================
+   ЭТАП 2: состояния PrimeNG-компонентов (dark + state)
+   ===================================================== */
+
+/* ---------- Фокус всех форм-контролов ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-inputtext:enabled:focus,
+html:is([data-theme="dark"], [data-theme="state"]) .p-inputnumber .p-inputtext:enabled:focus,
+html:is([data-theme="dark"], [data-theme="state"]) .p-dropdown:not(.p-disabled):focus-within,
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect:not(.p-disabled):focus-within {
+  border-color: var(--app-focus-color);
+  box-shadow: var(--app-focus-shadow);
+}
+
+/* ---------- Disabled ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-dropdown.p-disabled,
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect.p-disabled {
+  background: var(--surface-hover);
+  opacity: 1;
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-dropdown.p-disabled .p-dropdown-label,
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect.p-disabled .p-multiselect-label {
+  color: var(--text-color-secondary);
+}
+
+/* ---------- MultiSelect: панель, пункты, шапка ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-panel {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-header {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-label { color: var(--text-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-label.p-placeholder { color: var(--text-color-secondary); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-item { color: var(--text-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-item:not(.p-highlight):hover { background: var(--surface-hover); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-item.p-highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+
+/* ---------- Checkbox / RadioButton ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-checkbox .p-checkbox-box {
+  background: var(--app-input-bg);
+  border-color: var(--app-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  border-color: var(--app-focus-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-checkbox .p-checkbox-box.p-highlight {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color-text);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-radiobutton .p-radiobutton-box {
+  background: var(--app-input-bg);
+  border-color: var(--app-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-radiobutton:not(.p-radiobutton-disabled) .p-radiobutton-box:hover {
+  border-color: var(--app-focus-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-radiobutton .p-radiobutton-box.p-highlight {
+  border-color: var(--primary-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-radiobutton .p-radiobutton-box.p-highlight .p-radiobutton-icon {
+  background: var(--primary-color);
+}
+
+/* ---------- Table: сортировка, hover, выделение ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-datatable .p-sortable-column:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-datatable .p-sortable-column.p-highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-datatable .p-datatable-tbody > tr.p-highlight > td {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+
+/* ---------- Paginator: hover ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-paginator .p-paginator-page:not(.p-highlight):hover,
+html:is([data-theme="dark"], [data-theme="state"]) .p-paginator .p-paginator-prev:hover,
+html:is([data-theme="dark"], [data-theme="state"]) .p-paginator .p-paginator-next:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+
+/* ---------- Dialog / ConfirmDialog ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog .p-dialog-header {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog .p-dialog-header-icon { color: var(--text-color-secondary); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog .p-dialog-header-icon:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog .p-dialog-content {
+  background: var(--surface-overlay);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog .p-dialog-footer {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+}
+
+/* ---------- Panel / Accordion / Card ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel,
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel .p-panel-header,
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel .p-panel-content {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel .p-panel-title { color: var(--text-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel .p-panel-header-icon { color: var(--text-color-secondary); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel .p-panel-header-icon:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-accordion .p-accordion-header .p-accordion-header-link {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-accordion .p-accordion-header .p-accordion-header-link:hover {
+  background: var(--surface-hover);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-accordion .p-accordion-header.p-highlight .p-accordion-header-link {
+  background: var(--surface-hover);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-accordion .p-accordion-content {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+  color: var(--text-color);
+}
+
+/* ---------- Chip / Tag ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-chip {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-tag.p-tag-info {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-tag.p-tag-success { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+html:is([data-theme="dark"], [data-theme="state"]) .p-tag.p-tag-warning { background: rgba(234, 179, 8, 0.2); color: #facc15; }
+html:is([data-theme="dark"], [data-theme="state"]) .p-tag.p-tag-danger  { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+/* ---------- Toast ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message-info    { background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.45); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message-success { background: rgba(34, 197, 94, 0.15);  border: 1px solid rgba(34, 197, 94, 0.45); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message-warn    { background: rgba(234, 179, 8, 0.15);  border: 1px solid rgba(234, 179, 8, 0.45); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message-error   { background: rgba(239, 68, 68, 0.15);  border: 1px solid rgba(239, 68, 68, 0.45); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message .p-toast-summary { color: var(--text-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message .p-toast-detail { color: var(--text-color-secondary); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message .p-toast-icon-close { color: var(--text-color-secondary); }
+
+/* ---------- ProgressBar / ProgressSpinner ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-progressbar { background: var(--surface-hover); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-progressbar .p-progressbar-value { background: var(--primary-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-progressspinner circle { stroke: var(--primary-color) !important; }
+
+/* ---------- Tree ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-tree {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-tree .p-treenode-content { color: var(--text-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-tree .p-treenode-icon { color: var(--text-color-secondary); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-tree .p-treenode-selectable:not(.p-treenode-content.p-highlight) > .p-treenode-content:hover { background: var(--surface-hover); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-tree .p-treenode-content.p-highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+
+/* ---------- TabMenu: hover ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-tabmenu .p-menuitem-link:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+
+/* ---------- Button: focus-ring ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-button:focus {
+  box-shadow: var(--app-focus-shadow);
+}
+
+/* =====================================================
+   Усиление государственной темы: видимые поверхности
+   ===================================================== */
+html[data-theme="state"] {
+  --app-bg: #e8f4f8;          /* фон страницы — заметно голубой */
+  --app-content-bg: #f4fafc;  /* рабочая область — голубоватая */
+  --surface-c: #cfe8ef;       /* шапки таблиц/панелей — выразительнее */
+  --surface-hover: #d8edf3;
+  --highlight-bg: rgba(0, 174, 199, 0.18);
+  --highlight-text-color: #00607a;
+}
+
+html[data-theme="state"] .layout-content {
+  background: var(--app-content-bg);
+}
+html[data-theme="state"] .layout-topbar {
+  background: #ffffff;
+  border-bottom-color: #bfd9e0;
+}
+html[data-theme="state"] .layout-sidebar {
+  background: #00566e;        /* ярче дефолтного #01475C — отличие видно */
+}
+html[data-theme="state"] .menu-item.active-route,
+html[data-theme="state"] .menu-item.active-parent {
+  background: rgba(244, 196, 48, 0.35);
+  color: #ffffff;
+}
+html[data-theme="state"] .layout-content h1,
+html[data-theme="state"] .layout-content h2 {
+  color: #00566e;
+}
+html[data-theme="state"] .p-datatable .p-datatable-thead > tr > th {
+  background: #cfe8ef;
+  color: #0a2e36;
+  border-color: #bfd9e0;
+}
+html[data-theme="state"] .p-datatable .p-datatable-tbody > tr > td {
+  border-color: #d5e8ee;
+}
+html[data-theme="state"] .p-datatable .p-datatable-tbody > tr:hover > td {
+  background: #d8edf3;
+}
+html[data-theme="state"] .p-paginator .p-paginator-page.p-highlight {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+/* =====================================================
+   FIX: читаемый текст в тёмной теме (базовое наследование + частые классы)
+   ===================================================== */
+html[data-theme="dark"] .layout-content {
+  color: var(--app-text);
+}
+html[data-theme="dark"] .page-title,
+html[data-theme="dark"] .section-title,
+html[data-theme="dark"] .subsection-title,
+html[data-theme="dark"] .group-title,
+html[data-theme="dark"] .card-header h2,
+html[data-theme="dark"] .summary-title,
+html[data-theme="dark"] .summary-row span,
+html[data-theme="dark"] .metric-title,
+html[data-theme="dark"] .metric-value,
+html[data-theme="dark"] .field-label,
+html[data-theme="dark"] .row-label,
+html[data-theme="dark"] .checkbox-label,
+html[data-theme="dark"] .filter-label,
+html[data-theme="dark"] label {
+  color: var(--app-text);
+}
+html[data-theme="dark"] .text-400,
+html[data-theme="dark"] .text-300 {
+  color: var(--app-text-secondary) !important;
+}
+html[data-theme="dark"] .layout-content a:not(.case-link):not(.menu-item):not(.submenu-item) {
+  color: #93c5fd;
+}
+
+/* Дашборд: тексты графиков и служебные подписи в тёмной теме */
+html[data-theme="dark"] .header-count,
+html[data-theme="dark"] .bar-label,
+html[data-theme="dark"] .bar-footer-label,
+html[data-theme="dark"] .bar-y-axis span,
+html[data-theme="dark"] .gauge-arc span,
+html[data-theme="dark"] .legend-item,
+html[data-theme="dark"] .consultation-card p {
+  color: var(--app-text-secondary);
+}
+html[data-theme="dark"] .card-header a {
+  color: #93c5fd;
+}
+html[data-theme="dark"] .summary-row strong {
+  color: var(--app-text);
+}
+
+/* ---------- Метрик-карточки: перебиваем двухклассовый селектор ---------- */
+html[data-theme="dark"] .metric-card.metric-blue   { background: rgba(59, 130, 246, 0.18); }
+html[data-theme="dark"] .metric-card.metric-cyan   { background: rgba(34, 211, 238, 0.16); }
+html[data-theme="dark"] .metric-card.metric-yellow { background: rgba(234, 179, 8, 0.18); }
+html[data-theme="dark"] .metric-card.metric-red    { background: rgba(239, 68, 68, 0.18); }
+html[data-theme="dark"] .metric-card.metric-green  { background: rgba(34, 197, 94, 0.18); }
+html[data-theme="dark"] .metric-card .metric-value { color: var(--app-text); }
+html[data-theme="dark"] .metric-card .metric-title { color: var(--app-text-secondary); }
+
+/* ---------- Заголовки страниц ---------- */
+html[data-theme="dark"] .page-title { color: var(--app-text); }
+
+/* ---------- Committee-табы ---------- */
+html[data-theme="dark"] .committee-tabs { background: transparent; border-color: var(--app-card-border); }
+html[data-theme="dark"] .committee-tab { background: transparent; color: var(--app-text-secondary); }
+html[data-theme="dark"] .committee-tab-active { background: var(--primary-color); color: #ffffff; }
+
+/* ---------- Датапикер: читаемость ---------- */
+html[data-theme="dark"] .p-datepicker .p-datepicker-header { color: var(--app-text); }
+html[data-theme="dark"] .p-datepicker .p-datepicker-prev,
+html[data-theme="dark"] .p-datepicker .p-datepicker-next { color: var(--app-text-secondary); }
+html[data-theme="dark"] .p-datepicker .p-datepicker-weekday { color: var(--app-text-secondary); }
+html[data-theme="dark"] .p-datepicker td > span { color: var(--app-text); }
+html[data-theme="dark"] .p-datepicker td.p-datepicker-other-month > span { color: var(--app-text-faint); }
+html[data-theme="dark"] .p-datepicker .p-highlight { background: var(--primary-color); color: #ffffff; }
+html[data-theme="dark"] .p-datepicker td.p-datepicker-today > span { border-color: var(--app-focus-color); }
+

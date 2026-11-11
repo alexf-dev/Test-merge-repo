@@ -1,0 +1,15 @@
+<app-collapsible-block
+  [titleKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.GLASSES_CORRECTION.TITLE'"
+  [isExpanded]="isExpanded">
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.GLASSES_CORRECTION.USES'"
+    [(checked)]="model.uses">
+  </app-check-field>
+
+  <app-check-field
+    [labelKey]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.GLASSES_CORRECTION.DOES_NOT_USE'"
+    [(checked)]="model.doesNotUse">
+  </app-check-field>
+
+</app-collapsible-block>
